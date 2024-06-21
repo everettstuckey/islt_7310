@@ -1,5 +1,11 @@
 
 /* style.css */
+body {
+    background-color: #000000; /* Black background */
+    color: #FFFFFF; /* White text */
+    font-family: sans-serif; /* San-serif font */
+}
+
 h1 {
-    color: #0000FF; /* Replace with your chosen color */
+    color: #FFFFFF; /* White color for the heading */
 }
