@@ -45,9 +45,27 @@ li.dropdown {
   text-align: left;
 }
 
-.dropdown-content a:hover {background-color: blue;}
+.dropdown-content a:hover {
+  background-color: blue;
+}
 
 .dropdown:hover .dropdown-content {
   display: block;
 }
-</
+
+/* Add media queries for responsive navigation */
+@media (max-width: 768px) {
+    li {
+        float: none;
+    }
+
+    li a, .dropbtn {
+        display: block;
+        text-align: left;
+    }
+
+    .dropdown-content {
+        position: static;
+        box-shadow: none;
+    }
+}
