@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GOOGLEFINANCE Formula Test</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 100%;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            color: #333;
+        }
+
+        p {
+            margin: 1em 0;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin: 0.5em 0;
+        }
+
+        a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .image-container {
+            text-align: center;
+            margin: 2em 0;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .collapsible {
+            cursor: pointer;
+            padding: 10px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            outline: none;
+            font-size: 1.25rem;
+        }
+
+        .content {
+            padding: 0 18px;
+            display: none;
+            overflow: hidden;
+            background-color: #f1f1f1;
+        }
+
+        .button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            margin: 0;
+            table-layout: fixed;
+            border-spacing: 0;
+            border-collapse: collapse;
+        }
+
+        td {
+            vertical-align: top;
+            padding: 0;
+            margin: 0;
+        }
+
+        .column-left,
+        .column-right {
+            width: 20%;
+            padding: 0;
+            margin: 0;
+        }
+
+        .column-center {
+            width: 60%;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        .full-height {
+            height: calc(100vh - 64px); /* Adjusting for the header height */
+        }
+
+        header, footer {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        header img, footer img {
+            width: 100%;
+            height: auto;
+        }
+
+        .stats {
+            margin: 20px 0;
+            font-size: 1rem;
+        }
+
+        .feedback {
+            font-size: 1.2em;
+            margin-top: 1em;
+        }
+
+        .correct {
+            color: green;
+        }
+
+        .incorrect {
+            color: red;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <header class="bg-blue-600 text-white py-4">
+        <div class="container mx-auto">
+            <h1 class="text-2xl text-white font-bold">GOOGLEFINANCE Formula Test</h1>
+        </div>
+    </header>
+
+    <table>
+        <tr>
+            <td class="column-left full-height" style="background-image: url('image005.jpg'); background-size: cover; background-position: top;">
+            </td>
+            <td class="column-center">
+                <!-- Main Content -->
+                <main class="container mx-auto py-8">
+                    <h2>Test Your Understanding</h2>
+                    <p>Enter the correct GOOGLEFINANCE formulas for the following scenarios:</p>
+                    
+                    <h4>1. Google price history from January 1, 2023, to December 31, 2023</h4>
+                    <input type="text" id="formulaInput1" class="border p-2 w-full" placeholder="Enter GOOGLEFINANCE formula here">
+                    <div id="feedback1" class="feedback"></div>
+                    
+                    <h4>2. Apple price history for the last year</h4>
+                    <input type="text" id="formulaInput2" class="border p-2 w-full" placeholder="Enter GOOGLEFINANCE formula here">
+                    <div id="feedback2" class="feedback"></div>
+                    
+                    <h4>3. Microsoft daily stock prices for the last 10 years</h4>
+                    <input type="text" id="formulaInput3" class="border p-2 w-full" placeholder="Enter GOOGLEFINANCE formula here">
+                    <div id="feedback3" class="feedback"></div>
+                    
+                    <button class="button mt-4" onclick="validateFormulas()">Submit</button>
+                </main>
+            </td>
+            <td class="column-right full-height" style="background-image: url('image006.jpg'); background-size: cover; background-position: top;">
+            </td>
+        </tr>
+    </table>
+
+    <footer class="bg-blue-600 text-white py-4">
+        <div class="container mx-auto text-center">
+            <a class="button" href="part1_part6.html">Back</a>
+            <a class="button" href="part1_part8.html">Next</a>
+        </div>
+    </footer>
+
+    <script>
+        function validateFormulas() {
+            const formulas = [
+                document.getElementById('formulaInput1').value,
+                document.getElementById('formulaInput2').value,
+                document.getElementById('formulaInput3').value
+            ];
+            const feedbacks = [
+                document.getElementById('feedback1'),
+                document.getElementById('feedback2'),
+                document.getElementById('feedback3')
+            ];
+            const validFormulas = [
+                '=GOOGLEFINANCE("GOOG", "price", "2023-01-01", "2023-12-31")',
+                '=GOOGLEFINANCE("AAPL", "price", "today()-365", "today()")',
+                '=GOOGLEFINANCE("MSFT", "price", "today()-365*10", "today()")'
+            ];
+            
+            for (let i = 0; i < formulas.length; i++) {
+                if (formulas[i] === validFormulas[i]) {
+                    feedbacks[i].textContent = 'Correct! Your formula is in the correct format.';
+                    feedbacks[i].className = 'feedback correct';
+                } else {
+                    feedbacks[i].textContent = 'Incorrect. Please enter the formula in the correct format.';
+                    feedbacks[i].className = 'feedback incorrect';
+                }
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GOOGLEFINANCE eLearning Module</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 100%;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            color: #333;
+        }
+
+        p {
+            margin: 1em 0;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin: 0.5em 0;
+        }
+
+        a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .image-container {
+            text-align: center;
+            margin: 2em 0;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .collapsible {
+            cursor: pointer;
+            padding: 10px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            outline: none;
+            font-size: 1.25rem;
+        }
+
+        .content {
+            padding: 0 18px;
+            display: none;
+            overflow: hidden;
+            background-color: #f1f1f1;
+        }
+
+        .button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            margin: 0;
+            table-layout: fixed;
+            border-spacing: 0;
+            border-collapse: collapse;
+        }
+
+        td {
+            vertical-align: top;
+            padding: 0;
+            margin: 0;
+        }
+
+        .column-left,
+        .column-right {
+            width: 20%;
+            padding: 0;
+            margin: 0;
+        }
+
+        .column-center {
+            width: 60%;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        .full-height {
+            height: calc(100vh - 64px); /* Adjusting for the header height */
+        }
+
+        header, footer {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        header img, footer img {
+            width: 100%;
+            height: auto;
+        }
+
+        .stats {
+            margin: 20px 0;
+            font-size: 1rem;
+        }
+		.button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <header class="bg-blue-600 text-white py-4">
+        <div class="container mx-auto">
+            <h1 class="text-2xl text-white font-bold">GOOGLEFINANCE eLearning Module</h1>
+        </div>
+    </header>
+
+    <table>
+        <tr>
+            <td class="column-left full-height" style="background-image: url('image005.jpg'); background-size: cover; background-position: top;">
+            </td>
+            <td class="column-center">
+                <!-- Main Content -->
+                <main class="container mx-auto py-8">
+                    <h1>Guide to Using the GOOGLEFINANCE Function in Google Sheets</h1>
+                    <p>The <a href="https://support.google.com/docs/answer/3093281?hl=en">GOOGLEFINANCE function</a> allows you to import real-time financial and currency market data directly into Google Sheets. This function also enables tracking of both current and historical data for various financial instruments such as stocks and shares.</p>
+                    <p>This data is imported from the <a href="https://www.google.com/finance">Google Finance</a> web application, which provides daily stock prices, financial market news, and analysis of market trends. You can access Google Finance from the Google menu or by searching for a stock on Google, where the first result will display information from Google Finance.</p>
+                    <p>Previously, analysts had to visit multiple financial websites or databases to gather stock information, which was then manually compiled into spreadsheets for further analysis. This process was cumbersome and unreliable. Another approach involved using custom scripts to scrape data, which was faster but required coding expertise and lacked flexibility.</p>
+                    <p>The GOOGLEFINANCE function offers a more reliable and economical solution. If you work with financial market data, this function can automate data retrieval and save you considerable time.</p>
+
+                    <!-- Introduction Section -->
+                    <section id="introduction" class="mb-8">
+                        <button class="collapsible bg-blue-500 text-white">Introduction</button>
+                        <div class="content">
+                            <p class="py-4">Welcome to the GOOGLEFINANCE eLearning Module. This module will help you understand and use the GOOGLEFINANCE function in Google Sheets.</p>
+                        </div>
+                    </section>
+
+                    <!-- Syntax Section -->
+                    <section id="syntax" class="mb-8">
+                        <button class="collapsible bg-blue-500 text-white">Syntax and Parameters</button>
+                        <div class="content">
+                            <p class="py-4">The basic syntax for the GOOGLEFINANCE function is:</p>
+                            <pre class="bg-gray-200 p-4 rounded">GOOGLEFINANCE(ticker, [attribute], [start_date], [end_date|num_days], [interval])</pre>
+                            <p><strong>Parameters:</strong></p>
+                            <ul class="list-disc list-inside py-4">
+                                <li><strong>ticker</strong> - The ticker symbol for the security.</li>
+                                <li><strong>attribute</strong> - [Optional] The attribute to fetch about the ticker.</li>
+                                <li><strong>start_date</strong> - [Optional] The start date for fetching historical data.</li>
+                                <li><strong>end_date|num_days</strong> - [Optional] The end date or number of days for fetching historical data.</li>
+                                <li><strong>interval</strong> - [Optional] The frequency of returned data ("DAILY" or "WEEKLY").</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- Attributes Section -->
+                    <section id="attributes" class="mb-8">
+                        <button class="collapsible bg-blue-500 text-white">Attributes</button>
+                        <div class="content">
+                            <p class="py-4">The <strong>attribute</strong> parameter can be one of the following:</p>
+                            <ul class="list-disc list-inside py-4">
+                                <li><strong>price</strong> - Real-time price quote.</li>
+                                <li><strong>priceopen</strong> - The price as of market open.</li>
+                                <li><strong>high</strong> - The current day's high price.</li>
+                                <li><strong>low</strong> - The current day's low price.</li>
+                                <li><strong>volume</strong> - The current day's trading volume.</li>
+                                <li><strong>marketcap</strong> - The market capitalization of the stock.</li>
+                                <li><strong>tradetime</strong> - The time of the last trade.</li>
+                                <li><strong>datadelay</strong> - How far delayed the real-time data is.</li>
+                                <li><strong>volumeavg</strong> - The average daily trading volume.</li>
+                                <li><strong>pe</strong> - The price/earnings ratio.</li>
+                                <li><strong>eps</strong> - The earnings per share.</li>
+                                <li><strong>high52</strong> - The 52-week high price.</li>
+                                <li><strong>low52</strong> - The 52-week low price.</li>
+                                <li><strong>change</strong> - The price change since the previous trading day's close.</li>
+                                <li><strong>beta</strong> - The beta value.</li>
+                                <li><strong>changepct</strong> - The percentage change in price since the previous trading day's close.</li>
+                                <li><strong>closeyest</strong> - The previous day's closing price.</li>
+                                <li><strong>shares</strong> - The number of outstanding shares.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- Examples Section -->
+                    <section id="examples" class="mb-8">
+                        <button class="collapsible bg-blue-500 text-white">Examples</button>
+                        <div class="content">
+                            <p class="py-4">Here are some examples of using the GOOGLEFINANCE function:</p>
+                            <pre class="bg-gray-200 p-4 rounded">
+GOOGLEFINANCE("NASDAQ:GOOG", "price", DATE(2014,1,1), DATE(2014,12,31), "DAILY")
+GOOGLEFINANCE("NASDAQ:GOOG","price",TODAY()-30,TODAY())
+GOOGLEFINANCE(A2,A3)
+                            </pre>
+                        </div>
+                    </section>
+
+                    <!-- Exercises Section -->
+                    <section id="exercises" class="mb-8">
+                        <button class="collapsible bg-blue-500 text-white">Exercises</button>
+                        <div class="content">
+                            <p class="py-4">Test your knowledge by completing the following exercises:</p>
+                            <ul class="list-disc list-inside py-4">
+                                <li>Use the GOOGLEFINANCE function to fetch the current price of Apple Inc. (AAPL).</li>
+                                <li>Fetch the historical data for Microsoft Corporation (MSFT) from January 1, 2021, to December 31, 2021.</li>
+                                <li>Find the 52-week high and low prices for Tesla, Inc. (TSLA).</li>
+                            </ul>
+                        </div>
+                    </section>
+                </main>
+            </td>
+            <td class="column-right full-height" style="background-image: url('image006.jpg'); background-size: cover; background-position: top;">
+            </td>
+        </tr>
+    </table>
+
+    <!-- Footer -->
+    <footer class="bg-blue-600 text-white py-4">
+        <div class="container mx-auto text-center">
+            <button class="button" onclick="location.href='part1_part2.html'">Next</button>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var coll = document.getElementsByClassName("collapsible");
+            for (var i = 0; i < coll.length; i++) {
+                coll[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var content = this.nextElementSibling;
+                    if (content.style.display === "block") {
+                        content.style.display = "none";
+                    } else {
+                        content.style.display = "block";
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

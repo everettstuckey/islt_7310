@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GOOGLEFINANCE Syntax</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 100%;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            color: #333;
+        }
+
+        p {
+            margin: 1em 0;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin: 0.5em 0;
+        }
+
+        a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .image-container {
+            text-align: center;
+            margin: 2em 0;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .collapsible {
+            cursor: pointer;
+            padding: 10px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            outline: none;
+            font-size: 1.25rem;
+        }
+
+        .content {
+            padding: 0 18px;
+            display: none;
+            overflow: hidden;
+            background-color: #f1f1f1;
+        }
+
+        .button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            margin: 0;
+            table-layout: fixed;
+            border-spacing: 0;
+            border-collapse: collapse;
+        }
+
+        td {
+            vertical-align: top;
+            padding: 0;
+            margin: 0;
+        }
+
+        .column-left,
+        .column-right {
+            width: 20%;
+            padding: 0;
+            margin: 0;
+        }
+
+        .column-center {
+            width: 60%;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        .full-height {
+            height: calc(100vh - 64px); /* Adjusting for the header height */
+        }
+
+        header, footer {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        header img, footer img {
+            width: 100%;
+            height: auto;
+        }
+
+        .stats {
+            margin: 20px 0;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <header class="bg-blue-600 text-white py-4">
+        <div class="container mx-auto">
+            <h1 class="text-2xl text-white font-bold">GOOGLEFINANCE Syntax</h1>
+        </div>
+    </header>
+    
+    <table>
+        <tr>
+            <td class="column-left full-height" style="background-image: url('image005.jpg'); background-size: cover; background-position: top;">
+            </td>
+            <td class="column-center">
+                <!-- Main Content -->
+                <main class="container mx-auto py-8">
+                    <h2 id="syntax">Syntax</h2>
+                    <p><strong>=GOOGLEFINANCE(ticker, [attribute], [start_date], [num_days|end_date], [interval])</strong></p>
+                    <ul>
+                        <li><b>ticker</b> – Abbreviation used to identify publicly traded securities. For example, "AAPL" for Apple Inc. You can also specify the exchange, e.g., "NASDAQ:AAPL".</li>
+                        <li><b>attribute</b> – Optional parameter specifying the type of information to fetch, such as "price" or "earnings per share". Defaults to "price" if left blank.</li>
+                        <li><b>start_date</b> – Starting date for fetching historical data. Optional; defaults to today's date.</li>
+                        <li><b>num_days|end_date</b> – Time frame for fetching stock information. Optional.</li>
+                        <li><b>interval</b> – Frequency of data retrieval: "DAILY" or "WEEKLY".</li>
+                    </ul>
+                    <h3 id="attributes">GOOGLEFINANCE Attributes</h3>
+                    <table border="1" cellpadding="10" cellspacing="0">
+                        <tr>
+                            <th>Attribute</th>
+                            <th>Description</th>
+                        </tr>
+                        <tr>
+                            <td>"price"</td>
+                            <td>Stock price with up to 20 minutes delay.</td>
+                        </tr>
+                        <tr>
+                            <td>"priceopen"</td>
+                            <td>Opening price at market open.</td>
+                        </tr>
+                        <tr>
+                            <td>"high"</td>
+                            <td>Highest price of the current day.</td>
+                        </tr>
+                        <tr>
+                            <td>"low"</td>
+                            <td>Lowest price of the current day.</td>
+                        </tr>
+                        <tr>
+                            <td>"volume"</td>
+                            <td>Trading volume of the current day.</td>
+                        </tr>
+                        <tr>
+                            <td>"marketcap"</td>
+                            <td>Market capitalization of the stock.</td>
+                        </tr>
+                        <tr>
+                            <td>"tradetime"</td>
+                            <td>Time of the last trade of the stock.</td>
+                        </tr>
+                        <tr>
+                            <td>"datadelay"</td>
+                            <td>Delay time for the real-time data.</td>
+                        </tr>
+                        <tr>
+                            <td>"volumeavg"</td>
+                            <td>Average daily trading volume.</td>
+                        </tr>
+                        <tr>
+                            <td>"pe"</td>
+                            <td>Price-to-earnings ratio.</td>
+                        </tr>
+                        <tr>
+                            <td>"eps"</td>
+                            <td>Earnings per share.</td>
+                        </tr>
+                        <tr>
+                            <td>"high52"</td>
+                            <td>Highest price in the last 52 weeks.</td>
+                        </tr>
+                        <tr>
+                            <td>"low52"</td>
+                            <td>Lowest price in the last 52 weeks.</td>
+                        </tr>
+                        <tr>
+                            <td>"change"</td>
+                            <td>Stock price change since the end of yesterday's trading.</td>
+                        </tr>
+                        <tr>
+                            <td>"beta"</td>
+                            <td>Beta value.</td>
+                        </tr>
+                        <tr>
+                            <td>"changepct"</td>
+                            <td>Percentage change in price since the end of yesterday's trading.</td>
+                        </tr>
+                        <tr>
+                            <td>"closeyest"</td>
+                            <td>Yesterday's closing price.</td>
+                        </tr>
+                        <tr>
+                            <td>"shares"</td>
+                            <td>Number of shares outstanding.</td>
+                        </tr>
+                        <tr>
+                            <td>"currency"</td>
+                            <td>Currency the stock is priced in.</td>
+                        </tr>
+                    </table>
+                </main>
+            </td>
+            <td class="column-right full-height" style="background-image: url('image006.jpg'); background-size: cover; background-position: top;">
+            </td>
+        </tr>
+    </table>
+    
+    <footer class="bg-blue-600 text-white py-4">
+        <div class="container mx-auto text-center">
+            <a class="button" href="part1.html">Back</a>
+            <a class="button" href="part1_part3.html">Next</a>
+        </div>
+    </footer>
+</body>
+</html>

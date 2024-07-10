@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GOOGLEFINANCE Single Day Information</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 100%;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            color: #333;
+        }
+
+        p {
+            margin: 1em 0;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin: 0.5em 0;
+        }
+
+        a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .image-container {
+            text-align: center;
+            margin: 2em 0;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .collapsible {
+            cursor: pointer;
+            padding: 10px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            outline: none;
+            font-size: 1.25rem;
+        }
+
+        .content {
+            padding: 0 18px;
+            display: none;
+            overflow: hidden;
+            background-color: #f1f1f1;
+        }
+
+        .button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            margin: 0;
+            table-layout: fixed;
+            border-spacing: 0;
+            border-collapse: collapse.
+        }
+
+        td {
+            vertical-align: top;
+            padding: 0;
+            margin: 0;
+        }
+
+        .column-left,
+        .column-right {
+            width: 20%;
+            padding: 0;
+            margin: 0;
+        }
+
+        .column-center {
+            width: 60%;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        .full-height {
+            height: calc(100vh - 64px); /* Adjusting for the header height */
+        }
+
+        header, footer {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        header img, footer img {
+            width: 100%;
+            height: auto;
+        }
+
+        .stats {
+            margin: 20px 0;
+            font-size: 1rem.
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <header class="bg-blue-600 text-white py-4">
+        <div class="container mx-auto">
+            <h1 class="text-2xl text-white font-bold">GOOGLEFINANCE Single Day Information</h1>
+        </div>
+    </header>
+    
+    <table>
+        <tr>
+            <td class="column-left full-height" style="background-image: url('image005.jpg'); background-size: cover; background-position: top;">
+            </td>
+            <td class="column-center">
+                <!-- Main Content -->
+                <main class="container mx-auto py-8">
+                    <h4 id="historical-data-single-day">2. Obtain Historical Stock Information for a Single Day</h4>
+                    <p>Syntax: <strong>GOOGLEFINANCE(ticker, [attribute], [start_date])</strong></p>
+                    <p>Google Sheets provides historical data attributes like "open", "close", "high", "low", etc. For example, using the "all" attribute:</p>
+                    <div class="image-container">
+                        <img alt="Example of historical data using GOOGLEFINANCE function" src="images/googlefinance-example-4.png"/>
+                    </div>
+                    <p>This will output a matrix with multiple attributes for the given <strong>start_date</strong>:</p>
+                    <p><strong>=GOOGLEFINANCE("AAPL","all",DATE(2017,2,27))</strong></p>
+                </main>
+            </td>
+            <td class="column-right full-height" style="background-image: url('image006.jpg'); background-size: cover; background-position: top;">
+            </td>
+        </tr>
+    </table>
+
+    <footer class="bg-blue-600 text-white py-4">
+        <div class="container mx-auto text-center">
+            <a class="button" href="part1_part3.html">Back</a>
+            <a class="button" href="part1_part5.html">Next</a>
+        </div>
+    </footer>
+</body>
+</html>

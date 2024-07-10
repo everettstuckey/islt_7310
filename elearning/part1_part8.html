@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 2</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 100%;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            color: #333;
+        }
+
+        p {
+            margin: 1em 0;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin: 0.5em 0;
+        }
+
+        a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .image-container {
+            text-align: center;
+            margin: 2em 0;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .collapsible {
+            cursor: pointer;
+            padding: 10px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            outline: none;
+            font-size: 1.25rem;
+        }
+
+        .content {
+            padding: 0 18px;
+            display: none;
+            overflow: hidden;
+            background-color: #f1f1f1;
+        }
+
+        .button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            margin: 0;
+            table-layout: fixed;
+            border-spacing: 0;
+            border-collapse: collapse;
+        }
+
+        td {
+            vertical-align: top;
+            padding: 0;
+            margin: 0;
+        }
+
+        .column-left,
+        .column-right {
+            width: 20%;
+            padding: 0;
+            margin: 0;
+        }
+
+        .column-center {
+            width: 60%;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        .full-height {
+            height: calc(100vh - 64px); /* Adjusting for the header height */
+        }
+
+        header, footer {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        header img, footer img {
+            width: 100%;
+            height: auto;
+        }
+
+        .stats {
+            margin: 20px 0;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 text-gray-900">
+    <header class="bg-blue-600 text-white py-4">
+        <div class="container mx-auto">
+            <h1 class="text-2xl text-white font-bold">Linear Regression</h1>
+        </div>
+    </header>
+    <table>
+        <tr>
+            <td class="column-left full-height" style="background-image: url('image005.jpg'); background-size: cover; background-position: top;">
+            </td>
+            <td class="column-center">
+                <h2>Introduction to Linear Regression</h2>
+                <p>Linear regression is a statistical method for modeling the relationship between a dependent variable and one or more independent variables. In this tutorial, we will learn how to perform linear regression using Google Sheets.</p>
+                
+                <h2>Steps to Create a Linear Regression in Google Sheets</h2>
+                <ol>
+                    <li><strong>Enter your data:</strong> Start by entering the formula =GOOGLEFINANCE("INDEXCODE:INDEX_NAME", "attribute", "start_date", "end_date", "interval") in two columns to get your data. Use VIX as the independent variable (X) and SPY as the dependent variable (Y).</li>
+                    <li><strong>Create a scatter plot:</strong> Select your data and insert a scatter plot. Go to Insert > Chart, and choose Scatter Chart.</li>
+                    <li><strong>Add a trendline:</strong> Click on the chart, then click on the three vertical dots in the top right corner. Select Edit chart, go to the Customize tab, and under Series, check the Trendline box.</li>
+                    <li><strong>Show equation:</strong> In the Trendline options, check the box for Label and select Use Equation. This will display the linear regression equation on the chart.</li>
+                    <li><strong>Interpret the results:</strong> The equation displayed will be in the form of y = mx + b, where m is the slope and b is the y-intercept.</li>
+                </ol>
+
+                <h2>Interactive Graph Instructions</h2>
+                <p>To interact with the graph, follow these steps:</p>
+                <ol>
+                    <li><strong>Drag Points:</strong> Click and hold a data point to drag it to a new position on the graph.</li>
+                    <li><strong>Observe Changes:</strong> As you move the points, the regression line will automatically update to reflect the new data positions.</li>
+                    <li><strong>Analyze Results:</strong> Use the updated regression line to understand the impact of your changes on the linear model.</li>
+                </ol>
+
+                <div id="chart"></div>
+                <div id="stats" class="stats"></div>
+            </td>
+            <td class="column-right full-height" style="background-image: url('image006.jpg'); background-size: cover; background-position: top;">
+            </td>
+        </tr>
+    </table>
+
+    <footer class="bg-blue-600 text-white py-4">
+        <div class="container mx-auto text-center">
+            <a class="button" href="part1_part7.html">Back</a>
+            <a class="button" href="part2.html">Forward</a>
+        </div>
+    </footer>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script>
+        const width = 600;
+        const height = 400;
+        const margin = { top: 20, right: 30, bottom: 30, left: 40 };
+
+        const svg = d3.select("#chart")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height);
+
+        const xScale = d3.scaleLinear().domain([0, 10]).range([margin.left, width - margin.right]);
+        const yScale = d3.scaleLinear().domain([0, 10]).range([height - margin.bottom, margin.top]);
+
+        const xAxis = d3.axisBottom(xScale);
+        const yAxis = d3.axisLeft(yScale);
+
+        svg.append("g")
+            .attr("transform", `translate(0,${height - margin.bottom})`)
+            .call(xAxis);
+
+        svg.append("g")
+            .attr("transform", `translate(${margin.left},0)`)
+            .call(yAxis);
+
+        let data = [
+            { x: 1, y: 3 },
+            { x: 2, y: 5 },
+            { x: 3, y: 4 },
+            { x: 4, y: 7 },
+            { x: 5, y: 6 },
+            { x: 6, y: 8 },
+            { x: 7, y: 5 }
+        ];
+
+        const drag = d3.drag()
+            .on("start", dragStarted)
+            .on("drag", dragging)
+            .on("end", dragEnded);
+
+        function dragStarted(event, d) {
+            d3.select(this)
+                .raise()
+                .attr("stroke", "black");
+        }
+
+        function dragging(event, d) {
+            const [x, y] = d3.pointer(event);
+            d.x = xScale.invert(x);
+            d.y = yScale.invert(y);
+            d3.select(this)
+                .attr("cx", xScale(d.x))
+                .attr("cy", yScale(d.y));
+            update();
+        }
+
+        function dragEnded(event, d) {
+            d3.select(this).attr("stroke", null);
+        }
+
+        svg.selectAll("circle")
+            .data(data)
+            .enter()
+            .append("circle")
+            .attr("r", 5)
+            .attr("cx", d => xScale(d.x))
+            .attr("cy", d => yScale(d.y))
+            .call(drag);
+
+        function leastSquares(xSeries, ySeries) {
+            const xMean = d3.mean(xSeries);
+            const yMean = d3.mean(ySeries);
+            const ssXX = d3.sum(xSeries.map(d => Math.pow(d - xMean, 2)));
+            const ssXY = d3.sum(xSeries.map((d, i) => (d - xMean) * (ySeries[i] - yMean)));
+            const slope = ssXY / ssXX;
+            const intercept = yMean - (slope * xMean);
+            return [slope, intercept];
+        }
+
+        function update() {
+            const [slope, intercept] = leastSquares(data.map(d => d.x), data.map(d => d.y));
+            const line = d3.line()
+                .x(d => xScale(d.x))
+                .y(d => yScale(d.y));
+
+            const regressionData = [
+                { x: d3.min(data, d => d.x), y: slope * d3.min(data, d => d.x) + intercept },
+                { x: d3.max(data, d => d.x), y: slope * d3.max(data, d => d.x) + intercept }
+            ];
+
+            svg.selectAll("circle")
+                .attr("cx", d => xScale(d.x))
+                .attr("cy", d => yScale(d.y));
+
+            const regressionLine = svg.selectAll(".regression-line").data([regressionData]);
+            regressionLine.enter()
+                .append("path")
+                .attr("class", "regression-line")
+                .merge(regressionLine)
+                .attr("d", line)
+                .attr("stroke", "red")
+                .attr("stroke-width", 2)
+                .attr("fill", "none");
+
+            displayStats(slope, intercept);
+        }
+
+        function displayStats(slope, intercept) {
+            const statsDiv = document.getElementById("stats");
+            statsDiv.innerHTML = `
+                <p>Slope: ${slope.toFixed(2)}</p>
+                <p>Intercept: ${intercept.toFixed(2)}</p>
+                <p>Equation: y = ${slope.toFixed(2)}x + ${intercept.toFixed(2)}</p>
+            `;
+        }
+
+        update();
+    </script>
+</body>
+</html>
