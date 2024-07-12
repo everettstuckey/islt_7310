@@ -16,22 +16,44 @@ img {
 h1, h2, h3, h4, h5, h6 {
     color: #FFFFFF;
 }
-footer {
-    background-image: url('images/footer_background.jpg'); /* Add the path to your background image */
-    background-size: cover;
-    background-repeat: no-repeat;
-    padding: 20px;
-    text-align: center;
-}
-footer p {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-footer p img {
-    margin-right: 10px;
-}
-
+    .container {
+        display: flex;
+        align-items: flex-end;
+    }
+    .container img {
+        margin-top: 40px;
+        margin-right: 20px;
+        margin-bottom: 0px;
+        max-width: 200px;
+    }
+    .container iframe {
+        width: 400px;
+        height: 225px;
+    }
+    footer {
+        background-image: url('images/footer_background.jpg'); /* Add your footer background image */
+        background-size: cover;
+        background-repeat: no-repeat;
+        padding: 20px;
+        text-align: center;
+    }
+    footer p {
+        display: flex;
+        align-items: center;
+        justify-content: left;
+    }
+    footer p img {
+        margin-right: 10px;
+        height: 1em; /* Make the icon height same as the text size */
+    }
+    footer a {
+        text-decoration: none; /* Remove underline from link */
+        color: inherit; /* Inherit the color of the surrounding text */
+        margin-left: 10px; /* Add margin to separate from the previous text */
+    }
+    .no-left-margin {
+        margin-left: 0;
+    }
 
 /* Add media queries for responsive design */
 @media (max-width: 768px) {

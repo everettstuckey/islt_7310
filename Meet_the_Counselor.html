@@ -6,6 +6,10 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="nav.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
     <style>
         .container {
             display: flex;
@@ -35,13 +39,15 @@
         }
         footer p img {
             margin-right: 10px;
-			margin-left: 10px;
             height: 1em; /* Make the icon height same as the text size */
         }
         footer a {
             text-decoration: none; /* Remove underline from link */
             color: inherit; /* Inherit the color of the surrounding text */
             margin-left: 10px; /* Add margin to separate from the previous text */
+        }
+        .no-left-margin {
+            margin-left: 0;
         }
     </style>
 </head>
@@ -81,8 +87,8 @@
         </div>
     </main>
     <footer>
-        <p><img src="phone.png" alt="Phone Icon"> 314-266-9766 | <img src="email.png" alt="Email Icon"> Everett.stuckey@slps.org | <img src="cal.png" alt="Calendar Icon"><a href="https://outlook.office365.com/owa/calendar/MrStuckeyBookings@STLPS.onmicrosoft.com/bookings/" target="_blank">Book a Meeting</a></p>
-        <p>&copy; 2024 Everett Stuckey. All rights reserved.</p>
+        <p><img src="phone.png" alt="Phone Icon" class="no-left-margin"> 314-266-9766 | <img src="email.png" alt="Email Icon"> Everett.stuckey@slps.org | <img src="cal.png" alt="Calendar Icon"><a href="https://outlook.office365.com/owa/calendar/MrStuckeyBookings@STLPS.onmicrosoft.com/bookings/" target="_blank">Book a Meeting</a></p>
+        <p>  &copy; 2024 Everett Stuckey. All rights reserved.</p>
     </footer>
 </body>
 </html>
