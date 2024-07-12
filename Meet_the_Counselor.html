@@ -3,22 +3,45 @@
 <head>
     <meta charset="utf-8">
     <title>Meet The Counselor</title>
-    <link rel="stylesheet" href="style.css"> <!-- Link to external stylesheet -->
-    <link rel="stylesheet" href="nav.css"> <!-- Link to the new nav stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="nav.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <style>
         .container {
             display: flex;
             align-items: flex-end;
         }
         .container img {
-			margin-top: 40px;
+            margin-top: 40px;
             margin-right: 20px;
-			margin-bottom: 0px;
-            max-width: 200px; /* Adjust the image size */
+            margin-bottom: 0px;
+            max-width: 200px;
         }
         .container iframe {
-            width: 400px; /* Adjust the video size */
-            height: 225px; /* Maintain aspect ratio */
+            width: 400px;
+            height: 225px;
+        }
+        footer {
+            background-image: url('images/footer_background.jpg'); /* Add your footer background image */
+            background-size: cover;
+            background-repeat: no-repeat;
+            padding: 20px;
+            text-align: center;
+        }
+        footer p {
+            display: flex;
+            align-items: center;
+            justify-content: left;
+        }
+        footer p img {
+            margin-right: 10px;
+			margin-left: 10px;
+            height: 1em; /* Make the icon height same as the text size */
+        }
+        footer a {
+            text-decoration: none; /* Remove underline from link */
+            color: inherit; /* Inherit the color of the surrounding text */
+            margin-left: 10px; /* Add margin to separate from the previous text */
         }
     </style>
 </head>
@@ -35,7 +58,7 @@
             </div>
         </li>
         <li><a href="SideProjects.html">Side Projects</a></li>
-        <li><a href="https://stlps-my.sharepoint.com/:o:/g/personal/estuckey3463_slps_org/EmDPav8SGkBJpOQDvNvqxIQBBPr6l887ejscvm4YUOVx4A?e=uwaUA0">Resource Repository</a></li>
+        <li><a href=" Repository</a></li>
         <li><a href="EverettStuckeyResume%20Data.pdf">CV</a></li>
     </ul>
 
@@ -58,7 +81,7 @@
         </div>
     </main>
     <footer>
-        <p>Everett E. Stuckey, Jr. | Everett.stuckey@slps.org | 314-266-9766</p>
+        <p><img src="phone.png" alt="Phone Icon"> 314-266-9766 | <img src="email.png" alt="Email Icon"> Everett.stuckey@slps.org | <img src="cal.png" alt="Calendar Icon"><a href="https://outlook.office365.com/owa/calendar/MrStuckeyBookings@STLPS.onmicrosoft.com/bookings/" target="_blank">Book a Meeting</a></p>
         <p>&copy; 2024 Everett Stuckey. All rights reserved.</p>
     </footer>
 </body>

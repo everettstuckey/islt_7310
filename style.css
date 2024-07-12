@@ -16,6 +16,22 @@ img {
 h1, h2, h3, h4, h5, h6 {
     color: #FFFFFF;
 }
+footer {
+    background-image: url('images/footer_background.jpg'); /* Add the path to your background image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 20px;
+    text-align: center;
+}
+footer p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+footer p img {
+    margin-right: 10px;
+}
+
 
 /* Add media queries for responsive design */
 @media (max-width: 768px) {
