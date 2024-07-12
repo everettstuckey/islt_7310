@@ -11,13 +11,13 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="manifest" href="site.webmanifest">
     <!-- Link to Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Playwrite+AU+QLD:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playwright+AU+QLD:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: Arial, sans-serif;
         }
-        h1 {
-            font-family: 'Roboto', sans-serif;
+        .custom-font {
+            font-family: 'Playwright AU QLD', handwriting;
         }
         .container {
             display: flex;
@@ -37,7 +37,7 @@
             background-image: url('images/footer_background.jpg'); /* Add your footer background image */
             background-size: cover;
             background-repeat: no-repeat;
-            padding: 10px;
+            padding: 20px;
             text-align: center;
         }
         footer p {
@@ -55,7 +55,7 @@
             margin-left: 10px; /* Add margin to separate from the previous text */
         }
         .no-left-margin {
-            margin-left: 10px;
+            margin-left: 0;
         }
 
         @media print {
@@ -65,7 +65,7 @@
                 margin: 1in;
             }
             h1 {
-                font-family: 'Roboto', sans-serif;
+                font-family: 'Playwright AU QLD', handwriting;
                 font-size: 24px;
             }
             p {
@@ -96,7 +96,7 @@
 <body>
     <!-- Navigation Bar -->
     <ul>
-        <li><a href="Meet_the_Counselor.html">Meet the Counselor</a></li>
+        <li><a href="Meet_the_Counselor.html" class="custom-font">Meet the Counselor</a></li>
         <li class="dropdown">
             <a href="KeyTakeAways.html" class="dropbtn">Key Take Aways</a>
             <div class="dropdown-content">
@@ -114,7 +114,7 @@
     <header>
     </header>
     <main>
-        <h1>Meet the Counselor</h1>
+        <h2 class="custom-font">Meet the Counselor</h2>
         <div class="container">
             <img src="EverettStuckey.jpg" alt="Everett Stuckey">
             <div>
