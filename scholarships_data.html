@@ -87,6 +87,11 @@
             filteredData.forEach(row => {
                 const dueDate = new Date(row['Due Date']);
                 row['Days til due'] = Math.floor((dueDate - currentDate) / (1000 * 60 * 60 * 24));
+                row['Due Date'] = dueDate.toLocaleDateString('en-US', {
+                    month: '2-digit',
+                    day: '2-digit',
+                    year: 'numeric'
+                });
             });
 
             filteredData.sort((a, b) => a['Days til due'] - b['Days til due']);
