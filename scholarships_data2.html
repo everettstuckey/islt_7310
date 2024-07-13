@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <title>Scholarships Data</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="nav.css">
+    <style>
+    .styled-table {
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 18px;
+        font-family: Arial, sans-serif;
+        min-width: 400px;
+        width: 100%;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+    .styled-table thead tr {
+        background-color: #004080;
+        color: #ffffff;
+        text-align: center;
+    }
+    .styled-table th {
+        text-align: center; 
+        white-space: nowrap;
+    }
+    .styled-table td {
+        white-space: nowrap;
+    }
+    .styled-table th,
+    .styled-table td {
+        border: 1px solid #dddddd;
+        padding: 12px 15px;
+    }
+    .styled-table tbody tr {
+        background-color: #000000;
+    }
+    .styled-table tbody tr:nth-of-type(even) {
+        background-color: #030303;
+    }
+    .styled-table tbody tr:last-of-type {
+        border-bottom: 2px solid #004080;
+    }
+    .styled-table tbody tr:hover {
+        background-color: #1a1a8c;
+    }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <ul>
+        <li><a href="Meet_the_Counselor.html">Meet the Counselor</a></li>
+        <li class="dropdown">
+            <a href="KeyTakeAways.html" class="dropbtn">Key Take Aways</a>
+            <div class="dropdown-content">
+                <a href="scholarships_data.html">Scholarships</a>
+                <a href="CareeerDevelopmentAssignmentApplytoWashUCollegePrep.html">College Enrichment and Access Programs</a>
+                <a href="SummerBioSciencePrograms-Internships.html">Internships</a>
+            </div>
+        </li>
+        <li><a href="SideProjects.html">Side Projects</a></li>
+        <li><a href="Repository.html">Repository</a></li> <!-- Fixed here -->
+        <li><a href="EverettStuckeyResume%20Data.pdf">CV</a></li>
+    </ul>
+    <div id="scholarships-table"></div>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        fetch('scholarships_data.csv')
+        .then(response => response.text())
+        .then(data => {
+            console.log("CSV Data fetched successfully:");
+            console.log(data);
+            let rows = data.split('\n').slice(1); // Split by line and skip the header row
+            let scholarships = rows.map(row => {
+                let cols = row.split(',');
+                return {
+                    title: cols[0],
+                    dueDate: new Date(cols[1])
+                };
+            });
+
+            console.log("Parsed Scholarships Data:");
+            console.log(scholarships);
+
+            // Filter out invalid dates
+            scholarships = scholarships.filter(sch => !isNaN(sch.dueDate));
+
+            // Calculate days till due
+            const currentDate = new Date();
+            scholarships.forEach(sch => {
+                sch.daysTillDue = Math.ceil((sch.dueDate - currentDate) / (1000 * 60 * 60 * 24));
+            });
+
+            // Filter out past due scholarships
+            scholarships = scholarships.filter(sch => sch.daysTillDue > 0);
+
+            // Sort by days till due
+            scholarships.sort((a, b) => a.daysTillDue - b.daysTillDue);
+
+            console.log("Filtered and Sorted Scholarships Data:");
+            console.log(scholarships);
+
+            // Create HTML table
+            let table = '<table class="styled-table"><thead><tr><th>Days til due</th><th>Scholarship Title</th><th>Due Date</th></tr></thead><tbody>';
+            scholarships.forEach(sch => {
+                table += `<tr>
+                    <td>${sch.daysTillDue}</td>
+                    <td>${sch.title}</td>
+                    <td>${sch.dueDate.toLocaleDateString('en-US')}</td>
+                </tr>`;
+            });
+            table += '</tbody></table>';
+
+            document.getElementById('scholarships-table').innerHTML = table;
+        })
+        .catch(error => console.error('Error fetching the CSV file:', error));
+    });
+    </script>
+</body>
+</html>
