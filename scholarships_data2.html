@@ -75,7 +75,7 @@
             let scholarships = rows.map(row => {
                 let cols = row.split(',');
                 return {
-                    title: cols[0],
+                    title: cols[0].replace(/�/g, ''),
                     dueDate: new Date(cols[1])
                 };
             });
@@ -101,13 +101,22 @@
             console.log("Filtered and Sorted Scholarships Data:");
             console.log(scholarships);
 
+            // Format the "Due Date" column as MM-DD-YYYY
+            scholarships.forEach(sch => {
+                sch.dueDateFormatted = sch.dueDate.toLocaleDateString('en-US', {
+                    month: '2-digit',
+                    day: '2-digit',
+                    year: 'numeric'
+                });
+            });
+
             // Create HTML table
             let table = '<table class="styled-table"><thead><tr><th>Days til due</th><th>Scholarship Title</th><th>Due Date</th></tr></thead><tbody>';
             scholarships.forEach(sch => {
                 table += `<tr>
                     <td>${sch.daysTillDue}</td>
                     <td>${sch.title}</td>
-                    <td>${sch.dueDate.toLocaleDateString('en-US')}</td>
+                    <td>${sch.dueDateFormatted}</td>
                 </tr>`;
             });
             table += '</tbody></table>';
