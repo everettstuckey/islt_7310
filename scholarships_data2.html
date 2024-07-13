@@ -45,6 +45,7 @@
         background-color: #1a1a8c;
     }
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
 </head>
 <body>
     <ul>
@@ -71,21 +72,10 @@
             return await response.text();
         }
 
-        function csvToArray(text) {
-            const rows = text.split('\n');
-            return rows.map(row => row.split(','));
-        }
-
         function processCsvData(data) {
-            const headers = data[0];
-            const rows = data.slice(1);
             const currentDate = new Date();
 
-            const filteredData = rows.map(row => {
-                const obj = {};
-                headers.forEach((header, i) => obj[header.trim()] = row[i].trim());
-                return obj;
-            }).filter(row => {
+            const filteredData = data.filter(row => {
                 const dueDate = new Date(row['Due Date']);
                 return dueDate >= currentDate;
             });
@@ -96,10 +86,10 @@
             });
 
             filteredData.sort((a, b) => a['Days til due'] - b['Days til due']);
-            return { headers, rows: filteredData };
+            return filteredData;
         }
 
-        function generateTable({ headers, rows }) {
+        function generateTable(headers, rows) {
             const table = document.createElement('table');
             table.classList.add('styled-table');
 
@@ -125,10 +115,15 @@
 
         async function loadTable() {
             const csvData = await fetchCsv(csvUrl);
-            const arrayData = csvToArray(csvData);
-            const processedData = processCsvData(arrayData);
-            const table = generateTable(processedData);
-            document.getElementById('scholarships-table').appendChild(table);
+            Papa.parse(csvData, {
+                header: true,
+                complete: function(results) {
+                    const headers = results.meta.fields;
+                    const processedData = processCsvData(results.data);
+                    const table = generateTable(headers, processedData);
+                    document.getElementById('scholarships-table').appendChild(table);
+                }
+            });
         }
 
         loadTable();
