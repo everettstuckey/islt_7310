@@ -59,7 +59,7 @@
             </div>
         </li>
         <li><a href="SideProjects.html">Side Projects</a></li>
-        <li><a href="https://stlps-my.sharepoint.com/:o:/g/personal/estuckey3463_slps_org/EmDPav8SGkBJpOQDvNvqxIQBBPr6l887ejscvm4YUOVx4A?e=uwaUA0">Resource Repository</a></li>
+        <li><a href="Repository.html">Repository</a></li>
         <li><a href="EverettStuckeyResume%20Data.pdf">CV</a></li>
     </ul>
     <div id="scholarships-table"></div>
@@ -71,7 +71,7 @@
         .then(data => {
             console.log("CSV Data fetched successfully:");
             console.log(data);
-            let rows = data.trim().split('\\n').slice(1); // Skip the header row
+            let rows = data.trim().split('\n').slice(1); // Skip the header row
             let scholarships = rows.map(row => {
                 let cols = row.split(',');
                 return {
