@@ -47,7 +47,6 @@
     </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
     <ul>
         <li><a href="Meet_the_Counselor.html">Meet the Counselor</a></li>
         <li class="dropdown">
@@ -59,72 +58,80 @@
             </div>
         </li>
         <li><a href="SideProjects.html">Side Projects</a></li>
-        <li><a href="Repository.html">Repository</a></li>
+        <li><a href="Repository">Repository</a></li>
         <li><a href="EverettStuckeyResume%20Data.pdf">CV</a></li>
     </ul>
     <div id="scholarships-table"></div>
 
     <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        fetch('scholarships_data.csv')
-        .then(response => response.text())
-        .then(data => {
-            console.log("CSV Data fetched successfully:");
-            console.log(data);
-            let rows = data.trim().split('\n').slice(1); // Skip the header row
-            let scholarships = rows.map(row => {
-                let cols = row.split(',');
-                return {
-                    title: cols[0].replace(/�/g, ''),
-                    dueDate: new Date(cols[1])
-                };
-            });
+        const csvUrl = 'scholarships_data.csv'; // Path to your CSV file
 
-            console.log("Parsed Scholarships Data:");
-            console.log(scholarships);
+        async function fetchCsv(url) {
+            const response = await fetch(url);
+            return await response.text();
+        }
 
-            // Filter out invalid dates
-            scholarships = scholarships.filter(sch => !isNaN(sch.dueDate));
+        function csvToArray(text) {
+            const rows = text.split('\n');
+            return rows.map(row => row.split(','));
+        }
 
-            // Calculate days till due
+        function processCsvData(data) {
+            const headers = data[0];
+            const rows = data.slice(1);
             const currentDate = new Date();
-            scholarships.forEach(sch => {
-                sch.daysTillDue = Math.ceil((sch.dueDate - currentDate) / (1000 * 60 * 60 * 24));
+
+            const filteredData = rows.map(row => {
+                const obj = {};
+                headers.forEach((header, i) => obj[header.trim()] = row[i].trim());
+                return obj;
+            }).filter(row => {
+                const dueDate = new Date(row['Due Date']);
+                return dueDate >= currentDate;
             });
 
-            // Filter out past due scholarships
-            scholarships = scholarships.filter(sch => sch.daysTillDue > 0);
+            filteredData.forEach(row => {
+                const dueDate = new Date(row['Due Date']);
+                row['Days til due'] = Math.floor((dueDate - currentDate) / (1000 * 60 * 60 * 24));
+            });
 
-            // Sort by days till due
-            scholarships.sort((a, b) => a.daysTillDue - b.daysTillDue);
+            filteredData.sort((a, b) => a['Days til due'] - b['Days til due']);
+            return { headers, rows: filteredData };
+        }
 
-            console.log("Filtered and Sorted Scholarships Data:");
-            console.log(scholarships);
+        function generateTable({ headers, rows }) {
+            const table = document.createElement('table');
+            table.classList.add('styled-table');
 
-            // Format the "Due Date" column as MM-DD-YYYY
-            scholarships.forEach(sch => {
-                sch.dueDateFormatted = sch.dueDate.toLocaleDateString('en-US', {
-                    month: '2-digit',
-                    day: '2-digit',
-                    year: 'numeric'
+            const thead = table.createTHead();
+            const headerRow = thead.insertRow();
+            headers.forEach(header => {
+                const th = document.createElement('th');
+                th.textContent = header;
+                headerRow.appendChild(th);
+            });
+
+            const tbody = table.createTBody();
+            rows.forEach(row => {
+                const tr = tbody.insertRow();
+                headers.forEach(header => {
+                    const td = tr.insertCell();
+                    td.textContent = row[header];
                 });
             });
 
-            // Create HTML table
-            let table = '<table class="styled-table"><thead><tr><th>Days til due</th><th>Scholarship Title</th><th>Due Date</th></tr></thead><tbody>';
-            scholarships.forEach(sch => {
-                table += `<tr>
-                    <td>${sch.daysTillDue}</td>
-                    <td>${sch.title}</td>
-                    <td>${sch.dueDateFormatted}</td>
-                </tr>`;
-            });
-            table += '</tbody></table>';
+            return table;
+        }
 
-            document.getElementById('scholarships-table').innerHTML = table;
-        })
-        .catch(error => console.error('Error fetching the CSV file:', error));
-    });
+        async function loadTable() {
+            const csvData = await fetchCsv(csvUrl);
+            const arrayData = csvToArray(csvData);
+            const processedData = processCsvData(arrayData);
+            const table = generateTable(processedData);
+            document.getElementById('scholarships-table').appendChild(table);
+        }
+
+        loadTable();
     </script>
 </body>
 </html>
