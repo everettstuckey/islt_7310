@@ -87,15 +87,18 @@
             filteredData.forEach(row => {
                 const dueDate = new Date(row['Due Date']);
                 row['Days til due'] = Math.floor((dueDate - currentDate) / (1000 * 60 * 60 * 24));
-                row['Due Date'] = dueDate.toLocaleDateString('en-US', {
-                    month: '2-digit',
-                    day: '2-digit',
-                    year: 'numeric'
-                });
+                row['Due Date'] = formatDate(dueDate);
             });
 
             filteredData.sort((a, b) => a['Days til due'] - b['Days til due']);
             return filteredData;
+        }
+
+        function formatDate(date) {
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const day = String(date.getDate()).padStart(2, '0');
+            const year = date.getFullYear();
+            return `${month}-${day}-${year}`;
         }
 
         function generateTable(headers, rows) {
@@ -116,6 +119,15 @@
                 headers.forEach(header => {
                     const td = tr.insertCell();
                     td.textContent = row[header];
+
+                    // Set text alignment based on the column header
+                    if (header === 'Days til due' || header === 'Due Date') {
+                        td.style.textAlign = 'center';
+                    } else if (header === 'Amount') {
+                        td.style.textAlign = 'right';
+                    } else if (header === 'Scholarship Title') {
+                        td.style.textAlign = 'left';
+                    }
                 });
             });
 
