@@ -2,6 +2,7 @@
 <html lang="en-US">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scholarships Data</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="nav.css">
@@ -14,8 +15,9 @@
         min-width: 400px;
         width: 100%;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        border: 2px solid #004080;
     }
-    .styled-table thead tr {
+    .styled-table thead tr, .styled-table tfoot tr {
         background-color: #004080;
         color: #ffffff;
         text-align: center;
@@ -32,17 +34,40 @@
         border: 1px solid #dddddd;
         padding: 12px 15px;
     }
-    .styled-table tbody tr {
-        background-color: #000000;
+    .styled-table tbody tr:nth-of-type(odd) {
+        background-color: #f3f3f3;
     }
     .styled-table tbody tr:nth-of-type(even) {
-        background-color: #030303;
-    }
-    .styled-table tbody tr:last-of-type {
-        border-bottom: 2px solid #004080;
+        background-color: #e0e0e0;
     }
     .styled-table tbody tr:hover {
-        background-color: #1a1a8c;
+        background-color: #d1e0e0;
+    }
+    @media (max-width: 600px) {
+        .styled-table thead {
+            display: none;
+        }
+        .styled-table, .styled-table tbody, .styled-table tr, .styled-table td {
+            display: block;
+            width: 100%;
+        }
+        .styled-table tr {
+            margin-bottom: 15px;
+        }
+        .styled-table td {
+            text-align: right;
+            padding-left: 50%;
+            position: relative;
+        }
+        .styled-table td::before {
+            content: attr(data-label);
+            position: absolute;
+            left: 0;
+            width: 50%;
+            padding-left: 15px;
+            font-weight: bold;
+            text-align: left;
+        }
     }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
@@ -62,8 +87,11 @@
         <li><a href="Repository">Repository</a></li>
         <li><a href="EverettStuckeyResume%20Data.pdf">CV</a></li>
     </ul>
-    <div id="scholarships-table"></div>
-
+    <figure>
+        <figcaption>Scholarships Data Table</figcaption>
+        <div id="scholarships-table"></div>
+    </figure>
+    
     <script>
         const csvUrl = 'scholarships_data.csv'; // Path to your CSV file
 
@@ -119,6 +147,7 @@
                 headers.forEach(header => {
                     const td = tr.insertCell();
                     td.textContent = row[header];
+                    td.setAttribute('data-label', header);
 
                     // Set text alignment based on the column header
                     if (header === 'Days til due' || header === 'Due Date') {
@@ -129,6 +158,15 @@
                         td.style.textAlign = 'left';
                     }
                 });
+            });
+
+            // Optional tfoot
+            const tfoot = table.createTFoot();
+            const footerRow = tfoot.insertRow();
+            headers.forEach(header => {
+                const th = document.createElement('th');
+                th.textContent = header;
+                footerRow.appendChild(th);
             });
 
             return table;
@@ -158,5 +196,10 @@
 
         loadTable();
     </script>
+
+<footer>
+    <p><a href="tel:314-266-9766"><img src="phone.png" alt="Phone Icon" class="no-left-margin"> 314-266-9766</a>  <a href="mailto:Everett.stuckey@slps.org"><img src="email.png" alt="Email Icon"> Everett.stuckey@slps.org</a>  <a href="https://outlook.office365.com/owa/calendar/MrStuckeyBookings@STLPS.onmicrosoft.com/bookings/" target="_blank"><img src="cal.png" alt="Calendar Icon"> Book a Meeting</a></p>
+</footer>
+
 </body>
 </html>
