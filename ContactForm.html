@@ -170,8 +170,14 @@
         document.getElementById('contactForm').addEventListener('submit', function(event) {
             event.preventDefault();
             const form = event.target;
+            const email = form.email.value;
             const formData = new FormData(form);
             const formResponse = document.getElementById('formResponse');
+
+            if (!validateEmail(email)) {
+                formResponse.innerHTML = '<p>Please enter a valid email address.</p>';
+                return;
+            }
 
             fetch(form.action, {
                 method: form.method,
@@ -196,6 +202,11 @@
                 formResponse.innerHTML = '<p>Oops! There was a problem submitting your form</p>';
             });
         });
+
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(String(email).toLowerCase());
+        }
 
         document.getElementById('contactForm').firstName.focus();
     </script>
