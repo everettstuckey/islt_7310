@@ -1,10 +1,107 @@
+
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
     <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Meet The Counselor</title>
-    <link rel="stylesheet" href="style.css"> <!-- Link to external stylesheet -->
-    <link rel="stylesheet" href="nav.css"> <!-- Link to the new nav stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="nav.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <!-- Link to Google Font -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Playwrite+AU+QLD:wght@100..400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+		.playwrite-au-qld-uniquifier {
+		font-family: "Playwrite AU QLD", cursive;
+		font-optical-sizing: auto;
+		font-weight: 400;
+		color: #02C4EB;
+		font-style: normal;
+		
+        }
+        .container {
+            display: flex;
+            align-items: flex-end;
+        }
+        .container img {
+            margin-top: 40px;
+            margin-right: 20px;
+            margin-bottom: 0px;
+            max-width: 200px;
+        }
+        .container iframe {
+            width: 400px;
+            height: 225px;
+        }
+        footer {
+            background-image: url('images/footer_background.jpg'); /* Add your footer background image */
+            background-size: cover;
+            background-repeat: no-repeat;
+            padding: 20px;
+            text-align: center;
+        }
+        footer p {
+            display: flex;
+            align-items: center;
+            justify-content: left;
+        }
+        footer p img {
+            margin-right: 10px;
+            height: 1em; /* Make the icon height same as the text size */
+        }
+        footer a {
+            text-decoration: none; /* Remove underline from link */
+            color: inherit; /* Inherit the color of the surrounding text */
+            margin-left: 10px; /* Add margin to separate from the previous text */
+        }
+        .no-left-margin {
+            margin-left: 0;
+        }
+
+        @media print {
+            body {
+                font-family: serif;
+                color: black;
+                margin: 1in;
+            }
+            h1 {
+                font-family: 'Playwright AU QLD', handwriting;
+                font-size: 24px;
+            }
+            p {
+                font-size: 12px;
+            }
+            ul, ol {
+                font-size: 12px;
+            }
+            blockquote {
+                font-size: 12px;
+                font-style: italic;
+            }
+            footer {
+                display: block;
+                text-align: left;
+            }
+            footer p {
+                display: block;
+                margin: 0;
+                padding: 0;
+            }
+            footer p img, footer p a {
+                display: none;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -19,37 +116,31 @@
             </div>
         </li>
         <li><a href="SideProjects.html">Side Projects</a></li>
-        <li><a href="https://stlps-my.sharepoint.com/:o:/g/personal/estuckey3463_slps_org/EmDPav8SGkBJpOQDvNvqxIQBBPr6l887ejscvm4YUOVx4A?e=uwaUA0">Resource Repository</a></li>
+        <li><a href=" Repository</a></li>
         <li><a href="EverettStuckeyResume%20Data.pdf">CV</a></li>
     </ul>
 
-
     <!-- About Page Content -->
     <header>
-
     </header>
     <main>
-        <h2>Meet the Counselor</h2>
-        <table>
-            <tr>
-                <td style="vertical-align: top; padding-right: 20px;">
-                    <img src="EverettStuckey.jpg" alt="Everett Stuckey" width="200">
-                </td>
-                <td style="vertical-align: top;">
-                    <p>My name is Everett Stuckey, and I am the high school counselor at McKinley CLA. Currently, I am an EdS candidate in the school of Information Science and Learning Technologies at the University of Missouri. I hold a Master of Arts in Counseling from Lindenwood University and a Bachelor of Science in Finance from Indiana University, where I was a Herman B Wells Scholar. This scholarship covered my full tuition, room, board, and stipend, allowing me to graduate debt-free.</p>
-                    <p>My goal is to help students achieve their full potential by providing guidance, resources, and support. I am passionate about education and committed to making a positive impact on my students' lives.</p>
-                    <p>I am relaxing on my <em>summer vacation</em> by launching an internship program for the Saint Louis Public Schools Foundation and teaching a course on Data Analytics and Digital Media in the IT & Cybersecurity Summer Academy.</p>
-                    <blockquote>"Aut viam inveniam aut faciam" | "I shall either find a way or make one"</blockquote>
-                    <!-- Add the link to the PDF resume here -->
-                    <p><a href="EverettStuckeyResume%20Data.pdf" target="_blank">Download my resume</a></p>
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/AGHT5t5zlk4?si=3sp2cMz07JStBop1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </td>
-            </tr>
-        </table>
+        <h1 class="playwrite-au-qld-uniquifier">Meet the Counselor</h1>
+        <div class="container">
+            <img src="EverettStuckey.jpg" alt="Everett Stuckey">
+            <div>
+                <p>My name is Everett Stuckey, and I am the high school counselor at McKinley CLA. Currently, I am an EdS candidate in the school of Information Science and Learning Technologies at the University of Missouri. I hold a Master of Arts in Counseling from Lindenwood University and a Bachelor of Science in Finance from Indiana University, where I was a Herman B Wells Scholar. This scholarship covered my full tuition, room, board, and stipend, allowing me to graduate debt-free.</p>
+                <p>My goal is to help students achieve their full potential by providing guidance, resources, and support. I am passionate about education and committed to making a positive impact on my students' lives.</p>
+                <p>I am relaxing on my <em>summer vacation</em> by launching an internship program for the Saint Louis Public Schools Foundation and teaching a course on Data Analytics and Digital Media in the IT & Cybersecurity Summer Academy.</p>
+                <blockquote>"Aut viam inveniam aut faciam" | "I shall either find a way or make one"</blockquote>
+                <!-- Add the link to the PDF resume here -->
+                <p><a href="EverettStuckeyResume%20Data.pdf" target="_blank">Download my resume</a></p>
+                <iframe src="https://www.youtube.com/embed/AGHT5t5zlk4?si=3sp2cMz07JStBop1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
     </main>
     <footer>
-        <p>Everett E. Stuckey, Jr. | Everett.stuckey@slps.org | 314-266-9766</p>
-        <p>&copy; 2024 Everett Stuckey. All rights reserved.</p>
+        <p><a href="tel:314-266-9766"><img src="phone.png" alt="Phone Icon" class="no-left-margin"> 314-266-9766</a>  <a href="mailto:Everett.stuckey@slps.org"><img src="email.png" alt="Email Icon"> Everett.stuckey@slps.org</a>  <a href="https://outlook.office365.com/owa/calendar/MrStuckeyBookings@STLPS.onmicrosoft.com/bookings/" target="_blank"><img src="cal.png" alt="Calendar Icon"> Book a Meeting</a></p>
+
     </footer>
 </body>
 </html>
