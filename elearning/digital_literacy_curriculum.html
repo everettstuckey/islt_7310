@@ -3,83 +3,1228 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Literacy Curriculum</title>
+    <title>Digital Literacy Fundamentals - Freshman Orientation</title>
     <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; }
-        .unit { margin-bottom: 2rem; padding: 1rem; border: 1px solid #eee; border-radius: 8px; }
-        .unit-title { font-size: 1.5rem; color: #2c3e50; margin-bottom: 0.5rem; }
-        .activity { margin-top: 1rem; }
-        .blueprint-title { font-weight: bold; margin: 0.5rem 0; }
-        .point { margin-bottom: 1rem; }
-        .point-title { font-weight: bold; }
-        .rationale-section { margin-top: 1rem; }
-        .question { margin: 0.5rem 0; padding: 0.5rem; background-color: #f9f9f9; border-left: 3px solid #3498db; }
-        .learning-objectives ul { list-style: none; padding: 0; margin: 0; }
-        .learning-objectives li { margin-bottom: 0.5rem; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slideshow-container {
+            max-width: 1200px;
+            width: 95%;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .slide {
+            display: none;
+            padding: 40px;
+            min-height: 600px;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .slide h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 15px;
+        }
+
+        .slide h2 {
+            color: #34495e;
+            font-size: 1.8em;
+            margin: 30px 0 15px 0;
+            padding-left: 15px;
+            border-left: 4px solid #3498db;
+        }
+
+        .slide h3 {
+            color: #2980b9;
+            font-size: 1.4em;
+            margin: 20px 0 10px 0;
+        }
+
+        .screenshot-placeholder {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(45deg, #ecf0f1, #bdc3c7);
+            border: 2px dashed #95a5a6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+            border-radius: 8px;
+            font-style: italic;
+            color: #7f8c8d;
+        }
+
+        .step-by-step {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #28a745;
+        }
+
+        .step-by-step ol {
+            margin-left: 20px;
+        }
+
+        .step-by-step li {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+
+        .knowledge-check {
+            background: #e3f2fd;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border: 2px solid #2196f3;
+        }
+
+        .quiz-question {
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .quiz-options {
+            margin: 10px 0;
+        }
+
+        .quiz-options input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .quiz-options label {
+            display: block;
+            padding: 8px;
+            margin: 5px 0;
+            background: #f8f9fa;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .quiz-options label:hover {
+            background: #e9ecef;
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+        }
+
+        .btn-success {
+            background: linear-gradient(45deg, #27ae60, #229954);
+            box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+        }
+
+        .btn-danger {
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+        }
+
+        .navigation {
+            background: #2c3e50;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #ecf0f1;
+            border-radius: 4px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #27ae60, #2ecc71);
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        .activity-box {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .video-placeholder {
+            width: 100%;
+            height: 315px;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .lesson-objectives {
+            background: #d4edda;
+            border: 2px solid #28a745;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .lesson-objectives ul {
+            margin-left: 20px;
+        }
+
+        .lesson-objectives li {
+            margin: 8px 0;
+            line-height: 1.4;
+        }
+
+        .feedback {
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            display: none;
+        }
+
+        .feedback.correct {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+
+        .feedback.incorrect {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+
+        .slide-counter {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 14px;
+        }
+
+        .checklist {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .checklist input[type="checkbox"] {
+            margin-right: 10px;
+            transform: scale(1.2);
+        }
+
+        .checklist label {
+            display: block;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+            
+            .slide {
+                padding: 20px;
+            }
+            
+            .slide h1 {
+                font-size: 2em;
+            }
+        }
     </style>
 </head>
 <body>
-    <h1>Digital Literacy Curriculum</h1>
-    
-    <div class="unit">
-        <div class="unit-title">Unit 1: Foundations of Digital Literacy</div>
-        
-        <div class="learning-objectives">
-            <h3>Learning Objectives:</h3>
-            <ul>
-                <li>Identify Core Digital Citizenship Concepts: Define and distinguish between digital footprints, online privacy, cybersecurity threats, and netiquette principles.</li>
-                <li>Analyze Digital Risks: Identify potential privacy violations, security threats, and inappropriate online behaviors in simulated digital environments.</li>
-                <li>Develop Responsible Technology Guidelines: Collaboratively create classroom technology norms for respectful communication and responsible device usage.</li>
-            </ul>
+    <div class="slideshow-container">
+        <div class="slide-counter">
+            <span id="currentSlide">1</span> / <span id="totalSlides">25</span>
         </div>
-        
-        <div class="description">This introductory unit establishes the foundational concepts of digital citizenship, safety, and security, moving beyond abstract rules to practical application.</div>
-        
-        <div class="blueprint">
-            <div class="blueprint-title">Key Activities:</div>
-            <div class="point">
-                <div class="point-title">Interactive eLearning Module</div>
-                <div>Students begin with a self-paced module created in a tool like Articulate Storyline. This module introduces key vocabulary (digital footprint, privacy, cybersecurity, netiquette, phishing) through a series of short, engaging videos and animated explainers. To ensure active processing, each concept is followed by a quick check-for-understanding, such as a multiple-choice question or a drag-and-drop activity. This pre-training approach, informed by Cognitive Load Theory, ensures students have the necessary schema before moving to more complex tasks.</div>
+
+        <!-- Slide 1: Welcome -->
+        <div class="slide active">
+            <h1>🎓 Digital Literacy Fundamentals</h1>
+            <h2>Freshman Orientation Program</h2>
+            
+            <div style="text-align: center; margin: 40px 0;">
+                <div class="video-placeholder">
+                    🎬 Welcome Video: "Your Digital Journey Begins Here"<br>
+                    <small>(2-minute introduction video would be embedded here)</small>
+                </div>
             </div>
-            <div class="point">
-                <div class="point-title">Gamified Simulation: "Digital Footprint Detective"</div>
-                <div>In this scenario-based game, students analyze a fictional student's social media profile (a mock "FriendBook" page). They must identify specific posts that could compromise privacy (e.g., a photo showing a house number), instances of poor netiquette, and potential phishing scams in direct messages. Clicking on a problematic element reveals an explanation of the risk, providing immediate, contextualized feedback. The goal is to find all the "clues" and earn a "Digital Citizen" badge, making learning engaging and intrinsically motivating.</div>
+
+            <div class="lesson-objectives">
+                <h3>🎯 What You'll Master in These 4 Lessons:</h3>
+                <ul>
+                    <li><strong>Lesson 1:</strong> Windows Navigation & Cloud Storage Setup</li>
+                    <li><strong>Lesson 2:</strong> Professional Email & Organization with Outlook</li>
+                    <li><strong>Lesson 3:</strong> Document Creation with Microsoft Word</li>
+                    <li><strong>Lesson 4:</strong> Presentations & Spreadsheets (PowerPoint & Excel)</li>
+                </ul>
             </div>
-            <div class="point">
-                <div class="point-title">Collaborative Charter: "Classroom Tech Norms"</div>
-                <div>Using Microsoft Whiteboard within Teams, students work in small groups to brainstorm and draft a "Classroom Tech Norms" charter. They answer prompts like, "What does respectful online communication look like?" and "How can we responsibly use our devices in this class?" This co-creation process, rooted in Social Constructivism, fosters a sense of ownership and community, establishing a shared foundation for a respectful digital environment for the rest of the course. The teacher facilitates a final whole-class discussion to synthesize the group charters into a single class-wide agreement.</div>
-            </div>
-        </div>
-        
-        <div class="rationale">
-            <div class="rationale-section">
-                <strong>Learning Science:</strong> Grounded in Connectivism (learning as network navigation) and Cognitive Load Theory (pre-training vocabulary to reduce cognitive load).
-            </div>
-            <div class="rationale-section">
-                <strong>EdTech Framework:</strong> Adheres to UDL principles (multiple means of representation, engagement, expression). The simulation represents SAMR's Modification level.
-            </div>
-            <div class="rationale-section">
-                <strong>Standards Research:</strong> Targets ISTE Standard 1.2 (Digital Citizen). Gamification is supported by research for increasing motivation in digital literacy education.
+
+            <div style="text-align: center; margin-top: 40px;">
+                <p style="font-size: 18px; color: #2c3e50;">
+                    <strong>Duration:</strong> 4 hours total (1 hour per lesson)<br>
+                    <strong>Format:</strong> Interactive, hands-on learning with real-world applications
+                </p>
             </div>
         </div>
-        
-        <div class="activity">
-            <h3>Activity: Digital Footprint Check-Up</h3>
-            <div class="question">
-                <div><strong>Question:</strong> Sharing your location in a social media post is always safe.</div>
-                <div><strong>Answer:</strong> False</div>
+
+        <!-- Slide 2: Lesson 1 Title -->
+        <div class="slide">
+            <h1>📱 Lesson 1: Windows & Cloud Fundamentals</h1>
+            
+            <div class="lesson-objectives">
+                <h3>Learning Objectives</h3>
+                <p>By the end of this lesson, you will be able to:</p>
+                <ul>
+                    <li>Successfully log into Windows using your credentials</li>
+                    <li>Navigate the Windows file system efficiently</li>
+                    <li>Set up and use OneDrive for cloud storage</li>
+                    <li>Access OneDrive from the desktop application</li>
+                </ul>
             </div>
-            <div class="question">
-                <div><strong>Question:</strong> What is a 'digital footprint'?</div>
-                <div><strong>Answer:</strong> The trail of data you leave online</div>
+
+            <div class="video-placeholder">
+                🎬 Video: "Windows Login & Security Best Practices" (3 minutes)
             </div>
-            <div class="question">
-                <div><strong>Question:</strong> Which of the following is the strongest password?</div>
-                <div><strong>Answer:</strong> R#aD!8*zPq</div>
+        </div>
+
+        <!-- Slide 3: Windows Login -->
+        <div class="slide">
+            <h2>🔐 Logging into Windows</h2>
+            
+            <div class="step-by-step">
+                <h3>Step-by-Step Login Process:</h3>
+                <ol>
+                    <li><strong>Power On:</strong> Press the power button and wait for Windows logo</li>
+                    <li><strong>Login Screen:</strong> Enter your username in the first field</li>
+                    <li><strong>Password:</strong> Click password field and type your password</li>
+                    <li><strong>Sign In:</strong> Click "Sign In" button or press Enter</li>
+                </ol>
             </div>
+
+            <div class="screenshot-placeholder">
+                Screenshot: Windows Login Screen with username and password fields highlighted
+            </div>
+
+            <div class="activity-box">
+                <h3>🛠️ Practice Activity: Login Challenge</h3>
+                <p><strong>Task:</strong> Practice logging out and logging back in to Windows</p>
+                <ol>
+                    <li>Click Start Menu → User icon → Sign out</li>
+                    <li>Wait for login screen to appear</li>
+                    <li>Log back in using your credentials</li>
+                    <li>Time yourself - aim for under 30 seconds!</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Slide 4: File System Navigation -->
+        <div class="slide">
+            <h2>📁 Navigating the Windows File System</h2>
+            
+            <div class="two-column">
+                <div>
+                    <h3>Opening File Explorer</h3>
+                    <div class="step-by-step">
+                        <p><strong>Method 1:</strong> Click folder icon in taskbar</p>
+                        <p><strong>Method 2:</strong> Press Windows + E</p>
+                        <p><strong>Method 3:</strong> Start Menu → File Explorer</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="screenshot-placeholder">
+                        Screenshot: File Explorer interface with components labeled
+                    </div>
+                </div>
+            </div>
+
+            <div class="knowledge-check">
+                <h3>🧠 Knowledge Check: File System</h3>
+                <div class="quiz-question">
+                    <p><strong>Question:</strong> What keyboard shortcut opens File Explorer?</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q1" value="a"> Ctrl + E</label>
+                        <label><input type="radio" name="q1" value="b"> Windows + E</label>
+                        <label><input type="radio" name="q1" value="c"> Alt + E</label>
+                    </div>
+                    <button class="btn" onclick="checkAnswer('q1', 'b', 'Correct! Windows + E opens File Explorer quickly.')">Check Answer</button>
+                    <div class="feedback" id="q1-feedback"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: OneDrive Setup -->
+        <div class="slide">
+            <h2>☁️ Setting Up OneDrive</h2>
+            
+            <div class="step-by-step">
+                <h3>OneDrive Setup Process:</h3>
+                <ol>
+                    <li><strong>Locate OneDrive:</strong> Find cloud icon in system tray</li>
+                    <li><strong>Initial Setup:</strong> Click icon and follow setup wizard</li>
+                    <li><strong>Sign In:</strong> Use your school email and password</li>
+                    <li><strong>Choose Location:</strong> Accept default folder location</li>
+                    <li><strong>Sync Options:</strong> Select "Sync all files and folders"</li>
+                </ol>
+            </div>
+
+            <div class="screenshot-placeholder">
+                Screenshot: OneDrive setup wizard showing sign-in screen
+            </div>
+
+            <div class="activity-box">
+                <h3>🎯 Hands-On Activity: OneDrive Test</h3>
+                <p><strong>Complete these tasks:</strong></p>
+                <div class="checklist">
+                    <label><input type="checkbox"> Set up OneDrive with your school account</label>
+                    <label><input type="checkbox"> Create a folder called "Digital Literacy Course"</label>
+                    <label><input type="checkbox"> Save a test document to OneDrive</label>
+                    <label><input type="checkbox"> Verify the file appears on office.com</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Lesson 2 Title -->
+        <div class="slide">
+            <h1>📧 Lesson 2: Email & Organization</h1>
+            
+            <div class="lesson-objectives">
+                <h3>Learning Objectives</h3>
+                <ul>
+                    <li>Navigate the Outlook interface effectively</li>
+                    <li>Compose, send, and manage emails professionally</li>
+                    <li>Create and manage calendar events</li>
+                    <li>Set up and organize tasks for productivity</li>
+                </ul>
+            </div>
+
+            <div class="video-placeholder">
+                🎬 Video: "Professional Email Communication" (4 minutes)
+            </div>
+        </div>
+
+        <!-- Slide 7: Outlook Interface -->
+        <div class="slide">
+            <h2>🖥️ Understanding Outlook</h2>
+            
+            <div class="screenshot-placeholder">
+                Screenshot: Outlook main interface with components labeled (Ribbon, Navigation Pane, Folder Pane, Reading Pane, Message List)
+            </div>
+
+            <div class="step-by-step">
+                <h3>Key Interface Components:</h3>
+                <ol>
+                    <li><strong>Ribbon:</strong> Contains all tools and commands</li>
+                    <li><strong>Navigation Pane:</strong> Switch between Mail, Calendar, Tasks</li>
+                    <li><strong>Folder Pane:</strong> Shows email folders (Inbox, Sent Items, etc.)</li>
+                    <li><strong>Reading Pane:</strong> Preview emails without opening</li>
+                    <li><strong>Message List:</strong> Shows all emails in selected folder</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Slide 8: Professional Email -->
+        <div class="slide">
+            <h2>✍️ Writing Professional Emails</h2>
+            
+            <div class="two-column">
+                <div>
+                    <h3>Email Structure</h3>
+                    <div class="step-by-step">
+                        <ol>
+                            <li><strong>Subject:</strong> Clear, descriptive</li>
+                            <li><strong>Greeting:</strong> "Dear [Name]" or "Hello [Name]"</li>
+                            <li><strong>Body:</strong> Clear, concise message</li>
+                            <li><strong>Closing:</strong> "Best regards" or "Sincerely"</li>
+                            <li><strong>Signature:</strong> Your name and contact info</li>
+                        </ol>
+                    </div>
+                </div>
+                <div>
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 14px;">
+                        <strong>Subject:</strong> Assignment Submission - Digital Literacy<br><br>
+                        Dear Professor Smith,<br><br>
+                        I hope this email finds you well. I am writing to submit my Digital Literacy project, which is attached to this email.<br><br>
+                        Please let me know if you need any additional information.<br><br>
+                        Best regards,<br>
+                        [Your Name]<br>
+                        [Student ID]<br>
+                        [Email Address]
+                    </div>
+                </div>
+            </div>
+
+            <div class="knowledge-check">
+                <h3>📝 Email Etiquette Quiz</h3>
+                <div class="quiz-question">
+                    <p><strong>Which subject line is most professional?</strong></p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q2" value="a"> hey prof</label>
+                        <label><input type="radio" name="q2" value="b"> Assignment Submission - Biology Lab Report</label>
+                        <label><input type="radio" name="q2" value="c"> URGENT!!!</label>
+                    </div>
+                    <button class="btn" onclick="checkAnswer('q2', 'b', 'Correct! Professional subject lines are clear and descriptive.')">Check Answer</button>
+                    <div class="feedback" id="q2-feedback"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 9: Calendar Management -->
+        <div class="slide">
+            <h2>📅 Calendar Management</h2>
+            
+            <div class="step-by-step">
+                <h3>Creating Calendar Events:</h3>
+                <ol>
+                    <li><strong>Access Calendar:</strong> Click "Calendar" in navigation pane</li>
+                    <li><strong>New Appointment:</strong> Click "New Appointment" in ribbon</li>
+                    <li><strong>Event Details:</strong> Add title, location, start/end times</li>
+                    <li><strong>Reminders:</strong> Set notification timing</li>
+                    <li><strong>Recurrence:</strong> For repeating events like classes</li>
+                </ol>
+            </div>
+
+            <div class="screenshot-placeholder">
+                Screenshot: Calendar view showing monthly layout with sample events
+            </div>
+
+            <div class="activity-box">
+                <h3>📅 Calendar Practice</h3>
+                <p><strong>Create these calendar events:</strong></p>
+                <div class="checklist">
+                    <label><input type="checkbox"> Weekly class schedule (recurring events)</label>
+                    <label><input type="checkbox"> Study session with 30-minute reminder</label>
+                    <label><input type="checkbox"> Assignment due date (all-day event)</label>
+                    <label><input type="checkbox"> Office hours appointment</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 10: Lesson 3 Title -->
+        <div class="slide">
+            <h1>📄 Lesson 3: Document Creation</h1>
+            
+            <div class="lesson-objectives">
+                <h3>Learning Objectives</h3>
+                <ul>
+                    <li>Navigate the Microsoft Word interface effectively</li>
+                    <li>Create, format, and edit professional documents</li>
+                    <li>Save documents to OneDrive for cloud access</li>
+                    <li>Use essential Word features for academic work</li>
+                </ul>
+            </div>
+
+            <div class="video-placeholder">
+                🎬 Video: "Creating Professional Documents" (5 minutes)
+            </div>
+        </div>
+
+        <!-- Slide 11: Word Interface -->
+        <div class="slide">
+            <h2>📝 Microsoft Word Interface</h2>
+            
+            <div class="screenshot-placeholder">
+                Screenshot: Word interface showing Title Bar, Ribbon with all tabs, Document Area, Status Bar
+            </div>
+
+            <div class="two-column">
+                <div>
+                    <h3>Ribbon Tabs Overview:</h3>
+                    <ul>
+                        <li><strong>File:</strong> Save, open, print, share</li>
+                        <li><strong>Home:</strong> Basic formatting</li>
+                        <li><strong>Insert:</strong> Tables, pictures, headers</li>
+                        <li><strong>Design:</strong> Document themes</li>
+                        <li><strong>Layout:</strong> Page setup, margins</li>
+                        <li><strong>References:</strong> Citations, footnotes</li>
+                        <li><strong>Review:</strong> Spell check, comments</li>
+                        <li><strong>View:</strong> Display options</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="activity-box">
+                        <h3>🔍 Interface Exploration</h3>
+                        <p>Spend 5 minutes exploring each ribbon tab. Click through to see what tools are available!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 12: Document Formatting -->
+        <div class="slide">
+            <h2>🎨 Professional Document Formatting</h2>
+            
+            <div class="step-by-step">
+                <h3>Essential Formatting Tools:</h3>
+                <ol>
+                    <li><strong>Font Formatting:</strong> Font type, size, bold, italic, underline</li>
+                    <li><strong>Paragraph Alignment:</strong> Left, center, right, justify</li>
+                    <li><strong>Line Spacing:</strong> Single, 1.5, double spacing</li>
+                    <li><strong>Bullets and Numbering:</strong> For organized lists</li>
+                    <li><strong>Headers and Footers:</strong> Page numbers, document info</li>
+                </ol>
+            </div>
+
+            <div class="knowledge-check">
+                <h3>💡 Quick Formatting Quiz</h3>
+                <div class="quiz-question">
+                    <p><strong>What's the keyboard shortcut for bold text?</strong></p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q3" value="a"> Ctrl + B</label>
+                        <label><input type="radio" name="q3" value="b"> Ctrl + Bold</label>
+                        <label><input type="radio" name="q3" value="c"> Alt + B</label>
+                    </div>
+                    <button class="btn" onclick="checkAnswer('q3', 'a', 'Correct! Ctrl + B makes text bold.')">Check Answer</button>
+                    <div class="feedback" id="q3-feedback"></div>
+                </div>
+            </div>
+
+            <div class="screenshot-placeholder">
+                Screenshot: Home tab showing font formatting tools highlighted
+            </div>
+        </div>
+
+        <!-- Slide 13: Document Creation Exercise -->
+        <div class="slide">
+            <h2>📝 Document Creation Exercise</h2>
+            
+            <div class="activity-box">
+                <h3>🎯 Create Your First Professional Document</h3>
+                <p><strong>Assignment:</strong> "Digital Literacy Skills Summary"</p>
+                
+                <h4>Requirements:</h4>
+                <div class="checklist">
+                    <label><input type="checkbox"> Title page with your information</label>
+                    <label><input type="checkbox"> Use Heading 1 style for main sections</label>
+                    <label><input type="checkbox"> Three main sections with 2-3 paragraphs each</label>
+                    <label><input type="checkbox"> Times New Roman, 12pt font</label>
+                    <label><input type="checkbox"> Double-spaced throughout</label>
+                    <label><input type="checkbox"> Page numbers in header</label>
+                    <label><input type="checkbox"> Save to OneDrive with descriptive filename</label>
+                </div>
+            </div>
+
+            <div class="step-by-step">
+                <h3>Document Sections to Include:</h3>
+                <ol>
+                    <li><strong>"Windows Navigation Skills"</strong> - What you've learned about file management</li>
+                    <li><strong>"Email Management Abilities"</strong> - Your Outlook proficiency</li>
+                    <li><strong>"Document Creation Proficiency"</strong> - Word processing skills gained</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Slide 14: Lesson 4 Title -->
+        <div class="slide">
+            <h1>📊 Lesson 4: Presentations & Spreadsheets</h1>
+            
+            <div class="lesson-objectives">
+                <h3>Learning Objectives</h3>
+                <ul>
+                    <li>Create professional presentations using PowerPoint</li>
+                    <li>Build and format basic spreadsheets in Excel</li>
+                    <li>Save both file types to OneDrive effectively</li>
+                    <li>Apply design principles for effective visual communication</li>
+                </ul>
+            </div>
+
+            <div class="video-placeholder">
+                🎬 Video: "Visual Communication Principles" (4 minutes)
+            </div>
+        </div>
+
+        <!-- Slide 15: PowerPoint Basics -->
+        <div class="slide">
+            <h2>🎭 PowerPoint Presentation Basics</h2>
+            
+            <div class="two-column">
+                <div>
+                    <h3>Slide Design Principles:</h3>
+                    <ul>
+                        <li><strong>6x6 Rule:</strong> Max 6 words per line, 6 lines per slide</li>
+                        <li><strong>High Contrast:</strong> Dark text on light background</li>
+                        <li><strong>Consistent Fonts:</strong> Use 2 fonts maximum</li>
+                        <li><strong>Visual Hierarchy:</strong> Important items larger/bolder</li>
+                    </ul>
+                    
+                    <h3>Font Size Guidelines:</h3>
+                    <ul>
+                        <li><strong>Title:</strong> 36-44pt</li>
+                        <li><strong>Body Text:</strong> 24-32pt</li>
+                        <li><strong>Use bullet points</strong> for lists</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="screenshot-placeholder">
+                        Screenshot: PowerPoint interface showing slide thumbnails, editing area, and ribbon
+                    </div>
+                </div>
+            </div>
+
+            <div class="knowledge-check">
+                <h3>🎨 Design Quiz</h3>
+                <div class="quiz-question">
+                    <p><strong>What's the maximum recommended words per line on a slide?</strong></p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q4" value="a"> 10 words</label>
+                        <label><input type="radio" name="q4" value="b"> 6 words</label>
+                        <label><input type="radio" name="q4" value="c"> No limit</label>
+                    </div>
+                    <button class="btn" onclick="checkAnswer('q4', 'b', 'Correct! The 6x6 rule helps keep slides readable.')">Check Answer</button>
+                    <div class="feedback" id="q4-feedback"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 16: Excel Fundamentals -->
+        <div class="slide">
+            <h2>📈 Excel Spreadsheet Basics</h2>
+            
+            <div class="step-by-step">
+                <h3>Understanding Excel:</h3>
+                <ol>
+                    <li><strong>Cells:</strong> Individual boxes (A1, B2, C3, etc.)</li>
+                    <li><strong>Worksheets:</strong> Tabs at bottom for different sheets</li>
+                    <li><strong>Formula Bar:</strong> Shows content of selected cell</li>
+                    <li><strong>Name Box:</strong> Shows address of current cell</li>
+                </ol>
+            </div>
+
+            <div class="two-column">
+                <div>
+                    <h3>Common Functions:</h3>
+                    <ul>
+                        <li><strong>=SUM(B2:B10)</strong> - Adds values</li>
+                        <li><strong>=AVERAGE(B2:B10)</strong> - Calculates mean</li>
+                        <li><strong>=MAX(B2:B10)</strong> - Finds highest</li>
+                        <li><strong>=MIN(B2:B10)</strong> - Finds lowest</li>
+                        <li><strong>=COUNT(B2:B10)</strong> - Counts entries</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="screenshot-placeholder">
+                        Screenshot: Excel interface showing formula being entered with function tooltip
+                    </div>
+                </div>
+            </div>
+
+            <div class="activity-box">
+                <h3>🧮 Excel Practice: Grade Tracker</h3>
+                <p>Create a simple grade tracker with:</p>
+                <div class="checklist">
+                    <label><input type="checkbox"> Headers: Student Name, Assignment 1, 2, 3, Average</label>
+                    <label><input type="checkbox"> Enter sample data for 3 students</label>
+                    <label><input type="checkbox"> Use AVERAGE function for each student</label>
+                    <label><input type="checkbox"> Format as a table with borders</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 17: Integration Exercise -->
+        <div class="slide">
+            <h2>🔗 Integration Challenge</h2>
+            
+            <div class="activity-box">
+                <h3>🎯 Multi-Application Project</h3>
+                <p><strong>Goal:</strong> Create a complete presentation about your digital literacy journey</p>
+                
+                <h4>Part 1: Excel Component</h4>
+                <div class="checklist">
+                    <label><input type="checkbox"> Create a skills assessment spreadsheet</label>
+                    <label><input type="checkbox"> Rate your confidence (1-10) in each skill area</label>
+                    <label><input type="checkbox"> Create a chart showing your progress</label>
+                </div>
+                
+                <h4>Part 2: PowerPoint Component</h4>
+                <div class="checklist">
+                    <label><input type="checkbox"> 5-slide presentation about your learning</label>
+                    <label><input type="checkbox"> Import your Excel chart</label>
+                    <label><input type="checkbox"> Include images and professional design</label>
+                    <label><input type="checkbox"> Add speaker notes for each slide</label>
+                </div>
+                
+                <h4>Part 3: Word Component</h4>
+                <div class="checklist">
+                    <label><input type="checkbox"> Write a 1-page reflection on your experience</label>
+                    <label><input type="checkbox"> Professional formatting with headers</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 18: File Management Best Practices -->
+        <div class="slide">
+            <h2>📂 File Management & OneDrive Best Practices</h2>
+            
+            <div class="two-column">
+                <div>
+                    <h3>File Naming Conventions:</h3>
+                    <ul>
+                        <li><strong>Descriptive names:</strong> "Biology_Lab_Report_Ch3"</li>
+                        <li><strong>Include dates:</strong> "Essay_Draft_2024-01-15"</li>
+                        <li><strong>Avoid special characters:</strong> / \ : * ? " < > |</li>
+                        <li><strong>Use underscores:</strong> Instead of spaces</li>
+                        <li><strong>Version control:</strong> _v1, _v2, _final</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Folder Organization:</h3>
+                    <ul>
+                        <li><strong>Course folders:</strong> One per class</li>
+                        <li><strong>Assignment types:</strong> Essays, Labs, Projects</li>
+                        <li><strong>Semester organization:</strong> Fall2024, Spring2024</li>
+                        <li><strong>Archive old work:</strong> Keep organized</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="screenshot-placeholder">
+                Screenshot: OneDrive folder structure showing organized course materials
+            </div>
+
+            <div class="activity-box">
+                <h3>🗂️ Organize Your OneDrive</h3>
+                <div class="checklist">
+                    <label><input type="checkbox"> Create course folders for each class</label>
+                    <label><input type="checkbox"> Set up subfolder structure</label>
+                    <label><input type="checkbox"> Move all course files to appropriate folders</label>
+                    <label><input type="checkbox"> Test sharing permissions with a classmate</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 19: Collaboration Features -->
+        <div class="slide">
+            <h2>🤝 Collaboration & Sharing</h2>
+            
+            <div class="step-by-step">
+                <h3>Sharing Documents:</h3>
+                <ol>
+                    <li><strong>Click Share:</strong> Top-right corner of any Office app</li>
+                    <li><strong>Enter Emails:</strong> Add recipient addresses</li>
+                    <li><strong>Set Permissions:</strong> "Can edit" or "Can view"</li>
+                    <li><strong>Add Message:</strong> Explain what you're sharing</li>
+                    <li><strong>Send:</strong> Recipients get email with link</li>
+                </ol>
+            </div>
+
+            <div class="video-placeholder">
+                🎬 Demo Video: "Real-time Collaboration in Office 365" (3 minutes)
+            </div>
+
+            <div class="knowledge-check">
+                <h3>🔗 Sharing Quiz</h3>
+                <div class="quiz-question">
+                    <p><strong>What permission should you give for group editing?</strong></p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q5" value="a"> Can view</label>
+                        <label><input type="radio" name="q5" value="b"> Can edit</label>
+                        <label><input type="radio" name="q5" value="c"> No access</label>
+                    </div>
+                    <button class="btn" onclick="checkAnswer('q5', 'b', 'Correct! Can edit allows collaborative work.')">Check Answer</button>
+                    <div class="feedback" id="q5-feedback"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 20: Troubleshooting Common Issues -->
+        <div class="slide">
+            <h2>🔧 Troubleshooting & Help Resources</h2>
+            
+            <div class="two-column">
+                <div>
+                    <h3>Common Issues & Solutions:</h3>
+                    <ul>
+                        <li><strong>Login Problems:</strong> Check Caps Lock, verify credentials</li>
+                        <li><strong>File Won't Open:</strong> Check file permissions, try web version</li>
+                        <li><strong>OneDrive Not Syncing:</strong> Check internet, restart OneDrive</li>
+                        <li><strong>App Crashes:</strong> Save work frequently, restart application</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Getting Help:</h3>
+                    <ul>
+                        <li><strong>F1 Key:</strong> Built-in help in any Office app</li>
+                        <li><strong>Tell Me Box:</strong> Type questions in ribbon</li>
+                        <li><strong>Microsoft Support:</strong> support.microsoft.com</li>
+                        <li><strong>IT Help Desk:</strong> Your school's tech support</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="activity-box">
+                <h3>🆘 Practice Getting Help</h3>
+                <p>Try these help methods:</p>
+                <div class="checklist">
+                    <label><input type="checkbox"> Press F1 in Word and search for "page numbers"</label>
+                    <label><input type="checkbox"> Use "Tell me" box to find "table formatting"</label>
+                    <label><input type="checkbox"> Visit support.microsoft.com and browse tutorials</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 21: Security & Best Practices -->
+        <div class="slide">
+            <h2>🔒 Digital Security & Best Practices</h2>
+            
+            <div class="step-by-step">
+                <h3>Password Security:</h3>
+                <ol>
+                    <li><strong>Strong Passwords:</strong> 12+ characters, mix of letters, numbers, symbols</li>
+                    <li><strong>Unique Passwords:</strong> Different password for each account</li>
+                    <li><strong>Password Manager:</strong> Use built-in browser tools or apps</li>
+                    <li><strong>Two-Factor Authentication:</strong> Enable when available</li>
+                </ol>
+            </div>
+
+            <div class="knowledge-check">
+                <h3>🛡️ Security Quiz</h3>
+                <div class="quiz-question">
+                    <p><strong>Which password is strongest?</strong></p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q6" value="a"> password123</label>
+                        <label><input type="radio" name="q6" value="b"> MyBirthday1995</label>
+                        <label><input type="radio" name="q6" value="c"> R#aD!8*zPq2024</label>
+                    </div>
+                    <button class="btn" onclick="checkAnswer('q6', 'c', 'Correct! Complex passwords with mixed characters are strongest.')">Check Answer</button>
+                    <div class="feedback" id="q6-feedback"></div>
+                </div>
+            </div>
+
+            <div class="activity-box">
+                <h3>🔐 Security Checklist</h3>
+                <div class="checklist">
+                    <label><input type="checkbox"> Review all your current passwords</label>
+                    <label><input type="checkbox"> Enable two-factor authentication on school accounts</label>
+                    <label><input type="checkbox"> Set up password manager</label>
+                    <label><input type="checkbox"> Update any weak passwords</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 22: Keyboard Shortcuts Reference -->
+        <div class="slide">
+            <h2>⌨️ Essential Keyboard Shortcuts</h2>
+            
+            <div class="two-column">
+                <div>
+                    <h3>Universal Shortcuts:</h3>
+                    <ul>
+                        <li><strong>Ctrl + C:</strong> Copy</li>
+                        <li><strong>Ctrl + V:</strong> Paste</li>
+                        <li><strong>Ctrl + X:</strong> Cut</li>
+                        <li><strong>Ctrl + Z:</strong> Undo</li>
+                        <li><strong>Ctrl + S:</strong> Save</li>
+                        <li><strong>Ctrl + P:</strong> Print</li>
+                        <li><strong>Ctrl + A:</strong> Select All</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Application-Specific:</h3>
+                    <ul>
+                        <li><strong>Word:</strong> Ctrl+B (Bold), Ctrl+I (Italic)</li>
+                        <li><strong>Excel:</strong> F2 (Edit cell), Ctrl+; (Today's date)</li>
+                        <li><strong>PowerPoint:</strong> F5 (Start slideshow)</li>
+                        <li><strong>Windows:</strong> Win+E (File Explorer)</li>
+                        <li><strong>General:</strong> Alt+Tab (Switch apps)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="activity-box">
+                <h3>⚡ Shortcut Challenge</h3>
+                <p>Practice these shortcuts in order:</p>
+                <div class="checklist">
+                    <label><input type="checkbox"> Open Word with Win+R, type "winword"</label>
+                    <label><input type="checkbox"> Type text and make it bold with Ctrl+B</label>
+                    <label><input type="checkbox"> Save document with Ctrl+S</label>
+                    <label><input type="checkbox"> Select all text with Ctrl+A</label>
+                    <label><input type="checkbox"> Copy and paste with Ctrl+C, Ctrl+V</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 23: Final Assessment -->
+        <div class="slide">
+            <h2>🏆 Final Skills Assessment</h2>
+            
+            <div class="activity-box">
+                <h3>🎯 Comprehensive Skills Test</h3>
+                <p><strong>Complete this multi-step project to demonstrate your mastery:</strong></p>
+                
+                <h4>Step 1: File Management (10 points)</h4>
+                <div class="checklist">
+                    <label><input type="checkbox"> Create organized folder structure in OneDrive</label>
+                    <label><input type="checkbox"> Use proper naming conventions</label>
+                </div>
+                
+                <h4>Step 2: Document Creation (20 points)</h4>
+                <div class="checklist">
+                    <label><input type="checkbox"> Create professional report in Word</label>
+                    <label><input type="checkbox"> Include headers, page numbers, proper formatting</label>
+                    <label><input type="checkbox"> Use styles consistently</label>
+                </div>
+                
+                <h4>Step 3: Data Analysis (20 points)</h4>
+                <div class="checklist">
+                    <label><input type="checkbox"> Build functional Excel spreadsheet</label>
+                    <label><input type="checkbox"> Include formulas and formatting</label>
+                    <label><input type="checkbox"> Create chart from data</label>
+                </div>
+                
+                <h4>Step 4: Presentation (20 points)</h4>
+                <div class="checklist">
+                    <label><input type="checkbox"> Create 5-slide PowerPoint presentation</label>
+                    <label><input type="checkbox"> Include Excel chart</label>
+                    <label><input type="checkbox"> Apply design principles</label>
+                </div>
+                
+                <h4>Step 5: Communication (15 points)</h4>
+                <div class="checklist">
+                    <label><input type="checkbox"> Send professional email with attachments</label>
+                    <label><input type="checkbox"> Create calendar event for presentation</label>
+                </div>
+                
+                <h4>Step 6: Collaboration (15 points)</h4>
+                <div class="checklist">
+                    <label><input type="checkbox"> Share documents with appropriate permissions</label>
+                    <label><input type="checkbox"> Demonstrate version control knowledge</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 24: Next Steps & Resources -->
+        <div class="slide">
+            <h2>🚀 Next Steps & Continuing Education</h2>
+            
+            <div class="two-column">
+                <div>
+                    <h3>Recommended Learning Paths:</h3>
+                    <ul>
+                        <li><strong>Microsoft Learn:</strong> Free online courses</li>
+                        <li><strong>LinkedIn Learning:</strong> Professional development</li>
+                        <li><strong>YouTube Tutorials:</strong> Specific feature training</li>
+                        <li><strong>Campus Workshops:</strong> Advanced skills sessions</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Advanced Skills to Explore:</h3>
+                    <ul>
+                        <li><strong>Word:</strong> Mail merge, advanced formatting</li>
+                        <li><strong>Excel:</strong> PivotTables, advanced functions</li>
+                        <li><strong>PowerPoint:</strong> Animations, multimedia</li>
+                        <li><strong>Teams:</strong> Advanced collaboration</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="activity-box">
+                <h3>📚 Create Your Learning Plan</h3>
+                <p>Choose 3 areas for continued development:</p>
+                <div class="checklist">
+                    <label><input type="checkbox"> Advanced Excel functions and data analysis</label>
+                    <label><input type="checkbox"> Professional presentation design</label>
+                    <label><input type="checkbox"> Document automation and templates</label>
+                    <label><input type="checkbox"> Team collaboration workflows</label>
+                    <label><input type="checkbox"> Digital project management</label>
+                    <label><input type="checkbox"> Data visualization techniques</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 25: Conclusion -->
+        <div class="slide">
+            <h1>🎉 Congratulations!</h1>
+            <h2>You've Completed Digital Literacy Fundamentals</h2>
+            
+            <div style="text-align: center; margin: 40px 0;">
+                <div class="video-placeholder">
+                    🎬 Celebration Video: "Your Digital Journey Continues" (2 minutes)
+                </div>
+            </div>
+
+            <div class="lesson-objectives">
+                <h3>🏆 Skills You've Mastered:</h3>
+                <ul>
+                    <li>✅ Windows navigation and file management</li>
+                    <li>✅ OneDrive cloud storage and synchronization</li>
+                    <li>✅ Professional email communication with Outlook</li>
+                    <li>✅ Calendar and task management</li>
+                    <li>✅ Document creation and formatting in Word</li>
+                    <li>✅ Presentation design with PowerPoint</li>
+                    <li>✅ Spreadsheet creation and analysis in Excel</li>
+                    <li>✅ File sharing and collaboration</li>
+                    <li>✅ Digital security best practices</li>
+                </ul>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <h3 style="color: #27ae60;">You're now equipped with the digital literacy skills essential for academic and professional success!</h3>
+                <p style="font-size: 18px; margin-top: 20px;">Continue practicing, exploring, and learning. The digital world is at your fingertips!</p>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressBar"></div>
+            </div>
+            <button class="btn" id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
+            <button class="btn" id="nextBtn" onclick="changeSlide(1)">Next →</button>
+            <button class="btn btn-success" id="finishBtn" onclick="finishCourse()" style="display: none;">🎉 Finish Course</button>
         </div>
     </div>
-    
-    <!-- Additional units would be added here following the same structure -->
+
+    <script>
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        
+        document.getElementById('totalSlides').textContent = totalSlides;
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[index].classList.add('active');
+            
+            document.getElementById('currentSlide').textContent = index + 1;
+            
+            // Update progress bar
+            const progress = ((index + 1) / totalSlides) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+            
+            // Show/hide navigation buttons
+            document.getElementById('prevBtn').style.display = index === 0 ? 'none' : 'inline-block';
+            document.getElementById('nextBtn').style.display = index === totalSlides - 1 ? 'none' : 'inline-block';
+            document.getElementById('finishBtn').style.display = index === totalSlides - 1 ? 'inline-block' : 'none';
+        }
+
+        function changeSlide(direction) {
+            currentSlideIndex += direction;
+            if (currentSlideIndex < 0) currentSlideIndex = 0;
+            if (currentSlideIndex >= totalSlides) currentSlideIndex = totalSlides - 1;
+            showSlide(currentSlideIndex);
+        }
+
+        function checkAnswer(questionName, correctAnswer, feedbackText) {
+            const selected = document.querySelector(`input[name="${questionName}"]:checked`);
+            const feedback = document.getElementById(`${questionName}-feedback`);
+            
+            if (!selected) {
+                alert('Please select an answer first!');
+                return;
+            }
+            
+            if (selected.value === correctAnswer) {
+                feedback.textContent = feedbackText;
+                feedback.className = 'feedback correct';
+            } else {
+                feedback.textContent = 'Incorrect. Try again or review the material.';
+                feedback.className = 'feedback incorrect';
+            }
+            
+            feedback.style.display = 'block';
+        }
+
+        function finishCourse() {
+            alert('🎉 Congratulations! You have successfully completed the Digital Literacy Fundamentals course. You now have the essential skills for academic and professional success in the digital world!');
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowLeft') changeSlide(-1);
+            if (event.key === 'ArrowRight') changeSlide(1);
+        });
+
+        // Initialize
+        showSlide(0);
+
+        // Auto-save progress (in a real implementation, this would save to a server)
+        function saveProgress() {
+            localStorage.setItem('digitalLiteracyProgress', currentSlideIndex);
+        }
+
+        // Load saved progress
+        function loadProgress() {
+            const saved = localStorage.getItem('digitalLiteracyProgress');
+            if (saved) {
+                currentSlideIndex = parseInt(saved);
+                showSlide(currentSlideIndex);
+            }
+        }
+
+        // Save progress when slide changes
+        function changeSlide(direction) {
+            currentSlideIndex += direction;
+            if (currentSlideIndex < 0) currentSlideIndex = 0;
+            if (currentSlideIndex >= totalSlides) currentSlideIndex = totalSlides - 1;
+            showSlide(currentSlideIndex);
+            saveProgress();
+        }
+
+        // Load progress on page load
+        window.addEventListener('load', loadProgress);
+    </script>
 </body>
 </html>
