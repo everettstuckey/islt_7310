@@ -82,6 +82,15 @@
             color: #7f8c8d;
         }
 
+        .actual-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 2px solid #ecf0f1;
+        }
+
         .step-by-step {
             background: #f8f9fa;
             padding: 20px;
@@ -208,6 +217,13 @@
             margin: 20px 0;
         }
 
+        .youtube-video {
+            width: 100%;
+            height: 315px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
         .lesson-objectives {
             background: #d4edda;
             border: 2px solid #28a745;
@@ -280,6 +296,95 @@
             margin: 20px 0;
         }
 
+        /* Victory Animation Styles */
+        .victory-animation {
+            width: 100%;
+            height: 315px;
+            position: relative;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #f9ca24, #f0932b);
+            background-size: 400% 400%;
+            animation: victoryGradient 3s ease infinite;
+            border-radius: 15px;
+            margin: 20px 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes victoryGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .trophy {
+            font-size: 120px;
+            animation: bounce 2s ease-in-out infinite;
+            margin: 0 20px;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-30px); }
+            60% { transform: translateY(-15px); }
+        }
+
+        .confetti {
+            position: absolute;
+            font-size: 24px;
+            animation: confettiFall 3s linear infinite;
+        }
+
+        @keyframes confettiFall {
+            0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(400px) rotate(360deg); opacity: 0; }
+        }
+
+        .confetti:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .confetti:nth-child(2) { left: 20%; animation-delay: 0.5s; }
+        .confetti:nth-child(3) { left: 30%; animation-delay: 1s; }
+        .confetti:nth-child(4) { left: 40%; animation-delay: 1.5s; }
+        .confetti:nth-child(5) { left: 50%; animation-delay: 0.3s; }
+        .confetti:nth-child(6) { left: 60%; animation-delay: 0.8s; }
+        .confetti:nth-child(7) { left: 70%; animation-delay: 1.3s; }
+        .confetti:nth-child(8) { left: 80%; animation-delay: 0.2s; }
+        .confetti:nth-child(9) { left: 90%; animation-delay: 1.8s; }
+
+        .victory-text {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .chatgpt-section {
+            background: #e8f5e8;
+            border: 2px solid #4caf50;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .snip-tool-section {
+            background: #f0f8ff;
+            border: 2px solid #007acc;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
         @media (max-width: 768px) {
             .two-column {
                 grid-template-columns: 1fr;
@@ -291,6 +396,10 @@
             
             .slide h1 {
                 font-size: 2em;
+            }
+            
+            .youtube-video {
+                height: 250px;
             }
         }
     </style>
@@ -307,10 +416,10 @@
             <h2>Freshman Orientation Program</h2>
             
             <div style="text-align: center; margin: 40px 0;">
-                <div class="video-placeholder">
-                    🎬 Welcome Video: "Your Digital Journey Begins Here"<br>
-                    <small>(2-minute introduction video would be embedded here)</small>
-                </div>
+                <iframe class="youtube-video" src="https://www.youtube.com/embed/d_Y7o8Db7H8" 
+                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen></iframe>
+                <p><strong>Welcome Video: "Your Digital Journey Begins Here"</strong></p>
             </div>
 
             <div class="lesson-objectives">
@@ -346,9 +455,10 @@
                 </ul>
             </div>
 
-            <div class="video-placeholder">
-                🎬 Video: "Windows Login & Security Best Practices" (3 minutes)
-            </div>
+            <iframe class="youtube-video" src="https://www.youtube.com/embed/YitHISP0Isk" 
+                    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen></iframe>
+            <p style="text-align: center;"><strong>Video: "Windows Login & Security Best Practices"</strong></p>
         </div>
 
         <!-- Slide 3: Windows Login -->
@@ -365,8 +475,21 @@
                 </ol>
             </div>
 
-            <div class="screenshot-placeholder">
-                Screenshot: Windows Login Screen with username and password fields highlighted
+            <img src="https://support.microsoft.com/images/en-us/dcfe1a76-f0cb-4abe-a44e-3d51ea91866b" 
+                 alt="Windows Login Screen" class="actual-image">
+
+            <div class="snip-tool-section">
+                <h3>📸 Using the Snipping Tool for Screen Capture</h3>
+                <div class="step-by-step">
+                    <h4>How to capture screenshots:</h4>
+                    <ol>
+                        <li><strong>Open Snipping Tool:</strong> Press Windows key + Shift + S</li>
+                        <li><strong>Select Area:</strong> Click and drag to select what you want to capture</li>
+                        <li><strong>Edit (Optional):</strong> Add annotations or highlights</li>
+                        <li><strong>Save:</strong> Save the image to your desired location</li>
+                    </ol>
+                    <p><strong>Pro Tip:</strong> Use this tool to capture error messages or important information to share with tech support!</p>
+                </div>
             </div>
 
             <div class="activity-box">
@@ -377,6 +500,7 @@
                     <li>Wait for login screen to appear</li>
                     <li>Log back in using your credentials</li>
                     <li>Time yourself - aim for under 30 seconds!</li>
+                    <li><strong>Bonus:</strong> Take a screenshot using the Snipping Tool!</li>
                 </ol>
             </div>
         </div>
@@ -395,9 +519,9 @@
                     </div>
                 </div>
                 <div>
-                    <div class="screenshot-placeholder">
-                        Screenshot: File Explorer interface with components labeled
-                    </div>
+                    <iframe class="youtube-video" src="https://www.youtube.com/embed/tqUAE0o46lw" 
+                            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen style="height: 250px;"></iframe>
                 </div>
             </div>
 
@@ -431,9 +555,8 @@
                 </ol>
             </div>
 
-            <div class="screenshot-placeholder">
-                Screenshot: OneDrive setup wizard showing sign-in screen
-            </div>
+            <img src="https://cdn.mos.cms.futurecdn.net/NbJQVBs9ijoYMdPfeoRHsd-650-80.jpg.webp" 
+                 alt="OneDrive Setup Interface" class="actual-image">
 
             <div class="activity-box">
                 <h3>🎯 Hands-On Activity: OneDrive Test</h3>
@@ -461,8 +584,24 @@
                 </ul>
             </div>
 
-            <div class="video-placeholder">
-                🎬 Video: "Professional Email Communication" (4 minutes)
+            <iframe class="youtube-video" src="https://www.youtube.com/embed/SMnjShkHCug" 
+                    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen></iframe>
+            <p style="text-align: center;"><strong>Video: "Professional Email Communication"</strong></p>
+
+            <div class="chatgpt-section">
+                <h3>🤖 Using ChatGPT to Improve Your Emails</h3>
+                <p><strong>Pro Tip:</strong> You can use AI tools like ChatGPT to help proofread and improve your professional emails!</p>
+                <div class="step-by-step">
+                    <h4>How to use ChatGPT for email proofreading:</h4>
+                    <ol>
+                        <li><strong>Draft your email</strong> in Outlook first</li>
+                        <li><strong>Copy the text</strong> and paste it into ChatGPT</li>
+                        <li><strong>Ask for help:</strong> "Please proofread this email for grammar and professionalism"</li>
+                        <li><strong>Review suggestions</strong> and apply improvements</li>
+                        <li><strong>Final check:</strong> Make sure the tone matches your intent</li>
+                    </ol>
+                </div>
             </div>
         </div>
 
@@ -470,9 +609,7 @@
         <div class="slide">
             <h2>🖥️ Understanding Outlook</h2>
             
-            <div class="screenshot-placeholder">
-                Screenshot: Outlook main interface with components labeled (Ribbon, Navigation Pane, Folder Pane, Reading Pane, Message List)
-            </div>
+            <iframe width="1024" height="566" src="https://www.youtube.com/embed/U7uuxBjKkCQ" title="10 Essential NEW Microsoft Outlook Tips &amp; Tricks for 2024 + Bonus Material!  📧" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
             <div class="step-by-step">
                 <h3>Key Interface Components:</h3>
@@ -547,9 +684,8 @@
                 </ol>
             </div>
 
-            <div class="screenshot-placeholder">
-                Screenshot: Calendar view showing monthly layout with sample events
-            </div>
+            <img src="https://techstory.in/wp-content/uploads/2022/07/olkWin32_threeTimezones.png" 
+                 alt="Calendar Management Interface" class="actual-image">
 
             <div class="activity-box">
                 <h3>📅 Calendar Practice</h3>
@@ -577,18 +713,17 @@
                 </ul>
             </div>
 
-            <div class="video-placeholder">
-                🎬 Video: "Creating Professional Documents" (5 minutes)
-            </div>
+            <iframe class="youtube-video" src="https://www.youtube.com/embed/5Im87VPQZ_0" 
+                    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen></iframe>
+            <p style="text-align: center;"><strong>Video: "Creating Professional Documents"</strong></p>
         </div>
 
         <!-- Slide 11: Word Interface -->
         <div class="slide">
             <h2>📝 Microsoft Word Interface</h2>
             
-            <div class="screenshot-placeholder">
-                Screenshot: Word interface showing Title Bar, Ribbon with all tabs, Document Area, Status Bar
-            </div>
+
 
             <div class="two-column">
                 <div>
@@ -610,6 +745,8 @@
                         <p>Spend 5 minutes exploring each ribbon tab. Click through to see what tools are available!</p>
                     </div>
                 </div>
+                <img src="https://www.myexcelonline.com/wp-content/uploads/2022/03/Screenshot-853.png" 
+                alt="Microsoft Word Interface Overview" class="actual-image">
             </div>
         </div>
 
@@ -642,8 +779,8 @@
                 </div>
             </div>
 
-            <div class="screenshot-placeholder">
-                Screenshot: Home tab showing font formatting tools highlighted
+            <div>
+                <iframe width="1024" height="566" src="https://www.youtube.com/embed/Cw6a3b5QoAs" title="Microsoft Word Tutorial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
         </div>
 
@@ -691,9 +828,10 @@
                 </ul>
             </div>
 
-            <div class="video-placeholder">
-                🎬 Video: "Visual Communication Principles" (4 minutes)
-            </div>
+            <iframe class="youtube-video" src="https://www.youtube.com/embed/1bB4BHFWWHE" 
+                    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen></iframe>
+            <p style="text-align: center;"><strong>Video: "Visual Communication Principles"</strong></p>
         </div>
 
         <!-- Slide 15: PowerPoint Basics -->
@@ -718,9 +856,8 @@
                     </ul>
                 </div>
                 <div>
-                    <div class="screenshot-placeholder">
-                        Screenshot: PowerPoint interface showing slide thumbnails, editing area, and ribbon
-                    </div>
+                    <img src="https://i.ytimg.com/vi/WOZF7XmLd3U/hq720.jpg?sqp=-oaymwE7CK4FEIIDSFryq4qpAy0IARUAAAAAGAElAADIQj0AgKJD8AEB-AH-CYAC0AWKAgwIABABGFIgXChlMA8=&rs=AOn4CLC7jjiZY36IL33Xw-e19XWvPJpefA" 
+                         alt="PowerPoint Interface" class="actual-image">
                 </div>
             </div>
 
@@ -765,9 +902,8 @@
                     </ul>
                 </div>
                 <div>
-                    <div class="screenshot-placeholder">
-                        Screenshot: Excel interface showing formula being entered with function tooltip
-                    </div>
+                    <img src="https://www.microsoft.com/en-us/microsoft-365/blog/wp-content/uploads/sites/2/2019/02/Excel-with-Microsoft-Excel-in-Office-365-1b.png" 
+                         alt="Excel Interface with Functions" class="actual-image">
                 </div>
             </div>
 
@@ -840,9 +976,10 @@
                 </div>
             </div>
 
-            <div class="screenshot-placeholder">
-                Screenshot: OneDrive folder structure showing organized course materials
-            </div>
+            <iframe class="youtube-video" src="https://www.youtube.com/embed/prA75mu3arc" 
+            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen></iframe>
+    <p style="text-align: center;"><strong>Demo Video: "Real-time Collaboration in Office 365"</strong></p>
 
             <div class="activity-box">
                 <h3>🗂️ Organize Your OneDrive</h3>
@@ -870,9 +1007,7 @@
                 </ol>
             </div>
 
-            <div class="video-placeholder">
-                🎬 Demo Video: "Real-time Collaboration in Office 365" (3 minutes)
-            </div>
+            
 
             <div class="knowledge-check">
                 <h3>🔗 Sharing Quiz</h3>
@@ -1100,9 +1235,21 @@
             <h2>You've Completed Digital Literacy Fundamentals</h2>
             
             <div style="text-align: center; margin: 40px 0;">
-                <div class="video-placeholder">
-                    🎬 Celebration Video: "Your Digital Journey Continues" (2 minutes)
+                <div class="victory-animation">
+                    <div class="confetti">🎉</div>
+                    <div class="confetti">🎊</div>
+                    <div class="confetti">⭐</div>
+                    <div class="confetti">🌟</div>
+                    <div class="confetti">✨</div>
+                    <div class="confetti">🎉</div>
+                    <div class="confetti">🎊</div>
+                    <div class="confetti">⭐</div>
+                    <div class="confetti">🌟</div>
+                    <div class="trophy">🏆</div>
+                    <div class="trophy">🎓</div>
+                    <div class="victory-text">🎉 CONGRATULATIONS! 🎉</div>
                 </div>
+                <p style="text-align: center; margin-top: 15px;"><strong>🎊 Your Digital Journey Continues! 🎊</strong></p>
             </div>
 
             <div class="lesson-objectives">
@@ -1165,6 +1312,7 @@
             if (currentSlideIndex < 0) currentSlideIndex = 0;
             if (currentSlideIndex >= totalSlides) currentSlideIndex = totalSlides - 1;
             showSlide(currentSlideIndex);
+            saveProgress();
         }
 
         function checkAnswer(questionName, correctAnswer, feedbackText) {
@@ -1197,10 +1345,7 @@
             if (event.key === 'ArrowRight') changeSlide(1);
         });
 
-        // Initialize
-        showSlide(0);
-
-        // Auto-save progress (in a real implementation, this would save to a server)
+        // Auto-save progress
         function saveProgress() {
             localStorage.setItem('digitalLiteracyProgress', currentSlideIndex);
         }
@@ -1214,17 +1359,14 @@
             }
         }
 
-        // Save progress when slide changes
-        function changeSlide(direction) {
-            currentSlideIndex += direction;
-            if (currentSlideIndex < 0) currentSlideIndex = 0;
-            if (currentSlideIndex >= totalSlides) currentSlideIndex = totalSlides - 1;
+        // Initialize and load progress on page load
+        window.addEventListener('load', function() {
+            loadProgress();
             showSlide(currentSlideIndex);
-            saveProgress();
-        }
+        });
 
-        // Load progress on page load
-        window.addEventListener('load', loadProgress);
+        // Initialize
+        showSlide(0);
     </script>
 </body>
 </html>
