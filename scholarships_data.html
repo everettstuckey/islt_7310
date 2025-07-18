@@ -54,13 +54,16 @@
             padding: 12px 15px;
         }
         .styled-table tbody tr {
-            background-color: #000000;
+            background-color: #000000 !important;
         }
         .styled-table tbody tr:nth-of-type(even) {
-            background-color: #030303;
+            background-color: #030303 !important;
         }
         .styled-table tbody tr:last-of-type {
             border-bottom: 2px solid #004080;
+        }
+        .styled-table tbody tr td {
+            color: #ffffff !important;
         }
         .styled-table tbody tr:hover {
             background-color: #1a1a8c;
@@ -12823,14 +12826,22 @@
                 tbody.appendChild(item.row);
             });
 
-            // Add alternating row colors
+            // Add alternating row colors with proper specificity
             const sortedRows = tbody.querySelectorAll('tr');
             sortedRows.forEach((row, index) => {
+                // Remove any existing inline styles first
+                row.style.removeProperty('background-color');
+                
+                // Add class-based styling for better control
+                row.classList.remove('even-row', 'odd-row');
                 if (index % 2 === 0) {
-                    row.style.backgroundColor = '#000000';
+                    row.classList.add('even-row');
+                    row.style.setProperty('background-color', '#000000', 'important');
                 } else {
-                    row.style.backgroundColor = '#030303';
+                    row.classList.add('odd-row');
+                    row.style.setProperty('background-color', '#030303', 'important');
                 }
+                row.style.setProperty('color', '#ffffff', 'important');
             });
 
             console.log(`Processed ${validRows.length} active scholarships out of ${rows.length} total`);
