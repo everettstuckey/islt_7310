@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Scholarships Browser</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root { --fg:#111; --muted:#666; --link:#0a58ca; --bd:#e5e7eb; --bg:#fff; }
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 20px; color: var(--fg); background: var(--bg); }
+    header { display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin-bottom:14px; }
+    h1 { font-size: 22px; margin: 0 10px 0 0; }
+    .controls { display:flex; flex-wrap:wrap; gap:10px; margin-bottom: 12px; }
+    input, select { padding: 8px 10px; font-size: 14px; border:1px solid var(--bd); border-radius:8px; min-width: 200px; }
+    #count { color: var(--muted); font-size: 13px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; }
+    .card { border: 1px solid var(--bd); border-radius: 10px; padding: 12px; background: #fff; display:flex; flex-direction:column; gap:6px; }
+    .title { font-weight: 700; }
+    .title a { color: var(--link); text-decoration: none; }
+    .meta { color: var(--muted); font-size: 13px; }
+    .desc { color:#333; font-size: 13px; line-height:1.3; display:-webkit-box; -webkit-line-clamp:3; line-clamp:3; -webkit-box-orient: vertical; overflow:hidden; }
+    footer { margin-top: 14px; color: var(--muted); font-size: 12px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Scholarships</h1>
+    <div id="count">Loading…</div>
+  </header>
+
+  <div class="controls">
+    <input id="q" placeholder="Search title or provider…" />
+    <select id="deadline">
+      <option value="">Any deadline</option>
+      <option value="30">Next 30 days</option>
+      <option value="60">Next 60 days</option>
+      <option value="90">Next 90 days</option>
+    </select>
+  </div>
+
+  <div class="grid" id="results"></div>
+
+  <footer>
+    Data from scholarships/automated/scholarships.db (client-side, read-only).
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.10.2/sql-wasm.js"></script>
+  <script>
+    (async function() {
+      const SQL = await initSqlJs({
+        locateFile: f => `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.10.2/${f}`
+      });
+
+      const qEl = document.getElementById('q');
+      const dEl = document.getElementById('deadline');
+      const resEl = document.getElementById('results');
+      const countEl = document.getElementById('count');
+
+      // Load the SQLite DB
+      let db;
+      try {
+        const dbBytes = await fetch('scholarships/automated/scholarships.db').then(r => {
+          if (!r.ok) throw new Error('Unable to load database file');
+          return r.arrayBuffer();
+        });
+        db = new SQL.Database(new Uint8Array(dbBytes));
+      } catch (e) {
+        console.error(e);
+        countEl.textContent = 'Failed to load database.';
+        resEl.innerHTML = '<div class="meta">Unable to load the database file. Please refresh or try again later.</div>';
+        return;
+      }
+
+      qEl.addEventListener('input', render);
+      dEl.addEventListener('change', render);
+
+      render();
+
+      function render() {
+        const q = (qEl.value || '').trim().toLowerCase();
+        const days = (dEl.value || '').trim();
+
+        let sql = `
+          SELECT title, provider, deadline_text, url, amount_text, description
+          FROM scholarships
+          WHERE 1=1
+        `;
+        const params = [];
+
+        if (q) {
+          sql += " AND (LOWER(COALESCE(title,'')) LIKE ? OR LOWER(COALESCE(provider,'')) LIKE ?)";
+          params.push('%' + q + '%', '%' + q + '%');
+        }
+
+        if (days) {
+          const today = new Date();
+          const cut = new Date(Date.now() + Number(days) * 24 * 3600 * 1000);
+          const t = today.toISOString().slice(0,10);
+          const c = cut.toISOString().slice(0,10);
+          sql += " AND deadline_date BETWEEN ? AND ?";
+          params.push(t, c);
+        }
+
+        sql += " ORDER BY COALESCE(deadline_date,'9999-12-31') ASC LIMIT 300";
+
+        let rows = [];
+        try {
+          const res = db.exec(sql, params);
+          rows = (res[0]?.values) || [];
+        } catch (e) {
+          console.error(e);
+          countEl.textContent = 'Query error.';
+          resEl.innerHTML = '<div class="meta">Query failed. Please adjust your filters or reload.</div>';
+          return;
+        }
+
+        countEl.textContent = rows.length + " result" + (rows.length === 1 ? "" : "s");
+
+        const html = rows.map(r => {
+          const title = escapeHtml(r[0] || '');
+          const provider = escapeHtml(r[1] || '');
+          const deadline = escapeHtml(r[2] || '');
+          const url = escapeAttr(r[3] || '#');
+          const amount = escapeHtml(r[4] || '');
+          const desc = escapeHtml((r[5] || '').toString());
+          return `
+            <div class="card">
+              <div class="title"><a href="${url}" target="_blank" rel="noopener">${title}</a></div>
+              <div class="meta">${provider}</div>
+              <div class="meta">${deadline}${amount ? ' • ' + amount : ''}</div>
+              <div class="desc">${desc}</div>
+            </div>
+          `;
+        }).join('');
+
+        resEl.innerHTML = html || '<div class="meta">No matches.</div>';
+      }
+
+      function escapeHtml(s) {
+        return String(s)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/\"/g, "&quot;")
+          .replace(/'/g, "&#039;");
+      }
+      function escapeAttr(s) {
+        return escapeHtml(s).replace(/"/g, "&quot;");
+      }
+    })();
+  </script>
+</body>
+</html>
