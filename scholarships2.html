@@ -4,24 +4,52 @@
   <meta charset="utf-8" />
   <title>Scholarships Browser</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="nav.css">
   <style>
-    :root { --fg:#111; --muted:#666; --link:#0a58ca; --bd:#e5e7eb; --bg:#fff; }
-    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 20px; color: var(--fg); background: var(--bg); }
-    header { display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin-bottom:14px; }
+    header { display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin: 14px 20px; }
     h1 { font-size: 22px; margin: 0 10px 0 0; }
-    .controls { display:flex; flex-wrap:wrap; gap:10px; margin-bottom: 12px; }
-    input, select { padding: 8px 10px; font-size: 14px; border:1px solid var(--bd); border-radius:8px; min-width: 200px; }
-    #count { color: var(--muted); font-size: 13px; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; }
-    .card { border: 1px solid var(--bd); border-radius: 10px; padding: 12px; background: #fff; display:flex; flex-direction:column; gap:6px; }
-    .title { font-weight: 700; }
-    .title a { color: var(--link); text-decoration: none; }
-    .meta { color: var(--muted); font-size: 13px; }
-    .desc { color:#333; font-size: 13px; line-height:1.3; display:-webkit-box; -webkit-line-clamp:3; line-clamp:3; -webkit-box-orient: vertical; overflow:hidden; }
-    footer { margin-top: 14px; color: var(--muted); font-size: 12px; }
+    .controls { display:flex; flex-wrap:wrap; gap:10px; margin: 12px 20px; }
+    input, select { padding: 8px 10px; font-size: 14px; min-width: 200px; }
+    #count { font-size: 13px; }
+    /* Match scholarships_data.html table styling */
+    .styled-table {
+      border-collapse: collapse;
+      margin: 25px 20px;
+      font-size: 18px;
+      font-family: Arial, sans-serif;
+      min-width: 400px;
+      width: 100%;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+    .styled-table thead tr { background-color: #004080; color: #ffffff; text-align: center; }
+    .styled-table th { text-align: center; white-space: nowrap; }
+    .styled-table td { white-space: nowrap; }
+    .styled-table th, .styled-table td { border: 1px solid #dddddd; padding: 12px 15px; }
+    .styled-table tbody tr { background-color: #000000 !important; }
+    .styled-table tbody tr:nth-of-type(even) { background-color: #030303 !important; }
+    .styled-table tbody tr:last-of-type { border-bottom: 2px solid #004080; }
+    .styled-table tbody tr td { color: #ffffff !important; }
+    .styled-table tbody tr:hover { background-color: #1a1a8c; }
+    footer { margin: 14px 20px; font-size: 12px; }
   </style>
 </head>
 <body>
+  <ul>
+    <li><a href="Meet_the_Counselor.html">Meet the Counselor</a></li>
+    <li class="dropdown">
+      <a href="KeyTakeAways.html" class="dropbtn">Key Take Aways</a>
+      <div class="dropdown-content">
+        <a href="scholarships_data.html">Scholarships</a>
+        <a href="CareeerDevelopmentAssignmentApplytoWashUCollegePrep.html">College Enrichment and Access Programs</a>
+        <a href="SummerBioSciencePrograms-Internships.html">Internships</a>
+      </div>
+    </li>
+    <li><a href="SideProjects.html">Side Projects</a></li>
+    <li><a href="https://stlps-my.sharepoint.com/:o:/g/personal/es26024_slps_org/EmDPav8SGkBJpOQDvNvqxIQBBPr6l887ejscvm4YUOVx4A?e=5vErMc" target="_blank">Resource Repository</a></li>
+    <li><a href="EverettStuckeyResume%20Data.pdf">CV</a></li>
+  </ul>
+
   <header>
     <h1>Scholarships</h1>
     <div id="count">Loading…</div>
@@ -37,7 +65,7 @@
     </select>
   </div>
 
-  <div class="grid" id="results"></div>
+  <div id="results"></div>
 
   <footer>
     Data from scholarships/automated/scholarships.db (client-side, read-only).
@@ -79,15 +107,8 @@
         const q = (qEl.value || '').trim().toLowerCase();
         const days = (dEl.value || '').trim();
 
-        // Avoid rendering the entire DB with no filters
-        if (!q && !days) {
-          countEl.textContent = 'Enter a search term or choose a deadline filter.';
-          resEl.innerHTML = '<div class="meta">Use the filters above to view scholarships.</div>';
-          return;
-        }
-
         let sql = `
-          SELECT title, provider, deadline_text, url, amount_text, description
+          SELECT title, url, deadline_date, deadline_text
           FROM scholarships
           WHERE 1=1
         `;
@@ -106,7 +127,6 @@
           sql += " AND deadline_date BETWEEN ? AND ?";
           params.push(t, c);
         }
-
         sql += " ORDER BY COALESCE(deadline_date,'9999-12-31') ASC";
 
         let rows = [];
@@ -122,24 +142,44 @@
 
         countEl.textContent = rows.length + " result" + (rows.length === 1 ? "" : "s");
 
-        const html = rows.map(r => {
+        const rowsHtml = rows.map(r => {
           const title = escapeHtml(r[0] || '');
-          const provider = escapeHtml(r[1] || '');
-          const deadline = escapeHtml(r[2] || '');
-          const url = escapeAttr(r[3] || '#');
-          const amount = escapeHtml(r[4] || '');
-          const desc = escapeHtml((r[5] || '').toString());
+          const url = escapeAttr(r[1] || '#');
+          const dISO = r[2] || null; // YYYY-MM-DD
+          const dTextRaw = r[3] || '';
+          const due = dISO ? fmtDate(dISO) : escapeHtml(dTextRaw || '');
+          const days = dISO ? daysUntil(dISO) : '';
           return `
-            <div class="card">
-              <div class="title"><a href="${url}" target="_blank" rel="noopener">${title}</a></div>
-              <div class="meta">${provider}</div>
-              <div class="meta">${deadline}${amount ? ' • ' + amount : ''}</div>
-              <div class="desc">${desc}</div>
-            </div>
+            <tr>
+              <td></td>
+              <td>${days}</td>
+              <td><a href="${url}" target="_blank" rel="noopener">${title}</a></td>
+              <td>${due}</td>
+            </tr>
           `;
         }).join('');
 
-        resEl.innerHTML = html || '<div class="meta">No matches.</div>';
+        if (!rowsHtml) {
+          resEl.innerHTML = '<div class="meta">No matches.</div>';
+        } else {
+          resEl.innerHTML = `
+            <div class="table-wrap">
+              <table class="dataframe styled-table">
+                <thead>
+                  <tr style="text-align: right;">
+                    <th></th>
+                    <th>Days til due</th>
+                    <th>Scholarship Title</th>
+                    <th>Due Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${rowsHtml}
+                </tbody>
+              </table>
+            </div>
+          `;
+        }
       }
 
       function escapeHtml(s) {
@@ -152,6 +192,23 @@
       }
       function escapeAttr(s) {
         return escapeHtml(s).replace(/"/g, "&quot;");
+      }
+      function daysUntil(iso) {
+        try {
+          const today = new Date();
+          const t = new Date(today.toISOString().slice(0,10));
+          const d = new Date(iso);
+          const ms = d - t;
+          const days = Math.ceil(ms / 86400000);
+          return isFinite(days) ? days : '';
+        } catch (_) { return ''; }
+      }
+      function fmtDate(iso) {
+        try {
+          const [y, m, d] = String(iso).split('-');
+          if (y && m && d) return `${m}-${d}-${y}`;
+          return iso;
+        } catch (_) { return iso; }
       }
     })();
   </script>
