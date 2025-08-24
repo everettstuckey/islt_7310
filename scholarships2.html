@@ -20,12 +20,14 @@
       font-family: Arial, sans-serif;
       min-width: 400px;
       width: 100%;
+      table-layout: fixed;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     }
     .styled-table thead tr { background-color: #004080; color: #ffffff; text-align: center; }
     .styled-table th { text-align: center; white-space: nowrap; }
     .styled-table td { white-space: nowrap; }
-    .styled-table td.desc { white-space: normal; max-width: 650px; overflow-wrap: anywhere; }
+    .styled-table td.title { white-space: normal; overflow-wrap: anywhere; }
+    .styled-table td.desc { white-space: normal; overflow-wrap: anywhere; }
     .styled-table th, .styled-table td { border: 1px solid #dddddd; padding: 12px 15px; }
     .styled-table tbody tr { background-color: #000000 !important; }
     .styled-table tbody tr:nth-of-type(even) { background-color: #030303 !important; }
@@ -174,7 +176,7 @@
             <tr>
               <td>${days}</td>
               <td>${amount}</td>
-              <td><a href="${url}" target="_blank" rel="noopener">${title}</a></td>
+              <td class="title"><a href="${url}" target="_blank" rel="noopener">${title}</a></td>
               <td class="desc">${desc}</td>
               <td>${due}</td>
             </tr>
@@ -187,6 +189,13 @@
           resEl.innerHTML = `
             <div class="table-wrap">
               <table class="dataframe styled-table">
+                <colgroup>
+                  <col style="width: 8%;">
+                  <col style="width: 12%;">
+                  <col style="width: 18%;">
+                  <col style="width: 52%;">
+                  <col style="width: 10%;">
+                </colgroup>
                 <thead>
                   <tr>
                     <th>Days til due</th>
