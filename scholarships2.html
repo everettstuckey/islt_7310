@@ -9,7 +9,7 @@
   <style>
     header { display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin: 14px 20px; }
     h1 { font-size: 22px; margin: 0 10px 0 0; }
-    .controls { display:flex; flex-wrap:wrap; gap:10px; margin: 12px 20px; }
+    .controls { display:none; }
     input, select { padding: 8px 10px; font-size: 14px; min-width: 200px; }
     #count { font-size: 13px; }
     /* Match scholarships_data.html table styling */
@@ -50,7 +50,7 @@
     <li><a href="EverettStuckeyResume%20Data.pdf">CV</a></li>
   </ul>
 
-  <header>
+  <header style="display:none">
     <h1>Scholarships</h1>
     <div id="count">Loading…</div>
   </header>
@@ -166,7 +166,7 @@
             <div class="table-wrap">
               <table class="dataframe styled-table">
                 <thead>
-                  <tr style="text-align: right;">
+                  <tr>
                     <th></th>
                     <th>Days til due</th>
                     <th>Scholarship Title</th>
