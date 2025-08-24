@@ -28,6 +28,7 @@
     .styled-table td { white-space: nowrap; }
     .styled-table td.title { white-space: normal; overflow-wrap: anywhere; }
     .styled-table td.desc { white-space: normal; overflow-wrap: anywhere; }
+    .styled-table td.days, .styled-table th.days { text-align: center; }
     .styled-table th, .styled-table td { border: 1px solid #dddddd; padding: 12px 15px; }
     .styled-table tbody tr { background-color: #000000 !important; }
     .styled-table tbody tr:nth-of-type(even) { background-color: #030303 !important; }
@@ -174,7 +175,7 @@
 
           return `
             <tr>
-              <td>${days}</td>
+              <td class="days">${days}</td>
               <td>${amount}</td>
               <td class="title"><a href="${url}" target="_blank" rel="noopener">${title}</a></td>
               <td class="desc">${desc}</td>
@@ -190,15 +191,15 @@
             <div class="table-wrap">
               <table class="dataframe styled-table">
                 <colgroup>
-                  <col style="width: 8%;">
-                  <col style="width: 12%;">
+                  <col style="width: 7.2%;">
+                  <col style="width: 4.8%;">
                   <col style="width: 18%;">
-                  <col style="width: 52%;">
+                  <col style="width: 60%;">
                   <col style="width: 10%;">
                 </colgroup>
                 <thead>
                   <tr>
-                    <th>Days til due</th>
+                    <th class="days">Days til due</th>
                     <th>Amount</th>
                     <th>Scholarship Title</th>
                     <th>Description</th>
