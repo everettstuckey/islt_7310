@@ -171,7 +171,7 @@
             else amountDisp = '';
           }
           const amount = escapeHtml(amountDisp);
-          const desc = escapeHtml(truncate(rawDesc, 280));
+          const desc = escapeHtml(rawDesc);
 
           return `
             <tr>
