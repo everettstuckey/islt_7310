@@ -79,6 +79,13 @@
         const q = (qEl.value || '').trim().toLowerCase();
         const days = (dEl.value || '').trim();
 
+        // Avoid rendering the entire DB with no filters
+        if (!q && !days) {
+          countEl.textContent = 'Enter a search term or choose a deadline filter.';
+          resEl.innerHTML = '<div class="meta">Use the filters above to view scholarships.</div>';
+          return;
+        }
+
         let sql = `
           SELECT title, provider, deadline_text, url, amount_text, description
           FROM scholarships
@@ -100,7 +107,7 @@
           params.push(t, c);
         }
 
-        sql += " ORDER BY COALESCE(deadline_date,'9999-12-31') ASC LIMIT 300";
+        sql += " ORDER BY COALESCE(deadline_date,'9999-12-31') ASC";
 
         let rows = [];
         try {
