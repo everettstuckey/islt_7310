@@ -3,13 +3,442 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EdS Portfolio</title>
-  <meta name="description" content="Everett Stuckey — ISLT EdS Candidate Portfolio" />
+  <title>Meet the Counselor — Portfolio Homepage</title>
+  <meta name="description" content="Everett Stuckey — Counselor | ISLT EdS Candidate Portfolio Homepage" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="nav.css" />
+  <style>
+    /* Self-contained styles for Meet the Counselor portfolio page */
+
+    /* Scoped reset for this page only */
+    .site-header *,
+    .site-header *::before,
+    .site-header *::after,
+    main *,
+    main *::before,
+    main *::after,
+    .site-footer *,
+    .site-footer *::before,
+    .site-footer *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Skip link for accessibility */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 6px;
+      background: #000;
+      color: #fff;
+      padding: 8px;
+      text-decoration: none;
+      border-radius: 4px;
+      z-index: 1000;
+    }
+
+    .skip-link:focus {
+      top: 6px;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Header specific to this page */
+    .site-header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 2rem 0;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+    }
+
+    .header-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .site-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin: 0;
+      letter-spacing: -0.025em;
+      color: white;
+    }
+
+    .site-subtitle {
+      font-size: 1.25rem;
+      margin: 0.5rem 0 0 0;
+      opacity: 0.9;
+      font-weight: 400;
+      color: white;
+    }
+
+    .site-header .meta {
+      margin: 1rem 0 0 0;
+      opacity: 0.8;
+      line-height: 1.5;
+      color: white;
+    }
+
+    .site-header .meta a {
+      color: #ffd89b;
+      text-decoration: none;
+      border-bottom: 1px dotted rgba(255, 216, 155, 0.5);
+    }
+
+    .site-header .meta a:hover {
+      border-bottom-style: solid;
+    }
+
+    /* Navigation specific to this page */
+    .site-header nav[aria-label='Primary navigation'] .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .site-header nav[aria-label='Primary navigation'] .nav li a {
+      display: block;
+      padding: 0.75rem 1.25rem;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .site-header nav[aria-label='Primary navigation'] .nav li a:hover,
+    .site-header nav[aria-label='Primary navigation'] .nav li a:focus {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Main content specific styling */
+    main {
+      margin: 3rem 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: #1a202c;
+    }
+
+    /* Sections */
+    main .section {
+      margin-bottom: 4rem;
+      padding: 3rem 0;
+      border-radius: 12px;
+      background: white;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    main .section.alt {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      color: white;
+    }
+
+    main .section.alt h2,
+    main .section.alt h3 {
+      color: white;
+    }
+
+    main .section.alt a {
+      color: #ffd89b;
+      border-bottom-color: rgba(255, 216, 155, 0.3);
+    }
+
+    main .section.alt a:hover {
+      border-bottom-color: #ffd89b;
+    }
+
+    /* Typography for main content */
+    main h1,
+    main h2,
+    main h3,
+    main h4,
+    main h5,
+    main h6 {
+      font-weight: 600;
+      line-height: 1.25;
+      margin-top: 0;
+    }
+
+    main h2 {
+      font-size: 2.25rem;
+      margin-bottom: 2rem;
+      color: #2d3748;
+      border-bottom: 3px solid #667eea;
+      padding-bottom: 0.5rem;
+      display: inline-block;
+    }
+
+    main h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      color: #4a5568;
+    }
+
+    main p {
+      margin-bottom: 1.5rem;
+    }
+
+    /* Links in main content */
+    main a {
+      color: #667eea;
+      text-decoration: none;
+      border-bottom: 1px dotted rgba(102, 126, 234, 0.3);
+      transition: all 0.2s ease;
+    }
+
+    main a:hover,
+    main a:focus {
+      color: #5a67d8;
+      border-bottom-style: solid;
+    }
+
+    /* Table styling */
+    main .table-wrap {
+      overflow-x: auto;
+      margin: 2rem 0;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    main table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      font-size: 0.9rem;
+    }
+
+    main th,
+    main td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    main th {
+      background: #f7fafc;
+      font-weight: 600;
+      color: #2d3748;
+      position: sticky;
+      top: 0;
+    }
+
+    main tr:hover {
+      background: #f7fafc;
+    }
+
+    main td strong {
+      color: #667eea;
+      font-weight: 600;
+    }
+
+    /* Standards section */
+    main .standards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    main .standards article {
+      background: #f7fafc;
+      padding: 1.5rem;
+      border-radius: 8px;
+      border-left: 4px solid #667eea;
+    }
+
+    main .standards article h3 {
+      color: #667eea;
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
+    }
+
+    main .standards ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    main .standards li {
+      margin-bottom: 0.75rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    main .standards li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: #667eea;
+      font-weight: bold;
+    }
+
+    /* Ordered lists in main content */
+    main ol {
+      padding-left: 1.5rem;
+    }
+
+    main ol li {
+      margin-bottom: 2rem;
+    }
+
+    main ol li p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Footer specific to this page */
+    .site-footer {
+      background: #2d3748;
+      color: white;
+      padding: 2rem 0;
+      margin-top: 4rem;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .site-footer .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .site-footer .nav a {
+      color: #a0aec0;
+      border-bottom: 1px dotted rgba(160, 174, 192, 0.3);
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .site-footer .nav a:hover {
+      color: white;
+      border-bottom-color: white;
+      border-bottom-style: solid;
+    }
+
+    .site-footer .small {
+      font-size: 0.875rem;
+      opacity: 0.8;
+    }
+
+    .site-footer .back-to-top a {
+      color: #667eea;
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 1px dotted rgba(102, 126, 234, 0.3);
+    }
+
+    .site-footer .back-to-top a:hover {
+      border-bottom-style: solid;
+    }
+
+    /* Responsive design */
+    @media (min-width: 768px) {
+      .header-inner {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+
+      .footer-inner {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .site-title {
+        font-size: 3rem;
+      }
+
+      .site-header nav[aria-label='Primary navigation'] .nav {
+        gap: 1rem;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .container {
+        padding: 0 1rem;
+      }
+
+      .site-title {
+        font-size: 2rem;
+      }
+
+      main .section {
+        margin-bottom: 2rem;
+        padding: 2rem 0;
+      }
+
+      main h2 {
+        font-size: 1.75rem;
+      }
+
+      .site-header nav[aria-label='Primary navigation'] .nav li a {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+      }
+
+      main .standards {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Focus states for accessibility - scoped to this page */
+    .site-header a:focus,
+    main a:focus,
+    .site-footer a:focus {
+      outline: 2px solid #667eea;
+      outline-offset: 2px;
+    }
+
+    /* Print styles for this page */
+    @media print {
+      .site-header,
+      .site-footer {
+        background: none !important;
+        color: black !important;
+        box-shadow: none !important;
+      }
+
+      main .section.alt {
+        background: none !important;
+        color: black !important;
+      }
+
+      .site-header a,
+      main a,
+      .site-footer a {
+        color: black !important;
+        border-bottom: none !important;
+      }
+    }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -17,7 +446,7 @@
   <header class="site-header">
     <div class="container header-inner">
       <div>
-        <h1 class="site-title">EdS Portfolio</h1>
+        <h1 class="site-title">Meet the Counselor</h1>
         <p class="site-subtitle">Everett Stuckey — Counselor | ISLT EdS Candidate</p>
         <p class="meta">
           Degree Program: EdS, Information Science &amp; Learning Technologies (Technology in Schools emphasis) ·
@@ -28,11 +457,12 @@
       <nav aria-label="Primary navigation">
         <ul class="nav">
           <li><a href="#program-of-study">Program of Study</a></li>
-          <li><a href="#reflection">Reflection Statement</a></li>
+          <li><a href="#reflection">Reflection</a></li>
           <li><a href="#iste">ISTE Standards</a></li>
           <li><a href="https://iste.org/standards/educators" target="_blank" rel="noopener">ISTE Reference</a></li>
           <li><a href="https://everettstuckey.github.io/islt_7310/KeyTakeAways.html" target="_blank" rel="noopener">Key Take Aways</a></li>
           <li><a href="https://everettstuckey.github.io/islt_7310/SideProjects.html" target="_blank" rel="noopener">Side Projects</a></li>
+          <li><a href="https://everettstuckey.github.io/islt_7310/EverettStuckeyResume%20Data.pdf" target="_blank" rel="noopener">CV / Resume</a></li>
           <li><a href="https://stlps-my.sharepoint.com/:o:/g/personal/es26024_slps_org/EmDPav8SGkBJpOQDvNvqxIQBBPr6l887ejscvm4YUOVx4A?e=5vErMc" target="_blank" rel="noopener">Resource Repository</a></li>
         </ul>
       </nav>
@@ -160,68 +590,68 @@
           <article>
             <h3>Learner (1.a–1.d)</h3>
             <ul>
-              <li><strong>1.a</strong> — <a href="1a.html">Professional Learning Goals Artifact</a></li>
-              <li><strong>1.b</strong> — <a href="1b.html">Reflective Practice Artifact</a></li>
-              <li><strong>1.c</strong> — <a href="1c.html">Current Research & Ethics Artifact</a></li>
-              <li><strong>1.d</strong> — <a href="1d.html">Pedagogical Approaches Artifact</a></li>
+              <li><strong>1.a</strong> — <a href="https://everettstuckey.github.io/islt_7310/elearning/digital_literacy_curriculum.html" target="_blank" rel="noopener">Digital Literacy Curriculum</a> (sets personal goals to integrate accessibility, UDL, and media literacy; documented updates reflect ongoing professional learning)</li>
+              <li><strong>1.b</strong> — <a href="https://everettstuckey.github.io/IS_LT-7383/" target="_blank" rel="noopener">Rapid Development Portfolio</a> (iterative reflections after each prototype informed revisions and next steps)</li>
+              <li><strong>1.c</strong> — <a href="https://everettstuckey.github.io/islt_7310/elearning/digital_literacy_curriculum.html" target="_blank" rel="noopener">Digital Literacy Curriculum</a> (curation of reputable resources on digital citizenship, privacy, and media credibility)</li>
+              <li><strong>1.d</strong> — <a href="https://everettstuckey.github.io/IS_LT-7383/" target="_blank" rel="noopener">Rapid Development Portfolio</a> + <a href="https://everettstuckey.github.io/IS_LT-7383/slideshows/Financial%20Markets%20Slide%20Show.html" target="_blank" rel="noopener">Financial Markets Slideshow</a> (adopted new tools/workflows; peer/student feedback cycles improved practice)</li>
             </ul>
           </article>
 
           <article>
             <h3>Leader (2.a–2.d)</h3>
             <ul>
-              <li><strong>2.a</strong> — <a href="2a.html">Shared Vision Artifact</a></li>
-              <li><strong>2.b</strong> — <a href="2b.html">Equitable Access Artifact</a></li>
-              <li><strong>2.c</strong> — <a href="2c.html">Modeling Evaluation Artifact</a></li>
-              <li><strong>2.d</strong> — <a href="2d.html">Systems Thinking Artifact</a></li>
+              <li><strong>2.a</strong> — <a href="https://everettstuckey.github.io/islt_7310/elearning/digital_literacy_curriculum.html" target="_blank" rel="noopener">Digital Literacy Curriculum</a> (articulates a shared vision for school-wide digital literacy progression)</li>
+              <li><strong>2.b</strong> — <a href="https://everettstuckey.github.io/islt_7310/elearning/digital_literacy_curriculum.html" target="_blank" rel="noopener">Digital Literacy Curriculum</a> (mobile-first, accessible materials to reduce barriers)</li>
+              <li><strong>2.c</strong> — <a href="https://everettstuckey.github.io/IS_LT-7383/" target="_blank" rel="noopener">Rapid Development Portfolio</a> (models evaluating tools with usability checks, analytics, and iteration)</li>
+              <li><strong>2.d</strong> — <a href="https://everettstuckey.github.io/IS_LT-7383/" target="_blank" rel="noopener">Rapid Development Portfolio</a> (systems thinking: versioning, asset pipelines, and feedback loops for continuous improvement)</li>
             </ul>
           </article>
 
           <article>
             <h3>Citizen (3.a–3.d)</h3>
             <ul>
-              <li><strong>3.a</strong> — <a href="3a.html">Positive Contributions Artifact</a></li>
-              <li><strong>3.b</strong> — <a href="3b.html">Curiosity & Critical Examination Artifact</a></li>
-              <li><strong>3.c</strong> — <a href="3c.html">Safe & Ethical Use Artifact</a></li>
-              <li><strong>3.d</strong> — <a href="3d.html">Media Literacy Artifact</a></li>
+              <li><strong>3.a</strong> — <a href="https://everettstuckey.github.io/islt_7310/elearning/digital_literacy_curriculum.html" target="_blank" rel="noopener">Digital Literacy Curriculum</a> (norms for positive, responsible participation in digital spaces)</li>
+              <li><strong>3.b</strong> — <a href="https://everettstuckey.github.io/islt_7310/elearning/digital_literacy_curriculum.html" target="_blank" rel="noopener">Digital Literacy Curriculum</a> (source evaluation and bias detection activities)</li>
+              <li><strong>3.c</strong> — <a href="https://everettstuckey.github.io/islt_7310/elearning/digital_literacy_curriculum.html" target="_blank" rel="noopener">Digital Literacy Curriculum</a> (privacy, security, and digital identity modules)</li>
+              <li><strong>3.d</strong> — <a href="https://everettstuckey.github.io/islt_7310/elearning/digital_literacy_curriculum.html" target="_blank" rel="noopener">Digital Literacy Curriculum</a> + <a href="https://everettstuckey.github.io/IS_LT-7383/slideshows/Financial%20Markets%20Slide%20Show.html" target="_blank" rel="noopener">Financial Markets Slideshow</a> (media literacy and real-world claims analysis)</li>
             </ul>
           </article>
 
           <article>
             <h3>Collaborator (4.a–4.d)</h3>
             <ul>
-              <li><strong>4.a</strong> — <a href="4a.html">Collaborative Planning Artifact</a></li>
-              <li><strong>4.b</strong> — <a href="4b.html">Co-learning with Students Artifact</a></li>
-              <li><strong>4.c</strong> — <a href="4c.html">Collaborative Tools Artifact</a></li>
-              <li><strong>4.d</strong> — <a href="4d.html">Cultural Competency Artifact</a></li>
+              <li><strong>4.a</strong> — <a href="https://everettstuckey.github.io/IS_LT-7383/" target="_blank" rel="noopener">Rapid Development Portfolio</a> (collaborative planning through iterative review cycles and shared artifacts)</li>
+              <li><strong>4.b</strong> — <a href="https://everettstuckey.github.io/IS_LT-7383/" target="_blank" rel="noopener">Financial Data Analysis with Python & Google Sheets</a> (co-learning with students by exploring datasets and posing questions together)</li>
+              <li><strong>4.c</strong> — <a href="https://everettstuckey.github.io/IS_LT-7383/" target="_blank" rel="noopener">Financial Data Analysis with Python & Google Sheets</a> (use of collaborative tools like Google Sheets comments/version history)</li>
+              <li><strong>4.d</strong> — <a href="https://everettstuckey.github.io/IS_LT-7383/slideshows/Financial%20Markets%20Slide%20Show.html" target="_blank" rel="noopener">Financial Markets Slideshow</a> (inclusive, real-world contexts that honor diverse backgrounds and experiences)</li>
             </ul>
           </article>
 
           <article>
             <h3>Designer (5.a–5.c)</h3>
             <ul>
-              <li><strong>5.a</strong> — <a href="5a.html">Personalized Experiences Artifact</a></li>
-              <li><strong>5.b</strong> — <a href="5b.html">Authentic, Learner-Driven Activities Artifact</a></li>
-              <li><strong>5.c</strong> — <a href="5c.html">Instructional Design Principles Artifact</a></li>
+              <li><strong>5.a</strong> — <a href="https://everettstuckey.github.io/IS_LT-7383/" target="_blank" rel="noopener">Financial Data Analysis with Python & Google Sheets</a> (students choose variables/datasets; supports multiple pathways and pacing)</li>
+              <li><strong>5.b</strong> — <a href="https://everettstuckey.github.io/IS_LT-7383/slideshows/Financial%20Markets%20Slide%20Show.html" target="_blank" rel="noopener">Financial Markets Slideshow</a> (authentic, media-rich tasks connected to current events)</li>
+              <li><strong>5.c</strong> — <a href="https://everettstuckey.github.io/islt_7310/elearning/digital_literacy_curriculum.html" target="_blank" rel="noopener">Digital Literacy Curriculum</a> (clear alignment to outcomes, UDL checkpoints, and accessibility)</li>
             </ul>
           </article>
 
           <article>
             <h3>Facilitator (6.a–6.d)</h3>
             <ul>
-              <li><strong>6.a</strong> — <a href="6a.html">Ownership of Learning Artifact</a></li>
-              <li><strong>6.b</strong> — <a href="6b.html">Managing Tech & Strategies Artifact</a></li>
-              <li><strong>6.c</strong> — <a href="6c.html">Design & Test Solutions Artifact</a></li>
-              <li><strong>6.d</strong> — <a href="6d.html">Creativity & Expression Artifact</a></li>
+              <li><strong>6.a</strong> — <a href="https://everettstuckey.github.io/IS_LT-7383/" target="_blank" rel="noopener">Financial Data Analysis with Python & Google Sheets</a> (student ownership via inquiry questions and self-directed analysis)</li>
+              <li><strong>6.b</strong> — <a href="https://everettstuckey.github.io/IS_LT-7383/" target="_blank" rel="noopener">Financial Data Analysis with Python & Google Sheets</a> (manages Python↔Sheets workflow to support collaboration and feedback)</li>
+              <li><strong>6.c</strong> — <a href="https://everettstuckey.github.io/IS_LT-7383/" target="_blank" rel="noopener">Rapid Development Portfolio</a> (students design/test solutions; instructor iterates based on evidence)</li>
+              <li><strong>6.d</strong> — <a href="https://everettstuckey.github.io/IS_LT-7383/slideshows/Financial%20Markets%20Slide%20Show.html" target="_blank" rel="noopener">Financial Markets Slideshow</a> (creative expression through visualization and presentation)</li>
             </ul>
           </article>
 
           <article>
             <h3>Analyst (7.a–7.c)</h3>
             <ul>
-              <li><strong>7.a</strong> — <a href="7a.html">Alternative Demonstrations Artifact</a></li>
-              <li><strong>7.b</strong> — <a href="7b.html">Assessment Design Artifact</a></li>
-              <li><strong>7.c</strong> — <a href="7c.html">Use of Assessment Data Artifact</a></li>
+              <li><strong>7.a</strong> — <a href="https://everettstuckey.github.io/IS_LT-7383/slideshows/Financial%20Markets%20Slide%20Show.html" target="_blank" rel="noopener">Financial Markets Slideshow</a> (alternative demonstrations via narrative, visuals, and embedded checks)</li>
+              <li><strong>7.b</strong> — <a href="https://everettstuckey.github.io/islt_7310/elearning/digital_literacy_curriculum.html" target="_blank" rel="noopener">Digital Literacy Curriculum</a> (formative checks and rubrics aligned to learning goals)</li>
+              <li><strong>7.c</strong> — <a href="https://everettstuckey.github.io/IS_LT-7383/" target="_blank" rel="noopener">Rapid Development Portfolio</a> (uses analytics/reflection to iterate materials and supports)</li>
             </ul>
           </article>
         </div>
