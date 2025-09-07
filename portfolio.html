@@ -976,23 +976,33 @@
 
         const heading = article.querySelector('h3');
 
-        // Gather all nodes after the heading (keep the heading visible)
-        const nodesToWrap = [];
-        let startNode = heading ? heading.nextSibling : article.firstChild;
-        while (startNode) {
-          const next = startNode.nextSibling;
-          nodesToWrap.push(startNode);
-          startNode = next;
+        // Collect nodes AFTER the heading up to (but not including) the first list (<ul>/<ol>)
+        const nodesBeforeList = [];
+        let cursor = heading ? heading.nextSibling : article.firstChild;
+        let foundList = false;
+        while (cursor) {
+          const next = cursor.nextSibling;
+          if (cursor.nodeType === 1 && (cursor.tagName === 'UL' || cursor.tagName === 'OL')) {
+            foundList = true;
+            break; // stop before list so lists remain visible
+          }
+          nodesBeforeList.push(cursor);
+          cursor = next;
         }
-        if (nodesToWrap.length === 0) return;
 
-        // Move nodes into a temp container to capture full HTML/text
+        if (nodesBeforeList.length === 0) {
+          // Nothing to collapse; leave article as-is
+          article.dataset.toggable = '1';
+          return;
+        }
+
+        // Move only the pre-list nodes into a temp container to get full HTML
         const temp = document.createElement('div');
-        nodesToWrap.forEach(n => temp.appendChild(n));
+        nodesBeforeList.forEach(n => temp.appendChild(n));
         const fullHTML = temp.innerHTML.trim();
         const previewText = firstSentenceOf(temp.textContent);
 
-        // Build preview + toggle + full content
+        // Build preview + toggle + full content; lists remain below untouched
         const container = document.createElement('div');
         container.className = 'reflection-wrap';
 
@@ -1022,7 +1032,7 @@
           btn.textContent = expanded ? 'Show more' : 'Show less';
         });
 
-        // Insert after heading (or at top if no heading)
+        // Insert container right after heading (or top if no heading)
         if (heading && heading.parentNode === article) {
           heading.insertAdjacentElement('afterend', container);
         } else {
@@ -1032,6 +1042,7 @@
         container.appendChild(btn);
         container.appendChild(fullDiv);
 
+        // Lists (and any content after them) remain in the article, visible below the toggle
         article.dataset.toggable = '1';
       });
     }
