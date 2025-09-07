@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -900,7 +900,85 @@
     </div>
   </footer>
 </body>
+<script>
+  // Program of Study: collapse reflections to first sentence with a toggle
+  (function () {
+    function firstSentenceOf(text) {
+      const cleaned = (text || '').replace(/\s+/g, ' ').trim();
+      const m = cleaned.match(/.*?[\.\!\?](?=\s|$)/);
+      return m ? m[0] : cleaned;
+    }
+
+    function initReflectionToggles() {
+      const rows = document.querySelectorAll('#program-of-study table tbody tr');
+      if (!rows || rows.length === 0) return;
+
+      let idCounter = 0;
+      rows.forEach(row => {
+        const tds = row.querySelectorAll('td');
+        if (tds.length < 4) return;
+        const cell = tds[3]; // Reflection column
+        if (!cell || cell.dataset.toggable === '1') return;
+
+        const fullHTML = cell.innerHTML.trim();
+        const previewText = firstSentenceOf(cell.textContent);
+
+        // Build DOM structure: preview + button + full
+        const container = document.createElement('div');
+        container.className = 'reflection-wrap';
+
+        const previewP = document.createElement('p');
+        previewP.className = 'reflection-preview';
+        previewP.textContent = previewText;
+
+        const fullDiv = document.createElement('div');
+        fullDiv.className = 'reflection-full';
+        fullDiv.innerHTML = fullHTML;
+        fullDiv.hidden = true;
+
+        const contentId = 'reflection-full-' + (++idCounter);
+        fullDiv.id = contentId;
+
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'reflection-toggle-btn';
+        btn.setAttribute('aria-controls', contentId);
+        btn.setAttribute('aria-expanded', 'false');
+        btn.textContent = 'Show more';
+        btn.addEventListener('click', () => {
+          const expanded = btn.getAttribute('aria-expanded') === 'true';
+          // Toggle full content visibility
+          fullDiv.hidden = expanded;
+          // Hide preview when expanded to avoid duplicate first sentence
+          previewP.hidden = !expanded ? true : false;
+          // Update button state
+          btn.setAttribute('aria-expanded', String(!expanded));
+          btn.textContent = expanded ? 'Show more' : 'Show less';
+        });
+
+        // Replace cell contents
+        cell.innerHTML = '';
+        container.appendChild(previewP);
+        container.appendChild(btn);
+        container.appendChild(fullDiv);
+        cell.appendChild(container);
+        cell.dataset.toggable = '1';
+      });
+    }
+
+    // Minimal styles for the toggle button
+    const style = document.createElement('style');
+    style.textContent = `
+      .reflection-toggle-btn { margin: 0.25rem 0 0.5rem; padding: 0.35rem 0.65rem; font-size: 0.9rem; cursor: pointer; }
+      .reflection-wrap p { margin-bottom: 0.5rem; }
+    `;
+    document.head.appendChild(style);
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initReflectionToggles);
+    } else {
+      initReflectionToggles();
+    }
+  })();
+</script>
 </html>
-
-
-
