@@ -28,6 +28,12 @@
       scroll-behavior: smooth;
     }
 
+    /* Page background and base text color for strong contrast */
+    body {
+      background: linear-gradient(180deg, #f8fafc 0%, #edf2f7 100%);
+      color: #1a202c;
+    }
+
     /* Skip link for accessibility */
     .skip-link {
       position: absolute;
@@ -128,6 +134,49 @@
       background: rgba(255, 255, 255, 0.2);
       transform: translateY(-2px);
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Floating side navigation (rotated) */
+    .floating-nav {
+      position: fixed;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%) rotate(90deg);
+      transform-origin: left center;
+      z-index: 1100; /* above header */
+    }
+
+    .floating-nav .nav {
+      display: flex;
+      gap: 0.75rem;
+      list-style: none;
+      margin: 0;
+      padding: 0.5rem 0.75rem;
+      background: rgba(45, 55, 72, 0.92); /* slate/dark for contrast */
+      border-radius: 999px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(6px);
+    }
+
+    .floating-nav .nav li a {
+      display: block;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.5rem 0.75rem;
+      border-radius: 6px;
+      border-bottom: none;
+    }
+
+    .floating-nav .nav li a:hover,
+    .floating-nav .nav li a:focus {
+      background: rgba(255, 255, 255, 0.15);
+      outline: 2px solid #ffd89b;
+      outline-offset: 2px;
+    }
+
+    @media (max-width: 991px) {
+      .floating-nav { display: none; }
     }
 
     /* Main content specific styling */
@@ -444,6 +493,7 @@
         color: black !important;
         border-bottom: none !important;
       }
+      .floating-nav { display: none !important; }
     }
   </style>
 </head>
@@ -475,6 +525,14 @@
       </nav>
     </div>
   </header>
+  <nav class="floating-nav" aria-label="Floating navigation">
+    <ul class="nav">
+      <li><a href="#program-of-study">Program of Study</a></li>
+      <li><a href="#reflection">Reflection</a></li>
+      <li><a href="#iste">ISTE</a></li>
+      <li><a href="#program-goals">Program Goals</a></li>
+    </ul>
+  </nav>
 
   <main id="main">
 
