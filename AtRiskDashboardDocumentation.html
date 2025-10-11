@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>At Risk Student Dashboard Documentation</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        #sidebar {
+            width: 250px;
+            background-color: #34495e;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        #sidebar a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 0px;
+            margin-bottom: 0px;
+            border-radius: 0px;
+        }
+
+        #sidebar a:hover {
+            background-color: #2c3e50;
+        }
+
+        #sidebar a.active {
+            background-color: #2c3e50;
+            font-weight: bold;
+        }
+
+        #sidebar .function-link {
+            padding-left: 20px;
+        }
+
+        #content {
+            margin-left: 270px;
+            padding: 20px;
+            max-width: 900px;
+        }
+
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+        }
+
+        #function-documentation-content section h3 {
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+            color: #34495e;
+        }
+
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+            font-size: 90%;
+            display: inline;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            display: block;
+            overflow-x: auto;
+            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #2c3e50;
+            color: white;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>At Risk Student Dashboard</h1>
+        <p>Comprehensive Technical Documentation</p>
+    </header>
+
+    <div id="sidebar">
+        <a href="#overview" class="active">Overview</a>
+        <a href="#dependencies">Dependencies</a>
+        <a href="#fuzzy-matching">Fuzzy Matching</a>
+        <a href="#data-cleaning">Data Cleaning</a>
+        <a href="#pdf-extraction">PDF Extraction</a>
+        <a href="#attendance-report-parsing">Attendance Report Parsing</a>
+        <a href="#web-scraping-plp">Web Scraping for Schools PLP</a>
+        <a href="#web-scraping-misha">Web Scraping for MISHA</a>
+        <a href="#html-report-generation">HTML Report Generation</a>
+        <a href="#pdf-report-generation">PDF Report Generation</a><br>
+	
+        <a href="#function-documentation">Function Documentation</a>
+		<a href="#function-documentation">Function Documentation</a> 
+		<a class="function-link" href="#match_student_id">match_student_id</a> 
+		<a class="function-link" href="#extract_text_from_pdf">extract_text_from_pdf</a> 
+		<a class="function-link" href="#parse_weekly_eligibility_data">parse_weekly_eligibility_data</a> 
+		<a class="function-link" href="#parse_student_data">parse_student_data</a> 
+		<a class="function-link" href="#generate_html">generate_html</a> 
+		<a class="function-link" href="#convert_pdf_to_html">convert_pdf_to_html</a> 
+		<a class="function-link" href="#scrape_roster">scrape_roster</a> 
+		<a class="function-link" href="#classify_season_fuzzy">classify_season_fuzzy</a> 
+		<a class="function-link" href="#reshape_student_data">reshape_student_data</a> 
+		<a class="function-link" href="#generate_solid_green_graph">generate_solid_green_graph</a> 
+		<a class="function-link" href="#check_or_generate_placeholder">check_or_generate_placeholder</a> 
+		<a class="function-link" href="#generate_graph_placeholders">generate_graph_placeholders</a> 
+		<a class="function-link" href="#standardize_course_number">standardize_course_number</a> 
+		<a class="function-link" href="#get_student_courses">get_student_courses</a> 
+		<a class="function-link" href="#generate_missing_assignments_row">generate_missing_assignments_row</a> 
+		<a class="function-link" href="#generate_table_cell">generate_table_cell</a> 
+		<a class="function-link" href="#has_missing_assignments">has_missing_assignments</a> 
+		<a class="function-link" href="#df_to_html_table_with_graphs">df_to_html_table_with_graphs</a> 
+		<a class="function-link" href="#df_to_html_table_no_graphs">df_to_html_table_no_graphs</a> 
+		<a class="function-link" href="#generate_pdf">generate_pdf</a> 
+		<a class="function-link" href="#create_pdf_from_html">create_pdf_from_html</a> 
+		<a class="function-link" href="#process_plp_data">process_plp_data</a> 
+		<a class="function-link" href="#merge_bus_data">merge_bus_data</a> 
+		<a class="function-link" href="#create_icu_report">create_icu_report</a> 
+		<a class="function-link" href="#generate_icu_data">generate_icu_data</a> 
+		<a class="function-link" href="#create_bus_manifest_report">create_bus_manifest_report</a>
+        <!-- [Original function links] -->
+    </div>
+
+    <div id="content">
+        <section id="overview">
+            <h2>Overview</h2>
+            <p>The At Risk Student Dashboard automates data extraction, cleaning, and analysis from multiple sources to produce detailed reports on student performance and attendance. This documentation provides a comprehensive guide to understanding the system's components and workflows.</p>
+            
+            <h3>Additional Notes:</h3>
+            <ul>
+                <li><strong>Main Execution Section (if __name__ == "__main__":)</strong>
+                    <br>
+                    This section orchestrates the overall workflow by loading data, processing it through the defined functions, generating HTML reports, converting them to PDFs, and exporting the final roster data. While it contains extensive logic, it does not define a separate function but rather serves as the entry point for script execution.
+                </li>
+                <li><strong>Imported Modules and Their Functions:</strong>
+                    <br>
+                    The script imports various modules such as <code>pandas</code>, <code>requests</code>, <code>BeautifulSoup</code>, <code>fuzzywuzzy</code>, <code>asyncio</code>, <code>pyppeteer</code>, <code>re</code>, <code>matplotlib</code>, etc. Functions from these modules (e.g., <code>pd.read_csv</code>, <code>requests.get</code>, <code>BeautifulSoup</code>, etc.) are used extensively throughout the script but are not listed above as they are not defined within your script.
+                </li>
+                <li><strong>Asynchronous Functions:</strong>
+                    <br>
+                    The <code>generate_pdf</code> function is defined as asynchronous (<code>async def</code>) and is invoked within the synchronous <code>create_pdf_from_html</code> function using <code>asyncio.get_event_loop().run_until_complete()</code> to handle PDF generation.
+                </li>
+                <li><strong>Error Handling:</strong>
+                    <br>
+                    Several functions include try-except blocks to handle potential errors, ensuring the script can gracefully handle issues like missing data or network failures.
+                </li>
+                <li><strong>Data Processing and Reporting:</strong>
+                    <br>
+                    The script is designed to process student grades, attendance, and bus manifest data, perform fuzzy matching to align records, and generate comprehensive HTML and PDF reports that highlight students' academic standing and missing assignments.
+                </li>
+            </ul>
+        </section>
+
+        <section id="dependencies">
+            <h2>Dependencies</h2>
+            <p>The system relies on several Python libraries for its core functionalities:</p>
+            <ul>
+                <li><strong>fuzzywuzzy:</strong> Used for fuzzy string matching and data validation.</li>
+                <li><strong>PyPDF2:</strong> Facilitates PDF text extraction for academic record analysis.</li>
+                <li><strong>Pyppeteer:</strong> Automates browser-based tasks, including rendering HTML into PDF reports.</li>
+                <li><strong>pandas:</strong> Provides powerful data manipulation and analysis tools.</li>
+                <li><strong>numpy:</strong> Supports efficient numerical operations, often used in data preprocessing.</li>
+                <li><strong>Flask:</strong> (If applicable) Used to create a web interface to display or interact with reports.</li>
+                <li><strong>requests:</strong> Enables network operations, such as retrieving data from remote sources.</li>
+                <li><strong>BeautifulSoup4:</strong> Assists in parsing HTML documents to extract structured information.</li>
+                <li><strong>matplotlib:</strong> Generates graphs and visualizations for reporting.</li>
+            </ul><section id="fuzzy-matching">
+            <h2>Fuzzy Matching</h2>
+            <h3>Function: match_student_id(player_name)</h3>
+            <p>This function uses the <code>fuzzywuzzy</code> library to match player names against a master list of student names.</p>
+            <pre>
+def match_student_id(player_name):
+    choices = grade_master_df['Name'].tolist()
+    result = process.extractOne(player_name, choices, scorer=fuzz.token_sort_ratio)
+    if result:
+        match, score = result
+        if score >= 85:
+            matched_row = grade_master_df[grade_master_df['Name'] == match]
+            if not matched_row.empty:
+                return matched_row['ID'].values[0]
+    return None
+            </pre>
+            <p>Detailed Explanation:</p>
+            <ul>
+                <li><strong>Extract Choices:</strong> Converts the "Name" column into a list for easier matching.</li>
+                <li><strong>Match Names:</strong> Uses fuzzy string matching to find the closest match and calculate a similarity score.</li>
+                <li><strong>Validate Match:</strong> Ensures that the similarity score is at least 85 before considering the match valid.</li>
+                <li><strong>Return ID:</strong> If a valid match is found, the corresponding ID is returned.</li>
+            </ul>
+        </section>
+
+        <section id="data-cleaning">
+            <h2>Data Cleaning</h2>
+            <h3>Data Cleaning Pipeline</h3>
+            <p>This pipeline processes raw data for analysis by renaming columns, splitting fields, and removing unnecessary data.</p>
+            <pre>
+df.drop(df.columns[0], axis=1, inplace=True)
+df['First Name'] = df['First Name'].str.replace('CSMB_', '', regex=False)
+df[['Last Name', 'GL']] = df['Last Name'].str.split('_', expand=True)
+df[last_column_name] = df[last_column_name].astype(str)
+split_columns = df[last_column_name].str.split(';', expand=True)
+            </pre>
+            <p>Detailed Explanation:</p>
+            <ul>
+                <li><strong>Drop Columns:</strong> Removes redundant index columns.</li>
+                <li><strong>Rename Fields:</strong> Cleans up the "First Name" column by removing prefixes.</li>
+                <li><strong>Split Fields:</strong> Separates "Last Name" into two distinct columns: "Last Name" and "Grade Level (GL)".</li>
+                <li><strong>Expand Columns:</strong> Splits delimited columns into multiple fields for detailed processing.</li>
+            </ul>
+        </section>
+
+        <section id="pdf-extraction">
+            <h2>PDF Extraction</h2>
+            <h3>Function: extract_text_from_pdf(pdf_path)</h3>
+            <p>This function extracts text content from PDF files for further processing.</p>
+            <pre>
+def extract_text_from_pdf(pdf_path):
+    text = ""
+    with open(pdf_path, 'rb') as file:
+        pdf_reader = PyPDF2.PdfReader(file)
+        for page in pdf_reader.pages:
+            text += page.extract_text()
+    return text
+            </pre>
+            <p>Detailed Explanation:</p>
+            <ul>
+                <li><strong>Open PDF:</strong> Opens the PDF file in binary read mode.</li>
+                <li><strong>Read Pages:</strong> Iterates through each page of the PDF to extract text.</li>
+                <li><strong>Return Text:</strong> Combines text from all pages into a single string for parsing.</li>
+            </ul>
+        </section>
+
+        <section id="attendance-report-parsing">
+            <h2>Attendance Report Parsing</h2>
+            <p>The system parses attendance data from a PDF file to identify patterns and extract actionable insights about student attendance trends.</p>
+            <h3>Steps in Parsing</h3>
+            <ul>
+                <li><strong>PDF Text Extraction:</strong> Utilizes the PyPDF2 library to extract text content from each page of the PDF.</li>
+                <li><strong>Content Segmentation:</strong> Splits the extracted text into student-specific sections based on unique delimiters or patterns.</li>
+                <li><strong>Data Extraction:</strong> Parses the segmented text to identify attendance information, such as student names, attendance percentage, and other details.</li>
+            </ul>
+            <h3>Function: extract_text_from_pdf(pdf_path)</h3>
+            <pre>
+def extract_text_from_pdf(pdf_path):
+    text = ""
+    with open(pdf_path, 'rb') as file:
+        pdf_reader = PyPDF2.PdfReader(file)
+        for page in pdf_reader.pages:
+            text += page.extract_text()
+    return text
+            </pre><h3>Function: parse_student_data(content)</h3>
+            <pre><code>
+def parse_student_data(content):
+    student_blocks = re.split(r'\n(?=\w+, \w+)', content)
+    students = []
+    current_student = None
+
+    for block in student_blocks:
+        # Skip empty blocks
+        if not block.strip():
+            continue
+            
+        # Check if this is a new student
+        student_match = re.match(r'([\w\s\-\',.]+)\s+(\d+)\s+(\d+)\s+\*Ineligible\*', block)
+        if student_match:
+            if current_student:
+                students.append(current_student)
+            
+            current_student = {
+                'name': student_match.group(1).strip(),
+                'id': student_match.group(2).strip(),
+                'grade': student_match.group(3).strip(),
+                'courses': []
+            }
+            
+            # Parse courses for this student
+            course_blocks = re.findall(r'Course Title.+?(?=Course Title|\Z)', block, re.DOTALL)
+            for course_block in course_blocks:
+                course_match = re.search(r'Course Title\s+Grade\s+Credit\s+Teacher\s*(.*?)\s+([\w\s/%-]+)\s+(\d+\.\d+)\s+([\w\s,.-]+)', course_block)
+                if course_match:
+                    course = {
+                        'title': course_match.group(1).strip(),
+                        'grade': course_match.group(2).strip(),
+                        'credit': course_match.group(3).strip(),
+                        'teacher': course_match.group(4).strip(),
+                        'assignments': []
+                    }
+                    
+                    # Parse failed assignments
+                    assignments = re.findall(r'(\d{2}/\d{2}/\d{4})\s+(.*?)\s+(\d+)\s+F\s*/\s*0', course_block)
+                    for date, desc, points in assignments:
+                        course['assignments'].append({
+                            'date': date,
+                            'description': desc.strip(),
+                            'points': points
+                        })
+                    
+                    current_student['courses'].append(course)
+
+    # Add last student
+    if current_student:
+        students.append(current_student)
+        
+    return students
+            </code></pre>
+            <p>This process ensures that the attendance data is structured and ready for analysis, forming the basis for various visualizations and actionable insights in the dashboard.</p>
+        </section>
+
+        <section id="web-scraping-plp">
+            <h2>Web Scraping for Schools PLP</h2>
+            <p>This section describes the process of extracting student progress data from the Schools PLP platform. The system automates the login process using Basic Authentication and retrieves CSV files for analysis.</p>
+            <h3>Key Steps</h3>
+            <ul>
+                <li><strong>Authentication:</strong> Uses HTTPBasicAuth with secure credentials to authenticate requests.</li>
+                <li><strong>Data Retrieval:</strong> Downloads progress data in CSV format from a secure URL.</li>
+                <li><strong>Data Cleaning:</strong> Cleans and transforms the downloaded data to match reporting requirements.</li>
+            </ul>
+            <pre><code>
+# Example Code for Schools PLP Data Scraping
+import requests
+from requests.auth import HTTPBasicAuth
+import pandas as pd
+
+url = "https://slps.schoolsplp.com/domains/209967386/students/progress.csv"
+auth = HTTPBasicAuth("username", "password")
+
+response = requests.get(url, auth=auth)
+if response.status_code == 200:
+    data = pd.read_csv(io.StringIO(response.text))
+    print("Data successfully retrieved and loaded.")
+else:
+    print("Failed to fetch data.")
+            </code></pre>
+        </section>
+
+        <section id="html-report-generation">
+            <h2>HTML Report Generation</h2>
+            <h3>Function: generate_html(students)</h3>
+            <p>This function dynamically generates an HTML report summarizing student data.</p>
+            <pre><code>
+def generate_html(students):
+    html = f"""&lt;!DOCTYPE html&gt;
+    &lt;html lang="en"&gt;
+    &lt;head&gt;
+        &lt;meta charset="UTF-8"&gt;
+        &lt;title&gt;Weekly Eligibility Report&lt;/title&gt;
+        &lt;style&gt;
+            body {{
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 20px;
+                background-color: #f0f2f5;
+            }}
+            .student {{
+                border: 1px solid #ddd;
+                margin-bottom: 20px;
+                padding: 15px;
+                border-radius: 8px;
+                background-color: white;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }}
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div class="summary"&gt;
+            &lt;h1&gt;Weekly Eligibility Report&lt;/h1&gt;
+            &lt;p class="timestamp"&gt;Generated: {datetime.now().strftime('%B %d, %Y %I:%M %p')}&lt;/p&gt;
+        &lt;/div&gt;
+        
+        &lt;div class="students"&gt;"""
+    
+    for student in students:
+        html += f"""
+        &lt;div class="student"&gt;
+            &lt;div class="student-header"&gt;
+                &lt;h2&gt;{student['name']}&lt;/h2&gt;
+                &lt;p&gt;Student ID: {student['id']} | Grade Level: {student['grade']}&lt;/p&gt;
+            &lt;/div&gt;"""
+            </code></pre>
+            <p>Detailed Explanation:</p>
+            <ul>
+                <li><strong>Initialize HTML:</strong> Sets up the basic structure of the HTML document.</li>
+                <li><strong>Loop Through Students:</strong> Creates sections for each student, displaying their name and ID.</li>
+                <li><strong>List Courses:</strong> Adds a list of courses and grades for each student.</li>
+                <li><strong>Return HTML:</strong> Returns the complete HTML as a string.</li>
+            </ul>
+        </section><section id="pdf-report-generation">
+            <h2>PDF Report Generation</h2>
+            <h3>Function: create_pdf_report(html_content, output_path)</h3>
+            <p>This function uses Pyppeteer to generate a PDF report from HTML content.</p>
+            <pre><code>
+import asyncio
+from pyppeteer import launch
+
+async def create_pdf_report(html_content, output_path):
+    browser = await launch()
+    page = await browser.newPage()
+    
+    # Set content and wait for network idle
+    await page.setContent(html_content)
+    
+    # Generate PDF
+    await page.pdf({
+        'path': output_path,
+        'format': 'A4',
+        'printBackground': True,
+        'margin': {
+            'top': '20px',
+            'right': '20px',
+            'bottom': '20px',
+            'left': '20px'
+        }
+    })
+    
+    await browser.close()
+
+# Usage
+html_content = """&lt;html&gt;
+    &lt;body&gt;
+        &lt;h1&gt;Sample Report&lt;/h1&gt;
+        &lt;p&gt;This is a dynamically generated report.&lt;/p&gt;
+    &lt;/body&gt;
+&lt;/html&gt;"""
+output_path = "report.pdf"
+asyncio.run(create_pdf_report(html_content, output_path))
+            </code></pre>
+
+            <h3>PDF Generation Process</h3>
+            <ul>
+                <li><strong>Launch Browser:</strong> Starts a headless browser instance for rendering.</li>
+                <li><strong>Create Page:</strong> Opens a new browser page for content rendering.</li>
+                <li><strong>Set Content:</strong> Loads the provided HTML content.</li>
+                <li><strong>Generate PDF:</strong> Creates the PDF with specified format and margins.</li>
+                <li><strong>Close Browser:</strong> Cleans up browser resources.</li>
+            </ul>
+        </section>
+
+        <section id="create_icu_report">
+            <h2>ICU Report Generation</h2>
+            <p>The ICU (Intensive Care Unit) report tracks students requiring additional academic support.</p>
+            
+            <h3>Function: create_icu_report</h3>
+            <pre><code>
+def create_icu_report(df_icu_reshaped, plp_data, missing_assignments_data):
+    html_content_icu = """&lt;!DOCTYPE html&gt;
+    &lt;html lang="en"&gt;
+    &lt;head&gt;
+        &lt;meta charset="UTF-8"&gt;
+        &lt;title&gt;ICU Report&lt;/title&gt;
+        &lt;style&gt;
+            body {
+                background-color: #f5f5f5;
+                font-family: Arial, sans-serif;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-bottom: 40px;
+            }
+            table, th, td {
+                border: 1px solid black;
+            }
+            th {
+                background-color: #003366;
+                color: white;
+                padding: 10px;
+                text-align: center;
+            }
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div class="privacy-toggle"&gt;
+            &lt;span&gt;Privacy Mode&lt;/span&gt;
+            &lt;label class="toggle-switch"&gt;
+                &lt;input type="checkbox" id="privacyToggle" onclick="togglePrivacy()"&gt;
+                &lt;span class="slider"&gt;&lt;/span&gt;
+            &lt;/label&gt;
+        &lt;/div&gt;
+        &lt;h1&gt;ICU Report&lt;/h1&gt;
+    """</code></pre>
+
+            <h3>Report Components</h3>
+            <ul>
+                <li><strong>Grade Level Organization:</strong> Data grouped by grade level</li>
+                <li><strong>Privacy Controls:</strong> Toggle for sensitive data visibility</li>
+                <li><strong>Performance Metrics:</strong> Academic progress indicators</li>
+                <li><strong>Missing Assignments:</strong> Detailed tracking of incomplete work</li>
+            </ul>
+        </section>
+
+        <section id="generate_missing_assignments_row">
+            <h2>Missing Assignments Processing</h2>
+            <p>Generates detailed information about missing assignments for each student.</p>
+
+            <h3>Function: generate_missing_assignments_row</h3>
+            <pre><code>
+def generate_missing_assignments_row(student_id, student_data, colspan, row=None):
+    html = f"""
+    &lt;tr id="assignments-{student_id}" class="missing-assignments"&gt;
+        &lt;td colspan="{colspan}" style="border: none; padding: 0;"&gt;
+            &lt;table class="assignments-table" style="width:100%; table-layout:fixed; border-collapse: collapse; border: none; background: inherit;"&gt;
+                &lt;tr&gt;
+    """
+    
+    table_courses = get_student_courses(row) if row is not None else {}
+    cells = [f'&lt;td style="border: none;"&gt;&lt;/td&gt;'] * colspan
+    
+    # Process each course's missing assignments
+    for course, details in student_data['courses'].items():
+        first_space = course.find(' ')
+        course_number = course[first_space + 1:] if first_space != -1 else course
+        
+        if course_number in table_courses:
+            assignments_html = generate_assignments_html(details['assignments'])
+            cells[course_idx] = assignments_html
+
+    html += ''.join(cells)
+    html += """
+                &lt;/tr&gt;
+            &lt;/table&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    """
+    return html</code></pre>
+
+            <h3>Assignment Processing Features</h3>
+            <ul>
+                <li><strong>Course Mapping:</strong> Links assignments to specific courses</li>
+                <li><strong>Dynamic Layout:</strong> Adjusts display based on number of courses</li>
+                <li><strong>Date Tracking:</strong> Organizes assignments by due dates</li>
+                <li><strong>Point Tracking:</strong> Displays assignment point values</li>
+            </ul>
+        </section><section id="df_to_html_table_with_graphs">
+            <h2>HTML Table Generation with Graphs</h2>
+            <h3>Function: df_to_html_table_with_graphs</h3>
+            <pre><code>
+def df_to_html_table_with_graphs(df, title, missing_assignments, roster_ids, 
+                               graph_column_names=('YTD Attendance', '5 Day Attendance')):
+    student_count = len(df)
+    df = df.rename(columns={'YTD Attendance %': 'YTD Attendance'})
+    
+    table_html = f"""
+    &lt;style&gt;
+        body {{
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+        }}
+        table {{
+            width: auto;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }}
+        table, th, td {{
+            border: 1px solid black;
+        }}
+        th {{
+            background-color: #003366;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }}
+        td {{
+            padding: 10px;
+            text-align: left;
+            white-space: nowrap;
+        }}
+        tr:nth-child(even):not(.missing-assignments) {{
+            background-color: white;
+        }}
+        tr:nth-child(odd):not(.missing-assignments) {{
+            background-color: white;
+        }}
+        td[data-column="Sport"].athlete-warning {{
+            background-color: yellow !important;
+        }}
+        td[data-column="Sport"].athlete-danger {{
+            background-color: orange !important;
+        }}
+        td[data-column="Sport"].athlete-critical {{
+            background-color: red !important;
+            color: white;
+            font-weight: bold;
+        }}
+    &lt;/style&gt;
+    
+    &lt;h2&gt;{title} ({student_count})&lt;/h2&gt;
+    &lt;table&gt;
+    &lt;thead&gt;&lt;tr&gt;
+    """</code></pre>
+
+            <h3>Graph Integration Features</h3>
+            <ul>
+                <li><strong>Attendance Tracking:</strong> Visual representation of attendance patterns</li>
+                <li><strong>Sport Status Indicators:</strong> Color-coded warnings for athletes</li>
+                <li><strong>Expandable Details:</strong> Collapsible sections for missing assignments</li>
+                <li><strong>Dynamic Styling:</strong> Conditional formatting based on student status</li>
+            </ul>
+        </section>
+
+        <section id="process_plp_data">
+            <h2>Schools PLP Data Processing</h2>
+            <h3>Function: process_plp_data</h3>
+            <pre><code>
+def process_plp_data(df):
+    if df is None or df.empty:
+        return pd.DataFrame()
+        
+    try:
+        processed_df = df.copy()
+        
+        if 'First Name' in processed_df.columns:
+            processed_df['First Name'] = processed_df['First Name'].str.replace('CSMB_', '', regex=False)
+        
+        if 'Last Name' in processed_df.columns and processed_df['Last Name'].str.contains('_').any():
+            split_cols = processed_df['Last Name'].str.split('_', expand=True)
+            processed_df['Last Name'] = split_cols[0]
+            processed_df['GL'] = split_cols[1]
+        
+        if 'First Name' in processed_df.columns and 'Last Name' in processed_df.columns:
+            processed_df['Name'] = processed_df['Last Name'] + ', ' + processed_df['First Name']
+        
+        if 'GL' in processed_df.columns:
+            processed_df['GL'] = pd.to_numeric(processed_df['GL'], errors='coerce')
+        
+        if 'Progress' in processed_df.columns:
+            processed_df = processed_df.rename(columns={'Progress': 'YTD Attendance %'})
+        
+        return processed_df
+    
+    except Exception as e:
+        print(f"Error in process_plp_data: {str(e)}")
+        return pd.DataFrame()</code></pre>
+
+            <h3>Data Processing Features</h3>
+            <ul>
+                <li><strong>Name Standardization:</strong> Consistent formatting of student names</li>
+                <li><strong>Grade Level Extraction:</strong> Parsing grade levels from compound fields</li>
+                <li><strong>Progress Tracking:</strong> Standardized attendance percentage calculation</li>
+                <li><strong>Error Handling:</strong> Graceful handling of missing or malformed data</li>
+            </ul>
+        </section>
+
+        <section id="merge_bus_data">
+            <h2>Bus Data Integration</h2>
+            <h3>Function: merge_bus_data</h3>
+            <pre><code>
+def merge_bus_data(df, bus_manifest_df):
+    df['ID'] = df['ID'].astype(str)
+    bus_manifest_df['ID'] = bus_manifest_df['Student ID'].astype(str)
+    
+    merged_df = pd.merge(
+        df,
+        bus_manifest_df[['ID', 'Pickup Route', 'Pickup Bus Stop']],
+        on='ID',
+        how='left'
+    )
+    
+    # Fill missing values with "Non-Rider"
+    merged_df['Pickup Route'] = merged_df['Pickup Route'].fillna('Non-Rider')
+    merged_df['Pickup Bus Stop'] = merged_df['Pickup Bus Stop'].fillna('Non-Rider')
+    
+    return merged_df</code></pre>
+
+            <h3>Integration Features</h3>
+            <ul>
+                <li><strong>ID Standardization:</strong> Consistent ID formatting across datasets</li>
+                <li><strong>Left Merge:</strong> Preserves all student records</li>
+                <li><strong>Non-Rider Handling:</strong> Clear identification of non-bus riders</li>
+                <li><strong>Data Consistency:</strong> Maintains data integrity during merging</li>
+            </ul>
+        </section><section id="create_bus_manifest_report">
+            <h2>Bus Manifest Report Generation</h2>
+            <h3>Function: create_bus_manifest_report</h3>
+            <pre><code>
+def create_bus_manifest_report(df_all_reshaped_merged, df_all_multiple_reshaped_merged, 
+                             df2_merged, missing_assignments_data):
+    html_content_bus = """&lt;!DOCTYPE html&gt;
+    &lt;html lang="en"&gt;
+    &lt;head&gt;
+        &lt;meta charset="UTF-8"&gt;
+        &lt;title&gt;Student Bus Manifest Report&lt;/title&gt;
+        &lt;style&gt;
+            body {
+                background-color: #f5f5f5;
+                font-family: Arial, sans-serif;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-bottom: 40px;
+            }
+            th {
+                background-color: #003366;
+                color: white;
+                padding: 10px;
+                text-align: center;
+            }
+            .grade-level {
+                margin-top: 50px;
+            }
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;Student Bus Manifest Report&lt;/h1&gt;
+    """</code></pre>
+
+            <h3>Report Generation Process</h3>
+            <ul>
+                <li><strong>Data Organization:</strong>
+                    <ul>
+                        <li>Combines multiple data sources</li>
+                        <li>Groups students by grade level</li>
+                        <li>Integrates bus route information</li>
+                        <li>Links to academic performance data</li>
+                    </ul>
+                </li>
+                <li><strong>Report Components:</strong>
+                    <ul>
+                        <li>Grade level sections</li>
+                        <li>Bus route details</li>
+                        <li>Academic status indicators</li>
+                        <li>Missing assignment tracking</li>
+                    </ul>
+                </li>
+                <li><strong>Data Integration:</strong>
+                    <ul>
+                        <li>Merges attendance data</li>
+                        <li>Incorporates grade information</li>
+                        <li>Links to transportation details</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <section id="utility_functions">
+            <h2>Utility Functions</h2>
+            
+            <h3>Function: generate_graph_placeholders</h3>
+            <pre><code>
+def generate_graph_placeholders(df):
+    df['Line Graph File'] = df.apply(
+        lambda row: check_or_generate_placeholder(row['Line Graph File'], f'line_{row["ID"]}'), axis=1
+    )
+    df['Bar Chart File'] = df.apply(
+        lambda row: check_or_generate_placeholder(row['Bar Chart File'], f'bar_{row["ID"]}'), axis=1
+    )
+    return df</code></pre>
+
+            <h3>Function: standardize_course_number</h3>
+            <pre><code>
+def standardize_course_number(course_number):
+    """Standardize course number format by adding hyphen after s1 or s2"""
+    if 's1' in course_number:
+        course_number = course_number.replace('s1', 's1-')
+    if 's2' in course_number:
+        course_number = course_number.replace('s2', 's2-')
+    return course_number</code></pre>
+
+            <h3>Function: get_student_courses</h3>
+            <pre><code>
+def get_student_courses(row):
+    courses = {}
+    for col in row.index:
+        if col.startswith('Course '):
+            if pd.notna(row[col]) and row[col] != '':
+                first_space = row[col].find(' ')
+                if first_space != -1:
+                    second_space = row[col].find(' ', first_space + 1)
+                    if second_space != -1:
+                        course_number = row[col][second_space + 1:]
+                        course_number = standardize_course_number(course_number)
+                        course_idx = int(col.replace('Course ', ''))
+                        courses[course_number] = course_idx
+    return courses</code></pre>
+        </section>
+
+        <section id="error_handling">
+            <h2>Error Handling and Validation</h2>
+            <pre><code>
+# File verification
+required_files = {
+    'grade_master': 'Grade master listing',
+    'weekly_eligibility_pdf': 'Weekly eligibility PDF', 
+    'bus_manifest': 'Bus manifest',
+    'attendance_history': 'Attendance history'
+}
+
+for key, desc in required_files.items():
+    if not os.path.exists(file_paths[key]):
+        raise FileNotFoundError(f"{desc} file not found at {file_paths[key]}")
+
+# Data Processing Error Handling
+try:
+    csv_data = pd.read_csv(io.StringIO(response.text))
+    df2 = process_plp_data(modified_data_df)
+except Exception as e:
+    df2 = pd.DataFrame()
+    print(f"Error processing Schools PLP data: {e}")
+            </code></pre>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 At Risk Student Dashboard</p>
+    </footer>
+
+</body>
+</html>
