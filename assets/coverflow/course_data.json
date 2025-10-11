@@ -32,18 +32,22 @@
     },
     {
       "course_code": "IS_LT 9410",
-      "title": "Seminar in Info Sci/Learn Tech",
-      "description": "Current issues and scholarship in learning technologies.",
+      "title": "Python Seminar in Info Sci/Learn Tech",
+      "description": "Python-focused seminar where each sprint delivered production-ready data pipelines, automation scripts, and visual analytics for school decision making.",
       "term": "2024 Fall",
-      "reflection": "This seminar grounded my practice in contemporary scholarship and helped me develop a principled stance toward technology in learning. Weekly readings and discussions pushed me beyond tool comparisons to examine the social, ethical, and policy dimensions of technology adoption. We interrogated assumptions about personalization, automation, and data-driven decision making, weighing potential benefits against risks like surveillance creep, algorithmic bias, and loss of student agency. This perspective was invaluable as I refined my own criteria for choosing tools and methods in school settings where trust and equity matter.\n\nA major focus for me was privacy and proportionality in data collection. I mapped the life cycle of student data in my artifacts - from collection to storage to access to deletion - and identified where my practices needed to change. I rewrote consent language in plain terms, clarified what indicators I would collect and why, and set shorter retention windows for nonessential data. I also documented de-identification techniques (e.g., hashing, aggregation, suppression of small-n categories) so I could learn from patterns without exposing individuals. These steps were paired with transparent communication to students and families about what information was being used and how it would improve instruction.\n\nThe course also sharpened my ability to critically evaluate research claims. We analyzed methodologies, sample sizes, measures of learning, and the generalizability of results. This training helped me avoid overinterpreting analytics and reminded me to anchor decisions in multiple forms of evidence - including learner reflections and observational data, not just clickstream metrics. I brought this lens back to my portfolio work, combining quantitative indicators with qualitative insights to create a more complete picture of learner experience.\n\nWe discussed accessibility and inclusion not as add-ons but as design requirements. I reflected on who benefits - and who might be left out - when a school adopts a particular platform or workflow. This led me to prioritize mobile-friendly designs, low-bandwidth alternatives, and offline access when feasible. I also examined how language and imagery can unintentionally exclude or discourage participation, prompting me to revise content for broader cultural relevance and readability.\n\nThe seminar format modeled community learning: we co-constructed norms for respectful debate, shared examples from our contexts, and iterated on position statements over time. That experience influenced how I facilitate feedback with colleagues. I now host shorter, more frequent conversations focused on specific claims (e.g., \"This dashboard helps counselors spot students who need support earlier\") and invite counter-examples to test assumptions. The goal is not consensus for its own sake, but clarity about trade-offs and alignment with our values.\n\nBy the end of the term, I had a tighter feedback loop between ethics and implementation. I adopted a \"privacy by design\" mindset for new features, began documenting data decisions in plain language, and created a short checklist I now use before introducing technology to students. These practices improved trust and made it easier to explain choices to administrators and families. The seminar did not hand me universal answers; it equipped me with better questions and a framework for making decisions transparently and responsibly.\n\nRepresentative connections across my portfolio include clearer consent and data notes within the Rapid Development artifacts and the Digital Literacy Curriculum , where ethical considerations and equitable access are explicitly addressed.",
+      "reflection": "This course positioned Python as the backbone of my instructional data work. Each week I iterated on Colab notebooks that authenticate to district APIs, ingest CSV exports, and reshape them with pandas so counselors can trust the results.\n\nI designed the code as modular pipelines: helpers for secure HTTP requests, validators that flag data quality issues, and transformation layers that calculate indicators for student support teams. These patterns power the Student Risk dashboard, census demographic retrieval, and transcript audit scripts featured in this portfolio.\n\nBeyond mechanics, I learned to document runtime parameters, log outcomes transparently, and schedule notebooks so updates land before each stakeholder meeting. The result is a repeatable Python workflow that keeps our analytics accurate and actionable without manual rework.",
       "materials": [
         {
-          "title": "Rapid Development",
-          "href": "https://everettstuckey.github.io/IS_LT-7383/"
+          "title": "Census Data Retrieval Script",
+          "href": "https://colab.research.google.com/drive/1C8pYam8D-6yMlc3vj0TOsg84S70tIvO4?usp=sharing"
         },
         {
-          "title": "Digital Literacy Curriculum",
-          "href": "https://everettstuckey.github.io/islt_7310/elearning/digital_literacy_curriculum.html"
+          "title": "Transcript Evaluation Automation",
+          "href": "https://colab.research.google.com/drive/1kxPYj4eiCoeiXmsywbf9a1BbNu-m3lTw?usp=sharing"
+        },
+        {
+          "title": "Heatmap Visualization Script",
+          "href": "https://colab.research.google.com/drive/1lXuPQLNkrZvcnsP0Y00BZgRuf7tXp1Io?usp=sharing"
         }
       ]
     },
