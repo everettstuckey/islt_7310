@@ -1,1122 +1,1294 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Meet the Counselor  Portfolio Homepage</title>
-  <meta name="description" content="Everett Stuckey | ISLT EdS Candidate Portfolio Homepage" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-  <style>
-    /* Self-contained styles for Meet the Counselor portfolio page */
-
-    /* Scoped reset for this page only */
-    .site-header *,
-    .site-header *::before,
-    .site-header *::after,
-    main *,
-    main *::before,
-    main *::after,
-    .site-footer *,
-    .site-footer *::before,
-    .site-footer *::after {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    /* Page background and base text color for strong contrast (light indigo → lavender, in-theme) */
-    body {
-      background: linear-gradient(135deg, #eef2ff 0%, #e9d8fd 100%);
-      color: #1a202c;
-    }
-
-    /* Skip link for accessibility */
-    .skip-link {
-      position: absolute;
-      top: -40px;
-      left: 6px;
-      background: #000;
-      color: #fff;
-      padding: 8px;
-      text-decoration: none;
-      border-radius: 4px;
-      z-index: 1000;
-    }
-
-    .skip-link:focus {
-      top: 6px;
-    }
-
-    /* Container */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    /* Header specific to this page */
-    .site-header {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
-      padding: 2rem 0;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      line-height: 1.6;
-    }
-
-    .header-inner {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-
-    .site-title {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin: 0;
-      letter-spacing: -0.025em;
-      color: white;
-    }
-
-    .site-subtitle {
-      font-size: 1.25rem;
-      margin: 0.5rem 0 0 0;
-      opacity: 0.9;
-      font-weight: 400;
-      color: white;
-    }
-
-    .site-header .meta {
-      margin: 1rem 0 0 0;
-      opacity: 0.8;
-      line-height: 1.5;
-      color: white;
-    }
-
-    .site-header .meta a {
-      color: #ffd89b;
-      text-decoration: none;
-      border-bottom: 1px dotted rgba(255, 216, 155, 0.5);
-    }
-
-    .site-header .meta a:hover {
-      border-bottom-style: solid;
-    }
-
-    /* Navigation specific to this page */
-    .site-header nav[aria-label='Primary navigation'] .nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .site-header nav[aria-label='Primary navigation'] .nav li a {
-      display: block;
-      padding: 0.75rem 1.25rem;
-      background: rgba(255, 255, 255, 0.1);
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: 500;
-      transition: all 0.2s ease;
-      backdrop-filter: blur(10px);
-    }
-
-    .site-header nav[aria-label='Primary navigation'] .nav li a:hover,
-    .site-header nav[aria-label='Primary navigation'] .nav li a:focus {
-      background: rgba(255, 255, 255, 0.2);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-
-    /* Floating side navigation (rotated) */
-    .floating-nav {
-      position: fixed;
-      left: 1rem;
-      top: 50%;
-      transform: translateY(-50%) rotate(90deg);
-      transform-origin: left center;
-      z-index: 1100; /* above header */
-    }
-
-    .floating-nav .nav {
-      display: flex;
-      gap: 0.75rem;
-      list-style: none;
-      margin: 0;
-      padding: 0.5rem 0.75rem;
-      background: rgba(45, 55, 72, 0.92); /* slate/dark for contrast */
-      border-radius: 999px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-      backdrop-filter: blur(6px);
-    }
-
-    .floating-nav .nav li a {
-      display: block;
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
-      padding: 0.5rem 0.75rem;
-      border-radius: 6px;
-      border-bottom: none;
-    }
-
-    .floating-nav .nav li a:hover,
-    .floating-nav .nav li a:focus {
-      background: rgba(255, 255, 255, 0.15);
-      outline: 2px solid #ffd89b;
-      outline-offset: 2px;
-    }
-
-    @media (max-width: 991px) {
-      .floating-nav { display: none; }
-    }
-
-    /* Main content specific styling */
-    main {
-      margin: 3rem 0;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      line-height: 1.6;
-      color: #1a202c;
-    }
-
-    /* Sections */
-    main .section {
-      margin-bottom: 4rem;
-      padding: 3rem 0;
-      border-radius: 12px;
-      background: white;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-    }
-
-    main .section.alt {
-      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-      color: white;
-    }
-
-    /* Program Goals section theme (soft indigo/lavender to match header) */
-    main .section.program-goals {
-      background: linear-gradient(135deg, #eef2ff 0%, #e9d8fd 100%);
-      color: #1a202c;
-      border-left: 4px solid #667eea;
-    }
-
-    main .section.alt h2,
-    main .section.alt h3 {
-      color: white;
-    }
-
-    main .section.alt a {
-      color: #ffd89b;
-      border-bottom-color: rgba(255, 216, 155, 0.3);
-    }
-
-    main .section.alt a:hover {
-      border-bottom-color: #ffd89b;
-    }
-
-    /* Typography for main content */
-    main h1,
-    main h2,
-    main h3,
-    main h4,
-    main h5,
-    main h6 {
-      font-weight: 600;
-      line-height: 1.25;
-      margin-top: 0;
-    }
-
-    main h2 {
-      font-size: 2.25rem;
-      margin-bottom: 2rem;
-      color: #2d3748;
-      border-bottom: 3px solid #667eea;
-      padding-bottom: 0.5rem;
-      display: inline-block;
-    }
-
-    main h3 {
-      font-size: 1.5rem;
-      margin-bottom: 1.5rem;
-      color: #4a5568;
-    }
-
-    main p {
-      margin-bottom: 1.5rem;
-    }
-
-    /* Links in main content */
-    main a {
-      color: #667eea;
-      text-decoration: none;
-      border-bottom: 1px dotted rgba(102, 126, 234, 0.3);
-      transition: all 0.2s ease;
-    }
-
-    main a:hover,
-    main a:focus {
-      color: #5a67d8;
-      border-bottom-style: solid;
-    }
-
-    /* Table styling */
-    main .table-wrap {
-      overflow-x: auto;
-      margin: 2rem 0;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    }
-
-    main table {
-      width: 100%;
-      border-collapse: collapse;
-      background: white;
-      font-size: 0.9rem;
-    }
-
-    main th,
-    main td {
-      padding: 1rem;
-      text-align: left;
-      border-bottom: 1px solid #e2e8f0;
-    }
-
-    main th {
-      background: #f7fafc;
-      font-weight: 600;
-      color: #2d3748;
-      position: sticky;
-      top: 0;
-    }
-
-    main tr:hover {
-      background: #f7fafc;
-    }
-
-    main td strong {
-      color: #667eea;
-      font-weight: 600;
-    }
-
-    /* Standards section */
-    main .standards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin: 2rem 0;
-    }
-
-    main .standards article {
-      background: #f7fafc;
-      padding: 1.5rem;
-      border-radius: 8px;
-      border-left: 4px solid #667eea;
-    }
-
-    main .standards article h3 {
-      color: #667eea;
-      margin-bottom: 1rem;
-      font-size: 1.25rem;
-    }
-
-    main .standards ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    main .standards li {
-      margin-bottom: 0.75rem;
-      padding-left: 1.5rem;
-      position: relative;
-    }
-
-    main .standards li::before {
-      content: '->';
-      position: absolute;
-      left: 0;
-      color: #667eea;
-      font-weight: bold;
-    }
-
-    /* Ordered lists in main content */
-    main ol {
-      padding-left: 1.5rem;
-    }
-
-    main ol li {
-      margin-bottom: 2rem;
-    }
-
-    main ol li p:last-child {
-      margin-bottom: 0;
-    }
-
-    /* Footer specific to this page */
-    .site-footer {
-      background: #2d3748;
-      color: white;
-      padding: 2rem 0;
-      margin-top: 4rem;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    }
-
-    .footer-inner {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .site-footer .nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .site-footer .nav a {
-      color: #a0aec0;
-      border-bottom: 1px dotted rgba(160, 174, 192, 0.3);
-      text-decoration: none;
-      transition: all 0.2s ease;
-    }
-
-    .site-footer .nav a:hover {
-      color: white;
-      border-bottom-color: white;
-      border-bottom-style: solid;
-    }
-
-    .site-footer .small {
-      font-size: 0.875rem;
-      opacity: 0.8;
-    }
-
-    .site-footer .back-to-top a {
-      color: #667eea;
-      font-weight: 500;
-      text-decoration: none;
-      border-bottom: 1px dotted rgba(102, 126, 234, 0.3);
-    }
-
-    .site-footer .back-to-top a:hover {
-      border-bottom-style: solid;
-    }
-
-    /* Responsive design */
-    @media (min-width: 768px) {
-      .header-inner {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-start;
-      }
-
-      .footer-inner {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      .site-title {
-        font-size: 3rem;
-      }
-
-      .site-header nav[aria-label='Primary navigation'] .nav {
-        gap: 1rem;
-      }
-    }
-
-    @media (max-width: 767px) {
-      .container {
-        padding: 0 1rem;
-      }
-
-      .site-title {
-        font-size: 2rem;
-      }
-
-      main .section {
-        margin-bottom: 2rem;
-        padding: 2rem 0;
-      }
-
-      main h2 {
-        font-size: 1.75rem;
-      }
-
-      .site-header nav[aria-label='Primary navigation'] .nav li a {
-        padding: 0.5rem 1rem;
-        font-size: 0.875rem;
-      }
-
-      main .standards {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* Focus states for accessibility - scoped to this page */
-    .site-header a:focus,
-    main a:focus,
-    .site-footer a:focus {
-      outline: 2px solid #667eea;
-      outline-offset: 2px;
-    }
-
-    /* Print styles for this page */
-    @media print {
-      .site-header,
-      .site-footer {
-        background: none !important;
-        color: black !important;
-        box-shadow: none !important;
-      }
-
-      main .section.alt {
-        background: none !important;
-        color: black !important;
-      }
-
-      .site-header a,
-      main a,
-      .site-footer a {
-        color: black !important;
-        border-bottom: none !important;
-      }
-      .floating-nav { display: none !important; }
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Cover Flow Mockup</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            color-scheme: light dark;
+            --bg-color: #060714;
+            --text-color: #f3f4ff;
+            --muted-color: rgba(243, 244, 255, 0.55);
+            --accent: #74b9ff;
+            --card-width: min(320px, 60vw);
+            --card-height: min(420px, 65vh);
+            --gap: 220px;
+            --rotation: 55deg;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: radial-gradient(circle at 20% 20%, rgba(116, 185, 255, 0.12), transparent 45%),
+                        radial-gradient(circle at 80% 30%, rgba(255, 107, 129, 0.13), transparent 50%),
+                        var(--bg-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            padding: clamp(16px, 2vw, 40px) clamp(12px, 4vw, 60px) 80px;
+        }
+
+        h1 {
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-size: clamp(1.4rem, 2vw + 1rem, 2.4rem);
+            margin: 0 0 24px;
+            text-align: center;
+        }
+
+        .coverflow-wrapper {
+            width: 100%;
+            max-width: 1400px;
+            display: grid;
+            gap: clamp(32px, 4vw, 48px);
+            justify-items: center;
+        }
+
+        .panels-container {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(20px, 3vw, 32px);
+            align-items: start;
+        }
+
+        @media (max-width: 1024px) {
+            .panels-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .coverflow {
+            position: relative;
+            width: min(100%, 960px);
+            height: clamp(360px, 50vw, 520px);
+            perspective: 1600px;
+            display: grid;
+            place-items: center;
+            overflow: visible;
+        }
+
+        .coverflow__item {
+            width: var(--card-width);
+            height: var(--card-height);
+            position: absolute;
+            border-radius: 20px;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+            transform-style: preserve-3d;
+            overflow: hidden;
+            transition: transform 360ms ease, filter 360ms ease, opacity 360ms ease;
+            cursor: pointer;
+            background: linear-gradient(135deg, rgba(116, 185, 255, 0.4), rgba(108, 92, 231, 0.4));
+            opacity: 0.85;
+        }
+
+        .coverflow__item[data-active="true"] {
+            filter: none;
+            opacity: 1;
+        }
+
+        .coverflow__item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .coverflow__item .card-overlay {
+            inset: 0;
+            position: absolute;
+            display: flex;
+            align-items: flex-end;
+            padding: 20px 24px;
+            background: linear-gradient(0deg, rgba(6, 7, 20, 0.75), transparent 60%);
+            color: #f8f9ff;
+        }
+
+        .card-overlay h2 {
+            margin: 0;
+            font-size: clamp(1.1rem, 1.6vw, 1.4rem);
+            font-weight: 600;
+        }
+
+        .card-overlay p {
+            margin: 6px 0 0;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            opacity: 0.75;
+        }
+
+        .card-placeholder {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            place-content: center;
+            gap: 16px;
+            padding: 32px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(255, 234, 167, 0.85), rgba(250, 177, 160, 0.85));
+            color: #2d3436;
+        }
+
+        .card-placeholder span {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .card-placeholder small {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        .info-panel {
+            background: rgba(15, 20, 45, 0.65);
+            border: 1px solid rgba(116, 185, 255, 0.16);
+            border-radius: 20px;
+            padding: clamp(24px, 3vw, 32px);
+            backdrop-filter: blur(16px);
+            display: grid;
+            gap: 12px;
+            max-height: 800px;
+            overflow-y: auto;
+        }
+
+        .info-panel::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .info-panel::-webkit-scrollbar-track {
+            background: rgba(116, 185, 255, 0.1);
+            border-radius: 4px;
+        }
+
+        .info-panel::-webkit-scrollbar-thumb {
+            background: rgba(116, 185, 255, 0.4);
+            border-radius: 4px;
+        }
+
+        .info-panel::-webkit-scrollbar-thumb:hover {
+            background: rgba(116, 185, 255, 0.6);
+        }
+
+        /* Styles for embedded portfolio sections */
+        .info-panel table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+
+        .info-panel th,
+        .info-panel td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(116, 185, 255, 0.2);
+        }
+
+        .info-panel th {
+            background: rgba(116, 185, 255, 0.15);
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .info-panel tr:hover {
+            background: rgba(116, 185, 255, 0.05);
+        }
+
+        .info-panel h2 {
+            color: var(--text-color);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .info-panel h3 {
+            color: rgba(236, 239, 255, 0.95);
+            margin-top: 1.25rem;
+            margin-bottom: 0.75rem;
+            font-size: 1.2rem;
+        }
+
+        .info-panel h4 {
+            color: rgba(236, 239, 255, 0.9);
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .info-panel p {
+            color: rgba(236, 239, 255, 0.85);
+            line-height: 1.6;
+            margin-bottom: 0.75rem;
+        }
+
+        .info-panel a {
+            color: rgba(116, 185, 255, 0.9);
+            text-decoration: none;
+            border-bottom: 1px dotted rgba(116, 185, 255, 0.5);
+        }
+
+        .info-panel a:hover {
+            color: rgba(116, 185, 255, 1);
+            border-bottom-style: solid;
+        }
+
+        .info-panel ol,
+        .info-panel ul {
+            margin: 0.75rem 0;
+            padding-left: 1.5rem;
+            color: rgba(236, 239, 255, 0.85);
+        }
+
+        .info-panel li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        /* Toggle button styles for embedded sections */
+        .reflection-toggle-btn {
+            margin: 0.25rem 0 0.5rem;
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+            cursor: pointer;
+            background: rgba(116, 185, 255, 0.15);
+            color: rgba(116, 185, 255, 0.95);
+            border: 1px solid rgba(116, 185, 255, 0.3);
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+
+        .reflection-toggle-btn:hover {
+            background: rgba(116, 185, 255, 0.25);
+            border-color: rgba(116, 185, 255, 0.5);
+        }
+
+        .reflection-toggle-btn:active {
+            transform: scale(0.98);
+        }
+
+        .reflection-wrap p {
+            margin-bottom: 0.5rem;
+        }
+
+        .reflection-preview {
+            color: rgba(236, 239, 255, 0.85);
+        }
+
+        .reflection-full p {
+            color: rgba(236, 239, 255, 0.85);
+            margin-bottom: 0.75rem;
+        }
+
+        .info-panel .info-title {
+            margin: 0;
+            font-size: clamp(1.25rem, 1.4vw + 1rem, 1.8rem);
+            font-weight: 700;
+        }
+
+        .info-panel .info-description {
+            margin: 0;
+            color: var(--muted-color);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .artifact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .artifact-links a {
+            padding: 10px 16px;
+            border-radius: 999px;
+            background: rgba(116, 185, 255, 0.15);
+            color: var(--text-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: background 200ms ease, transform 200ms ease;
+        }
+
+        .artifact-links a:hover,
+        .artifact-links a:focus-visible {
+            background: rgba(116, 185, 255, 0.3);
+            transform: translateY(-1px);
+        }
+
+        .controls {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .controls button {
+            appearance: none;
+            border: 1px solid rgba(116, 185, 255, 0.4);
+            background: rgba(116, 185, 255, 0.1);
+            color: var(--text-color);
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: background 200ms ease, border-color 200ms ease;
+        }
+
+        .controls button:hover,
+        .controls button:focus-visible {
+            background: rgba(116, 185, 255, 0.24);
+            border-color: rgba(116, 185, 255, 0.65);
+        }
+
+        .course-panel {
+            background: rgba(10, 13, 30, 0.65);
+            border: 1px solid rgba(116, 185, 255, 0.18);
+            border-radius: 24px;
+            padding: clamp(24px, 3vw, 36px);
+            backdrop-filter: blur(18px);
+            display: grid;
+            gap: clamp(18px, 3vw, 28px);
+        }
+
+        .course-panel h2 {
+            margin: 0;
+            font-size: clamp(1.3rem, 1.5vw + 1rem, 1.9rem);
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .course-status {
+            color: var(--muted-color);
+            font-size: 0.95rem;
+        }
+
+        .course-list {
+            display: grid;
+            gap: clamp(18px, 2vw, 24px);
+        }
+
+        .course-card {
+            background: rgba(23, 30, 60, 0.6);
+            border-radius: 18px;
+            padding: clamp(18px, 2.5vw, 26px);
+            border: 1px solid rgba(116, 185, 255, 0.14);
+            display: grid;
+            gap: 12px;
+        }
+
+        .course-header {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: baseline;
+        }
+
+        .course-header h3 {
+            margin: 0;
+            font-size: clamp(1rem, 1.2vw + 0.9rem, 1.3rem);
+            font-weight: 600;
+        }
+
+        .course-pill {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            background: rgba(116, 185, 255, 0.22);
+            padding: 6px 12px;
+            border-radius: 999px;
+        }
+
+        .course-meta {
+            font-size: 0.9rem;
+            color: var(--muted-color);
+            margin: 0;
+        }
+
+        .course-reflection p {
+            margin: 0 0 12px 0;
+            color: rgba(236, 239, 255, 0.92);
+            line-height: 1.55;
+        }
+
+        .course-reflection p:last-child {
+            margin-bottom: 0;
+        }
+
+        .course-materials {
+            margin: 0;
+            padding-left: 1.2rem;
+            color: rgba(236, 239, 255, 0.9);
+            font-size: 0.92rem;
+            display: grid;
+            gap: 6px;
+        }
+
+        .course-materials li {
+            position: relative;
+            list-style: none;
+        }
+
+        .course-materials li::before {
+            content: "•";
+            position: absolute;
+            left: -0.9rem;
+            color: rgba(116, 185, 255, 0.9);
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --gap: 160px;
+                --rotation: 50deg;
+            }
+
+            .coverflow__item {
+                width: min(260px, 72vw);
+                height: min(380px, 60vh);
+            }
+
+            .card-overlay {
+                padding: 18px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .coverflow__item {
+                transition: none;
+            }
+        }
+    </style>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
+    <main class="coverflow-wrapper">
+        <section class="coverflow" role="listbox" aria-live="polite"></section>
 
-  <header class="site-header">
-    <div class="container header-inner">
-      <div>
-        <h1 class="site-title">ISLT Portfolio</h1>
-        <p class="site-subtitle">Everett Stuckey | ISLT EdS Candidate</p>
-        <p class="meta">
-          Degree Program: EdS, Information Science &amp; Learning Technologies (Technology in Schools emphasis) &middot;
-          Anticipated Graduation: 2025 &middot;
-          Email: <a href="mailto:Everett.stuckey@slps.org">Everett.stuckey@slps.org</a>
-        </p>
-      </div>
-      <nav aria-label="Primary navigation">
-        <ul class="nav">
-          <li><a href="#program-of-study">Program of Study</a></li>
-          <li><a href="#reflection">Reflection</a></li>
-          <li><a href="#iste">ISTE Standards</a></li>
-          <li><a href="https://iste.org/standards/educators" target="_blank" rel="noopener">ISTE Reference</a></li>
-          <li><a href="https://everettstuckey.github.io/islt_7310/KeyTakeAways.html" target="_blank" rel="noopener">Key Take Aways</a></li>
-          <li><a href="https://everettstuckey.github.io/islt_7310/SideProjects.html" target="_blank" rel="noopener">Side Projects</a></li>
-          <li><a href="https://everettstuckey.github.io/islt_7310/EverettStuckeyResume%20Data.pdf" target="_blank" rel="noopener">CV / Resume</a></li>
-          <li><a href="https://stlps-my.sharepoint.com/:o:/g/personal/es26024_slps_org/EmDPav8SGkBJpOQDvNvqxIQBBPr6l887ejscvm4YUOVx4A?e=5vErMc" target="_blank" rel="noopener">Resource Repository</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-  <nav class="floating-nav" aria-label="Floating navigation">
-    <ul class="nav">
-      <li><a href="#program-of-study">Program of Study</a></li>
-      <li><a href="#reflection">Reflection</a></li>
-      <li><a href="#iste">ISTE</a></li>
-      <li><a href="#program-goals">Program Goals</a></li>
-    </ul>
-  </nav>
-
-  <main id="main">
-
-    <section id="program-of-study" class="section">
-      <div class="container">
-        <h2>Program of Study</h2>
-        <p>The Program of Study for my ISLT degree includes the courses below. Each course lists the term, a concise description, and my reflection linking outcomes to practice and artifacts where applicable.</p>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>Course</th>
-                <th>Description</th>
-                <th>Term</th>
-                <th>Reflection</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>IS_LT 7355</strong><br/>Web Design &amp; Development</td>
-                <td>Principles of accessible, standards-based, responsive web design for learning.</td>
-                <td>2024 Summer</td>
-                <td>
-                  <p>Before this course, much of my web work was pragmatic: I could make pages function, but the underlying structure was inconsistent and not always accessible. IS_LT 7355 pushed me to slow down and design deliberately. I learned to treat HTML as more than a way to place content on a screen - it became a semantic contract with assistive technologies and a foundation for predictable, reusable components. I adopted landmarks (header, nav, main, footer), meaningful headings, and descriptive link text to improve navigability for screen reader users and keyboard-only users. The shift from "it looks right" to "it's structured right" has had a measurable impact on findability and comprehension.</p>
-                  <p>Accessibility moved from a checklist to a design habit. I used WCAG 2.1 AA guidelines to evaluate color contrast and reworked palettes to remain legible in bright light and on older devices. I added a visible skip link, ensured logical tab order, and provided focus states that are easy to see. Images now include alt text that communicates purpose rather than appearance, and icon-only links gained accessible names. On mobile, I removed nonessential flourishes, simplified spacing, and set typography for readability at small sizes. These decisions were not merely technical; they respected the realities of my learners' devices, bandwidth, and attention.</p>
-                  <p>Responsiveness became an equity issue as well as a design convenience. I adopted a mobile-first approach and designed content blocks that scale gracefully from small screens to large desktops. Tables were wrapped with responsive containers; long lines were broken into scannable chunks; headings carried meaningful hierarchy so readers could skim effectively. I used CSS to create a coherent visual system - consistent spacing, typographic rhythm, cards with gentle elevation, and clear affordances for links and buttons - so learners could transfer knowledge of one section's patterns to another.</p>
-                  <p>Crucially, I learned to test with real users. Short sessions with students revealed friction points that I would have missed on my own: ambiguous labels, buttons that looked like headings, and instructions that were too dense. I iterated by clarifying link labels ("Apply for Scholarships" instead of "Click here"), adding microcopy at critical decision points, and reorganizing pages to match the way students actually searched for information. In a few cases, small layout changes - like moving deadlines into a consistent right-hand column and tightening line lengths - reduced confusion and cut time-on-task.</p>
-                  <p>I also invested in maintainability. I documented a small design system for the portfolio, including tokens (colors, spacing, typography) and reusable components (navigation, callouts, tables). That system reduces rework when I add artifacts or revise content. Print styles ensure that key pages remain usable offline. I added basic performance considerations - compressing images, deferring noncritical assets - so pages load quickly on school Wi-Fi and cellular networks. These improvements are largely invisible to end users but contribute to a smoother experience.</p>
-                  <p>The impact shows up in student behavior and counselor workflow. Students send fewer "Where do I find...?" emails and complete more steps without one-on-one coaching. Counselors can link confidently to pages knowing the structure, labels, and accessibility are consistent. Most importantly, the site now reflects the values I hold as an educator: clarity, inclusion, and respect for learners' time and context.</p>
-                  <p>Representative artifact: the <a href="https://everettstuckey.github.io/islt_7310/elearning/digital_literacy_curriculum.html" target="_blank" rel="noopener">Digital Literacy Curriculum</a>, which demonstrates semantic structure, improved scannability, accessible color contrast, descriptive links, and responsive layouts. The lessons from IS_LT 7355 underpin the rest of my portfolio and continue to guide decisions as I iterate.</p>
-                </td>
-              </tr>
-              <tr>
-                <td><strong>IS_LT 7383</strong><br/>Rapid Development Tools</td>
-                <td>Low-code tools and rapid prototyping for instructional products.</td>
-                <td>2024 Summer</td>
-                <td>
-                  <p>This course reframed my development process from "complete the product, then gather feedback" to "ship a slice, learn, and iterate." I adopted a build-measure-learn loop that emphasized quick cycles and concrete evidence. Rather than polishing a full module, I shared small increments - an intro video, a single practice task, a draft visual - and asked students to interact with them. Their responses immediately revealed what resonated and what needed revision, allowing me to redirect effort to the highest-impact changes.</p>
-                  <p>Low-code tools accelerated this cadence. Templates, visual editors, and simple data integrations let me prototype without getting bogged down in implementation details. I storyboarded sequences, produced lightweight media, and assembled resources into coherent flows that students could try within a single class period. Because the artifacts were quick to build, they were also quick to change. When analytics and reflections showed that a prompt was unclear or a graphic was distracting, I revised the asset within hours, not days.</p>
-                  <p>Evidence gathering was intentionally lightweight and ethical. I favored aggregate indicators - task completion rates, time-on-task, quick pulse checks - over invasive tracking. I paired these with short, structured reflections: one or two questions that helped me understand confusion points and cognitive load without overburdening students. This combination gave me direction while respecting privacy and class time. Over multiple iterations, completion improved and questions shifted from "What do I do?" to "Why does this pattern appear?" - a sign that the scaffolds were doing their job.</p>
-                  <p>One representative example is the <a href="https://everettstuckey.github.io/IS_LT-7383/slideshows/Financial Markets Slide Show.html" target="_blank" rel="noopener">Financial Markets Slideshow</a>. Early drafts tried to cover too much content per slide, leading to cognitive overload. Student feedback prompted me to reduce text density, pace narration, and use consistent visual metaphors. I aligned each segment with a single learning objective and added brief checks for understanding to surface misconceptions in real time. The result was higher engagement and clearer discussions about cause and effect in market behavior.</p>
-                  <p>Another thread involved collaborative analysis using Python and Google Sheets. Students selected variables, co-constructed datasets, and iterated on visualizations as claims evolved. My role shifted from content deliverer to facilitator of inquiry: I provided exemplars, templates, and nudges, while learners explored multiple pathways to a solution. Rapid iteration - both in the artifacts and in the procedures - helped sustain momentum and made successes visible to the group.</p>
-                  <p>Just as important were the pivots. Not every idea worked. Some interactive elements distracted more than they helped; a few templates were too rigid for diverse contexts. Because I was working in small slices, it was easy to remove, replace, or simplify without derailing progress. Those moments reinforced a key lesson: iteration is not a sign of failure but a mechanism for learning for both teacher and students.</p>
-                  <p>Across the portfolio, rapid development practices reduced time to value and increased alignment between design intent and learner experience. Students spent more time wrestling with ideas and less time deciphering instructions. For me, the process provided a repeatable, humane way to improve materials: small bets, honest evidence, and steady refinement. See the <a href="https://everettstuckey.github.io/IS_LT-7383/" target="_blank" rel="noopener">Rapid Development Tools Portfolio</a> for additional examples and iteration notes that document this approach in practice.</p>
-                  <p>As I reflect on the impact of this course, I realize that it has fundamentally changed the way I approach instructional design. I no longer see myself as a content expert, but rather as a facilitator of learning. I understand that my role is not to create perfect materials, but to create materials that are good enough to spark meaningful learning. I have learned to trust the process of iteration and to see it as a natural part of the design cycle.</p>
-                  <p>This shift in mindset has had a profound impact on my practice. I am more willing to take risks and try new things, knowing that I can always iterate and improve. I am more focused on creating materials that are accessible and inclusive, and I am more intentional about gathering feedback from students and using it to inform my design decisions.</p>
-                  <p>One of the most significant takeaways from this course is the importance of empathy in instructional design. I have learned to see things from the student's perspective and to design materials that meet their needs. I have also learned to be more mindful of the emotional and social aspects of learning, and to create materials that are engaging and motivating.</p>
-                  <p>Overall, this course has been a game-changer for me. It has helped me to develop a more nuanced understanding of instructional design and to see myself as a facilitator of learning. I am excited to continue to apply the principles and practices I have learned in this course to my future work.</p>
-                </td>
-              </tr>
-              <tr>
-                <td><strong>IS_LT 9410</strong><br/>Seminar in Info Sci/Learn Tech</td>
-                <td>Current issues and scholarship in learning technologies.</td>
-                <td>2024 Fall</td>
-                <td>
-                  <p>This seminar grounded my practice in contemporary scholarship and helped me develop a principled stance toward technology in learning. Weekly readings and discussions pushed me beyond tool comparisons to examine the social, ethical, and policy dimensions of technology adoption. We interrogated assumptions about personalization, automation, and data-driven decision making, weighing potential benefits against risks like surveillance creep, algorithmic bias, and loss of student agency. This perspective was invaluable as I refined my own criteria for choosing tools and methods in school settings where trust and equity matter.</p>
-                  <p>A major focus for me was privacy and proportionality in data collection. I mapped the life cycle of student data in my artifacts - from collection to storage to access to deletion - and identified where my practices needed to change. I rewrote consent language in plain terms, clarified what indicators I would collect and why, and set shorter retention windows for nonessential data. I also documented de-identification techniques (e.g., hashing, aggregation, suppression of small-n categories) so I could learn from patterns without exposing individuals. These steps were paired with transparent communication to students and families about what information was being used and how it would improve instruction.</p>
-                  <p>The course also sharpened my ability to critically evaluate research claims. We analyzed methodologies, sample sizes, measures of learning, and the generalizability of results. This training helped me avoid overinterpreting analytics and reminded me to anchor decisions in multiple forms of evidence - including learner reflections and observational data, not just clickstream metrics. I brought this lens back to my portfolio work, combining quantitative indicators with qualitative insights to create a more complete picture of learner experience.</p>
-                  <p>We discussed accessibility and inclusion not as add-ons but as design requirements. I reflected on who benefits - and who might be left out - when a school adopts a particular platform or workflow. This led me to prioritize mobile-friendly designs, low-bandwidth alternatives, and offline access when feasible. I also examined how language and imagery can unintentionally exclude or discourage participation, prompting me to revise content for broader cultural relevance and readability.</p>
-                  <p>The seminar format modeled community learning: we co-constructed norms for respectful debate, shared examples from our contexts, and iterated on position statements over time. That experience influenced how I facilitate feedback with colleagues. I now host shorter, more frequent conversations focused on specific claims (e.g., "This dashboard helps counselors spot students who need support earlier") and invite counter-examples to test assumptions. The goal is not consensus for its own sake, but clarity about trade-offs and alignment with our values.</p>
-                  <p>By the end of the term, I had a tighter feedback loop between ethics and implementation. I adopted a "privacy by design" mindset for new features, began documenting data decisions in plain language, and created a short checklist I now use before introducing technology to students. These practices improved trust and made it easier to explain choices to administrators and families. The seminar did not hand me universal answers; it equipped me with better questions and a framework for making decisions transparently and responsibly.</p>
-                  <p>Representative connections across my portfolio include clearer consent and data notes within the <a href="https://everettstuckey.github.io/IS_LT-7383/" target="_blank" rel="noopener">Rapid Development</a> artifacts and the <a href="https://everettstuckey.github.io/islt_7310/elearning/digital_literacy_curriculum.html" target="_blank" rel="noopener">Digital Literacy Curriculum</a>, where ethical considerations and equitable access are explicitly addressed.</p>
-                </td>
-              </tr>
-              <tr>
-                <td><strong>IS_LT 9417</strong><br/>Action Research</td>
-                <td>Inquiry cycles to investigate and improve practice.</td>
-                <td>2025 Summer</td>
-                <td>
-                  <p>This course transformed reflective practice into systematic inquiry. I framed a practical, context-relevant question - would simplifying the scholarship site's information architecture improve student follow-through from discovery to application? - and designed a modest study to investigate it. I began with a baseline map of the existing journey, identifying the typical paths students took and where drop-offs occurred. I then documented specific changes (clearer labels, consistent placement of deadlines, shorter instructions, and a persistent "Apply" affordance) and predicted how each might reduce friction.</p>
-                  <p>I collected evidence with an eye toward proportionality and feasibility. Rather than implementing heavy instrumentation, I tracked a handful of indicators: page visits to key resources, clicks on application links, time-on-task for guidance pages, and the number of initiated applications within a set period. I paired these with short student reflections gathered at natural checkpoints - two or three questions about clarity, confidence, and what they expected to do next. This mixed-methods approach allowed me to see both movement in the numbers and the reasons behind it.</p>
-                  <p>Analysis was iterative. Early results showed more visits to deadlines pages but no corresponding increase in application starts. Student comments revealed that while deadlines were clearer, they still felt overwhelmed by the number of steps. In response, I consolidated instructions into checklists, added concise summaries at the top of longer pages, and created a lightweight "start here" page that guided students through the first two actions. The next cycle showed improvement: students reached application pages faster and reported greater confidence about what to do.</p>
-                  <p>I also explored communication nudges outside the site. Short, targeted reminders in newsletters - linked to specific actions rather than general announcements - helped maintain momentum. Importantly, I tracked unsubscribes and opt-outs to ensure we were not adding noise. The goal was to support, not pester. These outreach experiments were documented alongside site changes, creating a fuller picture of the ecosystem that influences student behavior.</p>
-                  <p>Throughout the study, I attended to ethics and participant burden. All surveys were brief and optional, data were aggregated for reporting, and I avoided collecting sensitive information. Findings were shared back with students and counselors in plain terms, including what we tried that did not make a difference. That transparency built trust and generated better ideas for subsequent cycles.</p>
-                  <p>The most valuable outcome was not a single optimization but a repeatable process. I now approach improvements using small, testable changes, simple measures aligned to the behavior I care about, and short cycles that let me adapt quickly. This stance has spilled over into other projects, from curricular materials to advising workflows. Action research gave me the structure to learn from my own context without waiting for perfect studies or exhaustive datasets.</p>
-                  <p>Artifacts across the portfolio - particularly the navigation revisions and microcopy updates in the scholarship resources - trace this inquiry process and the rationale behind each change. The habit of documenting what I expected to happen, what occurred, and what I will try next continues to guide my practice.</p>
-                </td>
-              </tr>
-              <tr>
-                <td><strong>IS_LT 9455</strong><br/>Design Thinking Evaluation</td>
-                <td>Human-centered evaluation approaches for learning experiences.</td>
-                <td>2025 Spring</td>
-                <td>
-                  <p>In this course, I learned to evaluate learning experiences with empathy and rigor. We began with foundational questions: Who are the learners? What are they trying to accomplish? Where and how will they engage with the materials? These questions anchored every method we used, from heuristic evaluations to think-alouds. I practiced observing without leading, listening for moments of hesitation, and distinguishing between true usability issues and individual preferences. This mindset helped me see barriers I had normalized over time.</p>
-                  <p>My focal project was an evaluation of scholarship resources. I constructed representative tasks (e.g., identify eligibility, locate deadlines, begin an application) and recruited a small, diverse set of students to complete them on their own devices. During think-alouds, I noted places where instructions felt dense, labels were ambiguous, or layout implied the wrong hierarchy. I triangulated these findings with a quick heuristic review focused on consistency, recognition over recall, error prevention, and help and documentation. The convergence of observations and heuristics made it clear where to act first.</p>
-                  <p>Revisions prioritized clarity and momentum. I chunked instructions, front-loaded essential information, and used verbs in headings to set expectations ("Submit FAFSA" "Request Transcript"). I standardized the placement of deadlines and calls-to-action, improved contrast for key buttons, and ensured that the primary path remained visible on mobile screens. Microcopy addressed common points of confusion with short, supportive prompts. I also added small success moments - checkmarks and confirmations - to reinforce progress.</p>
-                  <p>Measuring impact required balancing thoroughness with practicality. I compared task completion times and error rates before and after revisions, and I gathered brief post-task reflections on ease and confidence. The improvements were notable: students reached application links faster, backtracked less, and reported feeling more certain about next steps. Importantly, the changes held up across devices with different screen sizes and input methods.</p>
-                  <p>Beyond the immediate project, I developed patterns for scalable evaluation. I created short protocol templates for think-alouds and heuristic reviews, along with a lightweight issue tracker that categorizes findings by severity and effort. These artifacts help me sustain evaluation as an ongoing practice rather than a one-time event. I also learned to frame findings constructively with stakeholders - pairing evidence of friction with concrete, feasible recommendations - so teams feel empowered to act.</p>
-                  <p>The course reinforced that evaluation is part of design, not an afterthought. By building evaluation into the cadence of development, I'm more likely to catch issues before they compound and to keep the learner experience at the center. The strategies I practiced here now inform my work across the portfolio: clear goals, representative tasks, small tests, and respectful observation that leads to actionable insights.</p>
-                  <p>Evidence of these changes appears across my artifacts, including the <a href="https://everettstuckey.github.io/IS_LT-7383/" target="_blank" rel="noopener">Rapid Development</a> work and the <a href="https://everettstuckey.github.io/islt_7310/elearning/digital_literacy_curriculum.html" target="_blank" rel="noopener">Digital Literacy Curriculum</a>, where evaluation shaped sequencing, instructions, and the balance between guidance and autonomy.</p>
-                </td>
-              </tr>
-              <tr>
-                <td><strong>IS_LT 9466</strong><br/>Learning Analytics</td>
-                <td>Data collection, analysis, and interpretation to improve learning.</td>
-                <td>2024 Spring</td>
-                <td>
-                  <p>This course helped me separate curiosity from usefulness when it comes to data. I began by articulating the questions I actually needed to answer - Are students getting stuck on specific steps? Which explanations reduce confusion? Where does motivation flag? - and only then selecting indicators that could reasonably inform those questions. I resisted the temptation to instrument everything and focused instead on a small set of measures aligned to outcomes: task completion, time-on-task for key pages, error rates, and short reflections that captured perceived clarity and confidence.</p>
-                  <p>Designing the pipeline required attention to proportionality and privacy. I avoided collecting sensitive data that were not essential to learning goals, and I aggregated results whenever possible. For example, rather than logging every click, I tracked transitions between meaningful states (e.g., from "view deadlines, to "start application,). I documented retention windows and access controls and communicated in plain language what was being collected and why. This transparency increased trust and reduced anxiety for students and families accustomed to opaque data practices.</p>
-                  <p>Interpreting analytics demanded humility. Time-on-task can reflect deep engagement or confusion; completion rates might improve because instructions are clearer or because learners are skipping important steps. To avoid false certainty, I paired quantitative indicators with quick qualitative checks - two-question pulses at natural breakpoints and occasional think-alouds with volunteers. These mixed methods helped me surface causal mechanisms and prioritize changes with the greatest impact on understanding and persistence.</p>
-                  <p>With these practices in place, I used analytics to drive specific improvements. When I noticed extended dwell times on a guidance page with low subsequent application starts, I rewrote the first two paragraphs to front-load purpose and reduced reading burden by chunking steps. I also added a short checklist and a "What you"ll need, callout. In the next cycle, dwell time decreased and application starts rose, with student reflections citing "clearer next steps, as the main factor. In another case, I discovered that mobile users abandoned a long form more frequently; responsive tweaks and a save-and-return affordance reduced drop-offs.</p>
-                  <p>Perhaps the most significant lesson was to keep analytics humane. Dashboards were designed for action, not for surveillance: simple visualizations tied to specific decisions, like which pages needed revision or where to place a clarifying prompt. I also built in guardrails - reminders about interpretation limits and links to the evidence behind a proposed change - so conversations stayed grounded. By closing the loop from evidence to iteration and back again, I created a sustainable rhythm of improvement that respected learners" privacy and time.</p>
-                  <p>The approach now permeates my portfolio. From the <a href="https://everettstuckey.github.io/islt_7310/elearning/digital_literacy_curriculum.html" target="_blank" rel="noopener">Digital Literacy Curriculum</a> to scholarship resources, analytics serve design intent: to clarify, to support, and to empower. The course shifted my mindset from "more data is better, to "the right data, used ethically, makes learning better.,</p>
-                </td>
-              </tr>
-              <tr>
-                <td><strong>IS_LT 9467</strong><br/>Technology to Enhance Learning</td>
-                <td>Technology integration strategies for impact and equity.</td>
-                <td>2025 Summer</td>
-                <td>
-                  <p>This course helped me to develop a deeper understanding of how technology can be used to enhance learning. I learned about the different types of technology integration, including substitution, augmentation, modification, and redefinition. I also learned about the importance of considering the SAMR model when designing technology-enhanced lessons.</p>
-                  <p>One of the most significant takeaways from this course is the importance of equity in technology integration. I learned about the digital divide and how it can impact student learning. I also learned about the importance of providing access to technology for all students, regardless of their background or socioeconomic status.</p>
-                  <p>I also learned about the different types of technology that can be used to enhance learning, including learning management systems, educational software, and multimedia tools. I learned about the importance of selecting technology that is aligned with the learning objectives and that is accessible to all students.</p>
-                  <p>Throughout the course, I had the opportunity to design and implement technology-enhanced lessons. I learned about the importance of considering the instructional design model when designing lessons, and I learned about the different types of instructional strategies that can be used to enhance learning.</p>
-                  <p>One of the most significant challenges I faced in this course was learning to navigate the different types of technology. I had to learn how to use new software and tools, and I had to learn how to troubleshoot technical issues. However, with the support of my instructor and my peers, I was able to overcome these challenges and develop a deeper understanding of how technology can be used to enhance learning.</p>
-                  <p>Overall, this course was incredibly valuable. I learned about the importance of technology integration in education, and I developed a deeper understanding of how technology can be used to enhance learning. I also developed a range of skills, including instructional design, technology integration, and troubleshooting.</p>
-                  <p>As I reflect on the impact of this course, I realize that it has fundamentally changed the way I approach teaching and learning. I no longer see technology as a separate entity from instruction, but rather as an integral part of the learning process. I understand that technology can be used to enhance learning, and I am committed to using it in a way that is equitable and accessible to all students.</p>
-                  <p>This shift in mindset has had a profound impact on my practice. I am more intentional about using technology to enhance learning, and I am more focused on creating lessons that are accessible and inclusive. I am also more willing to take risks and try new things, knowing that I can always iterate and improve.</p>
-                  <p>One of the most significant takeaways from this course is the importance of ongoing professional development. I learned about the importance of staying current with the latest research and trends in technology integration, and I learned about the importance of seeking out opportunities for professional growth and development.</p>
-                  <p>Overall, this course has been a game-changer for me. It has helped me to develop a more nuanced understanding of technology integration and to see myself as a facilitator of learning. I am excited to continue to apply the principles and practices I have learned in this course to my future work.</p>
-                </td>
-              </tr>
-              <tr>
-                <td><strong>IS_LT 9471</strong><br/>Instructional Systems Design</td>
-                <td>Systematic analysis, design, development, and evaluation.</td>
-                <td>2025 Spring</td>
-        <td>
-                  <p>This course operationalized ADDIE in my day-to-day work. In Analysis, I clarified the problem space with stakeholders - counselors, students, and families - using interviews, journey mapping, and quick artifact audits. We defined the gap in terms of learner performance and experience, not just content coverage. From there, I wrote measurable objectives that described what learners should be able to do and under what conditions, aligning them to authentic tasks they actually encounter.</p>
-                  <p>During Design, I translated objectives into assessments and learning activities. I favored performance tasks over recall, and I arranged sequences to activate prior knowledge, reduce extraneous load, and support transfer. I made accessibility a non-negotiable constraint, specifying patterns (heading hierarchy, alt text, focus states), contrast thresholds, and mobile-first layouts. Prototypes at this stage were intentionally low-fidelity so I could iterate quickly based on feedback.</p>
-                  <p>Development focused on turning designs into maintainable artifacts. I built reusable components and wrote microcopy that anticipated sticking points. I organized assets for traceability and reuse, and documented decisions so collaborators could pick up where I left off. Throughout, I validated materials with quick checks - does the assessment truly measure the objective? Does the activity provide the right level of support? - and I fixed mismatches before they calcified.</p>
-                  <p>Implementation emphasized readiness. I created facilitator notes, checklists, and support guides, and I rehearsed delivery with colleagues to catch practical issues. I monitored early sessions for surprises and captured them as candidates for the next iteration. Importantly, I framed changes as part of the process, not as evidence that something had "failed" which encouraged honest feedback and steady improvement.</p>
-                  <p>Evaluation ran through everything, not just the end. I combined formative evidence (observations, quick polls, error patterns) with summative indicators (completion, performance against rubrics) to judge effectiveness. When evidence suggested a misalignment, say, learners succeeded on a task but could not transfer the skill, I revisited objectives and activities to tighten the link. I also reported findings in concise, actionable summaries to stakeholders so decisions about what to keep, revise, or retire were grounded in shared understanding.</p>
-                  <p>Across the portfolio, this disciplined approach improved coherence and outcomes. Artifacts like the <a href="https://everettstuckey.github.io/islt_7310/elearning/digital_literacy_curriculum.html" target="_blank" rel="noopener">Digital Literacy Curriculum</a> show objectives, tasks, and assessments pulling in the same direction, while the rapid prototypes demonstrate how early evaluation prevents costly rework. ADDIE is no longer an abstract model for me; it is a practical rhythm for designing learning that respects people's time and leads to measurable, equitable gains.</p>
-                </td>
-              </tr>
-              <tr>
-                <td><strong>IS_LT 9473</strong><br/>Project Management</td>
-                <td>Planning, execution, risk, and stakeholder communication.</td>
-                <td>2024 Spring</td>
-        <td>
-                  <p>This course provided the scaffolding to deliver learning products predictably and sustainably. I learned to define scope crisply - what is in, what is out, and why - and to translate that scope into milestones with observable outcomes. I time-boxed work, used Kanban-style boards to visualize flow, and limited work in progress so quality did not suffer. These habits reduced context switching and created momentum without requiring heroic efforts.</p>
-                  <p>Risk management became a routine, not a formality. I identified technical, content, and schedule risks early and documented triggers, likelihood, and mitigations in a simple log. For web artifacts, recurring risks like link rot and browser quirks received standing checks: automated link health scans, manual spot checks on common devices, and a brief checklist for major releases. By making risk visible, I could negotiate trade-offs honestly with stakeholders - choosing to descale a feature, for instance, to protect a deadline and quality bar.</p>
-                  <p>Communication was another pillar. I wrote succinct status updates that focused on decisions, risks, and next steps rather than play-by-play activity. I set expectations for feedback windows and established one "source of truth" for assets to avoid version sprawl. Retrospectives closed each cycle, capturing what worked, what was painful, and what we would try next. Over time, these rituals built trust and reduced surprises.</p>
-                  <p>Resourcing and scheduling were treated as design problems. I estimated effort using comparative sizing rather than false precision, grouped similar tasks to gain efficiencies, and reserved capacity for the inevitable unknowns. I also created templates - issue trackers, release notes, change logs - that shortened ramp-up for collaborators and preserved context for future revisions.</p>
-                  <p>The payoff is evident across my portfolio. Releases are steadier, quality is more consistent, and maintenance overhead is lower. Students and colleagues benefit from reliable updates and clear communication; I benefit from a process that is humane and sustainable. Project management did not make the work less complex, but it made the path through that complexity clearer and fairer for everyone involved.</p>
-                </td>
-              </tr>
-              <tr>
-                <td><strong>IS_LT 9474</strong><br/>Front End Analysis</td>
-                <td>Needs assessment and problem framing techniques.</td>
-                <td>2024 Fall</td>
-        <td>
-                  <p>This course taught me to slow down and frame the right problem before building solutions. I mapped the ecosystem around my learners - students, families, counselors, platforms - and gathered perspectives through interviews, quick surveys, and artifact reviews. I resisted the urge to jump to features and instead synthesized what I heard into jobs-to-be-done and pain points. Journey mapping exposed where energy was lost: unclear eligibility, scattered deadlines, instructions that assumed background knowledge students did not yet have.</p>
-                  <p>From this analysis, I wrote problem statements that described the gap in observable terms and identified constraints we had to honor (devices, time, bandwidth, privacy). I evaluated candidate solutions against criteria grounded in this reality: Does the change reduce steps? Does it improve comprehension at the moment of decision? Is it sustainable for counselors to maintain? This filtered out ideas that were flashy but fragile and surfaced simpler interventions with outsized impact - clearer labels, checklists, consistent placement of critical information, and targeted microcopy.</p>
-                  <p>I also honed techniques for gathering just enough data to move forward. Lightweight card sorts clarified language; five-minute usability checks with students revealed misleading layouts; quick analytics confirmed whether changes produced the expected behavior. Importantly, I documented not only what we learned but what we chose not to do and why, preserving rationale for future teams and preventing drift.</p>
-                  <p>Front-end analysis improved alignment across stakeholders. With a shared understanding of the problem and the criteria for success, conversations shifted from personal preference to learner impact. That alignment made subsequent design and development faster and less contentious. It also made evaluation clearer: we knew what we intended to change and how we would know if it worked.</p>
-                  <p>Ultimately, this course embedded a habit of inquiry that now precedes major changes in my portfolio. I approach new challenges with curiosity and discipline, confident that the time invested up front will pay dividends in clarity, quality, and equity for the learners I serve.</p>
-                </td>
-
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <section id="reflection" class="section alt">
-      <div class="container">
-        <h2>Reflection Statement</h2>
-        <h3>Context</h3>
-        <p>When I entered the ISLT program, I brought a counselor’s mindset and a financier’s analytical discipline, but my technology practice was largely pragmatic. In daily school work, I made tools “work well enough” to meet immediate student needs , sharing resources, simplifying instructions, and troubleshooting access barriers. What I lacked was a systematic framework for designing technology-enhanced learning experiences end to end: aligning needs to outcomes, selecting tools intentionally, measuring impact, and then iterating for equity and clarity. I chose the ISLT program, Technology in Schools emphasis, to build that structure around my practice. I wanted to develop reusable patterns for accessible web design, rapid prototyping, and responsible use of learning data that could scale beyond individual interventions. Entering the program, I was comfortable with quantitative reasoning and stakeholder communication from my finance background and counseling experience, but I needed deeper knowledge in interaction design, evaluation, and standards-based technology integration. The ISLT coursework challenged me to move from ad hoc solutions to an evidence-driven, ethically grounded design approach, one that serves students and families across devices, bandwidth, and contexts while protecting their privacy and honoring their time.</p>
-
-        <h3>Significant Learnings</h3>
-        <ol>
-          <li>
-            <p><strong>Accessibility and clarity are design requirements, not afterthoughts.</strong> Across projects, I learned that semantic HTML, WCAG-aligned color and typography choices, and mobile-first layouts are not just technical niceties; they directly reduce cognitive load and make resources more actionable for students and families. By treating headings, lists, labels, and link text as navigational cues, especially for screen readers and small screens, I improved findability and comprehension. This shift changed how I write microcopy, structure pages, and audit contrast. It also made my resources more equitable for learners who access materials on mobile devices or with limited bandwidth.</p>
-            <p><em>Representative artifact:</em> <a href="https://everettstuckey.github.io/islt_7310/elearning/digital_literacy_curriculum.html" target="_blank" rel="noopener">Digital Literacy Curriculum</a>. This curriculum showcases consistent semantic structure, clear task chunking, and high-contrast, readable typography. It demonstrates how accessible patterns improve the student experience without sacrificing visual appeal.</p>
-          </li>
-          <li>
-            <p><strong>Rapid prototyping accelerates learning and quality.</strong> The program taught me to plan short, focused build cycles with quick feedback loops, using low-code tools when appropriate. By putting workable prototypes in front of students and colleagues early, I surfaced misconceptions and usability issues before they became entrenched. I adopted a cadence of design sprints, check-ins, and micro-evaluations that helped me converge on effective media sequencing and interaction patterns faster than when I built “finished” products up front. Rapid development also fostered a culture of co-design, students felt comfortable giving candid feedback because iteration was expected.</p>
-            <p><em>Representative artifact:</em> <a href="https://everettstuckey.github.io/IS_LT-7383/" target="_blank" rel="noopener">Rapid Development Tools Portfolio</a>. This portfolio collects prototypes that moved from concept to testable artifacts quickly, documenting how feedback informed successive versions and how scope discipline produced better outcomes in less time.</p>
-          </li>
-          <li>
-            <p><strong>Data-informed decision-making strengthens instructional impact.</strong> I learned to select practical, ethical indicators tied to objectives, click-through paths, time on task, completion and error rates, and rubric-aligned performance, so that I could close the loop between design and evidence. Rather than collecting data for its own sake, I now plan the question first, identify the smallest useful signals, and then adjust the resource or activity accordingly. This approach keeps measurement purposeful, protects student privacy, and leads to visible improvements in navigation and comprehension.</p>
-            <p><em>Representative artifact:</em> <a href="https://everettstuckey.github.io/IS_LT-7383/slideshows/Financial%20Markets%20Slide%20Show.html" target="_blank" rel="noopener">Financial Markets Slideshow</a>. Iterations of this multimedia lesson were guided by lightweight analytics and formative checks (e.g., sequence adjustments based on confusion points and pacing). The result is a clearer narrative flow and more targeted prompts that support transfer.</p>
-          </li>
-        </ol>
-
-        <h3>Impact on Practice and Growth toward ISTE Educator Standards</h3>
-        <p>The ISLT program has reshaped how I design, facilitate, and evaluate learning experiences. In daily practice, I now begin with learner context and constraints, articulate measurable outcomes, and choose tools that minimize barriers. Prototyping early and often has become standard, and I treat accessibility reviews and contrast checks as nonnegotiable gates for release. My communication artifacts, web pages, multimedia sequences, and counselor-facing resources, are more concise, scannable, and consistent, which has reduced misinterpretation and follow-up overhead for students and families. Equally important, my data practices are lean and purposeful: I gather only what I need, explain how it will be used, and then show stakeholders the improvements it enables.</p>
-        <p>This work aligns with and advances my growth in the ISTE Educator Standards. As a <strong>Designer</strong> (5a–5c), I build accessible, learner-centered materials with authentic, goal-aligned activities. As a <strong>Facilitator</strong> (6a–6d), I create conditions for ownership, using technology to enable exploration, feedback, and creativity while managing tools and strategies responsibly. As an <strong>Analyst</strong> (7a–7c), I employ alternative demonstrations of learning and use assessment data appropriately to inform next steps without over-collecting or compromising privacy. I have also grown as a <strong>Collaborator</strong> (4b) by co-learning with students through iterative prototyping, as a <strong>Leader</strong> (2b) by advocating equitable access through mobile-first, high-contrast designs, and as a <strong>Citizen</strong> (3c) by modeling safe, ethical use of data. Together, these shifts mean I am not merely curating resources but designing learning experiences that are equitable, measurable, and sustainable in a real school setting.</p>
-        <p>Going forward, I will continue to maintain a reusable design system (components, tokens, and patterns) across counselor resources, expand quick evaluation toolkits to include student-friendly reflection prompts, and formalize lightweight analytics dashboards that respect privacy. Most importantly, I will keep centering accessibility and student voice, ensuring that the artifacts I produce help students navigate opportunities confidently, make informed decisions, and demonstrate their learning in multiple ways.</p>
-      </div>
-    </section>
- 
-      
-    
-    <section id="iste" class="section">
-      <div class="container">
-        <h2>ISTE Standards for Educators  Artifacts and Evidence</h2>
-        <p>This section pairs each ISTE educator standard with concrete artifacts and a brief rationale for alignment. Together, these examples illustrate how I apply the standards in accessible, ethical, and learner-centered ways.</p>
-        <div class="standards">
-          <article>
-            <h3>Learner (1.a - 1.d)</h3>
-            <p>As a learner, I commit to sustained, reflective growth that is visible in my artifacts and in the way I work with students and colleagues. I set specific professional learning goals - grounded in accessibility, equity, and evidence - and I revisit them through short cycles of experimentation and reflection. This stance shifts learning from occasional workshops to daily practice: I try small changes, collect light evidence, and document what I will keep, change, or retire. The value is not only the skill gained but the transparency of the process; students and peers see that improvement is iterative and that questions are welcome.</p>
-            <p>My goals emphasize accessible design, ethical data use, and inclusive pedagogy. In practical terms, that meant adopting semantic HTML, visible focus states, and high-contrast palettes across the portfolio; writing alt text that communicates purpose; and designing mobile-first so learners on phones are first-class participants. I learned to narrate these choices and invite critique, which both improves the work and models professional learning grounded in values rather than trends.</p>
-            <p>Learning with and from others is central. I established quick feedback channels - five-minute think-alouds with students, brief peer reviews of microcopy, and short hallway debriefs after trying a new flow. I also engaged with research and exemplars, comparing claims to my context and noting where adaptations were necessary. This blend of community feedback and scholarship helped me avoid "shiny tool syndrome, and focus on changes that matter: clarity of instructions, reduction of cognitive load, and support for learner agency.</p>
-            <p>Reflection artifacts appear throughout my work: issue logs that document decisions and their rationale, iteration notes embedded in projects, and concise retrospectives that surface trade-offs. These documents are not busywork - they preserve institutional memory, reduce rework, and make it easier for collaborators to join and contribute. Over time, they also demonstrate growth: earlier entries show problems I now avoid, while recent ones reveal more nuanced questions about privacy, evaluation, and inclusion.</p>
-            <p>Being a learner also means seeking diverse perspectives and recognizing limits. I actively solicit input from families and colleagues whose experiences differ from mine, especially when language, culture, or access might change how a design is received. When feedback surfaces barriers I missed, I treat that as valuable data, not as a threat to expertise. This humility keeps the focus where it belongs - on whether the design works for the people it is meant to serve - and it accelerates my learning in ways no course alone could.</p>
-            <p>Finally, I plan for continued growth. I keep a short, living roadmap of skills to deepen (e.g., advanced media captioning workflows, accessible data visualization patterns) and practices to refine (e.g., privacy by design checklists, community review sessions). Each item ties to an upcoming artifact so learning is immediately applied. In this way, the Learner standard is not a checkbox; it is the engine that powers and sustains improvement across my portfolio.</p>
-            <p>I also make my learning portable. I convert insights into small assets - snippets, templates, checklists - that I can reuse across contexts and share with peers. These artifacts turn tacit knowledge into community resources, lowering the barrier for others to adopt inclusive, evidence-informed practices. Over time, this habit has multiplied the impact of my own learning and strengthened our collective capacity.</p>
-            <p>Finally, I evaluate my growth against impact, not novelty. I look for fewer help requests, faster time-to-task, clearer student explanations, and increased confidence as evidence that my learning is serving learners. If a new technique is clever but does not improve outcomes or equity, I set it aside. This discipline keeps my learning honest and learner-centered.</p>
-            <ul>
-              <li><strong>1.a</strong>  <a href="https://everettstuckey.github.io/islt_7310/elearning/digital_literacy_curriculum.html" target="_blank" rel="noopener">Digital Literacy Curriculum</a> (sets personal goals to integrate accessibility, UDL, and media literacy; documented updates reflect ongoing professional learning)</li>
-              <li><strong>1.b</strong>  <a href="https://everettstuckey.github.io/IS_LT-7383/" target="_blank" rel="noopener">Rapid Development Portfolio</a> (iterative reflections after each prototype informed revisions and next steps)</li>
-              <li><strong>1.c</strong>  <a href="https://everettstuckey.github.io/islt_7310/elearning/digital_literacy_curriculum.html" target="_blank" rel="noopener">Digital Literacy Curriculum</a> (curation of reputable resources on digital citizenship, privacy, and media credibility)</li>
-              <li><strong>1.d</strong>  <a href="https://everettstuckey.github.io/IS_LT-7383/" target="_blank" rel="noopener">Rapid Development Portfolio</a> + <a href="https://everettstuckey.github.io/IS_LT-7383/slideshows/Financial%20Markets%20Slide%20Show.html" target="_blank" rel="noopener">Financial Markets Slideshow</a> (adopted new tools/workflows; peer/student feedback cycles improved practice)</li>
-            </ul>
-          </article>
-
-          <article>
-            <h3>Leader (2.a - 2.d)</h3>
-            <p>Leadership in learning technologies, for me, is stewardship: setting a clear vision anchored in equity and access, creating the conditions for colleagues and students to succeed, and modeling evidence-informed change. Rather than mandating tools, I work with stakeholders to articulate the outcomes we value - clarity, inclusion, learner agency - and to design processes that deliver those outcomes reliably. This includes transparent decision-making, predictable cadences for iteration, and rituals that keep accessibility and privacy on the agenda even when deadlines press.</p>
-            <p>I lead by making the work visible. Design docs, change logs, and short demos show not only what changed but why. When we revise scholarship resources, for example, I share the friction we saw, the hypothesis behind a proposed fix, and the evidence we will use to judge impact. Peers are invited to test assumptions, offer alternatives, and consider trade-offs. This collaborative posture builds trust and diffuses expertise; leadership becomes something we practice together rather than a title held by a few.</p>
-            <p>Capacity building is another pillar. I create reusable templates, checklists, and facilitation guides so colleagues can adopt and adapt practices without starting from scratch. Short workshops and co-planning sessions focus on practical moves - writing clearer microcopy, structuring pages for scan-ability, setting up quick feedback loops - so teams leave with artifacts ready for immediate use. I measure success not by how many sessions I run, but by how much easier it becomes for others to design accessible, data-informed experiences.</p>
-            <p>Equity guides leadership decisions. I champion mobile-first, low-bandwidth solutions and ensure critical instructions remain on platforms we control so we can maintain accessibility. When evaluating tools, I weigh privacy and proportionality as heavily as features, and I document those judgments for community review. I also elevate voices often overlooked - students balancing work and family, multilingual families, counselors with limited time - so our plans reflect real constraints and aspirations.</p>
-            <p>Leading change means embracing small bets over grand plans. I advocate for pilots with clear scope, success criteria, and sunset plans, paired with honest post-mortems. When something does not work, we learn and move on; when it does, we scale with intention and support. This approach reduces risk fatigue and builds a culture where iteration is expected, not exceptional.</p>
-            <p>Ultimately, the goal of leadership here is to create a durable, humane system for improving learning with technology. By aligning vision to practices, embedding evaluation, and centering inclusion, we make progress visible and sustainable. The artifacts that follow illustrate this stance: they are not isolated wins but examples of a broader way of working that others can replicate and extend.</p>
-            <p>To sustain this system, I nurture leadership in others. I invite colleagues to co-own components of the work, mentor them through first pilots, and celebrate their findings publicly. I build simple succession notes so improvements do not depend on any single person. This distributed approach creates resilience and ensures that good practices persist through staff changes and shifting priorities.</p>
-            <p>I also steward attention. In a landscape saturated with tools and initiatives, I help teams focus on the few behaviors that matter most for learners - clear instructions, accessible materials, and rapid feedback loops. By protecting time for these essentials, leadership keeps the signal strong and reduces burnout. The result is steady, compounding progress rather than sporadic, unsustained bursts.</p>
-            <ul>
-              <li><strong>2.a</strong>  <a href="https://everettstuckey.github.io/islt_7310/elearning/digital_literacy_curriculum.html" target="_blank" rel="noopener">Digital Literacy Curriculum</a> (articulates a shared vision for school-wide digital literacy progression)</li>
-              <li><strong>2.b</strong>  <a href="https://everettstuckey.github.io/islt_7310/elearning/digital_literacy_curriculum.html" target="_blank" rel="noopener">Digital Literacy Curriculum</a> (mobile-first, accessible materials to reduce barriers)</li>
-              <li><strong>2.c</strong>  <a href="https://everettstuckey.github.io/IS_LT-7383/" target="_blank" rel="noopener">Rapid Development Portfolio</a> (models evaluating tools with usability checks, analytics, and iteration)</li>
-              <li><strong>2.d</strong>  <a href="https://everettstuckey.github.io/IS_LT-7383/" target="_blank" rel="noopener">Rapid Development Portfolio</a> (systems thinking: versioning, asset pipelines, and feedback loops for continuous improvement)</li>
-            </ul>
-          </article>
-
-          <article>
-            <h3>Citizen (3.a - 3.d)</h3>
-            <p>Digital citizenship in my practice goes beyond compliance with rules; it is about cultivating habits of participation that are respectful, informed, and empowering. I design experiences where learners examine how information is produced, how platforms shape behavior, and how their choices affect both their own digital identities and their communities. This begins with clear norms for discourse, attribution, and privacy, but it extends to structured opportunities to practice these norms in authentic contexts.</p>
-            <p>I foreground media literacy as a cornerstone. Students analyze claims, investigate sources, and consider the incentives behind content creation. We explore how algorithms can both help and harm, amplifying some voices while obscuring others. Classroom discussions are anchored in concrete examples - from scholarship advice posts to financial news stories - so learners apply critical thinking where it matters to them. I provide frameworks for evaluation and model skepticism that is curious, not cynical.</p>
-            <p>Privacy and security are treated as ongoing practices, not one-time lessons. I teach proportional data sharing, consent, and the trade-offs of convenience versus control. We review settings, discuss password managers and multi-factor authentication, and examine the ethics of monitoring technologies in schools. Importantly, I explain my own data practices - what I collect, why I collect it, and when I delete it - so citizenship is not abstract: it is visible in the way our learning environment operates.</p>
-            <p>Responsible participation includes creation. Learners produce artifacts for authentic audiences, cite sources, license their work appropriately, and reflect on tone and impact. We talk about how to disagree productively and how to repair when mistakes happen online. These experiences aim to build agency: students see themselves as contributors to digital spaces who can set positive norms and protect themselves and others.</p>
-            <p>Finally, I connect citizenship to equity. We examine access gaps and consider how design decisions can include or exclude. I encourage learners to advocate for accessible materials and transparent data policies in their own communities. By integrating these themes across artifacts - not only in stand-alone lessons - I help students develop a stance that travels with them beyond the classroom.</p>
-            <p>Citizenship is reinforced through reflection and repair. We practice owning mistakes, revising posts or projects when we discover inaccuracies, and acknowledging the impact of our words. These moments teach accountability and resilience, showing learners that strong communities are built not by perfection but by responsible participation and growth.</p>
-            <p>We also connect digital actions to offline consequences and opportunities. Learners consider how online portfolios, comments, and collaborations shape academic and career pathways, and how they can use these spaces to advocate for themselves and others. In this way, citizenship becomes not only protective but empowering.</p>
-            <ul>
-              <li><strong>3.a</strong>  <a href="https://everettstuckey.github.io/islt_7310/elearning/digital_literacy_curriculum.html" target="_blank" rel="noopener">Digital Literacy Curriculum</a> (norms for positive, responsible participation in digital spaces)</li>
-              <li><strong>3.b</strong>  <a href="https://everettstuckey.github.io/islt_7310/elearning/digital_literacy_curriculum.html" target="_blank" rel="noopener">Digital Literacy Curriculum</a> (source evaluation and bias detection activities)</li>
-              <li><strong>3.c</strong>  <a href="https://everettstuckey.github.io/islt_7310/elearning/digital_literacy_curriculum.html" target="_blank" rel="noopener">Digital Literacy Curriculum</a> (privacy, security, and digital identity modules)</li>
-              <li><strong>3.d</strong>  <a href="https://everettstuckey.github.io/islt_7310/elearning/digital_literacy_curriculum.html" target="_blank" rel="noopener">Digital Literacy Curriculum</a> + <a href="https://everettstuckey.github.io/IS_LT-7383/slideshows/Financial%20Markets%20Slide%20Show.html" target="_blank" rel="noopener">Financial Markets Slideshow</a> (media literacy and real-world claims analysis)</li>
-            </ul>
-          </article>
-
-          <article>
-            <h3>Collaborator (4.a - 4.d)</h3>
-            <p>Collaboration in my courses is purposeful and structured so that every learner can contribute meaningfully. I design tasks where interdependence is authentic - no one person can or should do all the work - and I make contributions visible through shared documents, version history, and short stand-ups. Roles rotate to distribute leadership opportunities, and we normalize asking for and offering help. These routines build trust and reduce the social risk of sharing work in progress.</p>
-            <p>Co-learning with students is a central feature. In data analysis projects, for example, learners choose variables and build datasets together, while I facilitate inquiry with prompts and exemplars. We pause for quick retrospectives to surface discoveries and bottlenecks, and we adapt the plan accordingly. This way, collaboration is not just a means to complete a product; it is itself an object of reflection and improvement.</p>
-            <p>I also collaborate with colleagues and families. Templates, checklists, and change logs make it easier for others to join projects midstream, while brief updates communicate decisions, risks, and next steps. When piloting tools, I invite stakeholders to observe, critique, and help decide whether to keep or sunset a solution. These practices spread ownership and build capacity across the community.</p>
-            <p>Technology supports but does not dictate collaboration. We use tools that enable shared authorship, track contributions respectfully, and keep the focus on thinking rather than formatting. Accessibility remains a baseline: captions for recordings, readable type in shared docs, and mobile-friendly interfaces so participation is possible on varied devices. By tending to these details, I make collaboration more inclusive and effective.</p>
-            <p>To deepen collaboration skills, I incorporate brief meta-collaboration check-ins. Teams reflect on how they communicated, how decisions were made, and how they handled disagreement. We capture norms that worked and commit to one improvement for the next cycle. This habit builds durable collaboration capacity that transfers to new teams and contexts.</p>
-            <p>Finally, I model collaborative humility: sharing partial ideas early, crediting others" contributions, and being explicit about what I do not yet know. This creates permission for students to do the same and turns the classroom into a genuine community of practice.</p>
-            <ul>
-              <li><strong>4.a</strong>  <a href="https://everettstuckey.github.io/IS_LT-7383/" target="_blank" rel="noopener">Rapid Development Portfolio</a> (collaborative planning through iterative review cycles and shared artifacts)</li>
-              <li><strong>4.b</strong>  <a href="https://everettstuckey.github.io/IS_LT-7383/" target="_blank" rel="noopener">Financial Data Analysis with Python & Google Sheets</a> (co-learning with students by exploring datasets and posing questions together)</li>
-              <li><strong>4.c</strong>  <a href="https://everettstuckey.github.io/IS_LT-7383/" target="_blank" rel="noopener">Financial Data Analysis with Python & Google Sheets</a> (use of collaborative tools like Google Sheets comments/version history)</li>
-              <li><strong>4.d</strong>  <a href="https://everettstuckey.github.io/IS_LT-7383/slideshows/Financial%20Markets%20Slide%20Show.html" target="_blank" rel="noopener">Financial Markets Slideshow</a> (inclusive, real-world contexts that honor diverse backgrounds and experiences)</li>
-            </ul>
-          </article>
-
-          <article>
-            <h3>Designer (5.a - 5.c)</h3>
-            <p>As a designer, I create learning experiences that honor learner variability and promote agency. I start with authentic problems and craft tasks that are doable yet challenging, with clear success criteria and multiple pathways to reach them. I embed choices - topic, representation, tools - within supportive constraints so learners can personalize their work without getting lost. Design is iterative: I test early, gather feedback, and refine until the experience is coherent, accessible, and aligned to outcomes.</p>
-            <p>Universal Design for Learning informs my decisions. I present core ideas with concise text and supportive visuals, offer alternative formats, and design assessments that privilege reasoning and communication over recall. I build scaffolds that fade, ensuring support without dependency. The goal is for learners to feel capable and to see how the structure helps them succeed.</p>
-            <p>My design process includes visible documentation - storyboards, wireframes, and component libraries - that speeds collaboration and maintenance. I specify accessibility from the start (contrast, focus states, semantics) and plan for performance and offline use where feasible. Small touches - clear microcopy, consistent affordances, and just-in-time help - reduce cognitive load so attention stays on the thinking that matters.</p>
-            <p>Ultimately, design is about fit: matching goals, learners, and context. By iterating with real evidence and keeping inclusion central, I create experiences that are not only effective once but sustainable over time as needs evolve.</p>
-            <p>I also design for longevity. I document components, rationale, and known trade-offs so future updates are faster and safer. I separate content from presentation where possible, maintain small style guides, and keep assets lightweight for performance. These practices ensure that good design decisions persist and that improvements compound rather than reset.</p>
-            <p>Lastly, I invite learners into the design process through choice boards, design critiques, and co-created rubrics. When students help shape the experience, they better understand both the goals and the constraints - and the resulting designs are stronger and more authentic.</p>
-            <ul>
-              <li><strong>5.a</strong>  <a href="https://everettstuckey.github.io/IS_LT-7383/" target="_blank" rel="noopener">Financial Data Analysis with Python & Google Sheets</a> (students choose variables/datasets; supports multiple pathways and pacing)</li>
-              <li><strong>5.b</strong>  <a href="https://everettstuckey.github.io/IS_LT-7383/slideshows/Financial%20Markets%20Slide%20Show.html" target="_blank" rel="noopener">Financial Markets Slideshow</a> (authentic, media-rich tasks connected to current events)</li>
-              <li><strong>5.c</strong>  <a href="https://everettstuckey.github.io/islt_7310/elearning/digital_literacy_curriculum.html" target="_blank" rel="noopener">Digital Literacy Curriculum</a> (clear alignment to outcomes, UDL checkpoints, and accessibility)</li>
-            </ul>
-          </article>
-
-          <article>
-            <h3>Facilitator (6.a - 6.d)</h3>
-            <p>Facilitation is the art of guiding learning without over-orchestrating it. I set up structures - clear goals, time boxes, visible progress markers - that support autonomy, then I step back and observe. My prompts emphasize metacognition ("What do you expect to see next?,), and my feedback focuses on strategy rather than simply correctness. When groups stall, I reintroduce momentum with targeted mini-lessons or by reframing the problem.</p>
-            <p>I cultivate a classroom culture where questions are assets and errors are data. We celebrate discoveries and document surprises. I encourage students to explain their reasoning to each other, which both deepens understanding and builds communication skills. Quick formative checks let me tune pacing and supports in real time, keeping challenge within reach.</p>
-            <p>Technology choices serve facilitation. Shared documents, comments, and version history make thinking visible; lightweight dashboards show where learners are in a sequence; and templates provide just enough structure to get started. Accessibility remains front and center so all students can participate fully, regardless of device or bandwidth.</p>
-            <p>As a facilitator, I also attend to motivation and belonging. I connect tasks to learners" goals, offer choices that matter, and highlight progress. I ensure that norms protect psychological safety while maintaining high expectations. In this environment, learners take ownership of their work and support each other"s growth, which is the hallmark of effective facilitation.</p>
-            <p>I close loops with short, reflective exits - two questions that ask students what helped, what hindered, and what they plan to try next. These micro-reflections inform my next facilitation moves and build learner metacognition. Over time, students internalize these prompts and begin to guide their own improvement between sessions.</p>
-            <p>Facilitation also extends to families and colleagues. I provide clear overviews, how-to guides, and invitations to observe or co-facilitate segments, turning the classroom into a shared space for learning. This transparency strengthens partnerships and aligns support across school and home.</p>
-            <ul>
-              <li><strong>6.a</strong>  <a href="https://everettstuckey.github.io/IS_LT-7383/" target="_blank" rel="noopener">Financial Data Analysis with Python & Google Sheets</a> (student ownership via inquiry questions and self-directed analysis)</li>
-              <li><strong>6.b</strong>  <a href="https://everettstuckey.github.io/IS_LT-7383/" target="_blank" rel="noopener">Financial Data Analysis with Python & Google Sheets</a> (manages Python??Sheets workflow to support collaboration and feedback)</li>
-              <li><strong>6.c</strong>  <a href="https://everettstuckey.github.io/IS_LT-7383/" target="_blank" rel="noopener">Rapid Development Portfolio</a> (students design/test solutions; instructor iterates based on evidence)</li>
-              <li><strong>6.d</strong>  <a href="https://everettstuckey.github.io/IS_LT-7383/slideshows/Financial%20Markets%20Slide%20Show.html" target="_blank" rel="noopener">Financial Markets Slideshow</a> (creative expression through visualization and presentation)</li>
-            </ul>
-          </article>
-
-          <article>
-            <h3>Analyst (7.a - 7.c)</h3>
-            <p>As an analyst, I use evidence to improve learning while protecting privacy and dignity. I define decisions first - what I need to change or choose - then collect the smallest set of indicators that can inform those decisions. I prioritize aggregate patterns over individual tracking, and I pair quantitative signals with short qualitative reflections to avoid false certainty.</p>
-            <p>My analytics practice is iterative. I form a hypothesis ("Front-loading purpose will reduce time-on-task without lowering completion,), implement a small change, and plan how to check impact. I visualize results simply and discuss limitations openly, inviting peers and students to interpret findings with me. When results are ambiguous, we design a better test rather than stretching the data to say more than it can.</p>
-            <p>Ethics guide every step. I disclose what is measured and why, set short retention windows, and avoid collecting sensitive data not essential to learning. I also consider equity: if a metric disadvantages certain groups or encourages unhelpful behaviors, I adjust or discard it. The aim is to support - not surveil - learners.</p>
-            <p>Used this way, analytics are a compass, not a scoreboard. They help us locate friction, celebrate progress, and choose our next experiment. By keeping evidence humble, humane, and actionable, I sustain a practice of continuous improvement that respects the people at the center of the work.</p>
-            <p>I operationalize this compass with lightweight dashboards tailored to decisions. Instead of dense charts, I use simple visuals that answer specific questions (e.g., "Which steps need clarification?,). I annotate changes directly on the timeline so patterns align with iterations, and I archive snapshots so we can learn from previous cycles.</p>
-            <p>Finally, I mentor peers in ethical analytics: scoping questions, selecting proportionate measures, and designing tests with clear outcomes. Sharing this practice elevates our collective ability to improve learning responsibly and ensures that analytics remain a means to better instruction - not an end in themselves.</p>
-            <ul>
-              <li><strong>7.a</strong>  <a href="https://everettstuckey.github.io/IS_LT-7383/slideshows/Financial%20Markets%20Slide%20Show.html" target="_blank" rel="noopener">Financial Markets Slideshow</a> (alternative demonstrations via narrative, visuals, and embedded checks)</li>
-              <li><strong>7.b</strong>  <a href="https://everettstuckey.github.io/islt_7310/elearning/digital_literacy_curriculum.html" target="_blank" rel="noopener">Digital Literacy Curriculum</a> (formative checks and rubrics aligned to learning goals)</li>
-              <li><strong>7.c</strong>  <a href="https://everettstuckey.github.io/IS_LT-7383/" target="_blank" rel="noopener">Rapid Development Portfolio</a> (uses analytics/reflection to iterate materials and supports)</li>
-            </ul>
-          </article>
+        <div class="controls" aria-label="Cover flow navigation controls">
+            <button type="button" data-direction="prev">⟵ Previous</button>
+            <button type="button" data-direction="next">Next ⟶</button>
         </div>
 
-        
-      </div>
-    </section>
-  <section id="program-goals" class="section program-goals">
-    <div class="container">
-      <h2>Learning Technologies Program Goals and Student Learning Outcomes</h2>
-      <p>The Learning Technologies (LTD) program prepares practitioners to systematically design, develop, evaluate, and lead learning technology and instructional solutions across educational and organizational contexts. The reflections below connect my artifacts to each outcome, demonstrating how theory and research informed my practice in equitable, accessible, and sustainable ways.</p>
+        <div class="panels-container">
+            <section class="info-panel" aria-live="polite">
+                <h2 class="info-title">Select an artifact to see details</h2>
+                <p class="info-description">Use the arrow keys, scroll wheel, or tap cards to explore the portfolio.</p>
+                <div class="artifact-links"></div>
+            </section>
 
-      <h3>Goal 1</h3>
-      <p>Develop theory- and research-based skills for innovative, aesthetic, accessible, equitable, effective, and sustainable design and development of technologies for learning opportunities and systems.</p>
+            <section class="course-panel" aria-live="polite">
+                <h2>Related Course Material</h2>
+                <p class="course-status">Loading related course material…</p>
+                <div class="course-list" hidden></div>
+            </section>
+        </div>
+    </main>
 
-      <h4>Student Learning Outcome 1.1  Reflection</h4>
-      <p>My approach to design and development matured from assembling activities to architecting coherent learning experiences. At the center of this shift is a commitment to build opportunities that are accessible, equitable, and durable across contexts. I now begin by clarifying performance goals and actionable success criteria, then select modalities - direct instruction, inquiry, collaboration, or performance support - that best serve those goals for my learners and setting. This outcome challenged me to move beyond personal preference and to ground choices in evidence about how people actually learn and what they need at the moment of action.</p>
-      <p>The <a href="https://everettstuckey.github.io/islt_7310/elearning/digital_literacy_curriculum.html" target="_blank" rel="noopener">Digital Literacy Curriculum</a> exemplifies this evolution. Early drafts were content-heavy; learners had to sift through long passages to find critical steps. Iteration led me to concise, purposeful explanations followed by practice where thinking is visible. I embedded options consistent with Universal Design for Learning: text paired with visuals, short scenarios in place of abstractions, and flexible response formats. Every section answers a simple question - what do learners need to understand or do, and what support will help them get there - and unnecessary flourish is trimmed away.</p>
-      <p>Complementing direct instruction, I designed student-centered inquiry where learners choose variables, collect data, and test claims. In the <a href="https://everettstuckey.github.io/IS_LT-7383/" target="_blank" rel="noopener">Financial Data Analysis with Python &amp; Google Sheets</a> work, students co-constructed datasets and iterated on visualizations to explore market behavior. I provided exemplars, templates, and guardrails, but I resisted over-scaffolding; the intent was to promote productive struggle with clear milestones. This balance helped students practice critical evaluation - of their own assumptions and of the tools they were using - while keeping the cognitive load appropriate.</p>
-      <p>Collaboration was designed, not assumed. I specified norms, roles, and artifacts that make contributions visible: shared sheets with version history, comment threads with prompts, and brief reflection checkpoints to consolidate learning. Small procedural details mattered: giving teams a first five-minute "define the question" stage, for example, prevented premature data chasing and led to clearer end products. These structures, while lightweight, set expectations that foster accountability and psychological safety.</p>
-      <p>Performance supports rounded out the ecosystem. I built quick-reference visuals, checklists, and micro-tutorials that learners could access at the moment of need. Rather than hiding help in a separate "resources" area, I placed it adjacent to tasks and wrote it in plain language. This reduced unnecessary help-seeking and empowered students to move forward independently. Importantly, supports were iterative: analytics and brief reflections told me which aids were actually used, and I retired or simplified the rest.</p>
-      <p>Across these designs, accessibility and equity remained non-negotiable. I used semantic HTML and heading hierarchy for structure, ensured color contrast and visible focus states, and designed mobile-first so materials worked well on phones. I also prepared printable and offline-friendly versions when feasible, recognizing that access conditions vary day to day. The goal is not to create one "perfect" artifact but a resilient set of experiences that meet learners where they are and invite them further.</p>
-      <p>Finally, I documented design decisions and component patterns so I could extend and maintain them over time. This small "system" reduces rework and keeps experiences consistent as new artifacts are added. The result is a portfolio of opportunities that feel cohesive while allowing for variety in activity type and learner agency. In short, this outcome taught me to design with intention, test with humility, and develop with the long view in mind.</p>
+    <script src="assets/coverflow/portfolio_sections.js"></script>
+    <script src="assets/coverflow/course_data.js"></script>
+    <script>
+        const PRELOADED_COURSE_DATA = typeof PORTFOLIO_COURSE_DATA !== 'undefined' ? PORTFOLIO_COURSE_DATA : null;
 
-      <h4>Student Learning Outcome 1.2  Reflection</h4>
-      <p>This outcome taught me to link content, context, and cognition in concrete ways. I now start by activating prior knowledge and explicitly naming the transfer target - what learners should be able to do outside the activity. This framing prevents the all-too-common drift toward interesting but disconnected tasks. I then sequence experiences from worked examples to guided practice to more open challenges, tracking cognitive load along the way so that the difficulty comes from the thinking, not from deciphering instructions.</p>
-      <p>In the Digital Literacy Curriculum, meaningful learning shows up as scenario-based practice with tight feedback loops. Students analyze realistic posts, privacy prompts, and sources, applying credibility checks and ethical considerations in context. I scaffold judgement with short checklists and contrastive examples, then remove supports as learners demonstrate readiness. Reflection prompts ask students to connect decisions to their own online lives - an intentional move to improve transfer and self-regulation.</p>
-      <p>In the Financial Data Analysis activities, technology choices serve pedagogy. Python and Google Sheets are instruments to visualize patterns, test conjectures, and revise claims - not ends in themselves. I provided starter notebooks and sheet templates that emphasized thinking, not syntax. Learners selected variables relevant to questions they cared about, which increased motivation and made discussions more authentic. As they iterated on visuals, I facilitated sense-making with prompts like "What would you expect if your claim were false?, and "Which representation reveals the structure you"re looking for?,</p>
-      <p>Media design supported attention and retention. The <a href="https://everettstuckey.github.io/IS_LT-7383/slideshows/Financial%20Markets%20Slide%20Show.html" target="_blank" rel="noopener">Financial Markets Slideshow</a> uses concise narration, consistent visual metaphors, and pacing aligned to learning objectives. I reduced extraneous load by limiting new ideas per slide, aligning text and visuals, and inserting brief checks for understanding to surface misconceptions early. Students reported that the structure helped them follow the argument and prepared them to ask better questions in subsequent activities.</p>
-      <p>Choice and agency were built into the experience. Learners could select datasets, questions, or formats for demonstrating understanding, within clearly defined constraints. This balance respected individual interests while maintaining comparability for feedback. I also designed collaboration deliberately - rotating roles, short planning intervals, and shared artifacts - to ensure that meaningful learning was a collective endeavor rather than a divide-and-conquer exercise.</p>
-      <p>Assessment aligned with the goals of meaning and transfer. Rubrics emphasized reasoning, evidence, and communication over rote recall. I used low-stakes formative checks to guide instruction and reserved summative tasks for integrative demonstrations. When results revealed gaps, I adjusted the sequence or added targeted mini-lessons rather than simply reteaching the same material. Over time, these practices produced clearer thinking, more resilient understanding, and improved ability to apply concepts in new contexts.</p>
-      <p>Perhaps most importantly, I learned to narrate the why of design choices to learners. Explaining how a prompt reduces cognitive load or why a representation supports inference invited students into the design conversation and improved metacognition. Meaningful learning, I discovered, is not just something we design for learners; it is something we design with them as partners.</p>
+        const artifacts = [
+            {
+                title: "Portfolio Overview",
+                description: "Curated gallery of instructional design artifacts spanning simulations, data dashboards, and eLearning experiences.",
+                image: "assets/coverflow/coverflow_portfolio_overview_cover.png",
+                link: "https://everettstuckey.github.io/islt_7310/",
+                courses: []
+            },
+            {
+                title: "Portfolio Resume",
+                description: "Download the full CV showcasing leadership, counseling, and instructional design accomplishments across the ISLT program.",
+                image: "assets/coverflow/coverflow_portfolio_resume.png",
+                link: "https://everettstuckey.github.io/islt_7310/EverettStuckeyResume%20Data.pdf",
+                courses: []
+            },
+            {
+                title: "Program of Study",
+                description: "Overview of EdS coursework with term-by-term reflections tying graduate learning to applied practice.",
+                image: "assets/coverflow/coverflow_portfolio_program_of_study.png",
+                link: "https://everettstuckey.github.io/islt_7310/portfolio.html#program-of-study",
+                courses: ["IS_LT 7355", "IS_LT 7383", "IS_LT 9410", "IS_LT 9466", "IS_LT 9467", "IS_LT 9455", "IS_LT 9471", "IS_LT 9473", "IS_LT 9474"],
+                embedSection: "program-of-study"
+            },
+            {
+                title: "Reflection Statement",
+                description: "Context, significant learnings, and ISTE growth narrative connecting accessibility, rapid prototyping, and ethical analytics.",
+                image: "assets/coverflow/coverflow_portfolio_reflection_statement.png",
+                link: "https://everettstuckey.github.io/islt_7310/portfolio.html#reflection",
+                courses: ["IS_LT 7355", "IS_LT 7383", "IS_LT 9466", "IS_LT 9455", "IS_LT 9467"],
+                embedSection: "reflection"
+            },
+            {
+                title: "Program Goals & Outcomes",
+                description: "Learning Technologies program goals paired with detailed reflections and artifacts demonstrating each outcome.",
+                image: "assets/coverflow/coverflow_portfolio_program_goals.png",
+                link: "https://everettstuckey.github.io/islt_7310/portfolio.html#program-goals",
+                courses: ["IS_LT 7355", "IS_LT 7383", "IS_LT 9410", "IS_LT 9466", "IS_LT 9455", "IS_LT 9471", "IS_LT 9473", "IS_LT 9474"],
+                embedSection: "program-goals"
+            },
+            {
+                title: "Python Code Simulation",
+                description: "Interactive simulation showcasing dynamic Python visualizations and educational programming experiences.",
+                image: "assets/coverflow/coverflow_python_code_simulation.png",
+                link: "https://everettstuckey.github.io/IS_LT-7383/part2_part2.html",
+                courses: ["IS_LT 7383"]
+            },
+            {
+                title: "Linear Regression Manipulative",
+                description: "Hands-on regression tool allowing learners to adjust slope and intercept to explore statistical models in real time.",
+                image: "assets/coverflow/coverflow_linear_regression_manipulative.png",
+                link: "https://everettstuckey.github.io/IS_LT-7383/part1_part8.html",
+                courses: ["IS_LT 7383"]
+            },
+            {
+                title: "States of Matter Animation",
+                description: "Animated explainer illustrating particle behavior across solid, liquid, and gas states for science learners.",
+                image: "assets/coverflow/coverflow_states_of_matter_animation.png",
+                link: "https://youtu.be/W4DFjhLx0wY",
+                courses: ["IS_LT 7383"]
+            },
+            {
+                title: "Excel Student Risk Dashboard",
+                description: "Microsoft Excel dashboard highlighting at-risk indicators with actionable insights for student success teams.",
+                image: "assets/coverflow/coverflow_excel_student_risk_dashboard.png",
+                link: "https://youtu.be/2Jbn5Da5mYs",
+                courses: ["IS_LT 9466"]
+            },
+            {
+                title: "Scholarships Database",
+                description: "Searchable collection of scholarships with filters for eligibility, award type, and application deadlines.",
+                image: "assets/coverflow/coverflow_scholarships_database.png",
+                link: "https://everettstuckey.github.io/islt_7310/scholarships_data.html",
+                courses: ["IS_LT 7355", "IS_LT 9466"]
+            },
+            {
+                title: "Professional Webpage",
+                description: "Personal professional website introducing portfolio highlights, instructional design philosophy, and contact info.",
+                image: "assets/coverflow/coverflow_professional_webpage.png",
+                link: "https://everettstuckey.github.io/islt_7310/",
+                courses: ["IS_LT 7355"]
+            },
+            {
+                title: "At-Risk Dashboard (Python & HTML)",
+                description: "Integrated Python and HTML dashboard providing real-time monitoring for student risk indicators and interventions.",
+                image: "assets/coverflow/coverflow_at_risk_dashboard_python_html.png",
+                link: "https://youtu.be/TpqWWJGb1Yo",
+                courses: ["IS_LT 9466", "IS_LT 9410"]
+            },
+            {
+                title: "Financial Markets eLearning",
+                description: "Multimedia eLearning module guiding learners through key financial market concepts with interactive media.",
+                image: "assets/coverflow/coverflow_financial_markets_module.png",
+                link: "https://everettstuckey.github.io/IS_LT-7383/slideshows/Financial%20Markets%20Slide%20Show.html",
+                courses: ["IS_LT 9455"]
+            },
+            {
+                title: "Digital Literacy eLearning",
+                description: "Digital literacy curriculum module covering safe and effective technology practices for students.",
+                image: "assets/coverflow/coverflow_digital_literacy_module.png",
+                link: "https://everettstuckey.github.io/islt_7310/elearning/digital_literacy_curriculum.html",
+                courses: ["IS_LT 9467", "IS_LT 7355"]
+            },
+            {
+                title: "Web Scraping Tutorial",
+                description: "Video tutorial demonstrating Python techniques for scraping, cleaning, and analyzing web data.",
+                image: "assets/coverflow/coverflow_web_scraping_tutorial.png",
+                link: "https://youtu.be/IVYAi723RLM",
+                courses: ["IS_LT 9466"]
+            },
+            {
+                title: "Transcript Evaluation Script",
+                description: "Python Colab notebook automating transcript evaluation workflows with data validation checks.",
+                image: "assets/coverflow/coverflow_transcript_evaluation_script.png",
+                link: "https://colab.research.google.com/drive/1kxPYj4eiCoeiXmsywbf9a1BbNu-m3lTw?usp=sharing",
+                courses: ["IS_LT 9466", "IS_LT 9410"]
+            },
+            {
+                title: "Heatmap Visualization Script",
+                description: "Colab notebook generating heatmap visualizations to reveal patterns in complex datasets.",
+                image: "assets/coverflow/coverflow_heatmap_visualization_script.png",
+                link: "https://colab.research.google.com/drive/1lXuPQLNkrZvcnsP0Y00BZgRuf7tXp1Io?usp=sharing",
+                courses: ["IS_LT 9466", "IS_LT 9410"]
+            },
+            {
+                title: "Census Data Retrieval Script",
+                description: "Automated pipeline retrieving demographic census data for analysis and reporting.",
+                image: "assets/coverflow/coverflow_census_data_retrieval_script.png",
+                link: "https://colab.research.google.com/drive/1C8pYam8D-6yMlc3vj0TOsg84S70tIvO4?usp=sharing",
+                courses: ["IS_LT 9410"]
+            }
+        ];
 
-      <h4>Student Learning Outcome 1.3  Reflection</h4>
-      <p>This outcome pushed me to treat instructional design not only as a creative process but also as a disciplined practice supported by project management. I learned to define scope crisply - who the work is for, what success looks like in observable terms, what is in-bounds and out-of-bounds - and to translate that scope into milestones with concrete deliverables. Time-boxing work into short sprints, I set evidence-based checkpoints that invited feedback early, before small issues could snowball into large rework. These habits made delivery more predictable and focused my attention on outcomes rather than activity.</p>
-      <p>Risk management became routine instead of an afterthought. I identified technical, content, and schedule risks up front, recorded triggers and mitigations, and revisited the list weekly. For web artifacts, recurring risks like link rot, browser quirks, and inconsistent mobile behavior received standing checks: automated link health scans, spot testing on common devices, and a short pre-release checklist. By making risks visible, I could negotiate trade-offs honestly with stakeholders - descope a lower-value enhancement, for example, to protect an accessibility fix or a critical deadline.</p>
-      <p>Versioning and traceability supported iteration at speed. I organized assets with clear naming, dates, and notes so collaborators (and my future self) could pick up work without losing context. I documented decisions in lightweight logs that captured the problem, options considered, the chosen path, and the rationale. When feedback or analytics suggested a pivot, these notes accelerated the change and preserved the why behind it, which in turn built trust with colleagues and administrators who wanted both agility and accountability.</p>
-      <p>Usability evidence anchored milestone reviews. Rather than relying on intuition, I scheduled brief checks - five-minute think-alouds with students, quick heuristic passes, and small A/B comparisons of competing microcopy. The cadence mattered: frequent, low-overhead sessions produced a steady stream of actionable findings without derailing progress. This rhythm helped me catch issues like ambiguous labels, excessive reading load, or misaligned hierarchy long before release, saving hours of downstream support.</p>
-      <p>Maintenance planning was part of delivery, not a separate phase. I adopted a small design system - tokens for color, spacing, and typography; reusable components for navigation, callouts, and tables - so changes propagated consistently across artifacts. I added print styles for key pages and compressed assets to keep performance snappy on school Wi-Fi and cellular connections. I also created release notes and a simple change log so counselors knew what had shifted and why. These choices lowered total cost of ownership and made continuous improvement realistic within busy school calendars.</p>
-      <p>Crucially, the project management lens improved equity. Predictable milestones and transparent communication helped me keep accessibility fixes and clarity enhancements at the front of the queue, not as "stretch, work that slips when time is tight. By measuring progress against learner-centered criteria - task completion, reduced confusion, better transfer - I kept impact on students and families central to schedule decisions.</p>
-      <p>Across Rapid Development artifacts and the Digital Literacy Curriculum, this outcome shows up as steadier releases, fewer regressions, and clearer, more maintainable materials. The combination of scope definition, risk tracking, versioning, and retrospectives created a sustainable engine for improvement: ship small, learn quickly, capture decisions, and move forward with purpose. In short, project management practices did not constrain creativity; they protected it by giving the work cadence, clarity, and care.</p>
+        const coverflowEl = document.querySelector('.coverflow');
+        const infoTitleEl = document.querySelector('.info-title');
+        const infoDescEl = document.querySelector('.info-description');
+        const linksEl = document.querySelector('.artifact-links');
+        const controlButtons = document.querySelectorAll('.controls [data-direction]');
+        const courseStatusEl = document.querySelector('.course-status');
+        const courseListEl = document.querySelector('.course-list');
 
-      <h4>Student Learning Outcome 1.4  Reflection</h4>
-      <p>This outcome represents the craft side of my work - the ability to produce web and media artifacts that are both technically sound and pedagogically effective. I deepened my command of semantic HTML, ensuring that structure communicates meaning to assistive technologies and creates a reliable foundation for styling and scripting. I refined responsive CSS patterns that scale gracefully from phones to desktops, and I standardized spacing, typography, and component styles so learners encounter a coherent visual language across pages. These skills turn abstract accessibility commitments into everyday defaults.</p>
-      <p>Color and contrast received special attention. Using WCAG guidelines as a floor (not a ceiling), I adjusted palettes for sufficient contrast and tested focus states under real conditions - glare, older monitors, small screens. I learned to enhance discoverability without visual clutter: subtle elevation for interactive cards, generous hit areas for links on mobile, and legible type scales that respect cognitive load. Alt text moved from a checklist item to a communication choice; I wrote descriptions that conveyed purpose and context, not just appearance, and used accessible names for icon-only elements.</p>
-      <p>On the media side, I practiced narrative pacing and purposeful visuals. In the Financial Markets Slideshow, early versions tried to do too much per slide. Iteration taught me to align each segment to a single objective, reduce density, and synchronize narration with visual changes. I learned to use contrastive examples, consistent metaphors, and brief formative checks to keep attention and surface misconceptions. The result was clearer explanations and richer conversation, as students arrived at activities with a shared understanding of key ideas.</p>
-      <p>Data visualization work reinforced the principle that form serves understanding. I selected representations (lines for trends, bars for comparisons, scatterplots for relationships) based on the question at hand and annotated them with short, purposeful labels. I avoided decorative flourishes that obscure signal, and I used color sparingly to guide, not distract. When students created their own visuals, I provided starter templates with accessible defaults, then encouraged iteration as claims evolved - an approach that balanced support with agency.</p>
-      <p>Production also includes the "invisible, qualities that make artifacts dependable. I optimized images, deferred noncritical assets, and added print styles so materials work offline when needed. I tested across browsers and input methods and kept a small matrix of representative devices to prevent regressions. I wrote microcopy that anticipates confusion and provides just-in-time guidance, and I established patterns for error prevention and recovery so learners stay focused on ideas rather than troubleshooting.</p>
-      <p>Finally, I treated my production workflow as a learning system. I documented reusable snippets, created checklists for common tasks (e.g., preparing a new page, exporting media with captions), and left commentary in the code where future collaborators would need context. These habits reduced ramp-up time and preserved quality during revisions. Together, the web and media skills I strengthened in this outcome ensure that the materials I build are not only attractive, but also accessible, maintainable, and aligned to the work of learning.</p>
+        let targetIndex = Math.floor(artifacts.length / 2);
+        let displayIndex = targetIndex;
+        let animationFrame = null;
+        const Z_SPREAD = 70;
 
-      <h3>Goal 2</h3>
-      <p>Apply systematic methods for analyzing instructional or training needs, using the results to drive design and development, and collecting and analyzing evaluation data to improve products.</p>
+        let GAP = 220;
+        let ROTATION = 55;
 
-      <h4>Student Learning Outcome 2.1  Reflection</h4>
-      <p>This outcome taught me to treat analysis as a purposeful and proportional inquiry rather than an endless phase. I began by identifying the decisions the analysis needed to inform - labels to use, sequences to present, supports to provide - and chose methods that would yield just enough evidence to move forward. Learner interviews, short task walkthroughs, and concise content audits became my primary tools because they surface friction quickly without imposing large time costs on students or staff.</p>
-      <p>Early reviews of scholarship resources exposed two issues: findability and language complexity. Students reported that they "didn"t know where to start,, and when they found the right page, the instructions felt dense. I mapped the journey from discovery to application and marked points of hesitation. Card sorts clarified which labels felt intuitive, while five-minute usability checks with students revealed where layout implied the wrong hierarchy. These small studies consistently pointed to the same remedies: fewer categories, clearer verbs in headings, and chunked steps with visible progress.</p>
-      <p>In parallel, I met with counselors and families to understand constraints outside the screen - time, bandwidth, device limits, and competing responsibilities. Their perspective reminded me that the best design is unusable if it assumes ideal conditions. I translated these findings into explicit requirements: mobile-first layouts, printable quick guides, and visible "what you"ll need, sections that prevent back-and-forth searching. I also committed to accessibility as a baseline, not a bonus, specifying contrast, focus, and alt-text practices in my component documentation.</p>
-      <p>For the Financial Data Analysis work, stakeholder conversations highlighted the value of collaborative spreadsheets and simple, interpretable visualizations to make progress visible. Students wanted to see their thinking accumulate in a shared place. That requirement shaped both the artifacts and the procedures: we used common templates, explicit norms for comments, and checkpoints that turned intermediate results into learning moments. Analysis, here, was not separate from design; it was the lens that kept choices anchored to the realities of the learners and goals.</p>
-      <p>Crucially, I framed analysis as iterative. Each design sprint began with a hypothesis ("If we simplify labels and front-load purpose, application starts will rise,), a small test, and a plan for what evidence would confirm or challenge the claim. This created a practical rhythm: gather light evidence, act, and learn. The result was a pipeline that mapped directly to real needs, avoided over-collection of data, and respected the time and privacy of participants.</p>
-      <p>The payoff was clarity and momentum. Navigation labels became simpler and more consistent, instructions became shorter and easier to scan, and supports appeared where learners actually needed them. By keeping analysis close to decisions and right-sized to the context, I created a design practice that is rigorous enough to be trustworthy and light enough to sustain in a busy school environment.</p>
+        const COURSE_DATA_URL = 'assets/coverflow/course_data.json';
+        let courseIndex = {};
+        let artifactCourseMap = {};
+        let courseLoadError = false;
 
-      <h4>Student Learning Outcome 2.2  Reflection</h4>
-      <p>This outcome focused my attention on alignment - between outcomes, activities, and evidence - and on the practical ways assessment can drive iteration without exhausting learners. I began writing outcomes that describe performance in context ("Given a scholarship description, the student identifies eligibility and next steps with supporting rationale,), then designed tasks that elicit that performance. Assessment, in this view, is not a separate event; it is built into the experience and yields evidence we can act on.</p>
-      <p>In the Digital Literacy Curriculum, checks for understanding target judgement, not recall. Short prompts ask students to label claims, identify missing information, or explain a privacy decision. Rubrics emphasize reasoning, evidence, and communication. I used exemplars - both strong and developing - to calibrate expectations and to normalize revision as part of learning. When reflections or results showed patterns of confusion, I rewrote prompts, added contrastive examples, or introduced a mini-lesson to address the gap before moving on.</p>
-      <p>Within Rapid Development artifacts, I combined interaction metrics with brief reflections to learn where learners struggled or disengaged. I tracked transitions between meaningful states (e.g., from guidance to action), time spent on key steps, and completion of short checks. Because metrics alone can mislead, I paired them with one- to two-question pulses ("What was unclear here?, "What would have helped you move faster?,). This blend produced actionable signals while respecting privacy and time.</p>
-      <p>Iteration closed the loop. When data suggested instructions were dense, I chunked steps and front-loaded purpose. When learners missed a conceptual pivot, I slowed the pacing and added a guiding question. When mobile users abandoned a page, I adjusted layout and tap targets. Each change came with a small prediction and a plan to verify impact in the next cycle. Over time, the materials became clearer and the learning interactions more purposeful.</p>
-      <p>Finally, I shared evidence with learners and colleagues. Quick, visual summaries helped students see their progress and understand why adjustments were being made. For staff, short debriefs connected results to the next step, building a shared commitment to evidence-informed practice. Assessment, used this way, is not a gate - it is a guide that keeps the work honest and aligned to the outcomes we value.</p>
+        function refreshLayoutConstants() {
+            const styles = getComputedStyle(document.documentElement);
+            GAP = parseFloat(styles.getPropertyValue('--gap')) || 220;
+            ROTATION = parseFloat(styles.getPropertyValue('--rotation')) || 55;
+        }
 
-      <h3>Goal 3</h3>
-      <p>Understand the societal impact of technology and strive to produce ethical, inclusive, and equitable instructional systems and technologies.</p>
+        function createCard(artifact, index) {
+            const card = document.createElement('article');
+            card.className = 'coverflow__item';
+            card.dataset.index = index;
+            card.tabIndex = 0;
+            card.setAttribute('role', 'option');
+            card.setAttribute('aria-selected', 'false');
+            card.dataset.active = 'false';
 
-      <h4>Student Learning Outcome 3.1  Reflection</h4>
-      <p>This outcome centers the ethical and societal dimensions of educational technology. I committed to practices that are transparent, proportional, and protective of learner dignity. In concrete terms, that meant minimizing data collection to what is necessary to support learning, favoring aggregate patterns over individual tracking, and communicating in plain language what information is being collected, how it will be used, and when it will be deleted. These commitments were documented and visible, not implied.</p>
-      <p>Privacy by design guided implementation. I audited data flows for each artifact, noting collection points, storage locations, access controls, and retention windows. I removed sensitive fields that were not essential to the learning goal, de-identified where possible, and set short, default retention periods for operational data. For analytics, I tracked transitions between meaningful states rather than raw clickstreams, which reduced granularity without sacrificing insight. When I needed more detail to answer a question, I obtained consent and explained the trade-offs.</p>
-      <p>In communication with students and families, I emphasized agency. I explained what metrics I was watching (e.g., completion of a checklist, time spent on a guidance step) and why those metrics helped me improve materials. I invited questions and provided alternatives when feasible. This two-way dialogue built trust and made the rationale for changes clear. Importantly, I avoided framing analytics as judgments of individual worth or effort; instead, they were signals about where the design might be getting in the way.</p>
-      <p>Equity informed content and access decisions. I prioritized mobile-friendly, low-bandwidth designs, provided printable resources, and ensured that critical instructions lived on pages under my control so I could maintain accessibility. I reviewed language for clarity and cultural resonance, avoiding idioms and assumptions that might exclude. I also considered the broader ecosystem - how school policies, home technology, and time constraints interact - and adjusted expectations and supports accordingly.</p>
-      <p>Ethics also shaped how I reported findings. I favored aggregate summaries with actionable recommendations over detailed logs. When sharing examples, I masked identities and sought consent when quotes were used. I included limitations sections that clarified what the evidence could and could not tell us, to guard against overreach. These practices reinforced a culture where evidence improves instruction without compromising the people it is meant to serve.</p>
-      <p>Ultimately, this outcome reminded me that technology is not neutral. The choices we make about what to measure, how to display it, and what to reward carry values. By foregrounding privacy, proportionality, and inclusion, I aim to ensure that the benefits of technology flow to all learners - not just those best positioned to navigate opaque systems - and that the means of improvement honor the very people we hope to support.</p>
+            if (artifact.image) {
+                const img = document.createElement('img');
+                img.src = artifact.image;
+                img.alt = `${artifact.title} artwork`;
+                card.appendChild(img);
 
-      <h4>Student Learning Outcome 3.2  Reflection</h4>
-      <p>This outcome challenged me to operationalize Universal Design for Learning (UDL) as a practical set of design moves rather than a slogan. I worked to create materials that offer multiple means of engagement, representation, and action/expression so that variability is anticipated from the start. Concretely, this meant providing choices in tasks and formats, designing explanations that combine concise text with supportive visuals, and building in scaffolds that fade as learners gain confidence.</p>
-      <p>In the Digital Literacy Curriculum, I presented core ideas through short, plain-language explanations paired with examples and visuals. I used scenario prompts that connect to students" real online experiences, and I offered alternative ways to demonstrate understanding - written justification, quick audio reflections, or annotated screenshots. Captions, clear focus styles, and sufficient contrast made the materials more usable across devices and contexts. I also provided printable versions and lightweight downloads for learners with limited connectivity.</p>
-      <p>The Financial Markets Slideshow illustrates UDL in media. I paced narration to align with visual changes, reduced extraneous text, and used consistent metaphors to support schema building. Quick checks for understanding prompted retrieval and transfer without high stakes, and transcripts ensured access for those who prefer to read or who need accommodations. When learners moved into analysis, templates and exemplars provided structure while still allowing for choice of variables and visualizations.</p>
-      <p>Choice, however, is only empowering when it is bounded and supported. I learned to provide clear constraints (e.g., select from these datasets, address this question) and to include planning prompts so students do not spend all their cognitive resources deciding what to do. I also introduced peer support structures - guided feedback using simple rubrics - that made collaboration accessible and reduced the social risk of sharing work in progress.</p>
-      <p>UDL also informed how I write and organize content. Headings communicate structure, microcopy anticipates confusion, and examples are drawn from diverse contexts to promote relevance. I pilot wording with students to catch assumptions and to simplify where possible. Accessibility is embedded in the code (semantic HTML, proper labels and roles) and in the design (contrast, spacing, hit targets), making inclusive practice the default rather than an accommodation layered on top.</p>
-      <p>Across artifacts, these moves reduced barriers and improved participation. Students reported that they could enter tasks more confidently, navigate more easily on phones, and choose ways of demonstrating understanding that felt authentic. By combining UDL with an iterative mindset, I continue to refine materials so that inclusion is not a one-time effort but a living practice that evolves with my learners" needs.</p>
-    </div>
-  </section>
-  </main>
-  
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p> Everett Stuckey. All rights reserved.</p>
-      <nav aria-label="Footer">
-        <ul class="nav small">
-          <li><a href="#program-of-study">Program of Study</a></li>
-          <li><a href="#reflection">Reflection</a></li>
-          <li><a href="#iste">ISTE Standards</a></li>
-          <li><a href="https://iste.org/standards/educators" target="_blank" rel="noopener">ISTE Standards Reference</a></li>
-        </ul>
-      </nav>
-      <p class="back-to-top"><a href="#main">Back to top</a></p>
-    </div>
-  </footer>
+                const overlay = document.createElement('div');
+                overlay.className = 'card-overlay';
+                overlay.innerHTML = `<div><h2>${artifact.title}</h2><p>${artifact.description}</p></div>`;
+                card.appendChild(overlay);
+            } else {
+                const placeholder = document.createElement('div');
+                placeholder.className = 'card-placeholder';
+                placeholder.innerHTML = `<span>${artifact.title}</span><small>Preview coming soon</small>`;
+                card.appendChild(placeholder);
+            }
+
+            card.addEventListener('click', () => setActiveIndex(index));
+            card.addEventListener('keyup', (event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    setActiveIndex(index);
+                }
+            });
+
+            return card;
+        }
+
+        function updateInfoPanel() {
+            const artifact = artifacts[targetIndex];
+            const panelsContainer = document.querySelector('.panels-container');
+            const infoPanel = document.querySelector('.info-panel');
+            const coursePanel = document.querySelector('.course-panel');
+            
+            // Check if this artifact should display embedded section content
+            if (artifact.embedSection && PORTFOLIO_SECTIONS && PORTFOLIO_SECTIONS[artifact.embedSection]) {
+                const sectionData = PORTFOLIO_SECTIONS[artifact.embedSection];
+                infoTitleEl.innerHTML = '';
+                infoDescEl.innerHTML = sectionData.html_content;
+                linksEl.innerHTML = '';
+                
+                // Hide course panel and make info panel full width
+                coursePanel.style.display = 'none';
+                panelsContainer.style.gridTemplateColumns = '1fr';
+                
+                // Initialize toggle functionality for embedded content
+                // Use requestAnimationFrame to ensure DOM is fully updated
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        initEmbeddedToggles();
+                    });
+                });
+                
+                return;
+            }
+            
+            // Check if this is the Resume artifact (should embed PDF)
+            if (artifact.title === "Portfolio Resume" && artifact.link.endsWith('.pdf')) {
+                infoTitleEl.textContent = artifact.title;
+                infoDescEl.innerHTML = `<iframe src="${artifact.link}" style="width:100%; height:800px; border:1px solid rgba(116, 185, 255, 0.3); border-radius:8px;" title="Resume PDF"></iframe>`;
+                linksEl.innerHTML = '';
+                const downloadLink = document.createElement('a');
+                downloadLink.href = artifact.link;
+                downloadLink.target = '_blank';
+                downloadLink.rel = 'noopener noreferrer';
+                downloadLink.textContent = 'Download PDF';
+                linksEl.appendChild(downloadLink);
+                
+                // Hide course panel and make info panel full width
+                coursePanel.style.display = 'none';
+                panelsContainer.style.gridTemplateColumns = '1fr';
+                
+                return;
+            }
+            
+            // For all other artifacts, show both panels side by side
+            coursePanel.style.display = 'grid';
+            panelsContainer.style.gridTemplateColumns = '1fr 1fr';
+            
+            // Default behavior for other artifacts
+            infoTitleEl.textContent = artifact.title;
+            infoDescEl.textContent = artifact.description;
+
+            linksEl.innerHTML = '';
+            const primaryLink = document.createElement('a');
+            primaryLink.href = artifact.link;
+            primaryLink.target = '_blank';
+            primaryLink.rel = 'noopener noreferrer';
+            primaryLink.textContent = 'Open Artifact';
+            linksEl.appendChild(primaryLink);
+
+            if (artifact.link.startsWith('https://colab.')) {
+                const note = document.createElement('small');
+                note.textContent = ' * Opens in Google Colab';
+                note.style.alignSelf = 'center';
+                note.style.color = 'var(--muted-color)';
+                linksEl.appendChild(note);
+            }
+
+            renderCoursework(artifact);
+        }
+
+        function createReflectionParagraphs(container, reflectionText) {
+            const segments = reflectionText.split(/\n\s*\n/);
+            segments.forEach(segment => {
+                const trimmed = segment.trim();
+                if (!trimmed) return;
+                const p = document.createElement('p');
+                p.textContent = trimmed;
+                container.appendChild(p);
+            });
+        }
+
+        function initEmbeddedToggles() {
+            // Helper to extract first sentence
+            function firstSentenceOf(text) {
+                const cleaned = (text || '').replace(/\s+/g, ' ').trim();
+                const m = cleaned.match(/.*?[\.\!\?](?=\s|$)/);
+                return m ? m[0] : cleaned;
+            }
+
+            let idCounter = 0;
+
+            // Toggle for table rows (Program of Study)
+            const rows = infoDescEl.querySelectorAll('table tbody tr');
+            rows.forEach(row => {
+                const tds = row.querySelectorAll('td');
+                if (tds.length < 4) return;
+                const cell = tds[3]; // Reflection column
+                if (!cell || cell.dataset.toggable === '1') return;
+
+                // Skip if cell is empty or has no text
+                const cellText = cell.textContent.trim();
+                if (!cellText) return;
+
+                const fullHTML = cell.innerHTML.trim();
+                const previewText = firstSentenceOf(cellText);
+
+                // Build DOM structure: preview + button + full
+                const container = document.createElement('div');
+                container.className = 'reflection-wrap';
+
+                const previewP = document.createElement('p');
+                previewP.className = 'reflection-preview';
+                previewP.textContent = previewText;
+
+                const fullDiv = document.createElement('div');
+                fullDiv.className = 'reflection-full';
+                fullDiv.innerHTML = fullHTML;
+                fullDiv.hidden = true;
+
+                const contentId = 'reflection-full-' + (++idCounter);
+                fullDiv.id = contentId;
+
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'reflection-toggle-btn';
+                btn.setAttribute('aria-controls', contentId);
+                btn.setAttribute('aria-expanded', 'false');
+                btn.textContent = 'Show more';
+                btn.addEventListener('click', () => {
+                    const expanded = btn.getAttribute('aria-expanded') === 'true';
+                    fullDiv.hidden = expanded;
+                    previewP.hidden = !expanded;
+                    btn.setAttribute('aria-expanded', String(!expanded));
+                    btn.textContent = expanded ? 'Show more' : 'Show less';
+                });
+
+                // Replace cell contents
+                cell.innerHTML = '';
+                container.appendChild(previewP);
+                container.appendChild(btn);
+                container.appendChild(fullDiv);
+                cell.appendChild(container);
+                cell.dataset.toggable = '1';
+            });
+
+            // Toggle for h3 sections (Reflection Statement)
+            const h3Sections = infoDescEl.querySelectorAll('h3');
+            h3Sections.forEach(h3 => {
+                if (h3.dataset.toggable === '1') return;
+
+                // Collect all paragraphs after h3 until next h3 or h2
+                const paragraphs = [];
+                let sibling = h3.nextElementSibling;
+                while (sibling && sibling.tagName !== 'H2' && sibling.tagName !== 'H3') {
+                    if (sibling.tagName === 'P') {
+                        paragraphs.push(sibling);
+                    }
+                    sibling = sibling.nextElementSibling;
+                }
+
+                if (paragraphs.length === 0) return;
+
+                // Get full HTML of all paragraphs
+                const fullHTML = paragraphs.map(p => p.outerHTML).join('');
+                const previewText = firstSentenceOf(paragraphs[0].textContent);
+
+                // Build DOM structure
+                const container = document.createElement('div');
+                container.className = 'reflection-wrap';
+
+                const previewP = document.createElement('p');
+                previewP.className = 'reflection-preview';
+                previewP.textContent = previewText;
+
+                const fullDiv = document.createElement('div');
+                fullDiv.className = 'reflection-full';
+                fullDiv.innerHTML = fullHTML;
+                fullDiv.hidden = true;
+
+                const contentId = 'section-full-' + (++idCounter);
+                fullDiv.id = contentId;
+
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'reflection-toggle-btn';
+                btn.setAttribute('aria-controls', contentId);
+                btn.setAttribute('aria-expanded', 'false');
+                btn.textContent = 'Show more';
+                btn.addEventListener('click', () => {
+                    const expanded = btn.getAttribute('aria-expanded') === 'true';
+                    fullDiv.hidden = expanded;
+                    previewP.hidden = !expanded;
+                    btn.setAttribute('aria-expanded', String(!expanded));
+                    btn.textContent = expanded ? 'Show more' : 'Show less';
+                });
+
+                // Remove original paragraphs and insert toggle structure
+                paragraphs.forEach(p => p.remove());
+                h3.insertAdjacentElement('afterend', container);
+                container.appendChild(previewP);
+                container.appendChild(btn);
+                container.appendChild(fullDiv);
+                h3.dataset.toggable = '1';
+            });
+
+            // Toggle for h4 sections (Program Goals)
+            const h4Sections = infoDescEl.querySelectorAll('h4');
+            h4Sections.forEach(h4 => {
+                if (h4.dataset.toggable === '1') return;
+
+                // Collect content after h4 until next h4, h3, or h2
+                const contentNodes = [];
+                let sibling = h4.nextElementSibling;
+                while (sibling && sibling.tagName !== 'H2' && sibling.tagName !== 'H3' && sibling.tagName !== 'H4') {
+                    if (sibling.tagName === 'P' || sibling.tagName === 'UL' || sibling.tagName === 'OL') {
+                        contentNodes.push(sibling);
+                    }
+                    sibling = sibling.nextElementSibling;
+                }
+
+                // Only toggle paragraphs before lists
+                const paragraphsBeforeList = [];
+                for (const node of contentNodes) {
+                    if (node.tagName === 'UL' || node.tagName === 'OL') break;
+                    if (node.tagName === 'P') paragraphsBeforeList.push(node);
+                }
+
+                if (paragraphsBeforeList.length === 0) return;
+
+                // Get full HTML of paragraphs
+                const fullHTML = paragraphsBeforeList.map(p => p.outerHTML).join('');
+                const previewText = firstSentenceOf(paragraphsBeforeList[0].textContent);
+
+                // Build DOM structure
+                const container = document.createElement('div');
+                container.className = 'reflection-wrap';
+
+                const previewP = document.createElement('p');
+                previewP.className = 'reflection-preview';
+                previewP.textContent = previewText;
+
+                const fullDiv = document.createElement('div');
+                fullDiv.className = 'reflection-full';
+                fullDiv.innerHTML = fullHTML;
+                fullDiv.hidden = true;
+
+                const contentId = 'goal-full-' + (++idCounter);
+                fullDiv.id = contentId;
+
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'reflection-toggle-btn';
+                btn.setAttribute('aria-controls', contentId);
+                btn.setAttribute('aria-expanded', 'false');
+                btn.textContent = 'Show more';
+                btn.addEventListener('click', () => {
+                    const expanded = btn.getAttribute('aria-expanded') === 'true';
+                    fullDiv.hidden = expanded;
+                    previewP.hidden = !expanded;
+                    btn.setAttribute('aria-expanded', String(!expanded));
+                    btn.textContent = expanded ? 'Show more' : 'Show less';
+                });
+
+                // Remove original paragraphs and insert toggle structure
+                paragraphsBeforeList.forEach(p => p.remove());
+                h4.insertAdjacentElement('afterend', container);
+                container.appendChild(previewP);
+                container.appendChild(btn);
+                container.appendChild(fullDiv);
+                h4.dataset.toggable = '1';
+            });
+        }
+
+        function renderCoursework(artifact) {
+            if (!courseStatusEl || !courseListEl) return;
+
+            const hasCourseData = Object.keys(courseIndex).length > 0;
+            const hasArtifactData = Object.keys(artifactCourseMap).length > 0;
+
+            if (!hasCourseData && !hasArtifactData && !courseLoadError) {
+                courseStatusEl.textContent = 'Loading related course material…';
+                courseListEl.hidden = true;
+                return;
+            }
+
+            if (courseLoadError) {
+                courseStatusEl.textContent = 'Unable to load course material right now. Please refresh to try again.';
+                courseListEl.hidden = true;
+                return;
+            }
+
+            const artifactEntry = resolveArtifactCourseEntry(artifact.link);
+            const courseCodes = artifactEntry?.course_codes?.length ? artifactEntry.course_codes : (artifact.courses || []);
+
+            if (!courseCodes.length) {
+                courseStatusEl.textContent = 'No related course material linked for this artifact yet.';
+                courseListEl.hidden = true;
+                return;
+            }
+
+            courseListEl.innerHTML = '';
+
+            courseCodes.forEach(code => {
+                const course = courseIndex[code];
+                if (!course) return;
+
+                const card = document.createElement('article');
+                card.className = 'course-card';
+
+                const header = document.createElement('div');
+                header.className = 'course-header';
+
+                const heading = document.createElement('h3');
+                heading.textContent = course.title ? `${code} · ${course.title}` : code;
+                header.appendChild(heading);
+
+                if (course.term) {
+                    const pill = document.createElement('span');
+                    pill.className = 'course-pill';
+                    pill.textContent = course.term;
+                    header.appendChild(pill);
+                }
+
+                card.appendChild(header);
+
+                if (course.description) {
+                    const meta = document.createElement('p');
+                    meta.className = 'course-meta';
+                    meta.textContent = course.description;
+                    card.appendChild(meta);
+                }
+
+                const mentions = artifactEntry?.mentions?.[code] || [];
+                if (mentions.length) {
+                    const label = document.createElement('p');
+                    label.className = 'course-meta';
+                    label.textContent = 'Referenced in this artifact as:';
+                    card.appendChild(label);
+
+                    const list = document.createElement('ul');
+                    list.className = 'course-materials';
+                    mentions.forEach(item => {
+                        const li = document.createElement('li');
+                        li.textContent = item;
+                        list.appendChild(li);
+                    });
+                    card.appendChild(list);
+                }
+
+                if (course.reflection) {
+                    const reflection = document.createElement('div');
+                    reflection.className = 'course-reflection';
+                    
+                    // Create toggle for course reflection
+                    const reflectionText = course.reflection.trim();
+                    const firstSentence = reflectionText.match(/.*?[\.\!\?](?=\s|$)/)?.[0] || reflectionText;
+                    
+                    const container = document.createElement('div');
+                    container.className = 'reflection-wrap';
+                    
+                    const previewP = document.createElement('p');
+                    previewP.className = 'reflection-preview';
+                    previewP.textContent = firstSentence;
+                    
+                    const fullDiv = document.createElement('div');
+                    fullDiv.className = 'reflection-full';
+                    createReflectionParagraphs(fullDiv, course.reflection);
+                    fullDiv.hidden = true;
+                    
+                    const contentId = 'course-reflection-' + code.replace(/\s+/g, '-');
+                    fullDiv.id = contentId;
+                    
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = 'reflection-toggle-btn';
+                    btn.setAttribute('aria-controls', contentId);
+                    btn.setAttribute('aria-expanded', 'false');
+                    btn.textContent = 'Show more';
+                    btn.addEventListener('click', () => {
+                        const expanded = btn.getAttribute('aria-expanded') === 'true';
+                        fullDiv.hidden = expanded;
+                        previewP.hidden = !expanded;
+                        btn.setAttribute('aria-expanded', String(!expanded));
+                        btn.textContent = expanded ? 'Show more' : 'Show less';
+                    });
+                    
+                    container.appendChild(previewP);
+                    container.appendChild(btn);
+                    container.appendChild(fullDiv);
+                    reflection.appendChild(container);
+                    card.appendChild(reflection);
+                }
+
+                courseListEl.appendChild(card);
+            });
+
+            if (!courseListEl.children.length) {
+                courseStatusEl.textContent = 'No related course material linked for this artifact yet.';
+                courseListEl.hidden = true;
+            } else {
+                courseStatusEl.textContent = '';
+                courseListEl.hidden = false;
+            }
+        }
+
+        function resolveArtifactCourseEntry(link) {
+            if (!link) return null;
+
+            const direct = artifactCourseMap[link];
+            if (direct) return direct;
+
+            const decoded = safeDecode(link);
+            if (decoded) {
+                if (artifactCourseMap[decoded]) {
+                    return artifactCourseMap[decoded];
+                }
+
+                const trimmed = decoded.replace(/\/?$/, '');
+                if (trimmed && artifactCourseMap[trimmed]) {
+                    return artifactCourseMap[trimmed];
+                }
+            }
+
+            return null;
+        }
+
+        function safeDecode(value) {
+            try {
+                return decodeURIComponent(value);
+            } catch (error) {
+                return value;
+            }
+        }
+
+        function ingestCourseData(data) {
+            if (!data) return;
+
+            const rawCourses = Array.isArray(data) ? data : data.courses;
+            if (!Array.isArray(rawCourses) || !rawCourses.length) return;
+
+            courseIndex = rawCourses.reduce((acc, item) => {
+                if (!item || !item.course_code) return acc;
+                acc[item.course_code.trim()] = item;
+                return acc;
+            }, {});
+
+            artifactCourseMap = !Array.isArray(data) && data.artifact_map ? data.artifact_map : {};
+            courseLoadError = false;
+            renderCoursework(artifacts[targetIndex]);
+        }
+
+        function updateTransforms() {
+            const cards = coverflowEl.children;
+            Array.from(cards).forEach((card) => {
+                const index = Number(card.dataset.index);
+                const offset = index - displayIndex;
+                const absOffset = Math.abs(offset);
+
+                const translateX = offset * GAP;
+                const rotateY = offset * -ROTATION;
+                const scale = Math.max(1 - (absOffset * 0.12), 0.6);
+                const translateZ = -Math.min(absOffset * Z_SPREAD, 400);
+
+                card.style.transform = `translateX(${translateX}px) translateZ(${translateZ}px) rotateY(${rotateY}deg) scale(${scale})`;
+                card.style.zIndex = String(artifacts.length - absOffset);
+                card.style.filter = `blur(${absOffset * 1.2}px)`;
+
+                const isActive = index === targetIndex;
+                card.dataset.active = String(isActive);
+                card.setAttribute('aria-selected', String(isActive));
+            });
+        }
+
+        function animateToTarget() {
+            if (Math.abs(targetIndex - displayIndex) < 0.001) {
+                displayIndex = targetIndex;
+                updateTransforms();
+                animationFrame = null;
+                return;
+            }
+
+            displayIndex += (targetIndex - displayIndex) * 0.12;
+            updateTransforms();
+            animationFrame = requestAnimationFrame(animateToTarget);
+        }
+
+        function setActiveIndex(newIndex) {
+            const clampedIndex = Math.max(0, Math.min(artifacts.length - 1, newIndex));
+            if (clampedIndex === targetIndex) return;
+
+            targetIndex = clampedIndex;
+            updateInfoPanel();
+            if (!animationFrame) {
+                animationFrame = requestAnimationFrame(animateToTarget);
+            }
+        }
+
+        function step(direction) {
+            if (direction === 'next') {
+                setActiveIndex(targetIndex + 1);
+            } else if (direction === 'prev') {
+                setActiveIndex(targetIndex - 1);
+            }
+        }
+
+        controlButtons.forEach(button => {
+            button.addEventListener('click', () => step(button.dataset.direction));
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'ArrowRight') {
+                step('next');
+            } else if (event.key === 'ArrowLeft') {
+                step('prev');
+            }
+        });
+
+        let wheelTimeout;
+        coverflowEl.addEventListener('wheel', (event) => {
+            event.preventDefault();
+            if (wheelTimeout) return;
+            if (event.deltaY > 0 || event.deltaX > 0) {
+                step('next');
+            } else if (event.deltaY < 0 || event.deltaX < 0) {
+                step('prev');
+            }
+            wheelTimeout = setTimeout(() => (wheelTimeout = null), 220);
+        }, { passive: false });
+
+        coverflowEl.addEventListener('touchstart', handleTouch);
+        coverflowEl.addEventListener('touchmove', handleTouch);
+        coverflowEl.addEventListener('touchend', handleTouchEnd);
+
+        let touchStartX = null;
+        let touchDeltaX = 0;
+
+        function handleTouch(event) {
+            if (event.touches.length !== 1) return;
+            if (event.type === 'touchstart') {
+                touchStartX = event.touches[0].clientX;
+                touchDeltaX = 0;
+            } else if (event.type === 'touchmove' && touchStartX !== null) {
+                touchDeltaX = event.touches[0].clientX - touchStartX;
+            }
+        }
+
+        function handleTouchEnd() {
+            if (touchStartX === null) return;
+            const THRESHOLD = 40;
+            if (touchDeltaX > THRESHOLD) {
+                step('prev');
+            } else if (touchDeltaX < -THRESHOLD) {
+                step('next');
+            }
+            touchStartX = null;
+            touchDeltaX = 0;
+        }
+
+        refreshLayoutConstants();
+        artifacts.forEach((artifact, index) => {
+            const card = createCard(artifact, index);
+            coverflowEl.appendChild(card);
+        });
+        updateInfoPanel();
+        updateTransforms();
+
+        window.addEventListener('resize', () => {
+            refreshLayoutConstants();
+            updateTransforms();
+        });
+
+        if (PRELOADED_COURSE_DATA) {
+            ingestCourseData(PRELOADED_COURSE_DATA);
+        }
+
+        fetch(COURSE_DATA_URL)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                ingestCourseData(data);
+            })
+            .catch(error => {
+                console.error('Failed to load course data:', error);
+                if (!Object.keys(courseIndex).length) {
+                    courseLoadError = true;
+                    renderCoursework(artifacts[targetIndex]);
+                }
+            });
+    </script>
 </body>
-<script>
-  // Program of Study + ISTE Standards: collapse long content to first sentence with a toggle
-  (function () {
-    function firstSentenceOf(text) {
-      const cleaned = (text || '').replace(/\s+/g, ' ').trim();
-      const m = cleaned.match(/.*?[\.\!\?](?=\s|$)/);
-      return m ? m[0] : cleaned;
-    }
-
-    function initReflectionToggles() {
-      const rows = document.querySelectorAll('#program-of-study table tbody tr');
-      if (!rows || rows.length === 0) return;
-
-      let idCounter = 0;
-      rows.forEach(row => {
-        const tds = row.querySelectorAll('td');
-        if (tds.length < 4) return;
-        const cell = tds[3]; // Reflection column
-        if (!cell || cell.dataset.toggable === '1') return;
-
-        const fullHTML = cell.innerHTML.trim();
-        const previewText = firstSentenceOf(cell.textContent);
-
-        // Build DOM structure: preview + button + full
-        const container = document.createElement('div');
-        container.className = 'reflection-wrap';
-
-        const previewP = document.createElement('p');
-        previewP.className = 'reflection-preview';
-        previewP.textContent = previewText;
-
-        const fullDiv = document.createElement('div');
-        fullDiv.className = 'reflection-full';
-        fullDiv.innerHTML = fullHTML;
-        fullDiv.hidden = true;
-
-        const contentId = 'reflection-full-' + (++idCounter);
-        fullDiv.id = contentId;
-
-        const btn = document.createElement('button');
-        btn.type = 'button';
-        btn.className = 'reflection-toggle-btn';
-        btn.setAttribute('aria-controls', contentId);
-        btn.setAttribute('aria-expanded', 'false');
-        btn.textContent = 'Show more';
-        btn.addEventListener('click', () => {
-          const expanded = btn.getAttribute('aria-expanded') === 'true';
-          // Toggle full content visibility
-          fullDiv.hidden = expanded;
-          // Hide preview when expanded to avoid duplicate first sentence
-          previewP.hidden = !expanded ? true : false;
-          // Update button state
-          btn.setAttribute('aria-expanded', String(!expanded));
-          btn.textContent = expanded ? 'Show more' : 'Show less';
-        });
-
-        // Replace cell contents
-        cell.innerHTML = '';
-        container.appendChild(previewP);
-        container.appendChild(btn);
-        container.appendChild(fullDiv);
-        cell.appendChild(container);
-        cell.dataset.toggable = '1';
-      });
-    }
-
-    function initIsteToggles() {
-      const articles = document.querySelectorAll('#iste .standards article');
-      if (!articles || articles.length === 0) return;
-
-      let idCounter = 0;
-      articles.forEach(article => {
-        if (!article || article.dataset.toggable === '1') return;
-
-        const heading = article.querySelector('h3');
-
-        // Collect nodes AFTER the heading up to (but not including) the first list (<ul>/<ol>)
-        const nodesBeforeList = [];
-        let cursor = heading ? heading.nextSibling : article.firstChild;
-        let foundList = false;
-        while (cursor) {
-          const next = cursor.nextSibling;
-          if (cursor.nodeType === 1 && (cursor.tagName === 'UL' || cursor.tagName === 'OL')) {
-            foundList = true;
-            break; // stop before list so lists remain visible
-          }
-          nodesBeforeList.push(cursor);
-          cursor = next;
-        }
-
-        if (nodesBeforeList.length === 0) {
-          // Nothing to collapse; leave article as-is
-          article.dataset.toggable = '1';
-          return;
-        }
-
-        // Move only the pre-list nodes into a temp container to get full HTML
-        const temp = document.createElement('div');
-        nodesBeforeList.forEach(n => temp.appendChild(n));
-        const fullHTML = temp.innerHTML.trim();
-        const previewText = firstSentenceOf(temp.textContent);
-
-        // Build preview + toggle + full content; lists remain below untouched
-        const container = document.createElement('div');
-        container.className = 'reflection-wrap';
-
-        const previewP = document.createElement('p');
-        previewP.className = 'reflection-preview';
-        previewP.textContent = previewText;
-
-        const fullDiv = document.createElement('div');
-        fullDiv.className = 'reflection-full';
-        fullDiv.innerHTML = fullHTML;
-        fullDiv.hidden = true;
-
-        const contentId = 'iste-full-' + (++idCounter);
-        fullDiv.id = contentId;
-
-        const btn = document.createElement('button');
-        btn.type = 'button';
-        btn.className = 'reflection-toggle-btn';
-        btn.setAttribute('aria-controls', contentId);
-        btn.setAttribute('aria-expanded', 'false');
-        btn.textContent = 'Show more';
-        btn.addEventListener('click', () => {
-          const expanded = btn.getAttribute('aria-expanded') === 'true';
-          fullDiv.hidden = expanded;
-          previewP.hidden = !expanded ? true : false;
-          btn.setAttribute('aria-expanded', String(!expanded));
-          btn.textContent = expanded ? 'Show more' : 'Show less';
-        });
-
-        // Insert container right after heading (or top if no heading)
-        if (heading && heading.parentNode === article) {
-          heading.insertAdjacentElement('afterend', container);
-        } else {
-          article.insertBefore(container, article.firstChild);
-        }
-        container.appendChild(previewP);
-        container.appendChild(btn);
-        container.appendChild(fullDiv);
-
-        // Lists (and any content after them) remain in the article, visible below the toggle
-        article.dataset.toggable = '1';
-      });
-    }
-
-    // Minimal styles for the toggle button
-    const style = document.createElement('style');
-    style.textContent = `
-      .reflection-toggle-btn { margin: 0.25rem 0 0.5rem; padding: 0.35rem 0.65rem; font-size: 0.9rem; cursor: pointer; }
-      .reflection-wrap p { margin-bottom: 0.5rem; }
-    `;
-    document.head.appendChild(style);
-
-    function initAllToggles() {
-      initReflectionToggles();
-      initIsteToggles();
-    }
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initAllToggles);
-    } else {
-      initAllToggles();
-    }
-  })();
-</script>
 </html>
