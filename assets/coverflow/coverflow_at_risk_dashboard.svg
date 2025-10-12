@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#a855f7" />
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="rgba(15,118,110,0.25)" />
+      <stop offset="100%" stop-color="rgba(15,118,110,0.05)" />
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)" />
+  <g transform="translate(160,120)">
+    <rect x="0" y="0" width="1280" height="660" rx="40" ry="40" fill="rgba(15,23,42,0.75)" stroke="#38bdf8" stroke-width="6" />
+    <g transform="translate(120,120)">
+      <rect x="0" y="0" width="1040" height="280" rx="28" ry="28" fill="url(#panel)" stroke="rgba(56,189,248,0.35)" stroke-width="4" />
+      <g transform="translate(40,36)">
+        <text x="0" y="0" font-family="'Segoe UI', Arial, sans-serif" font-size="60" font-weight="600" fill="#e2e8f0">ICU Student Support Dashboard</text>
+        <text x="0" y="78" font-family="'Segoe UI', Arial, sans-serif" font-size="32" font-weight="400" fill="#94a3b8">Confidential Intervention Insights • Auto-Anonymized</text>
+        <text x="0" y="140" font-family="'Segoe UI', Arial, sans-serif" font-size="26" font-weight="400" fill="#38bdf8">Updated: {{CURRENT_TERM}} • Grades 9-12</text>
+      </g>
+      <g transform="translate(36,194)">
+        <rect x="0" y="0" width="360" height="72" rx="18" ry="18" fill="rgba(56,189,248,0.18)" />
+        <text x="36" y="46" font-family="'Segoe UI', Arial, sans-serif" font-size="30" font-weight="600" fill="#38bdf8">Privacy Mode: Enabled</text>
+      </g>
+    </g>
+    <g transform="translate(120,420)">
+      <rect x="0" y="0" width="340" height="180" rx="20" ry="20" fill="rgba(30,41,59,0.8)" stroke="rgba(56,189,248,0.35)" stroke-width="3" />
+      <text x="34" y="48" font-family="'Segoe UI', Arial, sans-serif" font-size="24" fill="#e2e8f0">Attendance Trend</text>
+      <polyline points="36,132 92,84 150,110 208,72 266,98 324,54" fill="none" stroke="#38bdf8" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+      <circle cx="92" cy="84" r="9" fill="#38bdf8" />
+      <circle cx="208" cy="72" r="9" fill="#38bdf8" />
+      <circle cx="324" cy="54" r="9" fill="#38bdf8" />
+    </g>
+    <g transform="translate(500,420)">
+      <rect x="0" y="0" width="340" height="180" rx="20" ry="20" fill="rgba(30,41,59,0.8)" stroke="rgba(168,85,247,0.35)" stroke-width="3" />
+      <text x="34" y="48" font-family="'Segoe UI', Arial, sans-serif" font-size="24" fill="#e2e8f0">Grade Distribution</text>
+      <g transform="translate(40,72)">
+        <rect x="0" y="0" width="48" height="96" rx="10" fill="#22d3ee" opacity="0.85" />
+        <rect x="68" y="28" width="48" height="68" rx="10" fill="#38bdf8" opacity="0.85" />
+        <rect x="136" y="12" width="48" height="84" rx="10" fill="#60a5fa" opacity="0.85" />
+        <rect x="204" y="48" width="48" height="48" rx="10" fill="#a855f7" opacity="0.85" />
+      </g>
+    </g>
+    <g transform="translate(880,420)">
+      <rect x="0" y="0" width="340" height="180" rx="20" ry="20" fill="rgba(30,41,59,0.8)" stroke="rgba(56,189,248,0.35)" stroke-width="3" />
+      <text x="34" y="48" font-family="'Segoe UI', Arial, sans-serif" font-size="24" fill="#e2e8f0">Intervention Queue</text>
+      <g transform="translate(34,74)" font-family="'Segoe UI', Arial, sans-serif" font-size="22" fill="#cbd5f5">
+        <text y="0">• Grade 9: 18 Students</text>
+        <text y="36">• Grade 10: 26 Students</text>
+        <text y="72">• Grade 11: 31 Students</text>
+        <text y="108">• Grade 12: 22 Students</text>
+      </g>
+    </g>
+  </g>
+  <g transform="translate(160,820)">
+    <text x="0" y="0" font-family="'Segoe UI', Arial, sans-serif" font-size="26" font-weight="500" fill="#94a3b8">Confidential • FERPA Compliant • Counselor Emergency Response Dashboard</text>
+  </g>
+</svg>
