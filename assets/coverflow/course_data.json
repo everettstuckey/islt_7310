@@ -25,7 +25,7 @@
           "href": "https://everettstuckey.github.io/IS_LT-7383/slideshows/Financial Markets Slide Show.html"
         },
         {
-          "title": "Python and Google Sheets eLearning Module and States of Matter Animation",
+          "title": "Rapid Development Tools Portfolio",
           "href": "https://everettstuckey.github.io/IS_LT-7383/"
         }
       ]
@@ -163,7 +163,7 @@
       }
     },
     "https://everettstuckey.github.io/IS_LT-7383/": {
-      "title": "Python and Google Sheets eLearning Module and States of Matter Animation",
+      "title": "Rapid Development Tools Portfolio",
       "course_codes": [
         "IS_LT 7383",
         "IS_LT 9410",
@@ -171,13 +171,43 @@
       ],
       "mentions": {
         "IS_LT 7383": [
-          "Python and Google Sheets eLearning Module and States of Matter Animation"
+          "Rapid Development Tools Portfolio"
         ],
         "IS_LT 9410": [
           "Rapid Development"
         ],
         "IS_LT 9455": [
           "Rapid Development"
+        ]
+      }
+    },
+    "https://everettstuckey.github.io/islt_7310/AtRiskDashboardDocumentation.html": {
+      "title": "At-Risk Dashboard Documentation",
+      "course_codes": [
+        "IS_LT 9466",
+        "IS_LT 9410"
+      ],
+      "mentions": {
+        "IS_LT 9466": [
+          "At Risk Student Dashboard HTML and Python Card"
+        ],
+        "IS_LT 9410": [
+          "At Risk Student Dashboard HTML and Python Card"
+        ]
+      }
+    },
+    "https://everettstuckey.github.io/islt_7310/SemifinalistsGISMap.html": {
+      "title": "GIS Map of Career Z and CHIPS CTE Challenge Semifinalists",
+      "course_codes": [
+        "IS_LT 9466",
+        "IS_LT 9410"
+      ],
+      "mentions": {
+        "IS_LT 9466": [
+          "GIS Map of Career Z and CHIPS CTE Challenge Semifinalists"
+        ],
+        "IS_LT 9410": [
+          "GIS Map of Career Z and CHIPS CTE Challenge Semifinalists"
         ]
       }
     }

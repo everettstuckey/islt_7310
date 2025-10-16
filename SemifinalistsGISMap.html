@@ -1,0 +1,3168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_1fd4d654f6bcfbb214fbd7fee00dcec2 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+        <style>
+        .leaflet-container { background: #021226; }
+        .leaflet-tile { filter: hue-rotate(210deg) saturate(1.35); }
+        </style>
+        
+    
+            <div class="folium-map" id="map_1fd4d654f6bcfbb214fbd7fee00dcec2" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_1fd4d654f6bcfbb214fbd7fee00dcec2 = L.map(
+                "map_1fd4d654f6bcfbb214fbd7fee00dcec2",
+                {
+                    center: [38.74867760029421, -90.89037263797259],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 5,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_da1820ce122f1b88aa2883d64c7f9448 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "Map tiles by Carto, under CC BY 3.0. Data by OpenStreetMap contributors.",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_da1820ce122f1b88aa2883d64c7f9448.addTo(map_1fd4d654f6bcfbb214fbd7fee00dcec2);
+        
+    
+            var feature_group_ab8a735f37ca6c8dd534438d414725b1 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_355210e2cc80e2a36edd8c7d8cc8149d = L.circleMarker(
+                [33.504251, -86.811824],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_e70bcc20401a6acf5b3a8f0cdf59bc8c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9696ab9801f51f5e7004ecc07d16ac90 = $(`<div id="html_9696ab9801f51f5e7004ecc07d16ac90" style="width: 100.0%; height: 100.0%;"><strong>Academies Of Birmingham City Schools</strong><br>Birmingham, AL<br>Career Z Challenge</div>`)[0];
+                popup_e70bcc20401a6acf5b3a8f0cdf59bc8c.setContent(html_9696ab9801f51f5e7004ecc07d16ac90);
+            
+        
+
+        circle_marker_355210e2cc80e2a36edd8c7d8cc8149d.bindPopup(popup_e70bcc20401a6acf5b3a8f0cdf59bc8c)
+        ;
+
+        
+    
+    
+            var circle_marker_4f4e45aa73166a77d698f15db0a35bb6 = L.circleMarker(
+                [41.719946, -93.590361],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_2f7cc1fc820d51920ce8279bb071925e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3373ae2d9a2addc06d7944826aab3ae1 = $(`<div id="html_3373ae2d9a2addc06d7944826aab3ae1" style="width: 100.0%; height: 100.0%;"><strong>Ankeny Community School District</strong><br>Ankeny, IA<br>Career Z Challenge</div>`)[0];
+                popup_2f7cc1fc820d51920ce8279bb071925e.setContent(html_3373ae2d9a2addc06d7944826aab3ae1);
+            
+        
+
+        circle_marker_4f4e45aa73166a77d698f15db0a35bb6.bindPopup(popup_2f7cc1fc820d51920ce8279bb071925e)
+        ;
+
+        
+    
+    
+            var circle_marker_18546f5830919e186913505418f4e9a2 = L.circleMarker(
+                [33.451116, -112.066321],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_f0e26976256dfc5291c8530868318caa = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_21c9d6d592b7844f4d6abad76bbf6b02 = $(`<div id="html_21c9d6d592b7844f4d6abad76bbf6b02" style="width: 100.0%; height: 100.0%;"><strong>Arizona Center For The Future Of Arizona</strong><br>Phoenix, AZ<br>Career Z Challenge</div>`)[0];
+                popup_f0e26976256dfc5291c8530868318caa.setContent(html_21c9d6d592b7844f4d6abad76bbf6b02);
+            
+        
+
+        circle_marker_18546f5830919e186913505418f4e9a2.bindPopup(popup_f0e26976256dfc5291c8530868318caa)
+        ;
+
+        
+    
+    
+            var circle_marker_8f6279a6ffed8f395ef909916d618d16 = L.circleMarker(
+                [38.8418053, -77.0943617],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_e0c2e6d288001428122ee60be9620da8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f0e27adbbe29b07253d4f9ffd7dfaca8 = $(`<div id="html_f0e27adbbe29b07253d4f9ffd7dfaca8" style="width: 100.0%; height: 100.0%;"><strong>Arlington Public Schools</strong><br>Arlington, VA<br>Career Z Challenge</div>`)[0];
+                popup_e0c2e6d288001428122ee60be9620da8.setContent(html_f0e27adbbe29b07253d4f9ffd7dfaca8);
+            
+        
+
+        circle_marker_8f6279a6ffed8f395ef909916d618d16.bindPopup(popup_e0c2e6d288001428122ee60be9620da8)
+        ;
+
+        
+    
+    
+            var circle_marker_7b713fd8152f7399b2401d40e0be0eb1 = L.circleMarker(
+                [33.7249419, -84.398011],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_40ddb63e3b423acde5ac75cb7196b986 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c459de0eb88aa5df759dee574aeec517 = $(`<div id="html_c459de0eb88aa5df759dee574aeec517" style="width: 100.0%; height: 100.0%;"><strong>Atlanta College And Career Academy</strong><br>Atlanta, GA<br>Career Z Challenge</div>`)[0];
+                popup_40ddb63e3b423acde5ac75cb7196b986.setContent(html_c459de0eb88aa5df759dee574aeec517);
+            
+        
+
+        circle_marker_7b713fd8152f7399b2401d40e0be0eb1.bindPopup(popup_40ddb63e3b423acde5ac75cb7196b986)
+        ;
+
+        
+    
+    
+            var circle_marker_65a0c406d3b5c29acc47f8829f26a381 = L.circleMarker(
+                [42.1113, -71.657],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_ca990acfc240b688a735046c5df00fd2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2c211332bb7b3fb1fcddb7de9d15b01d = $(`<div id="html_2c211332bb7b3fb1fcddb7de9d15b01d" style="width: 100.0%; height: 100.0%;"><strong>Blackstone Valley Hub For Workforce Development</strong><br>Whitinsville, MA<br>Career Z Challenge</div>`)[0];
+                popup_ca990acfc240b688a735046c5df00fd2.setContent(html_2c211332bb7b3fb1fcddb7de9d15b01d);
+            
+        
+
+        circle_marker_65a0c406d3b5c29acc47f8829f26a381.bindPopup(popup_ca990acfc240b688a735046c5df00fd2)
+        ;
+
+        
+    
+    
+            var circle_marker_5e44221e58632c5bd19aa75b9ed4c7bb = L.circleMarker(
+                [42.332895, -71.044919],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_585cbb684689e542e3ab61e22baf18c2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c4db693ebcd0563a1aa7b2272064dff7 = $(`<div id="html_c4db693ebcd0563a1aa7b2272064dff7" style="width: 100.0%; height: 100.0%;"><strong>Boston Private Industry Counci</strong><br>Boston, MA<br>Career Z Challenge</div>`)[0];
+                popup_585cbb684689e542e3ab61e22baf18c2.setContent(html_c4db693ebcd0563a1aa7b2272064dff7);
+            
+        
+
+        circle_marker_5e44221e58632c5bd19aa75b9ed4c7bb.bindPopup(popup_585cbb684689e542e3ab61e22baf18c2)
+        ;
+
+        
+    
+    
+            var circle_marker_bae2b1c39c5bd2e1fb651dfd4f0861cc = L.circleMarker(
+                [42.3086621, -71.1079729],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_b9d62c0ce9bc95216989ebbcd14529bc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_00f39b995f38315cdb8ec33221954c6f = $(`<div id="html_00f39b995f38315cdb8ec33221954c6f" style="width: 100.0%; height: 100.0%;"><strong>Boston Private Industry Council</strong><br>Boston, MA<br>Career Z Challenge</div>`)[0];
+                popup_b9d62c0ce9bc95216989ebbcd14529bc.setContent(html_00f39b995f38315cdb8ec33221954c6f);
+            
+        
+
+        circle_marker_bae2b1c39c5bd2e1fb651dfd4f0861cc.bindPopup(popup_b9d62c0ce9bc95216989ebbcd14529bc)
+        ;
+
+        
+    
+    
+            var circle_marker_d1b30727eb3f3fcb81a34032a5e5451e = L.circleMarker(
+                [36.5981626, -82.1813661],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_14928305fde28409f5ff06a7fbe3411f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_86a2d467cd7f3423e3a26e69369edf9e = $(`<div id="html_86a2d467cd7f3423e3a26e69369edf9e" style="width: 100.0%; height: 100.0%;"><strong>Bristol Virginia Public Schools</strong><br>Bristol, VA<br>Career Z Challenge</div>`)[0];
+                popup_14928305fde28409f5ff06a7fbe3411f.setContent(html_86a2d467cd7f3423e3a26e69369edf9e);
+            
+        
+
+        circle_marker_d1b30727eb3f3fcb81a34032a5e5451e.bindPopup(popup_14928305fde28409f5ff06a7fbe3411f)
+        ;
+
+        
+    
+    
+            var circle_marker_4ea65af7aa6a1c17367812e9af86b46c = L.circleMarker(
+                [41.453158, -75.653115],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_516f2c674aefb4e946961a19084a23f9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ad6891d54a870110d5a6168347d83fe0 = $(`<div id="html_ad6891d54a870110d5a6168347d83fe0" style="width: 100.0%; height: 100.0%;"><strong>Career Technology Center Of Lackawanna County (Ctclc)</strong><br>Scranton, PA<br>Career Z Challenge</div>`)[0];
+                popup_516f2c674aefb4e946961a19084a23f9.setContent(html_ad6891d54a870110d5a6168347d83fe0);
+            
+        
+
+        circle_marker_4ea65af7aa6a1c17367812e9af86b46c.bindPopup(popup_516f2c674aefb4e946961a19084a23f9)
+        ;
+
+        
+    
+    
+            var circle_marker_0b24d02487e9bb818993253a3859b267 = L.circleMarker(
+                [42.505423, -92.438652],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_ea38c90d41badd57066840550a00eba7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_387a4e9d7f825afa6cbf59d9db85d889 = $(`<div id="html_387a4e9d7f825afa6cbf59d9db85d889" style="width: 100.0%; height: 100.0%;"><strong>Cedar Falls Caps - Cedar Falls School District</strong><br>Cedar Falls, IA<br>Career Z Challenge</div>`)[0];
+                popup_ea38c90d41badd57066840550a00eba7.setContent(html_387a4e9d7f825afa6cbf59d9db85d889);
+            
+        
+
+        circle_marker_0b24d02487e9bb818993253a3859b267.bindPopup(popup_ea38c90d41badd57066840550a00eba7)
+        ;
+
+        
+    
+    
+            var circle_marker_860c7e5bc07c7d1148b5eb511354ede6 = L.circleMarker(
+                [42.505423, -92.438652],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_ac130117ca18d15e810f120647fe6920 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f25a387839a9fcfd02270b2aa3d61fc7 = $(`<div id="html_f25a387839a9fcfd02270b2aa3d61fc7" style="width: 100.0%; height: 100.0%;"><strong>Cedar Falls School District</strong><br>Cedar Falls, IA<br>Career Z Challenge</div>`)[0];
+                popup_ac130117ca18d15e810f120647fe6920.setContent(html_f25a387839a9fcfd02270b2aa3d61fc7);
+            
+        
+
+        circle_marker_860c7e5bc07c7d1148b5eb511354ede6.bindPopup(popup_ac130117ca18d15e810f120647fe6920)
+        ;
+
+        
+    
+    
+            var circle_marker_10b41484bf8331ec6e2c41765ec76cb8 = L.circleMarker(
+                [33.451116, -112.066321],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_98b0c8e8825756fbf56b153af84f68a3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_42031e93bb5c745af5b88ba0f2d13d7a = $(`<div id="html_42031e93bb5c745af5b88ba0f2d13d7a" style="width: 100.0%; height: 100.0%;"><strong>Center For The Future Of Arizona</strong><br>Phoenix, AZ<br>Career Z Challenge</div>`)[0];
+                popup_98b0c8e8825756fbf56b153af84f68a3.setContent(html_42031e93bb5c745af5b88ba0f2d13d7a);
+            
+        
+
+        circle_marker_10b41484bf8331ec6e2c41765ec76cb8.bindPopup(popup_98b0c8e8825756fbf56b153af84f68a3)
+        ;
+
+        
+    
+    
+            var circle_marker_c9c79f25ecd531833402f31f31cc18a7 = L.circleMarker(
+                [42.97936, -90.63817],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_b31f670ac00dabf1151b15df073ce079 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3bcd9d9ab44c32383e2d29f1cd57db38 = $(`<div id="html_3bcd9d9ab44c32383e2d29f1cd57db38" style="width: 100.0%; height: 100.0%;"><strong>Cesa 3</strong><br>Fennimore, WI<br>Career Z Challenge</div>`)[0];
+                popup_b31f670ac00dabf1151b15df073ce079.setContent(html_3bcd9d9ab44c32383e2d29f1cd57db38);
+            
+        
+
+        circle_marker_c9c79f25ecd531833402f31f31cc18a7.bindPopup(popup_b31f670ac00dabf1151b15df073ce079)
+        ;
+
+        
+    
+    
+            var circle_marker_e2ac4cf1489f09f739cc93d6c5da3987 = L.circleMarker(
+                [41.8821489, -87.7530403],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_8143cacd8e74d7864e1850274bb363fc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_643e90cdf70ee0fadb5b7075ef6b4a6d = $(`<div id="html_643e90cdf70ee0fadb5b7075ef6b4a6d" style="width: 100.0%; height: 100.0%;"><strong>Chicago Public Schools (Cps)</strong><br>Chicago, IL<br>Career Z Challenge</div>`)[0];
+                popup_8143cacd8e74d7864e1850274bb363fc.setContent(html_643e90cdf70ee0fadb5b7075ef6b4a6d);
+            
+        
+
+        circle_marker_e2ac4cf1489f09f739cc93d6c5da3987.bindPopup(popup_8143cacd8e74d7864e1850274bb363fc)
+        ;
+
+        
+    
+    
+            var circle_marker_1629c3c279b224d0dd930c443693c98f = L.circleMarker(
+                [35.8411629, -98.2160929],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_a3c11632ef899ab2ef7e11e4791ba7a0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a72929921c2fe99d536a60a5ea8df9b3 = $(`<div id="html_a72929921c2fe99d536a60a5ea8df9b3" style="width: 100.0%; height: 100.0%;"><strong>Chisholm Trail Technology Center</strong><br>Omega, OK<br>Career Z Challenge</div>`)[0];
+                popup_a3c11632ef899ab2ef7e11e4791ba7a0.setContent(html_a72929921c2fe99d536a60a5ea8df9b3);
+            
+        
+
+        circle_marker_1629c3c279b224d0dd930c443693c98f.bindPopup(popup_a3c11632ef899ab2ef7e11e4791ba7a0)
+        ;
+
+        
+    
+    
+            var circle_marker_39032c72847841b9033cb20c27ccaaa7 = L.circleMarker(
+                [39.8304, -104.9862],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_89f15b6aa5046ed15b5064b68e3d63d1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c0c221769884d7257e5d5ba56c253490 = $(`<div id="html_c0c221769884d7257e5d5ba56c253490" style="width: 100.0%; height: 100.0%;"><strong>Colorado Mapleton Public Schools</strong><br>Thornton, CO<br>Career Z Challenge</div>`)[0];
+                popup_89f15b6aa5046ed15b5064b68e3d63d1.setContent(html_c0c221769884d7257e5d5ba56c253490);
+            
+        
+
+        circle_marker_39032c72847841b9033cb20c27ccaaa7.bindPopup(popup_89f15b6aa5046ed15b5064b68e3d63d1)
+        ;
+
+        
+    
+    
+            var circle_marker_e9cd1055b5592328d810fe1e30be6b43 = L.circleMarker(
+                [35.9138453, -79.0561812],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_e586cf14d5b6aff78dfc24faaeb600f1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_973211000190dc1af7d88fbffeaf5019 = $(`<div id="html_973211000190dc1af7d88fbffeaf5019" style="width: 100.0%; height: 100.0%;"><strong>District C</strong><br>Chapel Hill, NC<br>Career Z Challenge</div>`)[0];
+                popup_e586cf14d5b6aff78dfc24faaeb600f1.setContent(html_973211000190dc1af7d88fbffeaf5019);
+            
+        
+
+        circle_marker_e9cd1055b5592328d810fe1e30be6b43.bindPopup(popup_e586cf14d5b6aff78dfc24faaeb600f1)
+        ;
+
+        
+    
+    
+            var circle_marker_6c0473e5eec0e2fbbb02cd80b4e948f4 = L.circleMarker(
+                [30.3, -97.67133],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_3783d015215ca501411972a77d889fe5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_81440e0191fa87d8929461fcec36ea76 = $(`<div id="html_81440e0191fa87d8929461fcec36ea76" style="width: 100.0%; height: 100.0%;"><strong>Education Service Center Region 13</strong><br>Austin, TX<br>Career Z Challenge</div>`)[0];
+                popup_3783d015215ca501411972a77d889fe5.setContent(html_81440e0191fa87d8929461fcec36ea76);
+            
+        
+
+        circle_marker_6c0473e5eec0e2fbbb02cd80b4e948f4.bindPopup(popup_3783d015215ca501411972a77d889fe5)
+        ;
+
+        
+    
+    
+            var circle_marker_87212628fcdc0a9fb6bacd138e420414 = L.circleMarker(
+                [40.013696, -82.91449],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_341c0bd8ddbcbf21b895c00f85f70dc7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_79bac30a6c8f5cb20223bf83ef91c75e = $(`<div id="html_79bac30a6c8f5cb20223bf83ef91c75e" style="width: 100.0%; height: 100.0%;"><strong>Educational Service Center Of Central Ohio</strong><br>Columbus, OH<br>Career Z Challenge</div>`)[0];
+                popup_341c0bd8ddbcbf21b895c00f85f70dc7.setContent(html_79bac30a6c8f5cb20223bf83ef91c75e);
+            
+        
+
+        circle_marker_87212628fcdc0a9fb6bacd138e420414.bindPopup(popup_341c0bd8ddbcbf21b895c00f85f70dc7)
+        ;
+
+        
+    
+    
+            var circle_marker_bba4889dbb15c1429d16ca60b81317cd = L.circleMarker(
+                [42.37667, -71.23538],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_d4fced13da9882051c029e03d1058966 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_36d072aa5b89739065344435092bd76d = $(`<div id="html_36d072aa5b89739065344435092bd76d" style="width: 100.0%; height: 100.0%;"><strong>Flare Education</strong><br>Cambridge, MA<br>Career Z Challenge</div>`)[0];
+                popup_d4fced13da9882051c029e03d1058966.setContent(html_36d072aa5b89739065344435092bd76d);
+            
+        
+
+        circle_marker_bba4889dbb15c1429d16ca60b81317cd.bindPopup(popup_d4fced13da9882051c029e03d1058966)
+        ;
+
+        
+    
+    
+            var circle_marker_3e27b5e5508081c5f51969deb6bbbaff = L.circleMarker(
+                [34.0803053, -117.454896],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_46333913ee63937378f7bbc9983d3fa9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_22ce78a312ca81fd93ea8a7abc6e77b9 = $(`<div id="html_22ce78a312ca81fd93ea8a7abc6e77b9" style="width: 100.0%; height: 100.0%;"><strong>Fontana Unified School District</strong><br>Fontana, CA<br>Career Z Challenge</div>`)[0];
+                popup_46333913ee63937378f7bbc9983d3fa9.setContent(html_22ce78a312ca81fd93ea8a7abc6e77b9);
+            
+        
+
+        circle_marker_3e27b5e5508081c5f51969deb6bbbaff.bindPopup(popup_46333913ee63937378f7bbc9983d3fa9)
+        ;
+
+        
+    
+    
+            var circle_marker_bbc93f6d70f20bc9d0fc9c2efddb0ff8 = L.circleMarker(
+                [35.183713992677, -106.68012583008],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_af85dc8ce581e5fb64496c1cd0644eae = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ccc89938f02ab052a3fa44dd59d78240 = $(`<div id="html_ccc89938f02ab052a3fa44dd59d78240" style="width: 100.0%; height: 100.0%;"><strong>Future Focused Education</strong><br>Albuquerque, NM<br>Career Z Challenge</div>`)[0];
+                popup_af85dc8ce581e5fb64496c1cd0644eae.setContent(html_ccc89938f02ab052a3fa44dd59d78240);
+            
+        
+
+        circle_marker_bbc93f6d70f20bc9d0fc9c2efddb0ff8.bindPopup(popup_af85dc8ce581e5fb64496c1cd0644eae)
+        ;
+
+        
+    
+    
+            var circle_marker_f9f0b8befc6415705da77e074c2f6b12 = L.circleMarker(
+                [44.536731, -92.516917],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_88eb4e7969616043a91c1c238bd50192 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_172b1d993502b00589c760b5911225ec = $(`<div id="html_172b1d993502b00589c760b5911225ec" style="width: 100.0%; height: 100.0%;"><strong>Goodhue County Education District</strong><br>Red Wing, MN<br>Career Z Challenge</div>`)[0];
+                popup_88eb4e7969616043a91c1c238bd50192.setContent(html_172b1d993502b00589c760b5911225ec);
+            
+        
+
+        circle_marker_f9f0b8befc6415705da77e074c2f6b12.bindPopup(popup_88eb4e7969616043a91c1c238bd50192)
+        ;
+
+        
+    
+    
+            var circle_marker_c7a79de56ccb65c497c7f86956bb1165 = L.circleMarker(
+                [47.8755354, -97.0634675],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_b150db606461ec3074db09c572a60b08 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_dd8ce1e1f7cd2338263b43263f025b38 = $(`<div id="html_dd8ce1e1f7cd2338263b43263f025b38" style="width: 100.0%; height: 100.0%;"><strong>Grand Forks Public Schools</strong><br>Grand Forks, ND<br>Career Z Challenge</div>`)[0];
+                popup_b150db606461ec3074db09c572a60b08.setContent(html_dd8ce1e1f7cd2338263b43263f025b38);
+            
+        
+
+        circle_marker_c7a79de56ccb65c497c7f86956bb1165.bindPopup(popup_b150db606461ec3074db09c572a60b08)
+        ;
+
+        
+    
+    
+            var circle_marker_49f53451ea8284fe378d66a682ba101a = L.circleMarker(
+                [32.7483063, -97.0239263],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_8a2413583f7162fce23c8e109032a0c9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e7cc8d64ab5a14e5fd6f09ba1259a463 = $(`<div id="html_e7cc8d64ab5a14e5fd6f09ba1259a463" style="width: 100.0%; height: 100.0%;"><strong>Grand Prairie Collegiate Institute</strong><br>Grand Prairie, TX<br>Career Z Challenge</div>`)[0];
+                popup_8a2413583f7162fce23c8e109032a0c9.setContent(html_e7cc8d64ab5a14e5fd6f09ba1259a463);
+            
+        
+
+        circle_marker_49f53451ea8284fe378d66a682ba101a.bindPopup(popup_8a2413583f7162fce23c8e109032a0c9)
+        ;
+
+        
+    
+    
+            var circle_marker_cfe939264f464f93943807def19d3660 = L.circleMarker(
+                [39.79904, -93.55971],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_56a3e0f655255bae549d1a564e18e593 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f9d215bf09b5713767dad726707ca997 = $(`<div id="html_f9d215bf09b5713767dad726707ca997" style="width: 100.0%; height: 100.0%;"><strong>Grand River Technical School (Grts)</strong><br>Chillicothe, MO<br>Career Z Challenge</div>`)[0];
+                popup_56a3e0f655255bae549d1a564e18e593.setContent(html_f9d215bf09b5713767dad726707ca997);
+            
+        
+
+        circle_marker_cfe939264f464f93943807def19d3660.bindPopup(popup_56a3e0f655255bae549d1a564e18e593)
+        ;
+
+        
+    
+    
+            var circle_marker_246d6419144b299336cb195aea98445c = L.circleMarker(
+                [42.349327, -88.0459067],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_5759a26a873d68c42df0bbd98b234c7e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_23b7e809a45a30289b439509a01313f4 = $(`<div id="html_23b7e809a45a30289b439509a01313f4" style="width: 100.0%; height: 100.0%;"><strong>Grayslake District 127</strong><br>Grayslake, IL<br>Career Z Challenge</div>`)[0];
+                popup_5759a26a873d68c42df0bbd98b234c7e.setContent(html_23b7e809a45a30289b439509a01313f4);
+            
+        
+
+        circle_marker_246d6419144b299336cb195aea98445c.bindPopup(popup_5759a26a873d68c42df0bbd98b234c7e)
+        ;
+
+        
+    
+    
+            var circle_marker_e18f33f2d27e0fd2b5e5983004d4f694 = L.circleMarker(
+                [30.440741, -84.278328],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_7d1fba1d3a3254ee0ef9e845db002152 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e2a8bcd6b8422184c0c7113d9881bb54 = $(`<div id="html_e2a8bcd6b8422184c0c7113d9881bb54" style="width: 100.0%; height: 100.0%;"><strong>Greater Tallahassee Chamber Foundation, Inc. On Behalf Of Aspire Capital Region</strong><br>Tallahassee, FL<br>Career Z Challenge</div>`)[0];
+                popup_7d1fba1d3a3254ee0ef9e845db002152.setContent(html_e2a8bcd6b8422184c0c7113d9881bb54);
+            
+        
+
+        circle_marker_e18f33f2d27e0fd2b5e5983004d4f694.bindPopup(popup_7d1fba1d3a3254ee0ef9e845db002152)
+        ;
+
+        
+    
+    
+            var circle_marker_dd684e32c1239116eeb62246b5e6db8e = L.circleMarker(
+                [36.0906405, -79.8209348],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_50399be7b118327b0b7d94784a30abac = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4bf7b5b5cd5d6e3758942460931788e4 = $(`<div id="html_4bf7b5b5cd5d6e3758942460931788e4" style="width: 100.0%; height: 100.0%;"><strong>Guilford County Schools</strong><br>Greensboro, NC<br>Career Z Challenge</div>`)[0];
+                popup_50399be7b118327b0b7d94784a30abac.setContent(html_4bf7b5b5cd5d6e3758942460931788e4);
+            
+        
+
+        circle_marker_dd684e32c1239116eeb62246b5e6db8e.bindPopup(popup_50399be7b118327b0b7d94784a30abac)
+        ;
+
+        
+    
+    
+            var circle_marker_27ba8afe1548489c7a6243fb50091b75 = L.circleMarker(
+                [36.2258, -83.2495],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_16b3f6ca193bd397fa9affe7752ec8f0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a9c706eb15f51043ae7413aa9ed8faf0 = $(`<div id="html_a9c706eb15f51043ae7413aa9ed8faf0" style="width: 100.0%; height: 100.0%;"><strong>Hamblen County Schools</strong><br>Morristown, TN<br>Career Z Challenge</div>`)[0];
+                popup_16b3f6ca193bd397fa9affe7752ec8f0.setContent(html_a9c706eb15f51043ae7413aa9ed8faf0);
+            
+        
+
+        circle_marker_27ba8afe1548489c7a6243fb50091b75.bindPopup(popup_16b3f6ca193bd397fa9affe7752ec8f0)
+        ;
+
+        
+    
+    
+            var circle_marker_ed5a6bb3add6f6283d2202c1206ac5b3 = L.circleMarker(
+                [41.11469, -77.507848],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_41337f965dddf5a3db5e587f96432e8a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7b51250e046e621e157686f174893f88 = $(`<div id="html_7b51250e046e621e157686f174893f88" style="width: 100.0%; height: 100.0%;"><strong>Keystone Central Career And Technology Center (Keystone Central S.D.)</strong><br>Mill Hall, PA<br>Career Z Challenge</div>`)[0];
+                popup_41337f965dddf5a3db5e587f96432e8a.setContent(html_7b51250e046e621e157686f174893f88);
+            
+        
+
+        circle_marker_ed5a6bb3add6f6283d2202c1206ac5b3.bindPopup(popup_41337f965dddf5a3db5e587f96432e8a)
+        ;
+
+        
+    
+    
+            var circle_marker_8a50b891fa3325ae19c4945c46bcd8b3 = L.circleMarker(
+                [38.2761269, -77.1979166],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_be6c2974769660ae172a5689b07f5b8a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_93e208be02dbe5a72d278817c0d28859 = $(`<div id="html_93e208be02dbe5a72d278817c0d28859" style="width: 100.0%; height: 100.0%;"><strong>King George High Schoo</strong><br>King George, VA<br>Career Z Challenge</div>`)[0];
+                popup_be6c2974769660ae172a5689b07f5b8a.setContent(html_93e208be02dbe5a72d278817c0d28859);
+            
+        
+
+        circle_marker_8a50b891fa3325ae19c4945c46bcd8b3.bindPopup(popup_be6c2974769660ae172a5689b07f5b8a)
+        ;
+
+        
+    
+    
+            var circle_marker_90c136e21fa0dbcc359542cd8d64a2b2 = L.circleMarker(
+                [38.2764577, -77.1980411],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_bfd1d29e203513a58977f4f1c618896f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_554c76d26dd97046c842964371141619 = $(`<div id="html_554c76d26dd97046c842964371141619" style="width: 100.0%; height: 100.0%;"><strong>King George High School</strong><br>King George, VA<br>Career Z Challenge</div>`)[0];
+                popup_bfd1d29e203513a58977f4f1c618896f.setContent(html_554c76d26dd97046c842964371141619);
+            
+        
+
+        circle_marker_90c136e21fa0dbcc359542cd8d64a2b2.bindPopup(popup_bfd1d29e203513a58977f4f1c618896f)
+        ;
+
+        
+    
+    
+            var circle_marker_aeeddd691300499c76f5596d57f8e844 = L.circleMarker(
+                [41.9064268, -91.6496843],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_8d4f6a268b0175ad60f1b166d1a9c964 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_276745b2e8c0aad3bf27e826e402491f = $(`<div id="html_276745b2e8c0aad3bf27e826e402491f" style="width: 100.0%; height: 100.0%;"><strong>Kirkwood Community College</strong><br>Cedar Rapids, IA<br>Career Z Challenge</div>`)[0];
+                popup_8d4f6a268b0175ad60f1b166d1a9c964.setContent(html_276745b2e8c0aad3bf27e826e402491f);
+            
+        
+
+        circle_marker_aeeddd691300499c76f5596d57f8e844.bindPopup(popup_8d4f6a268b0175ad60f1b166d1a9c964)
+        ;
+
+        
+    
+    
+            var circle_marker_9972a4afba87dade4cdb12f0fd92a01e = L.circleMarker(
+                [44.0097885, -123.0327645],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_d481a54158bafb81239b5615a5866829 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_28adac2e8b5e67f5c577a765593cc2d3 = $(`<div id="html_28adac2e8b5e67f5c577a765593cc2d3" style="width: 100.0%; height: 100.0%;"><strong>Lane Community College</strong><br>Eugene, OR<br>Career Z Challenge</div>`)[0];
+                popup_d481a54158bafb81239b5615a5866829.setContent(html_28adac2e8b5e67f5c577a765593cc2d3);
+            
+        
+
+        circle_marker_9972a4afba87dade4cdb12f0fd92a01e.bindPopup(popup_d481a54158bafb81239b5615a5866829)
+        ;
+
+        
+    
+    
+            var circle_marker_ff0c4040761817e03c6b6f13de444ceb = L.circleMarker(
+                [41.144767, -104.8197787],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_493e887f666592e4204fa94b71994917 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cafd7c6bc29f8be73696cc65dfcd7f9c = $(`<div id="html_cafd7c6bc29f8be73696cc65dfcd7f9c" style="width: 100.0%; height: 100.0%;"><strong>Laramie County School District #1</strong><br>Cheyenne, WY<br>Career Z Challenge</div>`)[0];
+                popup_493e887f666592e4204fa94b71994917.setContent(html_cafd7c6bc29f8be73696cc65dfcd7f9c);
+            
+        
+
+        circle_marker_ff0c4040761817e03c6b6f13de444ceb.bindPopup(popup_493e887f666592e4204fa94b71994917)
+        ;
+
+        
+    
+    
+            var circle_marker_ac4d0d7386db3d6e22c497229a22adf7 = L.circleMarker(
+                [38.4989, -82.6527],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_fcfaf54c7c49b992309cf46ca49b0fc2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d0ff501985af77d514eb48787290e969 = $(`<div id="html_d0ff501985af77d514eb48787290e969" style="width: 100.0%; height: 100.0%;"><strong>Lawrence County Jvsd (Collins Career Technical Center)</strong><br>Chesapeake, OH<br>Career Z Challenge</div>`)[0];
+                popup_fcfaf54c7c49b992309cf46ca49b0fc2.setContent(html_d0ff501985af77d514eb48787290e969);
+            
+        
+
+        circle_marker_ac4d0d7386db3d6e22c497229a22adf7.bindPopup(popup_fcfaf54c7c49b992309cf46ca49b0fc2)
+        ;
+
+        
+    
+    
+            var circle_marker_d436a84283e02f7d5ede7b072c33b05e = L.circleMarker(
+                [38.5291659, -90.3750828],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_7cd3004b0dc9ecd9283904ee916f0600 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_85f69bb055926f57093093b2cdf16dc7 = $(`<div id="html_85f69bb055926f57093093b2cdf16dc7" style="width: 100.0%; height: 100.0%;"><strong>Lindbergh School District</strong><br>St. Louis, MO<br>Career Z Challenge</div>`)[0];
+                popup_7cd3004b0dc9ecd9283904ee916f0600.setContent(html_85f69bb055926f57093093b2cdf16dc7);
+            
+        
+
+        circle_marker_d436a84283e02f7d5ede7b072c33b05e.bindPopup(popup_7cd3004b0dc9ecd9283904ee916f0600)
+        ;
+
+        
+    
+    
+            var circle_marker_13449795fc28e32fb8acb1b5f5fd1704 = L.circleMarker(
+                [42.6115742, -83.9527412],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_e032f80a48eb80f2c684871a2f097231 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_102f941bda91bf78a3308a245f7a4225 = $(`<div id="html_102f941bda91bf78a3308a245f7a4225" style="width: 100.0%; height: 100.0%;"><strong>Livingston Educational Service Agency</strong><br>Howell, MI<br>Career Z Challenge</div>`)[0];
+                popup_e032f80a48eb80f2c684871a2f097231.setContent(html_102f941bda91bf78a3308a245f7a4225);
+            
+        
+
+        circle_marker_13449795fc28e32fb8acb1b5f5fd1704.bindPopup(popup_e032f80a48eb80f2c684871a2f097231)
+        ;
+
+        
+    
+    
+            var circle_marker_45829de83368e180bb9209c595cc3663 = L.circleMarker(
+                [41.262182, -82.213852],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_fa7d77cb71583408d332bb11835b28cc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3444d431b31819700dfd04331e01805f = $(`<div id="html_3444d431b31819700dfd04331e01805f" style="width: 100.0%; height: 100.0%;"><strong>Lorain County Joint Vocational Schoo</strong><br>Oberlin, OH<br>Career Z Challenge</div>`)[0];
+                popup_fa7d77cb71583408d332bb11835b28cc.setContent(html_3444d431b31819700dfd04331e01805f);
+            
+        
+
+        circle_marker_45829de83368e180bb9209c595cc3663.bindPopup(popup_fa7d77cb71583408d332bb11835b28cc)
+        ;
+
+        
+    
+    
+            var circle_marker_7b4b6e264df3c171972498f9bf6f804f = L.circleMarker(
+                [38.99372, -119.16165],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_c26a206996a2cce20ca50c0520252f52 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5827a431fe142d6ffc04e96e14369b98 = $(`<div id="html_5827a431fe142d6ffc04e96e14369b98" style="width: 100.0%; height: 100.0%;"><strong>Lyon County School District</strong><br>Yerington, NV<br>Career Z Challenge</div>`)[0];
+                popup_c26a206996a2cce20ca50c0520252f52.setContent(html_5827a431fe142d6ffc04e96e14369b98);
+            
+        
+
+        circle_marker_7b4b6e264df3c171972498f9bf6f804f.bindPopup(popup_c26a206996a2cce20ca50c0520252f52)
+        ;
+
+        
+    
+    
+            var circle_marker_f339be4f541a28b01e79150f3b5c6a09 = L.circleMarker(
+                [39.8304, -104.9862],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_f5b45b5078fe0b3dace0af2fed7bf8f3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9ffc12f70035910a887b5cdbf6f08875 = $(`<div id="html_9ffc12f70035910a887b5cdbf6f08875" style="width: 100.0%; height: 100.0%;"><strong>Mapleton Public Schools</strong><br>Thornton, CO<br>Career Z Challenge</div>`)[0];
+                popup_f5b45b5078fe0b3dace0af2fed7bf8f3.setContent(html_9ffc12f70035910a887b5cdbf6f08875);
+            
+        
+
+        circle_marker_f339be4f541a28b01e79150f3b5c6a09.bindPopup(popup_f5b45b5078fe0b3dace0af2fed7bf8f3)
+        ;
+
+        
+    
+    
+            var circle_marker_24d0cad13a76ee7200fdc73b7496008d = L.circleMarker(
+                [47.512638, -92.40979],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_05337abdd5f8a3c2b739c851f325a05a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_920485179b6b79d3c3603387af858bdd = $(`<div id="html_920485179b6b79d3c3603387af858bdd" style="width: 100.0%; height: 100.0%;"><strong>Mckinley Cla High Schoo</strong><br>St. Louis, MO<br>Career Z Challenge</div>`)[0];
+                popup_05337abdd5f8a3c2b739c851f325a05a.setContent(html_920485179b6b79d3c3603387af858bdd);
+            
+        
+
+        circle_marker_24d0cad13a76ee7200fdc73b7496008d.bindPopup(popup_05337abdd5f8a3c2b739c851f325a05a)
+        ;
+
+        
+    
+    
+            var circle_marker_ef293f1e1a03af8ac8d9a6c46785ef42 = L.circleMarker(
+                [25.8917345, -80.1734063],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_284f25d1d97e33521608733c5a8565e2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4f2305990e33c955c9f1b979d679e26f = $(`<div id="html_4f2305990e33c955c9f1b979d679e26f" style="width: 100.0%; height: 100.0%;"><strong>Miami-Dade County Public Schools</strong><br>Miami, FL<br>Career Z Challenge</div>`)[0];
+                popup_284f25d1d97e33521608733c5a8565e2.setContent(html_4f2305990e33c955c9f1b979d679e26f);
+            
+        
+
+        circle_marker_ef293f1e1a03af8ac8d9a6c46785ef42.bindPopup(popup_284f25d1d97e33521608733c5a8565e2)
+        ;
+
+        
+    
+    
+            var circle_marker_8b0df7916a74d46b5ef68574feb4d47c = L.circleMarker(
+                [46.8636252, -113.999694],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_c7d868cbc2815d102dd229f68b7231b7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c68097324aa802587d39a6d0235e21c0 = $(`<div id="html_c68097324aa802587d39a6d0235e21c0" style="width: 100.0%; height: 100.0%;"><strong>Missoula County Public Schools</strong><br>Missoula, MT<br>Career Z Challenge</div>`)[0];
+                popup_c7d868cbc2815d102dd229f68b7231b7.setContent(html_c68097324aa802587d39a6d0235e21c0);
+            
+        
+
+        circle_marker_8b0df7916a74d46b5ef68574feb4d47c.bindPopup(popup_c7d868cbc2815d102dd229f68b7231b7)
+        ;
+
+        
+    
+    
+            var circle_marker_c3895c9270eb1926d58cd2a0ff01727a = L.circleMarker(
+                [38.7407505, -86.4904756],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_7ff571639d0f641d48e29ff7ab530bb0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ccf044e13415f25a2641c4a3b8dda5a5 = $(`<div id="html_ccf044e13415f25a2641c4a3b8dda5a5" style="width: 100.0%; height: 100.0%;"><strong>Mitchell Community Schools</strong><br>Mitchell, IN<br>Career Z Challenge</div>`)[0];
+                popup_7ff571639d0f641d48e29ff7ab530bb0.setContent(html_ccf044e13415f25a2641c4a3b8dda5a5);
+            
+        
+
+        circle_marker_c3895c9270eb1926d58cd2a0ff01727a.bindPopup(popup_7ff571639d0f641d48e29ff7ab530bb0)
+        ;
+
+        
+    
+    
+            var circle_marker_2232691e96367e5ce52740c0db2d37bf = L.circleMarker(
+                [39.0899, -104.8699],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_b76ab52e0dfe2625def8219522dd1e96 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1e04c92582d40eb5f1b05ebb38e09f5a = $(`<div id="html_1e04c92582d40eb5f1b05ebb38e09f5a" style="width: 100.0%; height: 100.0%;"><strong>Monumental Impact</strong><br>Monument, CO<br>Career Z Challenge</div>`)[0];
+                popup_b76ab52e0dfe2625def8219522dd1e96.setContent(html_1e04c92582d40eb5f1b05ebb38e09f5a);
+            
+        
+
+        circle_marker_2232691e96367e5ce52740c0db2d37bf.bindPopup(popup_b76ab52e0dfe2625def8219522dd1e96)
+        ;
+
+        
+    
+    
+            var circle_marker_45465b8b7796e7ed23a1f6e054775a62 = L.circleMarker(
+                [37.3610207, -122.0648053],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_d6256fc5e3e7e6a8c7e23466aae0f7dc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b31d24e6eb3457b578438df4c93cbca2 = $(`<div id="html_b31d24e6eb3457b578438df4c93cbca2" style="width: 100.0%; height: 100.0%;"><strong>Mountain View Los Altos Union High School District</strong><br>Mountain View, CA<br>Career Z Challenge</div>`)[0];
+                popup_d6256fc5e3e7e6a8c7e23466aae0f7dc.setContent(html_b31d24e6eb3457b578438df4c93cbca2);
+            
+        
+
+        circle_marker_45465b8b7796e7ed23a1f6e054775a62.bindPopup(popup_d6256fc5e3e7e6a8c7e23466aae0f7dc)
+        ;
+
+        
+    
+    
+            var circle_marker_7a9fc992521923f48a8db40967182d52 = L.circleMarker(
+                [35.310135, -82.428834],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_7343868bfff3bc6fd053907b239c1718 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b361f66e29c61a395f93e85a9805c98d = $(`<div id="html_b361f66e29c61a395f93e85a9805c98d" style="width: 100.0%; height: 100.0%;"><strong>National Technical Honor Society</strong><br>Flat Rock, NC<br>Career Z Challenge</div>`)[0];
+                popup_7343868bfff3bc6fd053907b239c1718.setContent(html_b361f66e29c61a395f93e85a9805c98d);
+            
+        
+
+        circle_marker_7a9fc992521923f48a8db40967182d52.bindPopup(popup_7343868bfff3bc6fd053907b239c1718)
+        ;
+
+        
+    
+    
+            var circle_marker_dd4565bc6ef45cb7393529ca22c99be9 = L.circleMarker(
+                [37.1320653, -76.5087946],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_dcda72ce88ba403ae4c250dda3e9ec68 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_47649a546edfcd760fcf51351e656516 = $(`<div id="html_47649a546edfcd760fcf51351e656516" style="width: 100.0%; height: 100.0%;"><strong>Newport News Public Schools</strong><br>Newport News, VA<br>Career Z Challenge</div>`)[0];
+                popup_dcda72ce88ba403ae4c250dda3e9ec68.setContent(html_47649a546edfcd760fcf51351e656516);
+            
+        
+
+        circle_marker_dd4565bc6ef45cb7393529ca22c99be9.bindPopup(popup_dcda72ce88ba403ae4c250dda3e9ec68)
+        ;
+
+        
+    
+    
+            var circle_marker_5785a72ae239f26a7c8a697f0b6dfa46 = L.circleMarker(
+                [43.0435, -85.6209],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_b6624da9dfeabade7d9a314412cb2644 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_41a2dfc1e3da50d169c25d8992c3140c = $(`<div id="html_41a2dfc1e3da50d169c25d8992c3140c" style="width: 100.0%; height: 100.0%;"><strong>Northview High Schoo</strong><br>Grand Rapids, MI<br>Career Z Challenge</div>`)[0];
+                popup_b6624da9dfeabade7d9a314412cb2644.setContent(html_41a2dfc1e3da50d169c25d8992c3140c);
+            
+        
+
+        circle_marker_5785a72ae239f26a7c8a697f0b6dfa46.bindPopup(popup_b6624da9dfeabade7d9a314412cb2644)
+        ;
+
+        
+    
+    
+            var circle_marker_e0e70e6651dd93e865010a45a52e8c69 = L.circleMarker(
+                [43.0445663, -85.6227108],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_20ae31fa48a4a8e54bb08295b5a498dc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a226a483b434ab538c61489a4f07db3b = $(`<div id="html_a226a483b434ab538c61489a4f07db3b" style="width: 100.0%; height: 100.0%;"><strong>Northview High School</strong><br>Grand Rapids, MI<br>Career Z Challenge</div>`)[0];
+                popup_20ae31fa48a4a8e54bb08295b5a498dc.setContent(html_a226a483b434ab538c61489a4f07db3b);
+            
+        
+
+        circle_marker_e0e70e6651dd93e865010a45a52e8c69.bindPopup(popup_20ae31fa48a4a8e54bb08295b5a498dc)
+        ;
+
+        
+    
+    
+            var circle_marker_ac31e50471f126aa0b4da48e0535c599 = L.circleMarker(
+                [41.249345, -82.609567],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_02dc1812d9d18ff8aa61482eb2cce85e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4d16fcd73fd1989ba22758d85d45a529 = $(`<div id="html_4d16fcd73fd1989ba22758d85d45a529" style="width: 100.0%; height: 100.0%;"><strong>Norwalk Schools District</strong><br>Norwalk, CT<br>Career Z Challenge</div>`)[0];
+                popup_02dc1812d9d18ff8aa61482eb2cce85e.setContent(html_4d16fcd73fd1989ba22758d85d45a529);
+            
+        
+
+        circle_marker_ac31e50471f126aa0b4da48e0535c599.bindPopup(popup_02dc1812d9d18ff8aa61482eb2cce85e)
+        ;
+
+        
+    
+    
+            var circle_marker_82ebba3be7f8bbfea78c819766445ebf = L.circleMarker(
+                [40.7054346, -74.0131154],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_40017773c45158229eee2f5e25c05936 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_dbaf5ebf5ba9e915b6c8db353895ea85 = $(`<div id="html_dbaf5ebf5ba9e915b6c8db353895ea85" style="width: 100.0%; height: 100.0%;"><strong>Nyc Public Schools</strong><br>New York, NY<br>Career Z Challenge</div>`)[0];
+                popup_40017773c45158229eee2f5e25c05936.setContent(html_dbaf5ebf5ba9e915b6c8db353895ea85);
+            
+        
+
+        circle_marker_82ebba3be7f8bbfea78c819766445ebf.bindPopup(popup_40017773c45158229eee2f5e25c05936)
+        ;
+
+        
+    
+    
+            var circle_marker_0438873efc8e0dba764b5f233bcd4c46 = L.circleMarker(
+                [38.21831, -85.20154],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_1a8dc7c458ce3b0d28617f852fcd9e4c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_566091a60ff4d0b0077224f3286b74b9 = $(`<div id="html_566091a60ff4d0b0077224f3286b74b9" style="width: 100.0%; height: 100.0%;"><strong>Ohio Valley Educational Cooperative</strong><br>Shelbyville, KY<br>Career Z Challenge</div>`)[0];
+                popup_1a8dc7c458ce3b0d28617f852fcd9e4c.setContent(html_566091a60ff4d0b0077224f3286b74b9);
+            
+        
+
+        circle_marker_0438873efc8e0dba764b5f233bcd4c46.bindPopup(popup_1a8dc7c458ce3b0d28617f852fcd9e4c)
+        ;
+
+        
+    
+    
+            var circle_marker_1e0aa784b2d5d31b5e31601873455d77 = L.circleMarker(
+                [32.661, -96.9668],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_22c89dd5895d51d50051a3eef20338a5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1c5474cbc57ecd0d1c24902dc0d866fa = $(`<div id="html_1c5474cbc57ecd0d1c24902dc0d866fa" style="width: 100.0%; height: 100.0%;"><strong>Opportunity At Harmony School Of Excellence</strong><br>Dallas, TX<br>Career Z Challenge</div>`)[0];
+                popup_22c89dd5895d51d50051a3eef20338a5.setContent(html_1c5474cbc57ecd0d1c24902dc0d866fa);
+            
+        
+
+        circle_marker_1e0aa784b2d5d31b5e31601873455d77.bindPopup(popup_22c89dd5895d51d50051a3eef20338a5)
+        ;
+
+        
+    
+    
+            var circle_marker_cd637ef221442f52044d45580e86ba9b = L.circleMarker(
+                [28.261616, -82.48107],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_e8811a273d97d2233741c7a157602ed8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1f6c001085b03b8a5b4c2a3c00c79411 = $(`<div id="html_1f6c001085b03b8a5b4c2a3c00c79411" style="width: 100.0%; height: 100.0%;"><strong>Pasco County Schools</strong><br>Land O Lakes, FL<br>Career Z Challenge</div>`)[0];
+                popup_e8811a273d97d2233741c7a157602ed8.setContent(html_1f6c001085b03b8a5b4c2a3c00c79411);
+            
+        
+
+        circle_marker_cd637ef221442f52044d45580e86ba9b.bindPopup(popup_e8811a273d97d2233741c7a157602ed8)
+        ;
+
+        
+    
+    
+            var circle_marker_02ea021c0e78128a5ecf8089ba7c9737 = L.circleMarker(
+                [39.362601, -83.0027],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_6d432c555ec925f6a706446c7c872ab8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_89063ecf2706840da3f7a9cf8273f981 = $(`<div id="html_89063ecf2706840da3f7a9cf8273f981" style="width: 100.0%; height: 100.0%;"><strong>Pickaway-Ross Joint Vocational School District</strong><br>Chillicothe, OH<br>Career Z Challenge</div>`)[0];
+                popup_6d432c555ec925f6a706446c7c872ab8.setContent(html_89063ecf2706840da3f7a9cf8273f981);
+            
+        
+
+        circle_marker_02ea021c0e78128a5ecf8089ba7c9737.bindPopup(popup_6d432c555ec925f6a706446c7c872ab8)
+        ;
+
+        
+    
+    
+            var circle_marker_a8d0929f185cdf0f0fc20b6f9c0b5074 = L.circleMarker(
+                [32.221878, -110.971225],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_6c8518fb63bb72fb2035667273f9a287 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cf34ed395c67606e4afbc0324295e6fe = $(`<div id="html_cf34ed395c67606e4afbc0324295e6fe" style="width: 100.0%; height: 100.0%;"><strong>Pima County Joint Technical Education District #11 (Jted)</strong><br>Tucson, AZ<br>Career Z Challenge</div>`)[0];
+                popup_6c8518fb63bb72fb2035667273f9a287.setContent(html_cf34ed395c67606e4afbc0324295e6fe);
+            
+        
+
+        circle_marker_a8d0929f185cdf0f0fc20b6f9c0b5074.bindPopup(popup_6c8518fb63bb72fb2035667273f9a287)
+        ;
+
+        
+    
+    
+            var circle_marker_1255e952eb8f964c37c92cff0934e93d = L.circleMarker(
+                [40.24673, -111.66362],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_fb156383d8a057a5ea8e59e3a651cf5d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_beb63612b448e7b54fd6a404a821d1e2 = $(`<div id="html_beb63612b448e7b54fd6a404a821d1e2" style="width: 100.0%; height: 100.0%;"><strong>Provo School District</strong><br>Provo, UT<br>Career Z Challenge</div>`)[0];
+                popup_fb156383d8a057a5ea8e59e3a651cf5d.setContent(html_beb63612b448e7b54fd6a404a821d1e2);
+            
+        
+
+        circle_marker_1255e952eb8f964c37c92cff0934e93d.bindPopup(popup_fb156383d8a057a5ea8e59e3a651cf5d)
+        ;
+
+        
+    
+    
+            var circle_marker_9aa9cc14d11bf5b2914f824cee485c9f = L.circleMarker(
+                [41.588822, -93.620309],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_e0dd485748b202d198437417d4a0d265 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_edc04560e52e7d2fcc6b2ef78dc7ee49 = $(`<div id="html_edc04560e52e7d2fcc6b2ef78dc7ee49" style="width: 100.0%; height: 100.0%;"><strong>Pursuit Of Innovation Dba Pi515</strong><br>Des Moines, IA<br>Career Z Challenge</div>`)[0];
+                popup_e0dd485748b202d198437417d4a0d265.setContent(html_edc04560e52e7d2fcc6b2ef78dc7ee49);
+            
+        
+
+        circle_marker_9aa9cc14d11bf5b2914f824cee485c9f.bindPopup(popup_e0dd485748b202d198437417d4a0d265)
+        ;
+
+        
+    
+    
+            var circle_marker_11d11ab83f590565bc7900e29fb0f2d8 = L.circleMarker(
+                [37.2723541, -79.9448032],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_d8edbde44cac083af485c68f0cb42676 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cbcc49dc6115370c3b32f2279886b60b = $(`<div id="html_cbcc49dc6115370c3b32f2279886b60b" style="width: 100.0%; height: 100.0%;"><strong>Roanoke City Public Schools</strong><br>Roanoke, VA<br>Career Z Challenge</div>`)[0];
+                popup_d8edbde44cac083af485c68f0cb42676.setContent(html_cbcc49dc6115370c3b32f2279886b60b);
+            
+        
+
+        circle_marker_11d11ab83f590565bc7900e29fb0f2d8.bindPopup(popup_d8edbde44cac083af485c68f0cb42676)
+        ;
+
+        
+    
+    
+            var circle_marker_4e7f38d71da80ace9b38c4e561f72237 = L.circleMarker(
+                [35.813163, -86.402279],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_8223a1741a4029be4d64c7e79a188e42 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c43d08b43da21692ffbabaeafff946ba = $(`<div id="html_c43d08b43da21692ffbabaeafff946ba" style="width: 100.0%; height: 100.0%;"><strong>Rutherford County Schools</strong><br>Murfreesboro, TN<br>Career Z Challenge</div>`)[0];
+                popup_8223a1741a4029be4d64c7e79a188e42.setContent(html_c43d08b43da21692ffbabaeafff946ba);
+            
+        
+
+        circle_marker_4e7f38d71da80ace9b38c4e561f72237.bindPopup(popup_8223a1741a4029be4d64c7e79a188e42)
+        ;
+
+        
+    
+    
+            var circle_marker_e75e5646596424ffc8fcaf0c09725ac0 = L.circleMarker(
+                [38.610933, -90.216468],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_e3986987870de84af585af45d48bd614 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_443d51f16e6fc06a1cc8d6a5ec13f886 = $(`<div id="html_443d51f16e6fc06a1cc8d6a5ec13f886" style="width: 100.0%; height: 100.0%;"><strong>Slps - Mckinley Cla High School</strong><br>St. Louis, MO<br>Career Z Challenge</div>`)[0];
+                popup_e3986987870de84af585af45d48bd614.setContent(html_443d51f16e6fc06a1cc8d6a5ec13f886);
+            
+        
+
+        circle_marker_e75e5646596424ffc8fcaf0c09725ac0.bindPopup(popup_e3986987870de84af585af45d48bd614)
+        ;
+
+        
+    
+    
+            var circle_marker_99cc1caeddaac0e98b4df3e7bdf0a685 = L.circleMarker(
+                [40.8286392, -73.9079485],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_1e7b778d7d88dd994235e73d3a2645f8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3b2503fa979cd9ccc5b476ef67a99407 = $(`<div id="html_3b2503fa979cd9ccc5b476ef67a99407" style="width: 100.0%; height: 100.0%;"><strong>South Bronx Community Charter High Schoo</strong><br>Bronx, NY<br>Career Z Challenge</div>`)[0];
+                popup_1e7b778d7d88dd994235e73d3a2645f8.setContent(html_3b2503fa979cd9ccc5b476ef67a99407);
+            
+        
+
+        circle_marker_99cc1caeddaac0e98b4df3e7bdf0a685.bindPopup(popup_1e7b778d7d88dd994235e73d3a2645f8)
+        ;
+
+        
+    
+    
+            var circle_marker_9c09da48deebf437f01621de4e653e84 = L.circleMarker(
+                [40.8286392, -73.9079485],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_5e43ece44a6f1c0a72e5a87563df1128 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a119998f246788f269d1a88ea18d62b5 = $(`<div id="html_a119998f246788f269d1a88ea18d62b5" style="width: 100.0%; height: 100.0%;"><strong>South Bronx Community Charter High School</strong><br>Bronx, NY<br>Career Z Challenge</div>`)[0];
+                popup_5e43ece44a6f1c0a72e5a87563df1128.setContent(html_a119998f246788f269d1a88ea18d62b5);
+            
+        
+
+        circle_marker_9c09da48deebf437f01621de4e653e84.bindPopup(popup_5e43ece44a6f1c0a72e5a87563df1128)
+        ;
+
+        
+    
+    
+            var circle_marker_aaf9595c71a4c95c460d9b1d601ad368 = L.circleMarker(
+                [44.19103, -94.05518],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_0f05de9fa34eaee09333e28c635ccfae = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_908c7d2e40ec765d3bb17242f6525169 = $(`<div id="html_908c7d2e40ec765d3bb17242f6525169" style="width: 100.0%; height: 100.0%;"><strong>South Central Service Cooperative</strong><br>North Mankato, MN<br>Career Z Challenge</div>`)[0];
+                popup_0f05de9fa34eaee09333e28c635ccfae.setContent(html_908c7d2e40ec765d3bb17242f6525169);
+            
+        
+
+        circle_marker_aaf9595c71a4c95c460d9b1d601ad368.bindPopup(popup_0f05de9fa34eaee09333e28c635ccfae)
+        ;
+
+        
+    
+    
+            var circle_marker_5a73c2cd978af3d98b91fafa3d06cd39 = L.circleMarker(
+                [39.4383, -83.7758],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_2afde8dcdda206b9b5638a6d190f716a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4ecbf047b2e98041448f711914d38831 = $(`<div id="html_4ecbf047b2e98041448f711914d38831" style="width: 100.0%; height: 100.0%;"><strong>Southern Ohio Educational Service Center</strong><br>Wilmington, OH<br>Career Z Challenge</div>`)[0];
+                popup_2afde8dcdda206b9b5638a6d190f716a.setContent(html_4ecbf047b2e98041448f711914d38831);
+            
+        
+
+        circle_marker_5a73c2cd978af3d98b91fafa3d06cd39.bindPopup(popup_2afde8dcdda206b9b5638a6d190f716a)
+        ;
+
+        
+    
+    
+            var circle_marker_209745e4c3cf07b8a2772f5143fd446e = L.circleMarker(
+                [37.6293, -87.94669],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_693d4a31039f47b8eee4d6b361c143eb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fcc9b4123af3e97779732288a687396f = $(`<div id="html_fcc9b4123af3e97779732288a687396f" style="width: 100.0%; height: 100.0%;"><strong>Union County High Schoo</strong><br>Morganfield, KY<br>Career Z Challenge</div>`)[0];
+                popup_693d4a31039f47b8eee4d6b361c143eb.setContent(html_fcc9b4123af3e97779732288a687396f);
+            
+        
+
+        circle_marker_209745e4c3cf07b8a2772f5143fd446e.bindPopup(popup_693d4a31039f47b8eee4d6b361c143eb)
+        ;
+
+        
+    
+    
+            var circle_marker_be91e99d15673f0afa9e88a144c37e5b = L.circleMarker(
+                [37.6293, -87.94669],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_7f562622520221a6882b4b61362390aa = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f3b88d846b92f58ed9dcb84cf9772359 = $(`<div id="html_f3b88d846b92f58ed9dcb84cf9772359" style="width: 100.0%; height: 100.0%;"><strong>Union County High School</strong><br>Morganfield, KY<br>Career Z Challenge</div>`)[0];
+                popup_7f562622520221a6882b4b61362390aa.setContent(html_f3b88d846b92f58ed9dcb84cf9772359);
+            
+        
+
+        circle_marker_be91e99d15673f0afa9e88a144c37e5b.bindPopup(popup_7f562622520221a6882b4b61362390aa)
+        ;
+
+        
+    
+    
+            var circle_marker_34aaf0842f6fb4a73ccfc5a25cb89c2f = L.circleMarker(
+                [35.129303, -89.915409],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_4cac6788f66dc2ebd0bc443e933543c5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a10fa254a96b7ef86ebfbaa54362d7f8 = $(`<div id="html_a10fa254a96b7ef86ebfbaa54362d7f8" style="width: 100.0%; height: 100.0%;"><strong>University Schools, University Of Memphis</strong><br>Memphis, TN<br>Career Z Challenge</div>`)[0];
+                popup_4cac6788f66dc2ebd0bc443e933543c5.setContent(html_a10fa254a96b7ef86ebfbaa54362d7f8);
+            
+        
+
+        circle_marker_34aaf0842f6fb4a73ccfc5a25cb89c2f.bindPopup(popup_4cac6788f66dc2ebd0bc443e933543c5)
+        ;
+
+        
+    
+    
+            var circle_marker_4508e62e7b1aeb6390c112e69492931b = L.circleMarker(
+                [40.4306, -75.2342],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_6af91b30043cfc3a86e29b3e1ac05914 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bf92356898cf37486fd7608732265747 = $(`<div id="html_bf92356898cf37486fd7608732265747" style="width: 100.0%; height: 100.0%;"><strong>Upper Bucks County Technical Schoo</strong><br>Perkasie, PA<br>Career Z Challenge</div>`)[0];
+                popup_6af91b30043cfc3a86e29b3e1ac05914.setContent(html_bf92356898cf37486fd7608732265747);
+            
+        
+
+        circle_marker_4508e62e7b1aeb6390c112e69492931b.bindPopup(popup_6af91b30043cfc3a86e29b3e1ac05914)
+        ;
+
+        
+    
+    
+            var circle_marker_31e387ebea530245fa114a1efb518e1f = L.circleMarker(
+                [40.4306, -75.2342],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_db71497361283cea9c33e403dc085bbe = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_37f206fddbe3e1c548f6effeac09c79d = $(`<div id="html_37f206fddbe3e1c548f6effeac09c79d" style="width: 100.0%; height: 100.0%;"><strong>Upper Bucks County Technical School</strong><br>Perkasie, PA<br>Career Z Challenge</div>`)[0];
+                popup_db71497361283cea9c33e403dc085bbe.setContent(html_37f206fddbe3e1c548f6effeac09c79d);
+            
+        
+
+        circle_marker_31e387ebea530245fa114a1efb518e1f.bindPopup(popup_db71497361283cea9c33e403dc085bbe)
+        ;
+
+        
+    
+    
+            var circle_marker_c0a84e8e3d4fb86dfc97450229fdd899 = L.circleMarker(
+                [38.884743750135, -77.175092956378],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_86afc3ade721b44d8c7fb7a29e44929c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_084c388cc113a13ab04ea7a4b28cb4c0 = $(`<div id="html_084c388cc113a13ab04ea7a4b28cb4c0" style="width: 100.0%; height: 100.0%;"><strong>Virginia Tech Center For Enhancement Of Engineering Diversity</strong><br>Falls Church, VA<br>Career Z Challenge</div>`)[0];
+                popup_86afc3ade721b44d8c7fb7a29e44929c.setContent(html_084c388cc113a13ab04ea7a4b28cb4c0);
+            
+        
+
+        circle_marker_c0a84e8e3d4fb86dfc97450229fdd899.bindPopup(popup_86afc3ade721b44d8c7fb7a29e44929c)
+        ;
+
+        
+    
+    
+            var circle_marker_c921b982c1c3ae4661d6bc4a6d9089d7 = L.circleMarker(
+                [39.4324356, -81.5016815],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_2fb135fe0b537ebfd911669a5e70e016 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_83e317048247855dc7be866446ab154f = $(`<div id="html_83e317048247855dc7be866446ab154f" style="width: 100.0%; height: 100.0%;"><strong>Washington County Career Center</strong><br>Marietta, OH<br>Career Z Challenge</div>`)[0];
+                popup_2fb135fe0b537ebfd911669a5e70e016.setContent(html_83e317048247855dc7be866446ab154f);
+            
+        
+
+        circle_marker_c921b982c1c3ae4661d6bc4a6d9089d7.bindPopup(popup_2fb135fe0b537ebfd911669a5e70e016)
+        ;
+
+        
+    
+    
+            var circle_marker_a6b41bbe4a1727b42647ef6a758f36a4 = L.circleMarker(
+                [41.581569, -93.712542],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_fe997163e544a6b94ab85a1f6b80ef9a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9ced4edb93435bb384160aa500b47ba0 = $(`<div id="html_9ced4edb93435bb384160aa500b47ba0" style="width: 100.0%; height: 100.0%;"><strong>West Des Moines Community Schools</strong><br>West Des Moines, IA<br>Career Z Challenge</div>`)[0];
+                popup_fe997163e544a6b94ab85a1f6b80ef9a.setContent(html_9ced4edb93435bb384160aa500b47ba0);
+            
+        
+
+        circle_marker_a6b41bbe4a1727b42647ef6a758f36a4.bindPopup(popup_fe997163e544a6b94ab85a1f6b80ef9a)
+        ;
+
+        
+    
+    
+            var circle_marker_3d50e64f1d3e7529619d4c578e608bfe = L.circleMarker(
+                [41.30241, -72.455017],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_9a523bb47d9a69ad614722ee6b53c259 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_54135eb1bbe1a15969c8ae04f659f543 = $(`<div id="html_54135eb1bbe1a15969c8ae04f659f543" style="width: 100.0%; height: 100.0%;"><strong>Westbrook High Schoo</strong><br>Westbrook, CT<br>Career Z Challenge</div>`)[0];
+                popup_9a523bb47d9a69ad614722ee6b53c259.setContent(html_54135eb1bbe1a15969c8ae04f659f543);
+            
+        
+
+        circle_marker_3d50e64f1d3e7529619d4c578e608bfe.bindPopup(popup_9a523bb47d9a69ad614722ee6b53c259)
+        ;
+
+        
+    
+    
+            var circle_marker_2f25839ff0e3918fc79ce61748cdb7b7 = L.circleMarker(
+                [41.2983462, -72.4538652],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_e044f16330eee26dddb2413cd4f1a7b0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9009080c071db755dff41163292760bc = $(`<div id="html_9009080c071db755dff41163292760bc" style="width: 100.0%; height: 100.0%;"><strong>Westbrook High School</strong><br>Westbrook, CT<br>Career Z Challenge</div>`)[0];
+                popup_e044f16330eee26dddb2413cd4f1a7b0.setContent(html_9009080c071db755dff41163292760bc);
+            
+        
+
+        circle_marker_2f25839ff0e3918fc79ce61748cdb7b7.bindPopup(popup_e044f16330eee26dddb2413cd4f1a7b0)
+        ;
+
+        
+    
+    
+            var circle_marker_101ace770f80c94764171ab218e95879 = L.circleMarker(
+                [42.3187802, -83.0913602],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_43c122034e7af0d61249ae5d913c5805 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6e91613bd6384c2efb0f39924cff1d4f = $(`<div id="html_6e91613bd6384c2efb0f39924cff1d4f" style="width: 100.0%; height: 100.0%;"><strong>Western International High Schoo</strong><br>Detroit, MI<br>Career Z Challenge</div>`)[0];
+                popup_43c122034e7af0d61249ae5d913c5805.setContent(html_6e91613bd6384c2efb0f39924cff1d4f);
+            
+        
+
+        circle_marker_101ace770f80c94764171ab218e95879.bindPopup(popup_43c122034e7af0d61249ae5d913c5805)
+        ;
+
+        
+    
+    
+            var circle_marker_705c407146bf1bbcac309718ffc901b5 = L.circleMarker(
+                [42.3191318, -83.0917226],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_cee5c7d4ab6ad2cbfdd81edc5003e38a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a1eed37437c6350094e8a0fdf8955295 = $(`<div id="html_a1eed37437c6350094e8a0fdf8955295" style="width: 100.0%; height: 100.0%;"><strong>Western International High School</strong><br>Detroit, MI<br>Career Z Challenge</div>`)[0];
+                popup_cee5c7d4ab6ad2cbfdd81edc5003e38a.setContent(html_a1eed37437c6350094e8a0fdf8955295);
+            
+        
+
+        circle_marker_705c407146bf1bbcac309718ffc901b5.bindPopup(popup_cee5c7d4ab6ad2cbfdd81edc5003e38a)
+        ;
+
+        
+    
+    
+            var circle_marker_d3f9255f51ae31a8356bc4c322e0b01d = L.circleMarker(
+                [38.4989, -82.6527],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_81675e386490b2a8977e25b8ab0bc07a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_eb7ac268f6edfd79dd05118a8f4da979 = $(`<div id="html_eb7ac268f6edfd79dd05118a8f4da979" style="width: 100.0%; height: 100.0%;"><strong>Wrence County Jvsd (Collins Career Technical Center)</strong><br>Chesapeake, OH<br>Career Z Challenge</div>`)[0];
+                popup_81675e386490b2a8977e25b8ab0bc07a.setContent(html_eb7ac268f6edfd79dd05118a8f4da979);
+            
+        
+
+        circle_marker_d3f9255f51ae31a8356bc4c322e0b01d.bindPopup(popup_81675e386490b2a8977e25b8ab0bc07a)
+        ;
+
+        
+    
+    
+            var circle_marker_acb5d5590b864713fbca0e4e9361a80d = L.circleMarker(
+                [41.13873, -104.8199],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_e8d1c427c3778d1b398b2e610f141ed5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3a9e80bd857d6bd2a7ce74a17d19bd48 = $(`<div id="html_3a9e80bd857d6bd2a7ce74a17d19bd48" style="width: 100.0%; height: 100.0%;"><strong>Wyoming Department Of Education</strong><br>Cheyenne, WY<br>Career Z Challenge</div>`)[0];
+                popup_e8d1c427c3778d1b398b2e610f141ed5.setContent(html_3a9e80bd857d6bd2a7ce74a17d19bd48);
+            
+        
+
+        circle_marker_acb5d5590b864713fbca0e4e9361a80d.bindPopup(popup_e8d1c427c3778d1b398b2e610f141ed5)
+        ;
+
+        
+    
+    
+            var circle_marker_71f05934e6132507fd89c1d85096b3c5 = L.circleMarker(
+                [29.9499249, -90.0753285],
+                {"bubblingMouseEvents": true, "color": "#FFD23F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD23F", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ab8a735f37ca6c8dd534438d414725b1);
+        
+    
+        var popup_38b2d19a173eeeb4a881b4c67cc2e6a4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9de8860a2209da6a0e53d44e71dc8df0 = $(`<div id="html_9de8860a2209da6a0e53d44e71dc8df0" style="width: 100.0%; height: 100.0%;"><strong>Youthforce Nola</strong><br>New Orleans, LA<br>Career Z Challenge</div>`)[0];
+                popup_38b2d19a173eeeb4a881b4c67cc2e6a4.setContent(html_9de8860a2209da6a0e53d44e71dc8df0);
+            
+        
+
+        circle_marker_71f05934e6132507fd89c1d85096b3c5.bindPopup(popup_38b2d19a173eeeb4a881b4c67cc2e6a4)
+        ;
+
+        
+    
+    
+            feature_group_ab8a735f37ca6c8dd534438d414725b1.addTo(map_1fd4d654f6bcfbb214fbd7fee00dcec2);
+        
+    
+            var feature_group_1dec92ef90f1c44e30397519bfcab5bd = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_ec7f0d61b5531b0503cf43018d6bec9f = L.circleMarker(
+                [40.963158, -73.697735],
+                {"bubblingMouseEvents": true, "color": "#20DFE3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#20DFE3", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_1dec92ef90f1c44e30397519bfcab5bd);
+        
+    
+        var popup_d353b839ed05e6f421dcf93dc7ad0f91 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_87cc7d393add7fa01be30d194c8c0e34 = $(`<div id="html_87cc7d393add7fa01be30d194c8c0e34" style="width: 100.0%; height: 100.0%;"><strong>3 Cariculum Education</strong><br>Queens, NY<br>CHIPS CTE Challenge</div>`)[0];
+                popup_d353b839ed05e6f421dcf93dc7ad0f91.setContent(html_87cc7d393add7fa01be30d194c8c0e34);
+            
+        
+
+        circle_marker_ec7f0d61b5531b0503cf43018d6bec9f.bindPopup(popup_d353b839ed05e6f421dcf93dc7ad0f91)
+        ;
+
+        
+    
+    
+            var circle_marker_bb476b471e412db270b951cddeaed561 = L.circleMarker(
+                [33.535973, -112.292829],
+                {"bubblingMouseEvents": true, "color": "#20DFE3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#20DFE3", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_1dec92ef90f1c44e30397519bfcab5bd);
+        
+    
+        var popup_14e18f3c0f6e03bc84fbb969add2a5bb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b57b9ca896807a883717a41fcd80147f = $(`<div id="html_b57b9ca896807a883717a41fcd80147f" style="width: 100.0%; height: 100.0%;"><strong>5 Western Maricopa Education Center</strong><br>Glendale, AZ<br>CHIPS CTE Challenge</div>`)[0];
+                popup_14e18f3c0f6e03bc84fbb969add2a5bb.setContent(html_b57b9ca896807a883717a41fcd80147f);
+            
+        
+
+        circle_marker_bb476b471e412db270b951cddeaed561.bindPopup(popup_14e18f3c0f6e03bc84fbb969add2a5bb)
+        ;
+
+        
+    
+    
+            var circle_marker_884b8658a1bf101584ca53b4d0a6cfd4 = L.circleMarker(
+                [33.5343573, -81.8427108],
+                {"bubblingMouseEvents": true, "color": "#20DFE3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#20DFE3", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_1dec92ef90f1c44e30397519bfcab5bd);
+        
+    
+        var popup_0bfccd1a0a30f1a2a9a046ad34ffee70 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4ba9e87a9c205c3ad040312e53c895bf = $(`<div id="html_4ba9e87a9c205c3ad040312e53c895bf" style="width: 100.0%; height: 100.0%;"><strong>Aiken Technical College</strong><br>Graniteville, SC<br>CHIPS CTE Challenge</div>`)[0];
+                popup_0bfccd1a0a30f1a2a9a046ad34ffee70.setContent(html_4ba9e87a9c205c3ad040312e53c895bf);
+            
+        
+
+        circle_marker_884b8658a1bf101584ca53b4d0a6cfd4.bindPopup(popup_0bfccd1a0a30f1a2a9a046ad34ffee70)
+        ;
+
+        
+    
+    
+            var circle_marker_1979b6ff08639f350313ca6f82bd9b52 = L.circleMarker(
+                [44.8125325, -93.2949355],
+                {"bubblingMouseEvents": true, "color": "#20DFE3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#20DFE3", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_1dec92ef90f1c44e30397519bfcab5bd);
+        
+    
+        var popup_30cedae200ae14f4e9eddd8a86bc2347 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cea252a94aeea21a2127928f805938d6 = $(`<div id="html_cea252a94aeea21a2127928f805938d6" style="width: 100.0%; height: 100.0%;"><strong>Bloomington Public Schools Isd271</strong><br>Bloomington, MN<br>CHIPS CTE Challenge</div>`)[0];
+                popup_30cedae200ae14f4e9eddd8a86bc2347.setContent(html_cea252a94aeea21a2127928f805938d6);
+            
+        
+
+        circle_marker_1979b6ff08639f350313ca6f82bd9b52.bindPopup(popup_30cedae200ae14f4e9eddd8a86bc2347)
+        ;
+
+        
+    
+    
+            var circle_marker_ebee259ffba8767ef7960e8d9411efc0 = L.circleMarker(
+                [30.44276, -85.04197],
+                {"bubblingMouseEvents": true, "color": "#20DFE3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#20DFE3", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_1dec92ef90f1c44e30397519bfcab5bd);
+        
+    
+        var popup_f85e76a90765ff5f41120185c87099fc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a0ba5aa2fe8f0b95ff2aa2f25c1d0eb7 = $(`<div id="html_a0ba5aa2fe8f0b95ff2aa2f25c1d0eb7" style="width: 100.0%; height: 100.0%;"><strong>Calhoun County School District</strong><br>Blountstown, FL<br>CHIPS CTE Challenge</div>`)[0];
+                popup_f85e76a90765ff5f41120185c87099fc.setContent(html_a0ba5aa2fe8f0b95ff2aa2f25c1d0eb7);
+            
+        
+
+        circle_marker_ebee259ffba8767ef7960e8d9411efc0.bindPopup(popup_f85e76a90765ff5f41120185c87099fc)
+        ;
+
+        
+    
+    
+            var circle_marker_51a555c61d99f924453dc6c9de6dd099 = L.circleMarker(
+                [41.4536085, -75.6524643],
+                {"bubblingMouseEvents": true, "color": "#20DFE3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#20DFE3", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_1dec92ef90f1c44e30397519bfcab5bd);
+        
+    
+        var popup_76b26d7366e77be6c102610a3ea9833e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_311140f68390c4b993858657174778f7 = $(`<div id="html_311140f68390c4b993858657174778f7" style="width: 100.0%; height: 100.0%;"><strong>Career Technology Center Of Lackawanna County</strong><br>Scranton, PA<br>CHIPS CTE Challenge</div>`)[0];
+                popup_76b26d7366e77be6c102610a3ea9833e.setContent(html_311140f68390c4b993858657174778f7);
+            
+        
+
+        circle_marker_51a555c61d99f924453dc6c9de6dd099.bindPopup(popup_76b26d7366e77be6c102610a3ea9833e)
+        ;
+
+        
+    
+    
+            var circle_marker_48e4fa504842f9607e5fde0233937a6c = L.circleMarker(
+                [40.963158, -73.697735],
+                {"bubblingMouseEvents": true, "color": "#20DFE3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#20DFE3", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_1dec92ef90f1c44e30397519bfcab5bd);
+        
+    
+        var popup_02e382954f7ee04def70989922a4f991 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_01f0ae3eefbf56ba370bc7d7e02cdbca = $(`<div id="html_01f0ae3eefbf56ba370bc7d7e02cdbca" style="width: 100.0%; height: 100.0%;"><strong>Cariculum Education</strong><br>Queens, NY<br>CHIPS CTE Challenge</div>`)[0];
+                popup_02e382954f7ee04def70989922a4f991.setContent(html_01f0ae3eefbf56ba370bc7d7e02cdbca);
+            
+        
+
+        circle_marker_48e4fa504842f9607e5fde0233937a6c.bindPopup(popup_02e382954f7ee04def70989922a4f991)
+        ;
+
+        
+    
+    
+            var circle_marker_f3cac6dbc9d699909cc543fc573fdd7e = L.circleMarker(
+                [41.475397, -97.38088],
+                {"bubblingMouseEvents": true, "color": "#20DFE3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#20DFE3", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_1dec92ef90f1c44e30397519bfcab5bd);
+        
+    
+        var popup_0d3ac08312a4d92930314a6751cf85e9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_eaa7eb529b357e5f728a086d90c50465 = $(`<div id="html_eaa7eb529b357e5f728a086d90c50465" style="width: 100.0%; height: 100.0%;"><strong>Central Community College</strong><br>Columbus, NE<br>CHIPS CTE Challenge</div>`)[0];
+                popup_0d3ac08312a4d92930314a6751cf85e9.setContent(html_eaa7eb529b357e5f728a086d90c50465);
+            
+        
+
+        circle_marker_f3cac6dbc9d699909cc543fc573fdd7e.bindPopup(popup_0d3ac08312a4d92930314a6751cf85e9)
+        ;
+
+        
+    
+    
+            var circle_marker_637cd9c25c10ff1944cead24652ca9ab = L.circleMarker(
+                [41.6929277, -72.765429],
+                {"bubblingMouseEvents": true, "color": "#20DFE3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#20DFE3", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_1dec92ef90f1c44e30397519bfcab5bd);
+        
+    
+        var popup_546f6e29bc645e7c0bc25458b35acc72 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_71c993caa3982a528835b9c85894fe15 = $(`<div id="html_71c993caa3982a528835b9c85894fe15" style="width: 100.0%; height: 100.0%;"><strong>Central Connecticut State University</strong><br>New Britain, CT<br>CHIPS CTE Challenge</div>`)[0];
+                popup_546f6e29bc645e7c0bc25458b35acc72.setContent(html_71c993caa3982a528835b9c85894fe15);
+            
+        
+
+        circle_marker_637cd9c25c10ff1944cead24652ca9ab.bindPopup(popup_546f6e29bc645e7c0bc25458b35acc72)
+        ;
+
+        
+    
+    
+            var circle_marker_c769ea5d6b11f81f2226af7fbfbcae2e = L.circleMarker(
+                [41.6901, -72.76815],
+                {"bubblingMouseEvents": true, "color": "#20DFE3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#20DFE3", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_1dec92ef90f1c44e30397519bfcab5bd);
+        
+    
+        var popup_cd96835240c6dfa88c625cb042245884 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_91ab2fffe7fb2be739821ac986c2b3c6 = $(`<div id="html_91ab2fffe7fb2be739821ac986c2b3c6" style="width: 100.0%; height: 100.0%;"><strong>Central Connecticut State University (Ccsu)</strong><br>L New Britain, CT<br>CHIPS CTE Challenge</div>`)[0];
+                popup_cd96835240c6dfa88c625cb042245884.setContent(html_91ab2fffe7fb2be739821ac986c2b3c6);
+            
+        
+
+        circle_marker_c769ea5d6b11f81f2226af7fbfbcae2e.bindPopup(popup_cd96835240c6dfa88c625cb042245884)
+        ;
+
+        
+    
+    
+            var circle_marker_782aa1ac3f5bfd634da988f62e2235cd = L.circleMarker(
+                [41.690133, -72.76844],
+                {"bubblingMouseEvents": true, "color": "#20DFE3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#20DFE3", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_1dec92ef90f1c44e30397519bfcab5bd);
+        
+    
+        var popup_44c02627c8a0ab8850b2451e2a00728e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1d81aa81ddb572314edb0c735c553470 = $(`<div id="html_1d81aa81ddb572314edb0c735c553470" style="width: 100.0%; height: 100.0%;"><strong>Central Connecticut State University (Ccsu)</strong><br>New Britain, CT<br>CHIPS CTE Challenge</div>`)[0];
+                popup_44c02627c8a0ab8850b2451e2a00728e.setContent(html_1d81aa81ddb572314edb0c735c553470);
+            
+        
+
+        circle_marker_782aa1ac3f5bfd634da988f62e2235cd.bindPopup(popup_44c02627c8a0ab8850b2451e2a00728e)
+        ;
+
+        
+    
+    
+            var circle_marker_1f29dbd5da40e1db8a1adb77abef65ac = L.circleMarker(
+                [33.29807, -111.8683072],
+                {"bubblingMouseEvents": true, "color": "#20DFE3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#20DFE3", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_1dec92ef90f1c44e30397519bfcab5bd);
+        
+    
+        var popup_1667bdf3d7784474b45fe2b0d63b14a8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_517b018362cdd2f2b94b000da225be33 = $(`<div id="html_517b018362cdd2f2b94b000da225be33" style="width: 100.0%; height: 100.0%;"><strong>Chandler Unified School District</strong><br>Chandler, AZ<br>CHIPS CTE Challenge</div>`)[0];
+                popup_1667bdf3d7784474b45fe2b0d63b14a8.setContent(html_517b018362cdd2f2b94b000da225be33);
+            
+        
+
+        circle_marker_1f29dbd5da40e1db8a1adb77abef65ac.bindPopup(popup_1667bdf3d7784474b45fe2b0d63b14a8)
+        ;
+
+        
+    
+    
+            var circle_marker_a154c89521b7aefe7fd1af3c1034253e = L.circleMarker(
+                [35.9339645, -79.0543678],
+                {"bubblingMouseEvents": true, "color": "#20DFE3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#20DFE3", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_1dec92ef90f1c44e30397519bfcab5bd);
+        
+    
+        var popup_7e9adbf69cd262c02486c82b18504933 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_04d318f8dff6d8edc26d26ec3720f707 = $(`<div id="html_04d318f8dff6d8edc26d26ec3720f707" style="width: 100.0%; height: 100.0%;"><strong>Chapel Hill Carrboro City Schools</strong><br>Chapel Hill, NC<br>CHIPS CTE Challenge</div>`)[0];
+                popup_7e9adbf69cd262c02486c82b18504933.setContent(html_04d318f8dff6d8edc26d26ec3720f707);
+            
+        
+
+        circle_marker_a154c89521b7aefe7fd1af3c1034253e.bindPopup(popup_7e9adbf69cd262c02486c82b18504933)
+        ;
+
+        
+    
+    
+            var circle_marker_03e53fc4851111b45cd1cc131c74b9a9 = L.circleMarker(
+                [35.9339645, -79.0543678],
+                {"bubblingMouseEvents": true, "color": "#20DFE3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#20DFE3", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_1dec92ef90f1c44e30397519bfcab5bd);
+        
+    
+        var popup_45e9ec6c73429ee1a115fab5ac538a98 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_51e09f8788e7cec9b8cf8735d758a28f = $(`<div id="html_51e09f8788e7cec9b8cf8735d758a28f" style="width: 100.0%; height: 100.0%;"><strong>Chapel Hill Carrboro City Schools (Chapel Hill High Automotive)</strong><br>Chapel Hill, NC<br>CHIPS CTE Challenge</div>`)[0];
+                popup_45e9ec6c73429ee1a115fab5ac538a98.setContent(html_51e09f8788e7cec9b8cf8735d758a28f);
+            
+        
+
+        circle_marker_03e53fc4851111b45cd1cc131c74b9a9.bindPopup(popup_45e9ec6c73429ee1a115fab5ac538a98)
+        ;
+
+        
+    
+    
+            var circle_marker_ad55ebb08fcd8cee49b1ac88892ee6d5 = L.circleMarker(
+                [38.6530396, -90.2934354],
+                {"bubblingMouseEvents": true, "color": "#20DFE3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#20DFE3", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_1dec92ef90f1c44e30397519bfcab5bd);
+        
+    
+        var popup_3fe7ffea38b98c167e1c628437c36931 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9075026be294a3188f1bf9a51c3d8fe2 = $(`<div id="html_9075026be294a3188f1bf9a51c3d8fe2" style="width: 100.0%; height: 100.0%;"><strong>Collegiate School Of Medicine And Bioscience</strong><br>St. Louis, MO<br>CHIPS CTE Challenge</div>`)[0];
+                popup_3fe7ffea38b98c167e1c628437c36931.setContent(html_9075026be294a3188f1bf9a51c3d8fe2);
+            
+        
+
+        circle_marker_ad55ebb08fcd8cee49b1ac88892ee6d5.bindPopup(popup_3fe7ffea38b98c167e1c628437c36931)
+        ;
+
+        
+    
+    
+            var circle_marker_5108416b3e9ac937fc6d43c64526dd32 = L.circleMarker(
+                [41.918621, -87.84471],
+                {"bubblingMouseEvents": true, "color": "#20DFE3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#20DFE3", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_1dec92ef90f1c44e30397519bfcab5bd);
+        
+    
+        var popup_425975d868ffa856fd737383fb828bc1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c77d51ca1f7fe7efe497dca5615c47f4 = $(`<div id="html_c77d51ca1f7fe7efe497dca5615c47f4" style="width: 100.0%; height: 100.0%;"><strong>Des Plaines Valley Region Efe</strong><br>River Grove, IL<br>CHIPS CTE Challenge</div>`)[0];
+                popup_425975d868ffa856fd737383fb828bc1.setContent(html_c77d51ca1f7fe7efe497dca5615c47f4);
+            
+        
+
+        circle_marker_5108416b3e9ac937fc6d43c64526dd32.bindPopup(popup_425975d868ffa856fd737383fb828bc1)
+        ;
+
+        
+    
+    
+            var circle_marker_df9e4acd04ace609935f99f5cb4ae0f7 = L.circleMarker(
+                [30.6036645, -96.3455765],
+                {"bubblingMouseEvents": true, "color": "#20DFE3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#20DFE3", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_1dec92ef90f1c44e30397519bfcab5bd);
+        
+    
+        var popup_5693d99de0ff6ba8126d0c1f832de933 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ae4e4791af73afa5b427d71f4da738f2 = $(`<div id="html_ae4e4791af73afa5b427d71f4da738f2" style="width: 100.0%; height: 100.0%;"><strong>Development</strong><br>College Station, TX<br>CHIPS CTE Challenge</div>`)[0];
+                popup_5693d99de0ff6ba8126d0c1f832de933.setContent(html_ae4e4791af73afa5b427d71f4da738f2);
+            
+        
+
+        circle_marker_df9e4acd04ace609935f99f5cb4ae0f7.bindPopup(popup_5693d99de0ff6ba8126d0c1f832de933)
+        ;
+
+        
+    
+    
+            var circle_marker_f1de075170f66b25cffe75a2aa3dcebe = L.circleMarker(
+                [33.412897, -111.8653017],
+                {"bubblingMouseEvents": true, "color": "#20DFE3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#20DFE3", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_1dec92ef90f1c44e30397519bfcab5bd);
+        
+    
+        var popup_222da4e5c28b00f6663a588b8db19e68 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_248524261d14768033ce08a160a65baf = $(`<div id="html_248524261d14768033ce08a160a65baf" style="width: 100.0%; height: 100.0%;"><strong>East Valley Institute Of Technology</strong><br>Mesa, AZ<br>CHIPS CTE Challenge</div>`)[0];
+                popup_222da4e5c28b00f6663a588b8db19e68.setContent(html_248524261d14768033ce08a160a65baf);
+            
+        
+
+        circle_marker_f1de075170f66b25cffe75a2aa3dcebe.bindPopup(popup_222da4e5c28b00f6663a588b8db19e68)
+        ;
+
+        
+    
+    
+            var circle_marker_8ea803ad6f8c2065bb61b4793bab3509 = L.circleMarker(
+                [45.5202093, -123.1113936],
+                {"bubblingMouseEvents": true, "color": "#20DFE3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#20DFE3", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_1dec92ef90f1c44e30397519bfcab5bd);
+        
+    
+        var popup_35a3fd1ef2c032718f97600efddc2154 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a0613360c7f5fb21f45cce323183f0cc = $(`<div id="html_a0613360c7f5fb21f45cce323183f0cc" style="width: 100.0%; height: 100.0%;"><strong>Forest Grove Sd 15</strong><br>Forest Grove, OR<br>CHIPS CTE Challenge</div>`)[0];
+                popup_35a3fd1ef2c032718f97600efddc2154.setContent(html_a0613360c7f5fb21f45cce323183f0cc);
+            
+        
+
+        circle_marker_8ea803ad6f8c2065bb61b4793bab3509.bindPopup(popup_35a3fd1ef2c032718f97600efddc2154)
+        ;
+
+        
+    
+    
+            var circle_marker_1d727843fa5a7464a4fa96dec12b9e27 = L.circleMarker(
+                [45.5444064, -122.9347528],
+                {"bubblingMouseEvents": true, "color": "#20DFE3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#20DFE3", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_1dec92ef90f1c44e30397519bfcab5bd);
+        
+    
+        var popup_a0888ea742e83b8f3e6fd00eba847414 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f47548ff65a39debc7e5885ac148aa15 = $(`<div id="html_f47548ff65a39debc7e5885ac148aa15" style="width: 100.0%; height: 100.0%;"><strong>Hillsboro School District</strong><br>Hillsboro, OR<br>CHIPS CTE Challenge</div>`)[0];
+                popup_a0888ea742e83b8f3e6fd00eba847414.setContent(html_f47548ff65a39debc7e5885ac148aa15);
+            
+        
+
+        circle_marker_1d727843fa5a7464a4fa96dec12b9e27.bindPopup(popup_a0888ea742e83b8f3e6fd00eba847414)
+        ;
+
+        
+    
+    
+            var circle_marker_71545ec6d19b77bc3e87abe53b720744 = L.circleMarker(
+                [40.7283477, -74.2347212],
+                {"bubblingMouseEvents": true, "color": "#20DFE3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#20DFE3", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_1dec92ef90f1c44e30397519bfcab5bd);
+        
+    
+        var popup_397a939de4bfbe7e795ac2d44c16c37b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_954702cb46ce796461428da736a4309d = $(`<div id="html_954702cb46ce796461428da736a4309d" style="width: 100.0%; height: 100.0%;"><strong>Irvington Public Schools</strong><br>Irvington, NJ<br>CHIPS CTE Challenge</div>`)[0];
+                popup_397a939de4bfbe7e795ac2d44c16c37b.setContent(html_954702cb46ce796461428da736a4309d);
+            
+        
+
+        circle_marker_71545ec6d19b77bc3e87abe53b720744.bindPopup(popup_397a939de4bfbe7e795ac2d44c16c37b)
+        ;
+
+        
+    
+    
+            var circle_marker_0f63cad94042961b9a0e9191c68df619 = L.circleMarker(
+                [42.59195, -87.82125],
+                {"bubblingMouseEvents": true, "color": "#20DFE3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#20DFE3", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_1dec92ef90f1c44e30397519bfcab5bd);
+        
+    
+        var popup_e88361ad89bcb1c25356b6b310748334 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0f878d70b8746049ab37118535f3e1e3 = $(`<div id="html_0f878d70b8746049ab37118535f3e1e3" style="width: 100.0%; height: 100.0%;"><strong>Kenosha Schools Of Technology Enhanced Curriculum</strong><br>Inc. L Kenosha, WI<br>CHIPS CTE Challenge</div>`)[0];
+                popup_e88361ad89bcb1c25356b6b310748334.setContent(html_0f878d70b8746049ab37118535f3e1e3);
+            
+        
+
+        circle_marker_0f63cad94042961b9a0e9191c68df619.bindPopup(popup_e88361ad89bcb1c25356b6b310748334)
+        ;
+
+        
+    
+    
+            var circle_marker_12ecfc6e267f7d17bb67c40dc86c3725 = L.circleMarker(
+                [42.59195, -87.82125],
+                {"bubblingMouseEvents": true, "color": "#20DFE3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#20DFE3", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_1dec92ef90f1c44e30397519bfcab5bd);
+        
+    
+        var popup_9897ff6f8fa8d9527f21f9253177a54b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ee8e2e977b21bb3418c9adfd0d19f3aa = $(`<div id="html_ee8e2e977b21bb3418c9adfd0d19f3aa" style="width: 100.0%; height: 100.0%;"><strong>Kenosha Schools Of Technology Enhanced Curriculum, Inc.</strong><br>Kenosha, WI<br>CHIPS CTE Challenge</div>`)[0];
+                popup_9897ff6f8fa8d9527f21f9253177a54b.setContent(html_ee8e2e977b21bb3418c9adfd0d19f3aa);
+            
+        
+
+        circle_marker_12ecfc6e267f7d17bb67c40dc86c3725.bindPopup(popup_9897ff6f8fa8d9527f21f9253177a54b)
+        ;
+
+        
+    
+    
+            var circle_marker_bde4317b859fe42914b2ea72da5497b0 = L.circleMarker(
+                [38.04505, -84.502644],
+                {"bubblingMouseEvents": true, "color": "#20DFE3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#20DFE3", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_1dec92ef90f1c44e30397519bfcab5bd);
+        
+    
+        var popup_b5ddea1a79f6e8d89d6a023f92408029 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9c603933d3a4e428446d07ec0f16e2cb = $(`<div id="html_9c603933d3a4e428446d07ec0f16e2cb" style="width: 100.0%; height: 100.0%;"><strong>Kentucky Science And Technology Corporation</strong><br>Lexington, KY<br>CHIPS CTE Challenge</div>`)[0];
+                popup_b5ddea1a79f6e8d89d6a023f92408029.setContent(html_9c603933d3a4e428446d07ec0f16e2cb);
+            
+        
+
+        circle_marker_bde4317b859fe42914b2ea72da5497b0.bindPopup(popup_b5ddea1a79f6e8d89d6a023f92408029)
+        ;
+
+        
+    
+    
+            var circle_marker_fc8a9bfe7590dc1621c2915fe578b573 = L.circleMarker(
+                [39.090754, -104.870703],
+                {"bubblingMouseEvents": true, "color": "#20DFE3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#20DFE3", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_1dec92ef90f1c44e30397519bfcab5bd);
+        
+    
+        var popup_bd77dd0e4da121389cdcbeec4eb45f5c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e0507743a45225971a80ef8ba3909099 = $(`<div id="html_e0507743a45225971a80ef8ba3909099" style="width: 100.0%; height: 100.0%;"><strong>Lewis -Palmer School District 38</strong><br>L Monument, CO<br>CHIPS CTE Challenge</div>`)[0];
+                popup_bd77dd0e4da121389cdcbeec4eb45f5c.setContent(html_e0507743a45225971a80ef8ba3909099);
+            
+        
+
+        circle_marker_fc8a9bfe7590dc1621c2915fe578b573.bindPopup(popup_bd77dd0e4da121389cdcbeec4eb45f5c)
+        ;
+
+        
+    
+    
+            var circle_marker_823d26f5a54c32868ab3ca44b98f619f = L.circleMarker(
+                [39.0908185, -104.8708613],
+                {"bubblingMouseEvents": true, "color": "#20DFE3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#20DFE3", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_1dec92ef90f1c44e30397519bfcab5bd);
+        
+    
+        var popup_27f83c44e4adf5e85e4ff65accae6b2a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_62de6a0a78052f333f07163ab67ee825 = $(`<div id="html_62de6a0a78052f333f07163ab67ee825" style="width: 100.0%; height: 100.0%;"><strong>Lewis -Palmer School District 38</strong><br>Monument, CO<br>CHIPS CTE Challenge</div>`)[0];
+                popup_27f83c44e4adf5e85e4ff65accae6b2a.setContent(html_62de6a0a78052f333f07163ab67ee825);
+            
+        
+
+        circle_marker_823d26f5a54c32868ab3ca44b98f619f.bindPopup(popup_27f83c44e4adf5e85e4ff65accae6b2a)
+        ;
+
+        
+    
+    
+            var circle_marker_da0e1a3e39b39112fd0122a3b8bb67f5 = L.circleMarker(
+                [34.285404, -118.880883],
+                {"bubblingMouseEvents": true, "color": "#20DFE3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#20DFE3", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_1dec92ef90f1c44e30397519bfcab5bd);
+        
+    
+        var popup_673c22495f09b30498d765f0efa3c4ed = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e9eb8a6ce155ba6fcfbadc51d8b13c8c = $(`<div id="html_e9eb8a6ce155ba6fcfbadc51d8b13c8c" style="width: 100.0%; height: 100.0%;"><strong>Minoritywealthgap</strong><br>Moorpark, CA<br>CHIPS CTE Challenge</div>`)[0];
+                popup_673c22495f09b30498d765f0efa3c4ed.setContent(html_e9eb8a6ce155ba6fcfbadc51d8b13c8c);
+            
+        
+
+        circle_marker_da0e1a3e39b39112fd0122a3b8bb67f5.bindPopup(popup_673c22495f09b30498d765f0efa3c4ed)
+        ;
+
+        
+    
+    
+            var circle_marker_b273211fc61253d036144da4576b87f2 = L.circleMarker(
+                [40.4196134, -111.8860894],
+                {"bubblingMouseEvents": true, "color": "#20DFE3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#20DFE3", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_1dec92ef90f1c44e30397519bfcab5bd);
+        
+    
+        var popup_a87466fc72bcb6159ce4e77d30aba811 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8b797a839df01b1b98bdce6dee4f9d67 = $(`<div id="html_8b797a839df01b1b98bdce6dee4f9d67" style="width: 100.0%; height: 100.0%;"><strong>Mountainland Technical College</strong><br>Lehi, UT<br>CHIPS CTE Challenge</div>`)[0];
+                popup_a87466fc72bcb6159ce4e77d30aba811.setContent(html_8b797a839df01b1b98bdce6dee4f9d67);
+            
+        
+
+        circle_marker_b273211fc61253d036144da4576b87f2.bindPopup(popup_a87466fc72bcb6159ce4e77d30aba811)
+        ;
+
+        
+    
+    
+            var circle_marker_2675c75b1f92a52faa43dfe3f71bddd4 = L.circleMarker(
+                [32.529055, -84.961068],
+                {"bubblingMouseEvents": true, "color": "#20DFE3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#20DFE3", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_1dec92ef90f1c44e30397519bfcab5bd);
+        
+    
+        var popup_64e5f34fb714787e1e666635a267e83f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3e6b0ca7e6bd2a37c5e92f82a0e3f337 = $(`<div id="html_3e6b0ca7e6bd2a37c5e92f82a0e3f337" style="width: 100.0%; height: 100.0%;"><strong>Muscogee County School District</strong><br>Columbus, GA<br>CHIPS CTE Challenge</div>`)[0];
+                popup_64e5f34fb714787e1e666635a267e83f.setContent(html_3e6b0ca7e6bd2a37c5e92f82a0e3f337);
+            
+        
+
+        circle_marker_2675c75b1f92a52faa43dfe3f71bddd4.bindPopup(popup_64e5f34fb714787e1e666635a267e83f)
+        ;
+
+        
+    
+    
+            var circle_marker_c9e9b58087b45550273c6f72ea168777 = L.circleMarker(
+                [41.816005, -93.6141246],
+                {"bubblingMouseEvents": true, "color": "#20DFE3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#20DFE3", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_1dec92ef90f1c44e30397519bfcab5bd);
+        
+    
+        var popup_9ebc6a428525aa3deb44ff0aa77c7884 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a76bea53f061c673f77048143b60ca80 = $(`<div id="html_a76bea53f061c673f77048143b60ca80" style="width: 100.0%; height: 100.0%;"><strong>North Polk Community School District</strong><br>Alleman, IA<br>CHIPS CTE Challenge</div>`)[0];
+                popup_9ebc6a428525aa3deb44ff0aa77c7884.setContent(html_a76bea53f061c673f77048143b60ca80);
+            
+        
+
+        circle_marker_c9e9b58087b45550273c6f72ea168777.bindPopup(popup_9ebc6a428525aa3deb44ff0aa77c7884)
+        ;
+
+        
+    
+    
+            var circle_marker_15ed9e6a4585fd54f6f2de2fcc2eee4d = L.circleMarker(
+                [47.6156709, -117.3695075],
+                {"bubblingMouseEvents": true, "color": "#20DFE3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#20DFE3", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_1dec92ef90f1c44e30397519bfcab5bd);
+        
+    
+        var popup_96eda33e60c052e694a93dfeefe7ab6e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cfd458c9af09ed1b1b9d1c9c322465f5 = $(`<div id="html_cfd458c9af09ed1b1b9d1c9c322465f5" style="width: 100.0%; height: 100.0%;"><strong>Northeast Washington Educational Service District 101</strong><br>Spokane, WA<br>CHIPS CTE Challenge</div>`)[0];
+                popup_96eda33e60c052e694a93dfeefe7ab6e.setContent(html_cfd458c9af09ed1b1b9d1c9c322465f5);
+            
+        
+
+        circle_marker_15ed9e6a4585fd54f6f2de2fcc2eee4d.bindPopup(popup_96eda33e60c052e694a93dfeefe7ab6e)
+        ;
+
+        
+    
+    
+            var circle_marker_d6d66ec99f3dc6f3fa0aec1bfeefc5ab = L.circleMarker(
+                [33.064428, -96.709017],
+                {"bubblingMouseEvents": true, "color": "#20DFE3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#20DFE3", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_1dec92ef90f1c44e30397519bfcab5bd);
+        
+    
+        var popup_8fe4a217e5cf77740a8a0e2aff67abba = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8bccd02ea32f3f2c41650d6d92e90944 = $(`<div id="html_8bccd02ea32f3f2c41650d6d92e90944" style="width: 100.0%; height: 100.0%;"><strong>Plano Independent School District</strong><br>Plano, TX<br>CHIPS CTE Challenge</div>`)[0];
+                popup_8fe4a217e5cf77740a8a0e2aff67abba.setContent(html_8bccd02ea32f3f2c41650d6d92e90944);
+            
+        
+
+        circle_marker_d6d66ec99f3dc6f3fa0aec1bfeefc5ab.bindPopup(popup_8fe4a217e5cf77740a8a0e2aff67abba)
+        ;
+
+        
+    
+    
+            var circle_marker_dfa45d8612a41fce93efccc3b236783f = L.circleMarker(
+                [33.142255, -117.1653484],
+                {"bubblingMouseEvents": true, "color": "#20DFE3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#20DFE3", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_1dec92ef90f1c44e30397519bfcab5bd);
+        
+    
+        var popup_6acda89547ffdb21a1cf73b400c8041c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c46d5e64227bbcc9a3a91c9e454bb6b1 = $(`<div id="html_c46d5e64227bbcc9a3a91c9e454bb6b1" style="width: 100.0%; height: 100.0%;"><strong>San Marcos Unified School District</strong><br>San Marcos, CA<br>CHIPS CTE Challenge</div>`)[0];
+                popup_6acda89547ffdb21a1cf73b400c8041c.setContent(html_c46d5e64227bbcc9a3a91c9e454bb6b1);
+            
+        
+
+        circle_marker_dfa45d8612a41fce93efccc3b236783f.bindPopup(popup_6acda89547ffdb21a1cf73b400c8041c)
+        ;
+
+        
+    
+    
+            var circle_marker_f6950802defd2a161daa41562e4113a1 = L.circleMarker(
+                [44.070563895729, -92.488607887951],
+                {"bubblingMouseEvents": true, "color": "#20DFE3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#20DFE3", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_1dec92ef90f1c44e30397519bfcab5bd);
+        
+    
+        var popup_b844173e9a87835fbb59acafd5b30cf2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_129e7c4310533538cfc0c7b1e9e60837 = $(`<div id="html_129e7c4310533538cfc0c7b1e9e60837" style="width: 100.0%; height: 100.0%;"><strong>Southeast Service Cooperative</strong><br>Rochester, MN<br>CHIPS CTE Challenge</div>`)[0];
+                popup_b844173e9a87835fbb59acafd5b30cf2.setContent(html_129e7c4310533538cfc0c7b1e9e60837);
+            
+        
+
+        circle_marker_f6950802defd2a161daa41562e4113a1.bindPopup(popup_b844173e9a87835fbb59acafd5b30cf2)
+        ;
+
+        
+    
+    
+            var circle_marker_52f996641a600e49adb5e6318e56a4a6 = L.circleMarker(
+                [47.6748784, -117.3576797],
+                {"bubblingMouseEvents": true, "color": "#20DFE3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#20DFE3", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_1dec92ef90f1c44e30397519bfcab5bd);
+        
+    
+        var popup_bedee474a192f996bb4cf9207006b242 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_603fa91b9e55d8e92b69b229e3ca1d64 = $(`<div id="html_603fa91b9e55d8e92b69b229e3ca1d64" style="width: 100.0%; height: 100.0%;"><strong>Spokane Community College</strong><br>Spokane, WA<br>CHIPS CTE Challenge</div>`)[0];
+                popup_bedee474a192f996bb4cf9207006b242.setContent(html_603fa91b9e55d8e92b69b229e3ca1d64);
+            
+        
+
+        circle_marker_52f996641a600e49adb5e6318e56a4a6.bindPopup(popup_bedee474a192f996bb4cf9207006b242)
+        ;
+
+        
+    
+    
+            var circle_marker_97bbedbf6de495acd002bbb418fd0949 = L.circleMarker(
+                [30.6173, -96.299],
+                {"bubblingMouseEvents": true, "color": "#20DFE3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#20DFE3", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_1dec92ef90f1c44e30397519bfcab5bd);
+        
+    
+        var popup_a94a4ae6a935840cb081c3fbcf25b8b3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ee47646e8eb46e90987798e93f303cf8 = $(`<div id="html_ee47646e8eb46e90987798e93f303cf8" style="width: 100.0%; height: 100.0%;"><strong>Texas A&</strong><br>M Engineering Experiment Station Workforce Development L College Station, TX<br>CHIPS CTE Challenge</div>`)[0];
+                popup_a94a4ae6a935840cb081c3fbcf25b8b3.setContent(html_ee47646e8eb46e90987798e93f303cf8);
+            
+        
+
+        circle_marker_97bbedbf6de495acd002bbb418fd0949.bindPopup(popup_a94a4ae6a935840cb081c3fbcf25b8b3)
+        ;
+
+        
+    
+    
+            var circle_marker_37357a8c53eadfaefc805ca993dfc007 = L.circleMarker(
+                [30.6173, -96.299],
+                {"bubblingMouseEvents": true, "color": "#20DFE3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#20DFE3", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_1dec92ef90f1c44e30397519bfcab5bd);
+        
+    
+        var popup_4681aa4c9552fe4c63e256e97f035af8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8867704c305d9de62b39feefc8a6ea6f = $(`<div id="html_8867704c305d9de62b39feefc8a6ea6f" style="width: 100.0%; height: 100.0%;"><strong>Texas A&M Engineering Experiment Station Workforce Development</strong><br>College Station, TX<br>CHIPS CTE Challenge</div>`)[0];
+                popup_4681aa4c9552fe4c63e256e97f035af8.setContent(html_8867704c305d9de62b39feefc8a6ea6f);
+            
+        
+
+        circle_marker_37357a8c53eadfaefc805ca993dfc007.bindPopup(popup_4681aa4c9552fe4c63e256e97f035af8)
+        ;
+
+        
+    
+    
+            var circle_marker_7bafe238223bc2b3380c054e3b1cb00b = L.circleMarker(
+                [38.7328191, -86.4735209],
+                {"bubblingMouseEvents": true, "color": "#20DFE3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#20DFE3", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_1dec92ef90f1c44e30397519bfcab5bd);
+        
+    
+        var popup_68cd534ec3f1323bef4fcc250ee1057d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a12f97dc23e7344bd0fe590bee58e727 = $(`<div id="html_a12f97dc23e7344bd0fe590bee58e727" style="width: 100.0%; height: 100.0%;"><strong>The Collaboration Of Shoals, Mitche</strong><br>And Orleans Schools L Mitchell, IN<br>CHIPS CTE Challenge</div>`)[0];
+                popup_68cd534ec3f1323bef4fcc250ee1057d.setContent(html_a12f97dc23e7344bd0fe590bee58e727);
+            
+        
+
+        circle_marker_7bafe238223bc2b3380c054e3b1cb00b.bindPopup(popup_68cd534ec3f1323bef4fcc250ee1057d)
+        ;
+
+        
+    
+    
+            var circle_marker_7ababe0dcefe94e26d5a94203decdf95 = L.circleMarker(
+                [38.7328191, -86.4735209],
+                {"bubblingMouseEvents": true, "color": "#20DFE3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#20DFE3", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_1dec92ef90f1c44e30397519bfcab5bd);
+        
+    
+        var popup_0571b43f766d4fadd6e72b3a4f337af6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_30fc7faa783459940f4a4eea32c12345 = $(`<div id="html_30fc7faa783459940f4a4eea32c12345" style="width: 100.0%; height: 100.0%;"><strong>The Collaboration Of Shoals, Mitchell, And Orleans Schools</strong><br>Mitchell, IN<br>CHIPS CTE Challenge</div>`)[0];
+                popup_0571b43f766d4fadd6e72b3a4f337af6.setContent(html_30fc7faa783459940f4a4eea32c12345);
+            
+        
+
+        circle_marker_7ababe0dcefe94e26d5a94203decdf95.bindPopup(popup_0571b43f766d4fadd6e72b3a4f337af6)
+        ;
+
+        
+    
+    
+            var circle_marker_311452fad4bb7b3eab77002e27d5bfde = L.circleMarker(
+                [33.41259, -111.86292],
+                {"bubblingMouseEvents": true, "color": "#20DFE3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#20DFE3", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_1dec92ef90f1c44e30397519bfcab5bd);
+        
+    
+        var popup_1c2e77ccbde23df838daa1cf52bd215e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1f8c13574f1e96edf98d3815ef66309c = $(`<div id="html_1f8c13574f1e96edf98d3815ef66309c" style="width: 100.0%; height: 100.0%;"><strong>The East Valley Institute Of Technology (Evit)</strong><br>In Mesa, AZ<br>CHIPS CTE Challenge</div>`)[0];
+                popup_1c2e77ccbde23df838daa1cf52bd215e.setContent(html_1f8c13574f1e96edf98d3815ef66309c);
+            
+        
+
+        circle_marker_311452fad4bb7b3eab77002e27d5bfde.bindPopup(popup_1c2e77ccbde23df838daa1cf52bd215e)
+        ;
+
+        
+    
+    
+            var circle_marker_90260b97ec3cafed54a7f5d3450a6ebc = L.circleMarker(
+                [35.17195, -92.73396],
+                {"bubblingMouseEvents": true, "color": "#20DFE3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#20DFE3", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_1dec92ef90f1c44e30397519bfcab5bd);
+        
+    
+        var popup_cca4794e044e450089e2389824d5071e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4f7869515495a97b03a19276e127e2d7 = $(`<div id="html_4f7869515495a97b03a19276e127e2d7" style="width: 100.0%; height: 100.0%;"><strong>University Of Arkansas Community College In Morrilton</strong><br>Morrilton, AR<br>CHIPS CTE Challenge</div>`)[0];
+                popup_cca4794e044e450089e2389824d5071e.setContent(html_4f7869515495a97b03a19276e127e2d7);
+            
+        
+
+        circle_marker_90260b97ec3cafed54a7f5d3450a6ebc.bindPopup(popup_cca4794e044e450089e2389824d5071e)
+        ;
+
+        
+    
+    
+            var circle_marker_fecc05f5cd03b8d82a33e6186b999c02 = L.circleMarker(
+                [35.1168181, -90.0792436],
+                {"bubblingMouseEvents": true, "color": "#20DFE3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#20DFE3", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_1dec92ef90f1c44e30397519bfcab5bd);
+        
+    
+        var popup_b8ab0f07364f1c9d942f083f09a28340 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_899c117a7f804aaa6ec5b819b9d1bde0 = $(`<div id="html_899c117a7f804aaa6ec5b819b9d1bde0" style="width: 100.0%; height: 100.0%;"><strong>University Of Memphis University Schools</strong><br>Memphis, TN<br>CHIPS CTE Challenge</div>`)[0];
+                popup_b8ab0f07364f1c9d942f083f09a28340.setContent(html_899c117a7f804aaa6ec5b819b9d1bde0);
+            
+        
+
+        circle_marker_fecc05f5cd03b8d82a33e6186b999c02.bindPopup(popup_b8ab0f07364f1c9d942f083f09a28340)
+        ;
+
+        
+    
+    
+            var circle_marker_56ddcb256b343d51531d83c7fceb71f0 = L.circleMarker(
+                [33.535973, -112.292829],
+                {"bubblingMouseEvents": true, "color": "#20DFE3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#20DFE3", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_1dec92ef90f1c44e30397519bfcab5bd);
+        
+    
+        var popup_e3bb2841ffb2deeb1f00838c4e28253c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_092bfca66aa911afd0fcb1daebd6b6fc = $(`<div id="html_092bfca66aa911afd0fcb1daebd6b6fc" style="width: 100.0%; height: 100.0%;"><strong>Western Maricopa Education Center</strong><br>Glendale, AZ<br>CHIPS CTE Challenge</div>`)[0];
+                popup_e3bb2841ffb2deeb1f00838c4e28253c.setContent(html_092bfca66aa911afd0fcb1daebd6b6fc);
+            
+        
+
+        circle_marker_56ddcb256b343d51531d83c7fceb71f0.bindPopup(popup_e3bb2841ffb2deeb1f00838c4e28253c)
+        ;
+
+        
+    
+    
+            var circle_marker_670ccfeba5330361994301edb74b6ad6 = L.circleMarker(
+                [42.9398532, -78.8122592],
+                {"bubblingMouseEvents": true, "color": "#20DFE3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#20DFE3", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_1dec92ef90f1c44e30397519bfcab5bd);
+        
+    
+        var popup_6e2e4ba8a679c3bdc2ee2a5cbdfcd73e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6628d16db5228e74f10786382dfa5b5d = $(`<div id="html_6628d16db5228e74f10786382dfa5b5d" style="width: 100.0%; height: 100.0%;"><strong>Westminster Public Schools</strong><br>Westminster, CO<br>CHIPS CTE Challenge</div>`)[0];
+                popup_6e2e4ba8a679c3bdc2ee2a5cbdfcd73e.setContent(html_6628d16db5228e74f10786382dfa5b5d);
+            
+        
+
+        circle_marker_670ccfeba5330361994301edb74b6ad6.bindPopup(popup_6e2e4ba8a679c3bdc2ee2a5cbdfcd73e)
+        ;
+
+        
+    
+    
+            feature_group_1dec92ef90f1c44e30397519bfcab5bd.addTo(map_1fd4d654f6bcfbb214fbd7fee00dcec2);
+        
+    
+            var feature_group_ae9937e540b99b71b6f05537fc80d159 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_e46b03c0dc27ddb256a5636fbf20edba = L.circleMarker(
+                [41.763967, -73.198452],
+                {"bubblingMouseEvents": true, "color": "#FF5FA2", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FF5FA2", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ae9937e540b99b71b6f05537fc80d159);
+        
+    
+        var popup_75d11ec99bad6cdb17bfc3a5677d170d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_15c72f319155ac2f9639315f9bdd1e6e = $(`<div id="html_15c72f319155ac2f9639315f9bdd1e6e" style="width: 100.0%; height: 100.0%;"><strong>Edadvance</strong><br>Litchfield, CT<br>CHIPS CTE Challenge | Career Z Challenge</div>`)[0];
+                popup_75d11ec99bad6cdb17bfc3a5677d170d.setContent(html_15c72f319155ac2f9639315f9bdd1e6e);
+            
+        
+
+        circle_marker_e46b03c0dc27ddb256a5636fbf20edba.bindPopup(popup_75d11ec99bad6cdb17bfc3a5677d170d)
+        ;
+
+        
+    
+    
+            var circle_marker_34d94e90cbbf7295e3b07100aa8b1495 = L.circleMarker(
+                [33.450881, -112.073196],
+                {"bubblingMouseEvents": true, "color": "#FF5FA2", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FF5FA2", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ae9937e540b99b71b6f05537fc80d159);
+        
+    
+        var popup_3e5c4695160e57ffc4a8e4acaf27e120 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_49ed2cf8efe377008e970b6c50c4477c = $(`<div id="html_49ed2cf8efe377008e970b6c50c4477c" style="width: 100.0%; height: 100.0%;"><strong>Greater Phoenix Chamber Foundation</strong><br>Phoenix, AZ<br>CHIPS CTE Challenge | Career Z Challenge</div>`)[0];
+                popup_3e5c4695160e57ffc4a8e4acaf27e120.setContent(html_49ed2cf8efe377008e970b6c50c4477c);
+            
+        
+
+        circle_marker_34d94e90cbbf7295e3b07100aa8b1495.bindPopup(popup_3e5c4695160e57ffc4a8e4acaf27e120)
+        ;
+
+        
+    
+    
+            var circle_marker_6c98e6f32e7cdcde8033ec606a277c31 = L.circleMarker(
+                [41.262182, -82.213852],
+                {"bubblingMouseEvents": true, "color": "#FF5FA2", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FF5FA2", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ae9937e540b99b71b6f05537fc80d159);
+        
+    
+        var popup_0578001f997b681919d5cec8d2b3ffd6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2934c0b93f0ddd51187d4a16a8ce210e = $(`<div id="html_2934c0b93f0ddd51187d4a16a8ce210e" style="width: 100.0%; height: 100.0%;"><strong>Lorain County Joint Vocational School</strong><br>Oberlin, OH<br>CHIPS CTE Challenge | Career Z Challenge</div>`)[0];
+                popup_0578001f997b681919d5cec8d2b3ffd6.setContent(html_2934c0b93f0ddd51187d4a16a8ce210e);
+            
+        
+
+        circle_marker_6c98e6f32e7cdcde8033ec606a277c31.bindPopup(popup_0578001f997b681919d5cec8d2b3ffd6)
+        ;
+
+        
+    
+    
+            feature_group_ae9937e540b99b71b6f05537fc80d159.addTo(map_1fd4d654f6bcfbb214fbd7fee00dcec2);
+        
+    
+            var layer_control_c7938690c92734d7929253c7d4f313f4_layers = {
+                base_layers : {
+                },
+                overlays :  {
+                    "Career Z Challenge" : feature_group_ab8a735f37ca6c8dd534438d414725b1,
+                    "CHIPS CTE Challenge" : feature_group_1dec92ef90f1c44e30397519bfcab5bd,
+                    "Both Challenges" : feature_group_ae9937e540b99b71b6f05537fc80d159,
+                },
+            };
+            let layer_control_c7938690c92734d7929253c7d4f313f4 = L.control.layers(
+                layer_control_c7938690c92734d7929253c7d4f313f4_layers.base_layers,
+                layer_control_c7938690c92734d7929253c7d4f313f4_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_1fd4d654f6bcfbb214fbd7fee00dcec2);
+
+        
+</script>
+</html>
