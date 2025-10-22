@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Cover Flow Mockup</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            color-scheme: light dark;
+            --bg-color: #060714;
+            --text-color: #f3f4ff;
+            --muted-color: rgba(243, 244, 255, 0.55);
+            --accent: #74b9ff;
+            --card-width: min(320px, 60vw);
+            --card-height: min(420px, 65vh);
+            --gap: 220px;
+            --rotation: 55deg;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: radial-gradient(circle at 20% 20%, rgba(116, 185, 255, 0.12), transparent 45%),
+                        radial-gradient(circle at 80% 30%, rgba(255, 107, 129, 0.13), transparent 50%),
+                        var(--bg-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            padding: clamp(16px, 2vw, 40px) clamp(12px, 4vw, 60px) 80px;
+        }
+
+        h1 {
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-size: clamp(1.4rem, 2vw + 1rem, 2.4rem);
+            margin: 0 0 24px;
+            text-align: center;
+        }
+
+        .coverflow-wrapper {
+            width: 100%;
+            max-width: 1400px;
+            display: grid;
+            gap: clamp(32px, 4vw, 48px);
+            justify-items: center;
+        }
+
+        .panels-container {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(20px, 3vw, 32px);
+            align-items: start;
+        }
+
+        @media (max-width: 1024px) {
+            .panels-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .coverflow {
+            position: relative;
+            width: min(100%, 960px);
+            height: clamp(360px, 50vw, 520px);
+            perspective: 1600px;
+            display: grid;
+            place-items: center;
+            overflow: visible;
+        }
+
+        .coverflow__item {
+            width: var(--card-width);
+            height: var(--card-height);
+            position: absolute;
+            border-radius: 20px;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+            transform-style: preserve-3d;
+            overflow: hidden;
+            transition: transform 360ms ease, filter 360ms ease, opacity 360ms ease;
+            cursor: pointer;
+            background: linear-gradient(135deg, rgba(116, 185, 255, 0.4), rgba(108, 92, 231, 0.4));
+            opacity: 0.85;
+        }
+
+        .coverflow__item[data-active="true"] {
+            filter: none;
+            opacity: 1;
+        }
+
+        .coverflow__item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .coverflow__item .card-overlay {
+            inset: 0;
+            position: absolute;
+            display: flex;
+            align-items: flex-end;
+            padding: 20px 24px;
+            background: linear-gradient(0deg, rgba(6, 7, 20, 0.75), transparent 60%);
+            color: #f8f9ff;
+        }
+
+        .card-overlay h2 {
+            margin: 0;
+            font-size: clamp(1.1rem, 1.6vw, 1.4rem);
+            font-weight: 600;
+        }
+
+        .card-overlay p {
+            margin: 6px 0 0;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            opacity: 0.75;
+        }
+
+        .card-placeholder {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            place-content: center;
+            gap: 16px;
+            padding: 32px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(255, 234, 167, 0.85), rgba(250, 177, 160, 0.85));
+            color: #2d3436;
+        }
+
+        .card-placeholder span {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .card-placeholder small {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        .info-panel {
+            background: rgba(15, 20, 45, 0.65);
+            border: 1px solid rgba(116, 185, 255, 0.16);
+            border-radius: 20px;
+            padding: clamp(24px, 3vw, 32px);
+            backdrop-filter: blur(16px);
+            display: grid;
+            gap: 12px;
+            max-height: 800px;
+            overflow-y: auto;
+        }
+
+        .info-panel::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .info-panel::-webkit-scrollbar-track {
+            background: rgba(116, 185, 255, 0.1);
+            border-radius: 4px;
+        }
+
+        .info-panel::-webkit-scrollbar-thumb {
+            background: rgba(116, 185, 255, 0.4);
+            border-radius: 4px;
+        }
+
+        .info-panel::-webkit-scrollbar-thumb:hover {
+            background: rgba(116, 185, 255, 0.6);
+        }
+
+        /* Styles for embedded portfolio sections */
+        .info-panel table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+
+        .info-panel th,
+        .info-panel td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(116, 185, 255, 0.2);
+        }
+
+        .info-panel th {
+            background: rgba(116, 185, 255, 0.15);
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .info-panel tr:hover {
+            background: rgba(116, 185, 255, 0.05);
+        }
+
+        .info-panel h2 {
+            color: var(--text-color);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .info-panel h3 {
+            color: rgba(236, 239, 255, 0.95);
+            margin-top: 1.25rem;
+            margin-bottom: 0.75rem;
+            font-size: 1.2rem;
+        }
+
+        .info-panel h4 {
+            color: rgba(236, 239, 255, 0.9);
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .info-panel p {
+            color: rgba(236, 239, 255, 0.85);
+            line-height: 1.6;
+            margin-bottom: 0.75rem;
+        }
+
+        .info-panel a {
+            color: rgba(116, 185, 255, 0.9);
+            text-decoration: none;
+            border-bottom: 1px dotted rgba(116, 185, 255, 0.5);
+        }
+
+        .info-panel a:hover {
+            color: rgba(116, 185, 255, 1);
+            border-bottom-style: solid;
+        }
+
+        .info-panel ol,
+        .info-panel ul {
+            margin: 0.75rem 0;
+            padding-left: 1.5rem;
+            color: rgba(236, 239, 255, 0.85);
+        }
+
+        .info-panel li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        /* Toggle button styles for embedded sections */
+        .reflection-toggle-btn {
+            margin: 0.25rem 0 0.5rem;
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+            cursor: pointer;
+            background: rgba(116, 185, 255, 0.15);
+            color: rgba(116, 185, 255, 0.95);
+            border: 1px solid rgba(116, 185, 255, 0.3);
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+
+        .reflection-toggle-btn:hover {
+            background: rgba(116, 185, 255, 0.25);
+            border-color: rgba(116, 185, 255, 0.5);
+        }
+
+        .reflection-toggle-btn:active {
+            transform: scale(0.98);
+        }
+
+        .reflection-wrap p {
+            margin-bottom: 0.5rem;
+        }
+
+        .reflection-preview {
+            color: rgba(236, 239, 255, 0.85);
+        }
+
+        .reflection-full p {
+            color: rgba(236, 239, 255, 0.85);
+            margin-bottom: 0.75rem;
+        }
+
+        .info-panel .info-title {
+            margin: 0;
+            font-size: clamp(1.25rem, 1.4vw + 1rem, 1.8rem);
+            font-weight: 700;
+        }
+
+        .info-panel .info-description {
+            margin: 0;
+            color: var(--muted-color);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .artifact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .artifact-links a {
+            padding: 10px 16px;
+            border-radius: 999px;
+            background: rgba(116, 185, 255, 0.15);
+            color: var(--text-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: background 200ms ease, transform 200ms ease;
+        }
+
+        .artifact-links a:hover,
+        .artifact-links a:focus-visible {
+            background: rgba(116, 185, 255, 0.3);
+            transform: translateY(-1px);
+        }
+
+        .controls {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .controls button {
+            appearance: none;
+            border: 1px solid rgba(116, 185, 255, 0.4);
+            background: rgba(116, 185, 255, 0.1);
+            color: var(--text-color);
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: background 200ms ease, border-color 200ms ease;
+        }
+
+        .controls button:hover,
+        .controls button:focus-visible {
+            background: rgba(116, 185, 255, 0.24);
+            border-color: rgba(116, 185, 255, 0.65);
+        }
+
+        .course-panel {
+            background: rgba(10, 13, 30, 0.65);
+            border: 1px solid rgba(116, 185, 255, 0.18);
+            border-radius: 24px;
+            padding: clamp(24px, 3vw, 36px);
+            backdrop-filter: blur(18px);
+            display: grid;
+            gap: clamp(18px, 3vw, 28px);
+        }
+
+        .course-panel h2 {
+            margin: 0;
+            font-size: clamp(1.3rem, 1.5vw + 1rem, 1.9rem);
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .course-status {
+            color: var(--muted-color);
+            font-size: 0.95rem;
+        }
+
+        .course-list {
+            display: grid;
+            gap: clamp(18px, 2vw, 24px);
+        }
+
+        .course-card {
+            background: rgba(23, 30, 60, 0.6);
+            border-radius: 18px;
+            padding: clamp(18px, 2.5vw, 26px);
+            border: 1px solid rgba(116, 185, 255, 0.14);
+            display: grid;
+            gap: 12px;
+        }
+
+        .course-header {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: baseline;
+        }
+
+        .course-header h3 {
+            margin: 0;
+            font-size: clamp(1rem, 1.2vw + 0.9rem, 1.3rem);
+            font-weight: 600;
+        }
+
+        .course-pill {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            background: rgba(116, 185, 255, 0.22);
+            padding: 6px 12px;
+            border-radius: 999px;
+        }
+
+        .course-meta {
+            font-size: 0.9rem;
+            color: var(--muted-color);
+            margin: 0;
+        }
+
+        .course-reflection p {
+            margin: 0 0 12px 0;
+            color: rgba(236, 239, 255, 0.92);
+            line-height: 1.55;
+        }
+
+        .course-reflection p:last-child {
+            margin-bottom: 0;
+        }
+
+        .course-materials {
+            margin: 0;
+            padding-left: 1.2rem;
+            color: rgba(236, 239, 255, 0.9);
+            font-size: 0.92rem;
+            display: grid;
+            gap: 6px;
+        }
+
+        .course-materials li {
+            position: relative;
+            list-style: none;
+        }
+
+        .course-materials li::before {
+            content: "•";
+            position: absolute;
+            left: -0.9rem;
+            color: rgba(116, 185, 255, 0.9);
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --gap: 160px;
+                --rotation: 50deg;
+            }
+
+            .coverflow__item {
+                width: min(260px, 72vw);
+                height: min(380px, 60vh);
+            }
+
+            .card-overlay {
+                padding: 18px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .coverflow__item {
+                transition: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="coverflow-wrapper">
+        <section class="coverflow" role="listbox" aria-live="polite"></section>
+
+        <div class="controls" aria-label="Cover flow navigation controls">
+            <button type="button" data-direction="prev">⟵ Previous</button>
+            <button type="button" data-direction="next">Next ⟶</button>
+        </div>
+
+        <div class="panels-container">
+            <section class="info-panel" aria-live="polite">
+                <h2 class="info-title">Select an artifact to see details</h2>
+                <p class="info-description">Use the arrow keys, scroll wheel, or tap cards to explore the portfolio.</p>
+                <div class="artifact-links"></div>
+            </section>
+
+            <section class="course-panel" aria-live="polite">
+                <h2>Related Course Material</h2>
+                <p class="course-status">Loading related course material…</p>
+                <div class="course-list" hidden></div>
+            </section>
+        </div>
+    </main>
+
+    <script src="assets/coverflow/portfolio_sections.js"></script>
+    <script src="assets/coverflow/course_data.js"></script>
+    <script>
+        const PRELOADED_COURSE_DATA = typeof PORTFOLIO_COURSE_DATA !== 'undefined' ? PORTFOLIO_COURSE_DATA : null;
+
+        const artifacts = [
+            {
+                title: "Portfolio Overview",
+                description: "Research-driven map connecting EdS Technology in Schools competencies to real-time data design and advising systems.",
+                descriptionHtml: `
+                    <p><strong>Technology in Schools (EdS) Alignment.</strong> The EdS curriculum prepares leaders to integrate digital tools, data ethics, and instructional design in PK-12 systems. This overview traces how each artifact enacts core strands from the program—strategic leadership, learning analytics, inclusive design, and professional development—while advancing my research on interoperable, real-time feedback loops for secondary students in urban public schools.</p>
+                    <p><strong>Research Throughline.</strong> My work investigates whether faster, actionable feedback and redesigned grading routines alter submission timing, course performance, and postsecondary progression. The artifacts below demonstrate iterative prototyping, mixed-methods evaluation, and equity-centered analytics that reduce latency across student information systems, learning management gradebooks, and counselor-facing dashboards.</p>
+                    <ol>
+                        <li><strong>Portfolio Resume.</strong> Synthesizes EdS leadership standards with practitioner roles, highlighting capacity to steward district-scale technology adoption and advising reforms.</li>
+                        <li><strong>Program of Study.</strong> Documents evidence of mastery across courses such as <code>IS_LT 7355</code> and <code>IS_LT 9466</code>, emphasizing learning analytics, human-centered design, and systems integration.</li>
+                        <li><strong>Reflection Statement.</strong> Articulates growth in accessibility, rapid prototyping, and ethical analytics grounded in ISTE Standards for Coaches and Leaders.</li>
+                        <li><strong>Program Goals & Outcomes.</strong> Maps MU Learning Technologies outcomes to concrete deliverables, demonstrating curriculum alignment with district innovation goals.</li>
+                        <li><strong>Python Code Simulation.</strong> Applies computational thinking and visualization—key EDSP competencies—to model instructional scenarios and support differentiated feedback.</li>
+                        <li><strong>Linear Regression Manipulative.</strong> Provides interactive statistics practice that supports EDSP emphasis on data literacy for teachers and students.</li>
+                        <li><strong>States of Matter Animation.</strong> Exemplifies multimedia design and accessibility, reinforcing curriculum objectives around designing inclusive digital content.</li>
+                        <li><strong>Excel Student Risk Dashboard.</strong> Operationalizes data-driven decision making using low-latency spreadsheets aligned with EDSP leadership-in-data practices.</li>
+                        <li><strong>Scholarships Database.</strong> Demonstrates equitable information access through structured data pipelines that support Individual Career and Academic Plans.</li>
+                        <li><strong>Professional Webpage.</strong> Models digital presence and community engagement, a core expectation within Technology in Schools leadership courses.</li>
+                        <li><strong>At-Risk Dashboard (Python & HTML).</strong> Integrates SIS and LMS feeds to deliver actionable counselor dashboards, directly advancing my research on grade-sync and early-warning systems.</li>
+                        <li><strong>At-Risk Dashboard Documentation.</strong> Shares reproducible workflows in R/Python, aligning with EDSP expectations for ethical, transparent technology stewardship.</li>
+                        <li><strong>At-Risk Student Dashboard.</strong> Provides a secure, privacy-conscious interface that lowers counselor clerical load and raises advising intensity.</li>
+                        <li><strong>Financial Markets eLearning.</strong> Illustrates interactive instructional design that supports career readiness—a district priority noted in EDSP practicum experiences.</li>
+                        <li><strong>Digital Literacy eLearning.</strong> Advances EDSP goals for safe, equitable technology integration through scaffolded digital citizenship lessons.</li>
+                        <li><strong>Web Scraping Tutorial.</strong> Builds educator capacity for data acquisition and cleaning, foundational to district feedback workflows.</li>
+                        <li><strong>Transcript Evaluation Script.</strong> Automates advising routines, testing whether latency reductions increase timely course corrections.</li>
+                        <li><strong>Heatmap Visualization Script.</strong> Applies multilevel analytics to reveal heterogeneity—an analytic focus in my mixed-methods evaluation designs.</li>
+                        <li><strong>Census Data Retrieval Script.</strong> Supports equity audits by bringing contextual demographic data into advising analyses.</li>
+                        <li><strong>GIS Map of Career Z and CHIPS CTE Challenge Semifinalists.</strong> Visualizes opportunity pathways geographically, aligning with EDSP attention to inclusive access.</li>
+                        <li><strong>Internship Program Data Pipeline.</strong> Prototypes interoperable data architecture that links applications, placements, and advising touchpoints, embodying my research aim to scale ethical, real-time integrations.</li>
+                    </ol>
+                `,
+                image: "assets/coverflow/coverflow_portfolio_overview_cover.png",
+                link: "https://everettstuckey.github.io/islt_7310/",
+                courses: ["IS_LT-7378"]
+            },
+            {
+                title: "Portfolio Resume",
+                description: "Download the full CV showcasing leadership, counseling, and instructional design accomplishments across the ISLT program.",
+                image: "assets/coverflow/coverflow_portfolio_resume.png",
+                link: "https://everettstuckey.github.io/islt_7310/EverettStuckeyResume%20Data.pdf",
+                courses: []
+            },
+            {
+                title: "Program of Study",
+                description: "Overview of EdS coursework with term-by-term reflections tying graduate learning to applied practice.",
+                image: "assets/coverflow/coverflow_portfolio_program_of_study.png",
+                link: "https://everettstuckey.github.io/islt_7310/portfolio.html#program-of-study",
+                courses: ["IS_LT 7355", "IS_LT 7383", "IS_LT 9410", "IS_LT 9466", "IS_LT 9467", "IS_LT 9455", "IS_LT 9471", "IS_LT 9473", "IS_LT 9474"],
+                embedSection: "program-of-study"
+            },
+            {
+                title: "Reflection Statement",
+                description: "Context, significant learnings, and ISTE growth narrative connecting accessibility, rapid prototyping, and ethical analytics.",
+                image: "assets/coverflow/coverflow_portfolio_reflection_statement.png",
+                link: "https://everettstuckey.github.io/islt_7310/portfolio.html#reflection",
+                courses: ["IS_LT 7355", "IS_LT 7383", "IS_LT 9466", "IS_LT 9455", "IS_LT 9467"],
+                embedSection: "reflection"
+            },
+            {
+                title: "Program Goals & Outcomes",
+                description: "Learning Technologies program goals paired with detailed reflections and artifacts demonstrating each outcome.",
+                image: "assets/coverflow/coverflow_portfolio_program_goals.png",
+                link: "https://everettstuckey.github.io/islt_7310/portfolio.html#program-goals",
+                courses: ["IS_LT 7355", "IS_LT 7383", "IS_LT 9410", "IS_LT 9466", "IS_LT 9455", "IS_LT 9471", "IS_LT 9473", "IS_LT 9474"],
+                embedSection: "program-goals"
+            },
+            {
+                title: "Python Code Simulation",
+                description: "Interactive simulation showcasing dynamic Python visualizations and educational programming experiences.",
+                image: "assets/coverflow/coverflow_python_code_simulation.png",
+                link: "https://everettstuckey.github.io/IS_LT-7383/part2_part2.html",
+                courses: ["IS_LT 7383"]
+            },
+            {
+                title: "Linear Regression Manipulative",
+                description: "Hands-on regression tool allowing learners to adjust slope and intercept to explore statistical models in real time.",
+                image: "assets/coverflow/coverflow_linear_regression_manipulative.png",
+                link: "https://everettstuckey.github.io/IS_LT-7383/part1_part8.html",
+                courses: ["IS_LT 7383"]
+            },
+            {
+                title: "States of Matter Animation",
+                description: "Animated explainer illustrating particle behavior across solid, liquid, and gas states for science learners.",
+                image: "assets/coverflow/coverflow_states_of_matter_animation.png",
+                link: "https://youtu.be/W4DFjhLx0wY",
+                courses: ["IS_LT 7383"]
+            },
+            {
+                title: "Excel Student Risk Dashboard",
+                description: "Microsoft Excel dashboard highlighting at-risk indicators with actionable insights for student success teams.",
+                image: "assets/coverflow/coverflow_excel_student_risk_dashboard.png",
+                link: "https://youtu.be/2Jbn5Da5mYs",
+                courses: ["IS_LT 9466"]
+            },
+            {
+                title: "Scholarships Database",
+                description: "Searchable collection of scholarships with filters for eligibility, award type, and application deadlines.",
+                image: "assets/coverflow/coverflow_scholarships_database.png",
+                link: "https://everettstuckey.github.io/islt_7310/scholarships_data.html",
+                courses: ["IS_LT 7355", "IS_LT 9466"]
+            },
+            {
+                title: "Professional Webpage",
+                description: "Personal professional website introducing portfolio highlights, instructional design philosophy, and contact info.",
+                image: "assets/coverflow/coverflow_professional_webpage.png",
+                link: "https://everettstuckey.github.io/islt_7310/",
+                courses: ["IS_LT 7355"]
+            },
+            {
+                title: "At-Risk Dashboard (Python & HTML)",
+                description: "Integrated Python and HTML dashboard providing real-time monitoring for student risk indicators and interventions.",
+                image: "assets/coverflow/coverflow_at_risk_dashboard_python_html.png",
+                link: "https://youtu.be/TpqWWJGb1Yo",
+                courses: ["IS_LT 9466", "IS_LT 9410"]
+            },
+            {
+                title: "At-Risk Dashboard Documentation",
+                description: "HTML blueprint outlining the Python automation workflow, data sources, and maintenance procedures supporting the at-risk dashboard.",
+                image: "assets/coverflow/coverflow_at_risk_dashboard_documentation.png",
+                link: "https://everettstuckey.github.io/islt_7310/AtRiskDashboardDocumentation.html",
+                courses: ["IS_LT 9466", "IS_LT 9410"]
+            },
+            {
+                title: "At-Risk Student Dashboard",
+                description: "Public overview of the confidential at-risk student dashboard with secure access instructions for district staff.",
+                image: "assets/coverflow/coverflow_at_risk_dashboard.svg",
+                link: "https://everettstuckey.github.io/islt_7310/ICU_Report.html",
+                courses: ["IS_LT 9466", "IS_LT 9410"]
+            },
+            {
+                title: "Financial Markets eLearning",
+                description: "Multimedia eLearning module guiding learners through key financial market concepts with interactive media.",
+                image: "assets/coverflow/coverflow_financial_markets_module.png",
+                link: "https://everettstuckey.github.io/IS_LT-7383/slideshows/Financial%20Markets%20Slide%20Show.html",
+                courses: ["IS_LT 9455"]
+            },
+            {
+                title: "Digital Literacy eLearning",
+                description: "Digital literacy curriculum module covering safe and effective technology practices for students.",
+                image: "assets/coverflow/coverflow_digital_literacy_module.png",
+                link: "https://everettstuckey.github.io/islt_7310/elearning/digital_literacy_curriculum.html",
+                courses: ["IS_LT 9467", "IS_LT 7355"]
+            },
+            {
+                title: "Web Scraping Tutorial",
+                description: "Video tutorial demonstrating Python techniques for scraping, cleaning, and analyzing web data.",
+                image: "assets/coverflow/coverflow_web_scraping_tutorial.png",
+                link: "https://youtu.be/IVYAi723RLM",
+                courses: ["IS_LT 9466"]
+            },
+            {
+                title: "Transcript Evaluation Script",
+                description: "Python Colab notebook automating transcript evaluation workflows with data validation checks.",
+                image: "assets/coverflow/coverflow_transcript_evaluation_script.png",
+                link: "https://colab.research.google.com/drive/1kxPYj4eiCoeiXmsywbf9a1BbNu-m3lTw?usp=sharing",
+                courses: ["IS_LT 9466", "IS_LT 9410"]
+            },
+            {
+                title: "Heatmap Visualization Script",
+                description: "Colab notebook generating heatmap visualizations to reveal patterns in complex datasets.",
+                image: "assets/coverflow/coverflow_heatmap_visualization_script.png",
+                link: "https://colab.research.google.com/drive/1lXuPQLNkrZvcnsP0Y00BZgRuf7tXp1Io?usp=sharing",
+                courses: ["IS_LT 9466", "IS_LT 9410"]
+            },
+            {
+                title: "Census Data Retrieval Script",
+                description: "Automated pipeline retrieving demographic census data for analysis and reporting.",
+                image: "assets/coverflow/coverflow_census_data_retrieval_script.png",
+                link: "https://colab.research.google.com/drive/1C8pYam8D-6yMlc3vj0TOsg84S70tIvO4?usp=sharing",
+                courses: ["IS_LT 9410"]
+            },
+            {
+                title: "GIS Map of Career Z and CHIPS CTE Challenge Semifinalists",
+                description: "Interactive geographic visualization mapping student participants in career readiness and technology challenge programs.",
+                image: "assets/coverflow/coverflow_gis_map_semifinalists.png",
+                link: "https://everettstuckey.github.io/islt_7310/SemifinalistsGISMap.html",
+                courses: ["IS_LT 9466", "IS_LT 9410"]
+            },
+            {
+                title: "Internship Program Data Pipeline",
+                description: "Comprehensive data pipeline architecture integrating student applications, employer tracking, and site placement workflows through Microsoft Teams and Excel.",
+                image: "assets/coverflow/coverflow_internship_program_data_pipeline.png",
+                link: "assets/coverflow/learn_and_earn_diagram.png",
+                courses: ["IS_LT 9466", "IS_LT 9473"]
+            }
+        ];
+
+        const coverflowEl = document.querySelector('.coverflow');
+        const infoTitleEl = document.querySelector('.info-title');
+        const infoDescEl = document.querySelector('.info-description');
+        const linksEl = document.querySelector('.artifact-links');
+        const controlButtons = document.querySelectorAll('.controls [data-direction]');
+        const courseStatusEl = document.querySelector('.course-status');
+        const courseListEl = document.querySelector('.course-list');
+
+        let targetIndex = Math.floor(artifacts.length / 2);
+        let displayIndex = targetIndex;
+        let animationFrame = null;
+        const Z_SPREAD = 70;
+
+        let GAP = 220;
+        let ROTATION = 55;
+
+        const COURSE_DATA_URL = 'assets/coverflow/course_data.json';
+        let courseIndex = {};
+        let artifactCourseMap = {};
+        let courseLoadError = false;
+
+        function refreshLayoutConstants() {
+            const styles = getComputedStyle(document.documentElement);
+            GAP = parseFloat(styles.getPropertyValue('--gap')) || 220;
+            ROTATION = parseFloat(styles.getPropertyValue('--rotation')) || 55;
+        }
+
+        function createCard(artifact, index) {
+            const card = document.createElement('article');
+            card.className = 'coverflow__item';
+            card.dataset.index = index;
+            card.tabIndex = 0;
+            card.setAttribute('role', 'option');
+            card.setAttribute('aria-selected', 'false');
+            card.dataset.active = 'false';
+
+            if (artifact.image) {
+                const img = document.createElement('img');
+                img.src = artifact.image;
+                img.alt = `${artifact.title} artwork`;
+                card.appendChild(img);
+
+                const overlay = document.createElement('div');
+                overlay.className = 'card-overlay';
+                overlay.innerHTML = `<div><h2>${artifact.title}</h2><p>${artifact.description}</p></div>`;
+                card.appendChild(overlay);
+            } else {
+                const placeholder = document.createElement('div');
+                placeholder.className = 'card-placeholder';
+                placeholder.innerHTML = `<span>${artifact.title}</span><small>Preview coming soon</small>`;
+                card.appendChild(placeholder);
+            }
+
+            card.addEventListener('click', () => setActiveIndex(index));
+            card.addEventListener('keyup', (event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    setActiveIndex(index);
+                }
+            });
+
+            return card;
+        }
+
+        function updateInfoPanel() {
+            const artifact = artifacts[targetIndex];
+            const panelsContainer = document.querySelector('.panels-container');
+            const infoPanel = document.querySelector('.info-panel');
+            const coursePanel = document.querySelector('.course-panel');
+            
+            // Check if this artifact should display embedded section content
+            if (artifact.embedSection && PORTFOLIO_SECTIONS && PORTFOLIO_SECTIONS[artifact.embedSection]) {
+                const sectionData = PORTFOLIO_SECTIONS[artifact.embedSection];
+                infoTitleEl.innerHTML = '';
+                infoDescEl.innerHTML = sectionData.html_content;
+                linksEl.innerHTML = '';
+                
+                // Hide course panel and make info panel full width
+                coursePanel.style.display = 'none';
+                panelsContainer.style.gridTemplateColumns = '1fr';
+                
+                // Initialize toggle functionality for embedded content
+                // Use requestAnimationFrame to ensure DOM is fully updated
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        initEmbeddedToggles();
+                    });
+                });
+                
+                return;
+            }
+            
+            // Check if this is the Resume artifact (should embed PDF)
+            if (artifact.title === "Portfolio Resume" && artifact.link.endsWith('.pdf')) {
+                infoTitleEl.textContent = artifact.title;
+                infoDescEl.innerHTML = `<iframe src="${artifact.link}" style="width:100%; height:800px; border:1px solid rgba(116, 185, 255, 0.3); border-radius:8px;" title="Resume PDF"></iframe>`;
+                linksEl.innerHTML = '';
+                const downloadLink = document.createElement('a');
+                downloadLink.href = artifact.link;
+                downloadLink.target = '_blank';
+                downloadLink.rel = 'noopener noreferrer';
+                downloadLink.textContent = 'Download PDF';
+                linksEl.appendChild(downloadLink);
+                
+                // Hide course panel and make info panel full width
+                coursePanel.style.display = 'none';
+                panelsContainer.style.gridTemplateColumns = '1fr';
+                
+                return;
+            }
+            
+            // For all other artifacts, show both panels side by side
+            coursePanel.style.display = 'grid';
+            panelsContainer.style.gridTemplateColumns = '1fr 1fr';
+            
+            // Default behavior for other artifacts
+            infoTitleEl.textContent = artifact.title;
+            if (artifact.descriptionHtml) {
+                infoDescEl.innerHTML = artifact.descriptionHtml;
+            } else {
+                infoDescEl.textContent = artifact.description;
+            }
+
+            linksEl.innerHTML = '';
+            const primaryLink = document.createElement('a');
+            primaryLink.href = artifact.link;
+            primaryLink.target = '_blank';
+            primaryLink.rel = 'noopener noreferrer';
+            primaryLink.textContent = 'Open Artifact';
+            linksEl.appendChild(primaryLink);
+
+            if (artifact.link.startsWith('https://colab.')) {
+                const note = document.createElement('small');
+                note.textContent = ' * Opens in Google Colab';
+                note.style.alignSelf = 'center';
+                note.style.color = 'var(--muted-color)';
+                linksEl.appendChild(note);
+            }
+
+            renderCoursework(artifact);
+        }
+
+        function createReflectionParagraphs(container, reflectionText) {
+            const segments = reflectionText.split(/\n\s*\n/);
+            segments.forEach(segment => {
+                const trimmed = segment.trim();
+                if (!trimmed) return;
+                const p = document.createElement('p');
+                p.textContent = trimmed;
+                container.appendChild(p);
+            });
+        }
+
+        function initEmbeddedToggles() {
+            // Helper to extract first sentence
+            function firstSentenceOf(text) {
+                const cleaned = (text || '').replace(/\s+/g, ' ').trim();
+                const m = cleaned.match(/.*?[\.\!\?](?=\s|$)/);
+                return m ? m[0] : cleaned;
+            }
+
+            let idCounter = 0;
+
+            // Toggle for table rows (Program of Study)
+            const rows = infoDescEl.querySelectorAll('table tbody tr');
+            rows.forEach(row => {
+                const tds = row.querySelectorAll('td');
+                if (tds.length < 4) return;
+                const cell = tds[3]; // Reflection column
+                if (!cell || cell.dataset.toggable === '1') return;
+
+                // Skip if cell is empty or has no text
+                const cellText = cell.textContent.trim();
+                if (!cellText) return;
+
+                const fullHTML = cell.innerHTML.trim();
+                const previewText = firstSentenceOf(cellText);
+
+                // Build DOM structure: preview + button + full
+                const container = document.createElement('div');
+                container.className = 'reflection-wrap';
+
+                const previewP = document.createElement('p');
+                previewP.className = 'reflection-preview';
+                previewP.textContent = previewText;
+
+                const fullDiv = document.createElement('div');
+                fullDiv.className = 'reflection-full';
+                fullDiv.innerHTML = fullHTML;
+                fullDiv.hidden = true;
+
+                const contentId = 'reflection-full-' + (++idCounter);
+                fullDiv.id = contentId;
+
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'reflection-toggle-btn';
+                btn.setAttribute('aria-controls', contentId);
+                btn.setAttribute('aria-expanded', 'false');
+                btn.textContent = 'Show more';
+                btn.addEventListener('click', () => {
+                    const expanded = btn.getAttribute('aria-expanded') === 'true';
+                    fullDiv.hidden = expanded;
+                    previewP.hidden = !expanded;
+                    btn.setAttribute('aria-expanded', String(!expanded));
+                    btn.textContent = expanded ? 'Show more' : 'Show less';
+                });
+
+                // Replace cell contents
+                cell.innerHTML = '';
+                container.appendChild(previewP);
+                container.appendChild(btn);
+                container.appendChild(fullDiv);
+                cell.appendChild(container);
+                cell.dataset.toggable = '1';
+            });
+
+            // Toggle for h3 sections (Reflection Statement)
+            const h3Sections = infoDescEl.querySelectorAll('h3');
+            h3Sections.forEach(h3 => {
+                if (h3.dataset.toggable === '1') return;
+
+                // Collect all paragraphs after h3 until next h3 or h2
+                const paragraphs = [];
+                let sibling = h3.nextElementSibling;
+                while (sibling && sibling.tagName !== 'H2' && sibling.tagName !== 'H3') {
+                    if (sibling.tagName === 'P') {
+                        paragraphs.push(sibling);
+                    }
+                    sibling = sibling.nextElementSibling;
+                }
+
+                if (paragraphs.length === 0) return;
+
+                // Get full HTML of all paragraphs
+                const fullHTML = paragraphs.map(p => p.outerHTML).join('');
+                const previewText = firstSentenceOf(paragraphs[0].textContent);
+
+                // Build DOM structure
+                const container = document.createElement('div');
+                container.className = 'reflection-wrap';
+
+                const previewP = document.createElement('p');
+                previewP.className = 'reflection-preview';
+                previewP.textContent = previewText;
+
+                const fullDiv = document.createElement('div');
+                fullDiv.className = 'reflection-full';
+                fullDiv.innerHTML = fullHTML;
+                fullDiv.hidden = true;
+
+                const contentId = 'section-full-' + (++idCounter);
+                fullDiv.id = contentId;
+
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'reflection-toggle-btn';
+                btn.setAttribute('aria-controls', contentId);
+                btn.setAttribute('aria-expanded', 'false');
+                btn.textContent = 'Show more';
+                btn.addEventListener('click', () => {
+                    const expanded = btn.getAttribute('aria-expanded') === 'true';
+                    fullDiv.hidden = expanded;
+                    previewP.hidden = !expanded;
+                    btn.setAttribute('aria-expanded', String(!expanded));
+                    btn.textContent = expanded ? 'Show more' : 'Show less';
+                });
+
+                // Remove original paragraphs and insert toggle structure
+                paragraphs.forEach(p => p.remove());
+                h3.insertAdjacentElement('afterend', container);
+                container.appendChild(previewP);
+                container.appendChild(btn);
+                container.appendChild(fullDiv);
+                h3.dataset.toggable = '1';
+            });
+
+            // Toggle for h4 sections (Program Goals)
+            const h4Sections = infoDescEl.querySelectorAll('h4');
+            h4Sections.forEach(h4 => {
+                if (h4.dataset.toggable === '1') return;
+
+                // Collect content after h4 until next h4, h3, or h2
+                const contentNodes = [];
+                let sibling = h4.nextElementSibling;
+                while (sibling && sibling.tagName !== 'H2' && sibling.tagName !== 'H3' && sibling.tagName !== 'H4') {
+                    if (sibling.tagName === 'P' || sibling.tagName === 'UL' || sibling.tagName === 'OL') {
+                        contentNodes.push(sibling);
+                    }
+                    sibling = sibling.nextElementSibling;
+                }
+
+                // Only toggle paragraphs before lists
+                const paragraphsBeforeList = [];
+                for (const node of contentNodes) {
+                    if (node.tagName === 'UL' || node.tagName === 'OL') break;
+                    if (node.tagName === 'P') paragraphsBeforeList.push(node);
+                }
+
+                if (paragraphsBeforeList.length === 0) return;
+
+                // Get full HTML of paragraphs
+                const fullHTML = paragraphsBeforeList.map(p => p.outerHTML).join('');
+                const previewText = firstSentenceOf(paragraphsBeforeList[0].textContent);
+
+                // Build DOM structure
+                const container = document.createElement('div');
+                container.className = 'reflection-wrap';
+
+                const previewP = document.createElement('p');
+                previewP.className = 'reflection-preview';
+                previewP.textContent = previewText;
+
+                const fullDiv = document.createElement('div');
+                fullDiv.className = 'reflection-full';
+                fullDiv.innerHTML = fullHTML;
+                fullDiv.hidden = true;
+
+                const contentId = 'goal-full-' + (++idCounter);
+                fullDiv.id = contentId;
+
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'reflection-toggle-btn';
+                btn.setAttribute('aria-controls', contentId);
+                btn.setAttribute('aria-expanded', 'false');
+                btn.textContent = 'Show more';
+                btn.addEventListener('click', () => {
+                    const expanded = btn.getAttribute('aria-expanded') === 'true';
+                    fullDiv.hidden = expanded;
+                    previewP.hidden = !expanded;
+                    btn.setAttribute('aria-expanded', String(!expanded));
+                    btn.textContent = expanded ? 'Show more' : 'Show less';
+                });
+
+                // Remove original paragraphs and insert toggle structure
+                paragraphsBeforeList.forEach(p => p.remove());
+                h4.insertAdjacentElement('afterend', container);
+                container.appendChild(previewP);
+                container.appendChild(btn);
+                container.appendChild(fullDiv);
+                h4.dataset.toggable = '1';
+            });
+        }
+
+        function renderCoursework(artifact) {
+            if (!courseStatusEl || !courseListEl) return;
+
+            const hasCourseData = Object.keys(courseIndex).length > 0;
+            const hasArtifactData = Object.keys(artifactCourseMap).length > 0;
+
+            if (!hasCourseData && !hasArtifactData && !courseLoadError) {
+                courseStatusEl.textContent = 'Loading related course material…';
+                courseListEl.hidden = true;
+                return;
+            }
+
+            if (courseLoadError) {
+                courseStatusEl.textContent = 'Unable to load course material right now. Please refresh to try again.';
+                courseListEl.hidden = true;
+                return;
+            }
+
+            const artifactEntry = resolveArtifactCourseEntry(artifact.link);
+            const courseCodes = artifactEntry?.course_codes?.length ? artifactEntry.course_codes : (artifact.courses || []);
+
+            if (!courseCodes.length) {
+                courseStatusEl.textContent = 'No related course material linked for this artifact yet.';
+                courseListEl.hidden = true;
+                return;
+            }
+
+            courseListEl.innerHTML = '';
+
+            courseCodes.forEach(code => {
+                const course = courseIndex[code];
+                if (!course) return;
+
+                const card = document.createElement('article');
+                card.className = 'course-card';
+
+                const header = document.createElement('div');
+                header.className = 'course-header';
+
+                const heading = document.createElement('h3');
+                heading.textContent = course.title ? `${code} · ${course.title}` : code;
+                header.appendChild(heading);
+
+                if (course.term) {
+                    const pill = document.createElement('span');
+                    pill.className = 'course-pill';
+                    pill.textContent = course.term;
+                    header.appendChild(pill);
+                }
+
+                card.appendChild(header);
+
+                if (course.description) {
+                    const meta = document.createElement('p');
+                    meta.className = 'course-meta';
+                    meta.textContent = course.description;
+                    card.appendChild(meta);
+                }
+
+                const mentions = artifactEntry?.mentions?.[code] || [];
+                if (mentions.length) {
+                    const label = document.createElement('p');
+                    label.className = 'course-meta';
+                    label.textContent = 'Referenced in this artifact as:';
+                    card.appendChild(label);
+
+                    const list = document.createElement('ul');
+                    list.className = 'course-materials';
+                    mentions.forEach(item => {
+                        const li = document.createElement('li');
+                        li.textContent = item;
+                        list.appendChild(li);
+                    });
+                    card.appendChild(list);
+                }
+
+                if (course.reflection) {
+                    const reflection = document.createElement('div');
+                    reflection.className = 'course-reflection';
+                    
+                    // Create toggle for course reflection
+                    const reflectionText = course.reflection.trim();
+                    const firstSentence = reflectionText.match(/.*?[\.\!\?](?=\s|$)/)?.[0] || reflectionText;
+                    
+                    const container = document.createElement('div');
+                    container.className = 'reflection-wrap';
+                    
+                    const previewP = document.createElement('p');
+                    previewP.className = 'reflection-preview';
+                    previewP.textContent = firstSentence;
+                    
+                    const fullDiv = document.createElement('div');
+                    fullDiv.className = 'reflection-full';
+                    createReflectionParagraphs(fullDiv, course.reflection);
+                    fullDiv.hidden = true;
+                    
+                    const contentId = 'course-reflection-' + code.replace(/\s+/g, '-');
+                    fullDiv.id = contentId;
+                    
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = 'reflection-toggle-btn';
+                    btn.setAttribute('aria-controls', contentId);
+                    btn.setAttribute('aria-expanded', 'false');
+                    btn.textContent = 'Show more';
+                    btn.addEventListener('click', () => {
+                        const expanded = btn.getAttribute('aria-expanded') === 'true';
+                        fullDiv.hidden = expanded;
+                        previewP.hidden = !expanded;
+                        btn.setAttribute('aria-expanded', String(!expanded));
+                        btn.textContent = expanded ? 'Show more' : 'Show less';
+                    });
+                    
+                    container.appendChild(previewP);
+                    container.appendChild(btn);
+                    container.appendChild(fullDiv);
+                    reflection.appendChild(container);
+                    card.appendChild(reflection);
+                }
+
+                courseListEl.appendChild(card);
+            });
+
+            if (!courseListEl.children.length) {
+                courseStatusEl.textContent = 'No related course material linked for this artifact yet.';
+                courseListEl.hidden = true;
+            } else {
+                courseStatusEl.textContent = '';
+                courseListEl.hidden = false;
+            }
+        }
+
+        function resolveArtifactCourseEntry(link) {
+            if (!link) return null;
+
+            const direct = artifactCourseMap[link];
+            if (direct) return direct;
+
+            const decoded = safeDecode(link);
+            if (decoded) {
+                if (artifactCourseMap[decoded]) {
+                    return artifactCourseMap[decoded];
+                }
+
+                const trimmed = decoded.replace(/\/?$/, '');
+                if (trimmed && artifactCourseMap[trimmed]) {
+                    return artifactCourseMap[trimmed];
+                }
+            }
+
+            return null;
+        }
+
+        function safeDecode(value) {
+            try {
+                return decodeURIComponent(value);
+            } catch (error) {
+                return value;
+            }
+        }
+
+        function ingestCourseData(data) {
+            if (!data) return;
+
+            const rawCourses = Array.isArray(data) ? data : data.courses;
+            if (!Array.isArray(rawCourses) || !rawCourses.length) return;
+
+            courseIndex = rawCourses.reduce((acc, item) => {
+                if (!item || !item.course_code) return acc;
+                acc[item.course_code.trim()] = item;
+                return acc;
+            }, {});
+
+            artifactCourseMap = !Array.isArray(data) && data.artifact_map ? data.artifact_map : {};
+            courseLoadError = false;
+            renderCoursework(artifacts[targetIndex]);
+        }
+
+        function updateTransforms() {
+            const cards = coverflowEl.children;
+            Array.from(cards).forEach((card) => {
+                const index = Number(card.dataset.index);
+                const offset = index - displayIndex;
+                const absOffset = Math.abs(offset);
+
+                const translateX = offset * GAP;
+                const rotateY = offset * -ROTATION;
+                const scale = Math.max(1 - (absOffset * 0.12), 0.6);
+                const translateZ = -Math.min(absOffset * Z_SPREAD, 400);
+
+                card.style.transform = `translateX(${translateX}px) translateZ(${translateZ}px) rotateY(${rotateY}deg) scale(${scale})`;
+                card.style.zIndex = String(artifacts.length - absOffset);
+                card.style.filter = `blur(${absOffset * 1.2}px)`;
+
+                const isActive = index === targetIndex;
+                card.dataset.active = String(isActive);
+                card.setAttribute('aria-selected', String(isActive));
+            });
+        }
+
+        function animateToTarget() {
+            if (Math.abs(targetIndex - displayIndex) < 0.001) {
+                displayIndex = targetIndex;
+                updateTransforms();
+                animationFrame = null;
+                return;
+            }
+
+            displayIndex += (targetIndex - displayIndex) * 0.12;
+            updateTransforms();
+            animationFrame = requestAnimationFrame(animateToTarget);
+        }
+
+        function setActiveIndex(newIndex) {
+            const clampedIndex = Math.max(0, Math.min(artifacts.length - 1, newIndex));
+            if (clampedIndex === targetIndex) return;
+
+            targetIndex = clampedIndex;
+            updateInfoPanel();
+            if (!animationFrame) {
+                animationFrame = requestAnimationFrame(animateToTarget);
+            }
+        }
+
+        function step(direction) {
+            if (direction === 'next') {
+                setActiveIndex(targetIndex + 1);
+            } else if (direction === 'prev') {
+                setActiveIndex(targetIndex - 1);
+            }
+        }
+
+        controlButtons.forEach(button => {
+            button.addEventListener('click', () => step(button.dataset.direction));
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'ArrowRight') {
+                step('next');
+            } else if (event.key === 'ArrowLeft') {
+                step('prev');
+            }
+        });
+
+        let wheelTimeout;
+        coverflowEl.addEventListener('wheel', (event) => {
+            event.preventDefault();
+            if (wheelTimeout) return;
+            if (event.deltaY > 0 || event.deltaX > 0) {
+                step('next');
+            } else if (event.deltaY < 0 || event.deltaX < 0) {
+                step('prev');
+            }
+            wheelTimeout = setTimeout(() => (wheelTimeout = null), 220);
+        }, { passive: false });
+
+        coverflowEl.addEventListener('touchstart', handleTouch);
+        coverflowEl.addEventListener('touchmove', handleTouch);
+        coverflowEl.addEventListener('touchend', handleTouchEnd);
+
+        let touchStartX = null;
+        let touchDeltaX = 0;
+
+        function handleTouch(event) {
+            if (event.touches.length !== 1) return;
+            if (event.type === 'touchstart') {
+                touchStartX = event.touches[0].clientX;
+                touchDeltaX = 0;
+            } else if (event.type === 'touchmove' && touchStartX !== null) {
+                touchDeltaX = event.touches[0].clientX - touchStartX;
+            }
+        }
+
+        function handleTouchEnd() {
+            if (touchStartX === null) return;
+            const THRESHOLD = 40;
+            if (touchDeltaX > THRESHOLD) {
+                step('prev');
+            } else if (touchDeltaX < -THRESHOLD) {
+                step('next');
+            }
+            touchStartX = null;
+            touchDeltaX = 0;
+        }
+
+        refreshLayoutConstants();
+        artifacts.forEach((artifact, index) => {
+            const card = createCard(artifact, index);
+            coverflowEl.appendChild(card);
+        });
+        updateInfoPanel();
+        updateTransforms();
+
+        window.addEventListener('resize', () => {
+            refreshLayoutConstants();
+            updateTransforms();
+        });
+
+        if (PRELOADED_COURSE_DATA) {
+            ingestCourseData(PRELOADED_COURSE_DATA);
+        }
+
+        fetch(COURSE_DATA_URL)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                ingestCourseData(data);
+            })
+            .catch(error => {
+                console.error('Failed to load course data:', error);
+                if (!Object.keys(courseIndex).length) {
+                    courseLoadError = true;
+                    renderCoursework(artifacts[targetIndex]);
+                }
+            });
+    </script>
+</body>
+</html>
