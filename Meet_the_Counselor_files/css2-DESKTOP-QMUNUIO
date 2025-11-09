@@ -1,0 +1,8 @@
+/* fallback */
+@font-face {
+  font-family: 'Playwrite AU QLD';
+  font-style: normal;
+  font-weight: 100 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/playwriteauqld/v10/SlGLmR-Yo5oYZX5BFVcEwSFSOXBRQg4.woff2) format('woff2');
+}
