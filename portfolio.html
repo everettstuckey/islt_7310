@@ -1353,6 +1353,8 @@ html {-webkit-transition : -webkit-filter 300ms linear;}
             const halfTotal = totalCards / 2;
             const visibleRange = 3; // Only show cards within this range on either side
             
+            console.log(`[DEBUG] updateTransforms() - displayIndex: ${displayIndex}, targetIndex: ${targetIndex}`);
+            
             Array.from(cards).forEach((card) => {
                 const index = Number(card.dataset.index);
                 let offset = index - displayIndex;
@@ -1367,7 +1369,8 @@ html {-webkit-transition : -webkit-filter 300ms linear;}
                 const absOffset = Math.abs(offset);
 
                 // Hide cards beyond the visible range
-                if (absOffset > visibleRange) {
+                const isVisible = absOffset <= visibleRange;
+                if (!isVisible) {
                     card.style.opacity = '0';
                     card.style.pointerEvents = 'none';
                 } else {
@@ -1409,6 +1412,11 @@ html {-webkit-transition : -webkit-filter 300ms linear;}
                 const isActive = index === targetIndex;
                 card.dataset.active = String(isActive);
                 card.setAttribute('aria-selected', String(isActive));
+                
+                // Log details for cards that should be the main navigation targets
+                if (index >= 0 && index <= 5) {
+                    console.log(`[DEBUG] Card ${index} (${artifacts[index]?.title}): offset=${offset}, absOffset=${absOffset}, visible=${isVisible}, active=${isActive}`);
+                }
             });
         }
 
