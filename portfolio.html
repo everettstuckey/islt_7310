@@ -1353,8 +1353,6 @@ html {-webkit-transition : -webkit-filter 300ms linear;}
             const halfTotal = totalCards / 2;
             const visibleRange = 3; // Only show cards within this range on either side
             
-            console.log(`[DEBUG] updateTransforms() - displayIndex: ${displayIndex}, targetIndex: ${targetIndex}`);
-            
             Array.from(cards).forEach((card) => {
                 const index = Number(card.dataset.index);
                 let offset = index - displayIndex;
@@ -1369,8 +1367,7 @@ html {-webkit-transition : -webkit-filter 300ms linear;}
                 const absOffset = Math.abs(offset);
 
                 // Hide cards beyond the visible range
-                const isVisible = absOffset <= visibleRange;
-                if (!isVisible) {
+                if (absOffset > visibleRange) {
                     card.style.opacity = '0';
                     card.style.pointerEvents = 'none';
                 } else {
@@ -1412,11 +1409,6 @@ html {-webkit-transition : -webkit-filter 300ms linear;}
                 const isActive = index === targetIndex;
                 card.dataset.active = String(isActive);
                 card.setAttribute('aria-selected', String(isActive));
-                
-                // Log details for cards that should be the main navigation targets
-                if (index >= 0 && index <= 5) {
-                    console.log(`[DEBUG] Card ${index} (${artifacts[index]?.title}): offset=${offset}, absOffset=${absOffset}, visible=${isVisible}, active=${isActive}`);
-                }
             });
         }
 
@@ -1466,18 +1458,18 @@ html {-webkit-transition : -webkit-filter 300ms linear;}
         }
 
         function step(direction) {
-            console.log(`[DEBUG] step() called with direction: ${direction}`);
-            console.log(`[DEBUG] Current targetIndex: ${targetIndex}`);
-            console.log(`[DEBUG] Total artifacts: ${artifacts.length}`);
+            console.log(`[NAV] step(${direction}) - Current: ${targetIndex} (${artifacts[targetIndex]?.title})`);
             
             if (direction === 'next') {
                 const newTarget = targetIndex + 1;
-                console.log(`[DEBUG] Moving next - new target would be: ${newTarget}`);
+                console.log(`[NAV] Moving NEXT from ${targetIndex} to ${newTarget}`);
                 setActiveIndex(newTarget);
+                console.log(`[NAV] After setActiveIndex, targetIndex is now: ${targetIndex} (${artifacts[targetIndex]?.title})`);
             } else if (direction === 'prev') {
                 const newTarget = targetIndex - 1;
-                console.log(`[DEBUG] Moving prev - new target would be: ${newTarget}`);
+                console.log(`[NAV] Moving PREV from ${targetIndex} to ${newTarget}`);
                 setActiveIndex(newTarget);
+                console.log(`[NAV] After setActiveIndex, targetIndex is now: ${targetIndex} (${artifacts[targetIndex]?.title})`);
             }
         }
 
