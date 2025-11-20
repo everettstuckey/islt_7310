@@ -1491,16 +1491,9 @@ html {-webkit-transition : -webkit-filter 300ms linear;}
 
         refreshLayoutConstants();
         
-        // Clear any pre-existing cards from saved HTML state
-        coverflowEl.innerHTML = '';
+        // Initialize immediately to prevent race conditions
+        initializeCoverflow();
         
-        artifacts.forEach((artifact, index) => {
-            const card = createCard(artifact, index);
-            coverflowEl.appendChild(card);
-        });
-        updateInfoPanel();
-        updateTransforms();
-
         window.addEventListener('resize', () => {
             refreshLayoutConstants();
             updateTransforms();
@@ -1527,6 +1520,18 @@ html {-webkit-transition : -webkit-filter 300ms linear;}
                     renderCoursework(artifacts[targetIndex]);
                 }
             });
+
+        function initializeCoverflow() {
+            // Clear any pre-existing cards from saved HTML state
+            coverflowEl.innerHTML = '';
+            
+            artifacts.forEach((artifact, index) => {
+                const card = createCard(artifact, index);
+                coverflowEl.appendChild(card);
+            });
+            updateInfoPanel();
+            updateTransforms();
+        }
     </script>
 
 </body></html>
