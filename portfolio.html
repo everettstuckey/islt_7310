@@ -1458,10 +1458,18 @@ html {-webkit-transition : -webkit-filter 300ms linear;}
         }
 
         function step(direction) {
+            console.log(`[DEBUG] step() called with direction: ${direction}`);
+            console.log(`[DEBUG] Current targetIndex: ${targetIndex}`);
+            console.log(`[DEBUG] Total artifacts: ${artifacts.length}`);
+            
             if (direction === 'next') {
-                setActiveIndex(targetIndex + 1);
+                const newTarget = targetIndex + 1;
+                console.log(`[DEBUG] Moving next - new target would be: ${newTarget}`);
+                setActiveIndex(newTarget);
             } else if (direction === 'prev') {
-                setActiveIndex(targetIndex - 1);
+                const newTarget = targetIndex - 1;
+                console.log(`[DEBUG] Moving prev - new target would be: ${newTarget}`);
+                setActiveIndex(newTarget);
             }
         }
 
