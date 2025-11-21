@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UAPB Robotics Futures: FIPSE Grant Proposal</title>
+  <style>
+    :root {
+      --gold: #ffb400;
+      --green: #0a3a2a;
+      --charcoal: #111111;
+      --cloud: #f4f5f7;
+      --slate: #2f3a45;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Segoe UI", "Calibri", Arial, sans-serif;
+      background: var(--cloud);
+      color: var(--slate);
+      line-height: 1.65;
+      padding: 0;
+      margin: 0;
+    }
+
+    .header {
+      background: linear-gradient(135deg, var(--green) 0%, #1a5a4a 100%);
+      color: var(--white);
+      padding: 48px 32px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .header h1 {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 800;
+      margin-bottom: 16px;
+      color: var(--gold);
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .header .subtitle {
+      font-size: clamp(16px, 2vw, 20px);
+      color: rgba(255, 255, 255, 0.95);
+      font-weight: 400;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .header .grant-info {
+      margin-top: 24px;
+      padding: 16px;
+      background: rgba(255, 180, 0, 0.15);
+      border-radius: 8px;
+      display: inline-block;
+    }
+
+    .header .grant-info p {
+      margin: 4px 0;
+      font-size: 15px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .header .grant-info strong {
+      color: var(--gold);
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 48px 32px;
+    }
+
+    .section {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 40px;
+      margin-bottom: 32px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .section-header {
+      background: linear-gradient(90deg, var(--green), #1a5a4a);
+      color: var(--white);
+      padding: 20px 32px;
+      margin: -40px -40px 32px -40px;
+      border-radius: 12px 12px 0 0;
+    }
+
+    .section-header h2 {
+      font-size: clamp(22px, 3vw, 28px);
+      font-weight: 700;
+      margin: 0;
+      color: var(--gold);
+    }
+
+    .section-header .points {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.8);
+      margin-top: 4px;
+      font-weight: 600;
+    }
+
+    h3 {
+      font-size: clamp(18px, 2.5vw, 22px);
+      color: var(--green);
+      font-weight: 700;
+      margin: 32px 0 16px 0;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--gold);
+    }
+
+    h3:first-child {
+      margin-top: 0;
+    }
+
+    h4 {
+      font-size: clamp(16px, 2vw, 19px);
+      color: var(--slate);
+      font-weight: 700;
+      margin: 24px 0 12px 0;
+    }
+
+    p {
+      margin: 16px 0;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    ul, ol {
+      margin: 16px 0;
+      padding-left: 28px;
+    }
+
+    li {
+      margin: 10px 0;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin: 24px 0;
+    }
+
+    .info-card {
+      background: var(--cloud);
+      border-left: 4px solid var(--gold);
+      padding: 20px;
+      border-radius: 6px;
+    }
+
+    .info-card h4 {
+      margin-top: 0;
+      color: var(--green);
+      font-size: 17px;
+    }
+
+    .info-card p {
+      margin: 8px 0;
+      font-size: 15px;
+    }
+
+    .budget-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0;
+      font-size: 15px;
+    }
+
+    .budget-table th {
+      background: var(--green);
+      color: var(--white);
+      padding: 14px;
+      text-align: left;
+      font-weight: 700;
+    }
+
+    .budget-table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .budget-table tr:nth-child(even) {
+      background: #f9f9f9;
+    }
+
+    .budget-table .total-row {
+      background: var(--cloud);
+      font-weight: 700;
+      color: var(--green);
+    }
+
+    .budget-table .total-row td {
+      border-top: 3px solid var(--gold);
+      padding-top: 16px;
+    }
+
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(255, 180, 0, 0.1), rgba(10, 58, 42, 0.05));
+      border-left: 5px solid var(--gold);
+      padding: 24px;
+      margin: 24px 0;
+      border-radius: 6px;
+    }
+
+    .highlight-box h4 {
+      margin-top: 0;
+      color: var(--green);
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin: 24px 0;
+    }
+
+    .metric {
+      background: var(--white);
+      border: 2px solid var(--gold);
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .metric-value {
+      font-size: clamp(28px, 4vw, 36px);
+      font-weight: 800;
+      color: var(--green);
+      margin-bottom: 8px;
+    }
+
+    .metric-label {
+      font-size: 14px;
+      color: var(--slate);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .footer {
+      background: var(--charcoal);
+      color: rgba(255, 255, 255, 0.8);
+      padding: 32px;
+      text-align: center;
+      margin-top: 64px;
+    }
+
+    .footer p {
+      margin: 8px 0;
+      font-size: 14px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--charcoal);
+      padding: 6px 14px;
+      border-radius: 4px;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-right: 8px;
+    }
+
+    @media print {
+      body {
+        background: white;
+      }
+
+      .section {
+        page-break-inside: avoid;
+        box-shadow: none;
+      }
+
+      .header {
+        page-break-after: avoid;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 24px 16px;
+      }
+
+      .section {
+        padding: 24px 20px;
+      }
+
+      .section-header {
+        margin: -24px -20px 24px -20px;
+        padding: 16px 20px;
+      }
+
+      .info-grid,
+      .metrics-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1>UAPB Robotics Futures</h1>
+    <p class="subtitle">The UAPB Alumni Mentorship Network for AI & Robotics Pathways</p>
+    <div class="grant-info">
+      <p><strong>U.S. Department of Education</strong></p>
+      <p>Fund for the Improvement of Postsecondary Education (FIPSE) Special Projects</p>
+      <p><strong>CFDA Number:</strong> 84.116J | <strong>Funding Request:</strong> $2,000,000</p>
+      <p><strong>Project Period:</strong> October 1, 2026 – September 30, 2030 (48 Months)</p>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- Cover Sheet -->
+    <section class="section">
+      <div class="section-header">
+        <h2>Application Cover Sheet</h2>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <h4>Applicant Institution</h4>
+          <p><strong>University of Arkansas at Pine Bluff (UAPB)</strong></p>
+          <p>1200 N University Dr</p>
+          <p>Pine Bluff, AR 71601</p>
+          <p>Type: Public/State Controlled HBCU</p>
+        </div>
+
+        <div class="info-card">
+          <h4>Project Director</h4>
+          <p><strong>Director of Admissions</strong></p>
+          <p>Phone: 870-575-8000</p>
+          <p>Email: admissions@uapb.edu</p>
+        </div>
+
+        <div class="info-card">
+          <h4>Absolute Priority</h4>
+          <p><strong>Priority 2:</strong> Ensuring Future Educators and Students Have Foundational Exposure to AI and Computer Science</p>
+        </div>
+
+        <div class="info-card">
+          <h4>Partners</h4>
+          <p><strong>St. Louis Public Schools (SLPS)</strong></p>
+          <p>Arkansas School Districts</p>
+          <p>UAPB Alumni Association</p>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <h4>Abstract Summary</h4>
+        <p>UAPB Robotics Futures addresses Absolute Priority 2 by establishing a cross-state mentorship pipeline connecting University of Arkansas at Pine Bluff alumni with FIRST Robotics teams in St. Louis Public Schools (SLPS) and targeted Arkansas districts. The project targets the "AI Divide" by mobilizing HBCU alumni—professionals in engineering, CS, and education—to serve as technical mentors.</p>
+        <p>Key activities include: (1) Developing an "AI Mentor Micro-credential" to train alumni in pedagogy and AI literacy; (2) Embedding AI/Computer Vision modules into the standard FIRST Robotics curriculum; (3) Providing professional development for K-12 teachers; and (4) Hosting a 4-week "UAPB AI & Robotics Bridge Institute" for high school participants.</p>
+        <p><strong>Over 48 months, the project will support 12 robotics teams annually, serving 400+ students, training 80 alumni mentors, and creating a replicable model for HBCU-led K-12 STEM engagement.</strong></p>
+      </div>
+    </section>
+
+    <!-- Significance -->
+    <section class="section">
+      <div class="section-header">
+        <h2>1. Significance</h2>
+        <span class="points">30 Points</span>
+      </div>
+
+      <h3>Addressing the AI Opportunity Gap</h3>
+      <p>Artificial Intelligence (AI) is reshaping the workforce, yet access to high-quality AI and Computer Science (CS) instruction remains inequitable. St. Louis Public Schools (SLPS) and rural Arkansas districts serve student populations that are historically underrepresented in STEM. While many of these schools attempt to field FIRST Robotics Competition (FRC) or FIRST Tech Challenge (FTC) teams, they often lack the technical mentorship required to move beyond basic mechanics into advanced computing, specifically AI, machine learning, and autonomous programming.</p>
+
+      <h3>The UAPB Solution: Culturally Responsive Mentorship</h3>
+      <p>This project is significant because it activates an untapped resource: the <strong>UAPB Alumni Network</strong>. St. Louis is a major hub for UAPB graduates. By training these alumni—who share lived experiences with the students—to serve as "AI Robotics Mentors," we solve two problems:</p>
+      <ol>
+        <li><strong>The Technical Gap:</strong> Alumni provide the expertise needed to teach students how to program robots using AI (e.g., computer vision for object detection).</li>
+        <li><strong>The Representation Gap:</strong> Students see successful Black engineers and technologists, directly influencing their postsecondary aspirations.</li>
+      </ol>
+
+      <h3>Magnitude of Results</h3>
+      <p>This project moves beyond "exposure." By integrating AI literacy into the competitive ecosystem of FIRST Robotics, students apply AI concepts to solve tangible problems. This creates a direct pipeline from 8th grade through high school graduation, leading to increased enrollment in CS/AI programs at UAPB and peer institutions.</p>
+    </section>
+
+    <!-- Project Design -->
+    <section class="section">
+      <div class="section-header">
+        <h2>2. Quality of the Project Design</h2>
+        <span class="points">45 Points</span>
+      </div>
+
+      <p>The project is designed around four distinct activity pillars:</p>
+
+      <h3>Activity 1: The Alumni AI Mentor Corps (Train the Trainer)</h3>
+      <p>UAPB will recruit cohorts of 20 alumni annually (80 total). Before entering schools, mentors will complete a 20-hour <strong>"AI & Pedagogy Micro-credential"</strong> developed by UAPB Computer Science faculty.</p>
+      <ul>
+        <li><strong>Curriculum:</strong> How to teach AI ethics, explaining neural networks to 14-year-olds, and fostering "Computational Thinking."</li>
+        <li><strong>Outcome:</strong> A certified workforce of volunteer mentors capable of translating high-level tech to K-12 students.</li>
+      </ul>
+
+      <h3>Activity 2: AI-Infused Robotics Support (School Year)</h3>
+      <p>Mentors are matched with robotics teams in SLPS and Arkansas. Support is hybrid:</p>
+      <ul>
+        <li><strong>Weekly Virtual Code Reviews:</strong> Mentors review student code (Java/Python) via Zoom, specifically focusing on autonomous modes and sensor integration.</li>
+        <li><strong>On-Site Build Days:</strong> Mentors travel to schools monthly during "Build Season" (Jan-March) to assist with complex systems.</li>
+        <li><strong>The AI Challenge:</strong> Teams will be tasked with integrating a specific AI component (e.g., using a Limelight camera for vision tracking) regardless of competition requirements, ensuring AI learning occurs.</li>
+      </ul>
+
+      <h3>Activity 3: Teacher Professional Development</h3>
+      <p>Consistent with Priority 2(f), UAPB will partner with SLPS and Arkansas LEAs to provide summer PD workshops for the teachers/coaches leading these teams.</p>
+      <ul>
+        <li><strong>Focus:</strong> "From Blocks to Python: Integrating AI in the Classroom."</li>
+        <li><strong>Resource:</strong> Teachers receive a "Robotics AI Toolkit" with lesson plans mapped to state CS standards.</li>
+      </ul>
+
+      <h3>Activity 4: The UAPB AI & Robotics Bridge Institute (Summer)</h3>
+      <p>A 4-week residential summer program at the UAPB campus for rising high school juniors/seniors selected from the supported teams.</p>
+      <ul>
+        <li><strong>Content:</strong> Advanced AI coursework, college prep, and a "Robot-in-3-Days" style design challenge.</li>
+        <li><strong>Goal:</strong> Solidify the pathway from high school robotics to UAPB matriculation.</li>
+      </ul>
+
+      <div class="metrics-grid">
+        <div class="metric">
+          <div class="metric-value">12</div>
+          <div class="metric-label">Teams Supported Annually</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">400+</div>
+          <div class="metric-label">Students Served</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">80</div>
+          <div class="metric-label">Alumni Mentors Trained</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">48</div>
+          <div class="metric-label">Month Duration</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Management Plan -->
+    <section class="section">
+      <div class="section-header">
+        <h2>3. Quality of the Management Plan</h2>
+        <span class="points">10 Points</span>
+      </div>
+
+      <h3>Governance Structure</h3>
+      <div class="info-grid">
+        <div class="info-card">
+          <h4>Project Director</h4>
+          <p>Director of Admissions (25% FTE)</p>
+          <p>Overall strategy, alumni recruitment, and SLPS partnership management</p>
+        </div>
+        <div class="info-card">
+          <h4>Program Coordinator</h4>
+          <p>Full-time hire (100% FTE)</p>
+          <p>Day-to-day logistics, mentor background checks, travel coordination, and purchasing</p>
+        </div>
+        <div class="info-card">
+          <h4>Faculty Lead</h4>
+          <p>Computer Science (Release Time)</p>
+          <p>Academic integrity of AI curriculum and Mentor Micro-credential</p>
+        </div>
+      </div>
+
+      <h3>Steering Committee</h3>
+      <p>A quarterly committee comprising UAPB faculty, SLPS Office of College & Career Readiness, and Alumni Association leadership will review progress.</p>
+
+      <h3>Timeline - Key Milestones</h3>
+      <ul>
+        <li><span class="badge">Year 1</span> Recruit initial 20 mentors; Develop Micro-credential; Launch support for 8 Pilot Teams (4 MO, 4 AR).</li>
+        <li><span class="badge">Year 2</span> Expand to 12 teams; Launch Summer Bridge Institute (Cohort 1).</li>
+        <li><span class="badge">Year 3</span> Full scale (12 teams); Refine AI Toolkit based on Year 1-2 data.</li>
+        <li><span class="badge">Year 4</span> Evaluation and publication of the "HBCU Robotics Mentorship Playbook."</li>
+      </ul>
+    </section>
+
+    <!-- Evaluation -->
+    <section class="section">
+      <div class="section-header">
+        <h2>4. Quality of the Project Evaluation</h2>
+        <span class="points">15 Points</span>
+      </div>
+
+      <p>UAPB will contract an independent external evaluator to conduct a mixed-methods evaluation.</p>
+
+      <h3>Performance Measures & Targets</h3>
+      <ol>
+        <li><strong>AI Literacy Gains:</strong> 80% of participating students will show a 0.5 Standard Deviation increase on the validated AI Literacy Scale (Long & Magerko) pre/post-season.</li>
+        <li><strong>Mentor Efficacy:</strong> 90% of alumni mentors will complete the micro-credential and report increased confidence in teaching STEM concepts.</li>
+        <li><strong>Postsecondary Intent:</strong> 75% of graduating seniors in the program will apply to a STEM or AI-related postsecondary program.</li>
+        <li><strong>Expansion:</strong> Successfully support 12 teams annually by Year 2.</li>
+      </ol>
+
+      <h3>Continuous Improvement</h3>
+      <p>Evaluation data (surveys, robotics performance data) will be reviewed after every "Build Season" (April) to adjust the Summer Bridge curriculum and Mentor Training for the following fall.</p>
+
+      <div class="highlight-box">
+        <h4>Mixed-Methods Approach</h4>
+        <p>The external evaluator will employ quantitative measures (validated scales, enrollment data) and qualitative methods (student/mentor interviews, case studies) to provide comprehensive assessment of project impact and inform continuous improvement cycles.</p>
+      </div>
+    </section>
+
+    <!-- Budget -->
+    <section class="section">
+      <div class="section-header">
+        <h2>Budget Summary and Narrative</h2>
+      </div>
+
+      <div class="highlight-box">
+        <h4>Total Federal Funds Requested</h4>
+        <p style="font-size: 28px; font-weight: 800; color: var(--green); margin: 8px 0;">$2,000,000</p>
+        <p><strong>Project Duration:</strong> 48 Months (October 1, 2026 – September 30, 2030)</p>
+        <p><strong>Cost Share:</strong> $0 (Not required)</p>
+      </div>
+
+      <table class="budget-table">
+        <thead>
+          <tr>
+            <th>Budget Category</th>
+            <th>Amount</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. Personnel</strong></td>
+            <td>$720,000</td>
+            <td>Program Coordinator (1.0 FTE) @ $65K/yr + 3% COLA; Project Director (0.25 FTE); Faculty Stipends for curriculum development and Summer Bridge Institute</td>
+          </tr>
+          <tr>
+            <td><strong>2. Fringe Benefits</strong></td>
+            <td>$180,000</td>
+            <td>Calculated at 25% of Personnel costs</td>
+          </tr>
+          <tr>
+            <td><strong>3. Travel</strong></td>
+            <td>$160,000</td>
+            <td>Mentor travel (mileage/lodging) for St. Louis-Arkansas visits; Bus transportation for regional FIRST competitions; Conference presentations</td>
+          </tr>
+          <tr>
+            <td><strong>4. Equipment</strong></td>
+            <td>$80,000</td>
+            <td>Robotics hardware (roboRIO controllers, Limelight Vision Cameras, NVIDIA Jetson Nano boards); High-performance laptops for Bridge Institute</td>
+          </tr>
+          <tr>
+            <td><strong>5. Supplies</strong></td>
+            <td>$120,000</td>
+            <td>Robot build materials (aluminum, motors, gears) for 12 teams annually; AI Toolkit printed materials and software licenses</td>
+          </tr>
+          <tr>
+            <td><strong>6. Contractual</strong></td>
+            <td>$300,000</td>
+            <td>External Evaluator ($50K/yr for rigorous analysis); Specialized AI curriculum consultant for K-12 design</td>
+          </tr>
+          <tr>
+            <td><strong>7. Other</strong></td>
+            <td>$300,000</td>
+            <td>Student housing/meals for 4-week Summer Bridge Institute; Mentor stipends ($500/season); FIRST Robotics registration fees for underfunded schools</td>
+          </tr>
+          <tr>
+            <td><strong>8. Indirect Costs</strong></td>
+            <td>$140,000</td>
+            <td>8% of Modified Total Direct Costs (MTDC) per Federal Register restricted rate</td>
+          </tr>
+          <tr class="total-row">
+            <td><strong>TOTAL REQUEST</strong></td>
+            <td><strong>$2,000,000</strong></td>
+            <td><strong>48-Month Project</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Budget Justification Highlights</h3>
+      <h4>Personnel ($720,000)</h4>
+      <p>The Program Coordinator position is essential for managing the complex logistics of coordinating mentors across two states, scheduling school visits, maintaining compliance with background checks, and ensuring quality control. The 0.25 FTE Project Director allocation ensures strategic oversight and high-level partnership management with SLPS and Arkansas LEAs.</p>
+
+      <h4>Equipment ($80,000)</h4>
+      <p>Investment in AI-capable hardware (Limelight cameras, Jetson Nano boards) is critical to the project's goal of moving teams beyond basic robotics into computer vision and machine learning applications. These components will be distributed to teams and retained for the Summer Bridge Institute.</p>
+
+      <h4>Other ($300,000)</h4>
+      <p>The Summer Bridge Institute residential component requires significant investment in housing and meals to provide an immersive college experience. Mentor stipends recognize the substantial volunteer commitment while maintaining program quality. Coverage of FIRST registration fees ($5,000-$6,000 per team) removes a significant barrier for under-resourced schools.</p>
+    </section>
+
+    <!-- Assurances -->
+    <section class="section">
+      <div class="section-header">
+        <h2>Assurances and Certifications</h2>
+      </div>
+
+      <p>The University of Arkansas at Pine Bluff certifies that this project complies with all applicable federal statutes, regulations, and requirements, including but not limited to:</p>
+
+      <ul>
+        <li>Requirements to partner with Local Educational Agencies (LEAs) to provide AI and Computer Science resources to K-12 students as outlined in <strong>Absolute Priority 2</strong></li>
+        <li>Equal opportunity and nondiscrimination provisions</li>
+        <li>Protection of human subjects in research</li>
+        <li>Financial management and procurement standards (2 CFR Part 200)</li>
+        <li>Reporting requirements and performance measurement protocols</li>
+        <li>Data privacy and security provisions for student information</li>
+      </ul>
+
+      <div class="highlight-box">
+        <h4>Institutional Commitment</h4>
+        <p>UAPB commits to providing in-kind support including office space for project staff, institutional advancement support for alumni recruitment, and continued engagement with partner robotics teams beyond the federal funding period to ensure project sustainability.</p>
+      </div>
+    </section>
+
+    <!-- Contact Information -->
+    <section class="section">
+      <div class="section-header">
+        <h2>For More Information</h2>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <h4>Project Inquiries</h4>
+          <p><strong>UAPB Office of Admissions</strong></p>
+          <p>1200 N University Dr</p>
+          <p>Pine Bluff, AR 71601</p>
+          <p>Phone: 870-575-8000</p>
+          <p>Email: admissions@uapb.edu</p>
+        </div>
+
+        <div class="info-card">
+          <h4>Partnership Opportunities</h4>
+          <p><strong>St. Louis Public Schools</strong></p>
+          <p>Office of College & Career Readiness</p>
+          <p>Robotics Program Coordination</p>
+          <p>FIRST Robotics Teams Support</p>
+        </div>
+
+        <div class="info-card">
+          <h4>Alumni Engagement</h4>
+          <p><strong>UAPB Alumni Association</strong></p>
+          <p>St. Louis Chapter</p>
+          <p>Mentor Recruitment</p>
+          <p>Ambassador Program</p>
+        </div>
+
+        <div class="info-card">
+          <h4>Grant Administration</h4>
+          <p><strong>U.S. Department of Education</strong></p>
+          <p>FIPSE Special Projects</p>
+          <p>CFDA 84.116J</p>
+          <p>Priority 2: AI & Computer Science</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer class="footer">
+    <p><strong>University of Arkansas at Pine Bluff</strong></p>
+    <p>UAPB Robotics Futures: The UAPB Alumni Mentorship Network for AI & Robotics Pathways</p>
+    <p>FIPSE Special Projects Grant Proposal | November 2025</p>
+    <p style="margin-top: 16px; font-size: 13px; opacity: 0.7;">
+      Prepared for submission to the U.S. Department of Education<br>
+      Fund for the Improvement of Postsecondary Education
+    </p>
+  </footer>
+</body>
+</html>
