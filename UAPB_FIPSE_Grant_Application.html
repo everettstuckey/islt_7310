@@ -5,35 +5,81 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>FIPSE Grant Application - UAPB Robotics Futures</title>
 <style>
+/* Base styles for screen and print */
 body{font-family:"Times New Roman",Times,serif;font-size:12pt;line-height:1.5;max-width:8.5in;margin:40px auto;background:#fff;color:#000;padding:40px}
-h1{font-size:14pt;font-weight:bold;text-align:center;margin:24pt 0 12pt;page-break-after:avoid}
-h2{font-size:12pt;font-weight:bold;margin:18pt 0 6pt;page-break-after:avoid}
-h3{font-size:12pt;font-weight:bold;font-style:italic;margin:12pt 0 6pt;page-break-after:avoid}
-p{margin:6pt 0;text-align:justify}
-.cover-page{margin-bottom:24pt}.cover-page h1{font-size:16pt;margin-bottom:24pt}.cover-page p{margin:3pt 0;text-align:left}
+h1{font-size:14pt;font-weight:bold;text-align:center;margin:24pt 0 12pt;page-break-after:avoid;page-break-inside:avoid;orphans:3;widows:3}
+h2{font-size:12pt;font-weight:bold;margin:18pt 0 6pt;page-break-after:avoid;page-break-inside:avoid;orphans:3;widows:3}
+h3{font-size:12pt;font-weight:bold;font-style:italic;margin:12pt 0 6pt;page-break-after:avoid;page-break-inside:avoid;orphans:3;widows:3}
+p{margin:6pt 0;text-align:justify;orphans:3;widows:3}
+.cover-page{margin-bottom:24pt;page-break-after:always}.cover-page h1{font-size:16pt;margin-bottom:24pt}.cover-page p{margin:3pt 0;text-align:left}
 .cover-page .field{margin:12pt 0}.cover-page .field-label{font-weight:bold}
-.abstract{margin:18pt 0;padding:12pt;border:1pt solid #000}.abstract h2{margin-top:0}
+.abstract{margin:18pt 0;padding:12pt;border:1pt solid #000;page-break-inside:avoid}.abstract h2{margin-top:0}
 ul,ol{margin:6pt 0;padding-left:40pt}li{margin:3pt 0}
-.section-header{font-size:12pt;font-weight:bold;margin:24pt 0 12pt;padding:6pt 0;border-bottom:2pt solid #000}
-table{width:100%;border-collapse:collapse;margin:12pt 0;font-size:11pt}
+.section-header{font-size:12pt;font-weight:bold;margin:24pt 0 12pt;padding:6pt 0;border-bottom:2pt solid #000;page-break-after:avoid;page-break-inside:avoid}
+table{width:100%;border-collapse:collapse;margin:12pt 0;font-size:11pt;page-break-inside:avoid}
 th{background:#e0e0e0;border:1pt solid #000;padding:6pt;text-align:left;font-weight:bold}
 td{border:1pt solid #000;padding:6pt}
 .budget-total{font-weight:bold;background:#f0f0f0}
-.page-break{page-break-before:always}
-@media print{body{padding:1in;max-width:none}.page-break{page-break-before:always}}
+.page-break{page-break-before:always;clear:both}
+
+/* Print-specific styles */
+@media print{
+  @page{
+    size:8.5in 11in;
+    margin:1in 1in 1in 1in;
+  }
+  
+  body{
+    margin:0;
+    padding:0;
+    max-width:none;
+    font-size:12pt;
+    line-height:1.5;
+  }
+  
+  /* Page break control */
+  .page-break{page-break-before:always;clear:both}
+  .cover-page{page-break-after:always}
+  .abstract{page-break-inside:avoid}
+  .letter{page-break-inside:avoid;margin:24pt 0}
+  .resume{page-break-after:always;page-break-inside:avoid}
+  .section-header{page-break-after:avoid;page-break-inside:avoid}
+  
+  /* Prevent orphans and widows */
+  h1,h2,h3,h4,h5,h6{page-break-after:avoid;page-break-inside:avoid;orphans:3;widows:3}
+  p{orphans:3;widows:3}
+  ul,ol{page-break-inside:avoid;orphans:3;widows:3}
+  li{page-break-inside:avoid}
+  table{page-break-inside:avoid}
+  tr{page-break-inside:avoid;page-break-after:auto}
+  
+  /* Hide screen-only elements */
+  .no-print{display:none}
+  
+  /* Ensure proper backgrounds for printing */
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact;color-adjust:exact}
+  
+  /* Table improvements for print */
+  table{font-size:10pt}
+  th{background:#e0e0e0 !important}
+  .budget-total{background:#f0f0f0 !important}
+}
+
+/* Responsive for smaller screens */
 @media(max-width:768px){body{padding:20px}table{font-size:10pt}}
-/* Additional styles for letters */
+
+/* Letter and resume styles */
 .letter{margin:24pt 0;page-break-inside:avoid}
 .letterhead{font-weight:bold;text-align:center;margin-bottom:12pt;border-bottom:2pt solid #000;padding-bottom:6pt}
 .date{margin:12pt 0;text-align:right}
 .address{margin:12pt 0}
-.signature-block{margin-top:24pt}
-.resume{margin:24pt 0;page-break-after:always}
+.signature-block{margin-top:24pt;page-break-inside:avoid}
+.resume{margin:24pt 0;page-break-after:always;page-break-inside:avoid}
 .name{font-size:14pt;font-weight:bold;text-align:center;margin-bottom:6pt}
 .contact{text-align:center;margin-bottom:18pt;font-size:11pt}
-.section{margin:12pt 0}
+.section{margin:12pt 0;page-break-inside:avoid}
 .section-title{font-weight:bold;text-transform:uppercase;border-bottom:1pt solid #000;padding-bottom:3pt;margin:12pt 0 6pt}
-.entry{margin:6pt 0}
+.entry{margin:6pt 0;page-break-inside:avoid}
 .entry-header{font-weight:bold}
 .entry-details{font-style:italic;margin:3pt 0}
 .document{margin:24pt 0;page-break-after:always}
