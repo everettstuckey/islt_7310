@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UAPB × SLPS Chancellor Scholarship Campaign</title>
+  <style>
+    @page {
+      size: letter;
+      margin: 0.4in;
+    }
+    
+    @media print {
+      body { margin: 0; padding: 0; }
+      .no-print { display: none; }
+    }
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body { 
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: 9pt;
+      line-height: 1.3;
+      color: #111;
+      background: white;
+      width: 8.5in;
+      height: 11in;
+      margin: 0 auto;
+      padding: 0.4in;
+    }
+    
+    /* Header section */
+    .header {
+      background: linear-gradient(135deg, #111 0%, #2a2a2a 100%);
+      color: white;
+      padding: 12px 16px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .header::before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      width: 120px;
+      height: 120px;
+      background: radial-gradient(circle, rgba(255,180,0,0.3) 0%, transparent 70%);
+    }
+    
+    .badge {
+      display: inline-block;
+      background: #ffb400;
+      color: #000;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-weight: 800;
+      font-size: 8pt;
+      margin-bottom: 6px;
+    }
+    
+    .header-content {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: center;
+    }
+    
+    .logos {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+    
+    .logo-img {
+      height: 65px;
+      width: auto;
+      background: white;
+      padding: 4px;
+      border-radius: 4px;
+    }
+    
+    h1 {
+      font-size: 18pt;
+      font-weight: 900;
+      margin: 4px 0;
+      line-height: 1.1;
+    }
+    
+    .tagline {
+      font-size: 9pt;
+      opacity: 0.95;
+      margin-top: 4px;
+      line-height: 1.3;
+    }
+    
+    /* Stats grid */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    
+    .stat {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      border: 1px solid #dee2e6;
+      border-radius: 6px;
+      padding: 8px;
+      text-align: center;
+    }
+    
+    .stat-label {
+      font-size: 7pt;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+    
+    .stat-value {
+      font-size: 14pt;
+      font-weight: 900;
+      color: #ffb400;
+      line-height: 1;
+    }
+    
+    /* Two column layout */
+    .columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    
+    .column {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    /* Sections */
+    .section {
+      background: white;
+      border: 1px solid #dee2e6;
+      border-radius: 6px;
+      padding: 10px;
+    }
+    
+    .section-dark {
+      background: #111;
+      color: white;
+      border-color: #111;
+    }
+    
+    h2 {
+      font-size: 11pt;
+      font-weight: 800;
+      margin-bottom: 6px;
+      color: #ffb400;
+      border-bottom: 2px solid #ffb400;
+      padding-bottom: 3px;
+    }
+    
+    .section-dark h2 {
+      color: #ffb400;
+      border-color: #ffb400;
+    }
+    
+    h3 {
+      font-size: 9pt;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: #0a3a2a;
+    }
+    
+    .section-dark h3 {
+      color: #ffb400;
+    }
+    
+    ul {
+      margin: 4px 0 0 14px;
+      padding: 0;
+    }
+    
+    li {
+      margin-bottom: 3px;
+      font-size: 8pt;
+      line-height: 1.4;
+    }
+    
+    strong {
+      color: #0a3a2a;
+      font-weight: 700;
+    }
+    
+    .section-dark strong {
+      color: #ffb400;
+    }
+    
+    /* Compact lists */
+    .compact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px 8px;
+      font-size: 7.5pt;
+      line-height: 1.3;
+      margin-top: 4px;
+    }
+    
+    .compact-grid li {
+      margin: 0;
+    }
+    
+    /* Footer */
+    .footer {
+      background: #fffaeb;
+      border: 1px solid #ffb400;
+      border-radius: 6px;
+      padding: 8px 10px;
+      font-size: 7.5pt;
+      line-height: 1.4;
+      margin-top: 10px;
+    }
+    
+    .footer strong {
+      color: #0a3a2a;
+      font-size: 8pt;
+    }
+    
+    /* Highlight boxes */
+    .highlight {
+      background: #fff9e6;
+      border-left: 3px solid #ffb400;
+      padding: 6px 8px;
+      margin: 6px 0;
+      font-size: 8pt;
+      line-height: 1.4;
+    }
+    
+    .note {
+      font-size: 7.5pt;
+      color: #666;
+      font-style: italic;
+      margin-top: 3px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="badge">UAPB × Saint Louis Public Schools</div>
+    <div class="header-content">
+      <div>
+        <h1>Chancellor Scholarship +<br>District-Wide Recruitment Campaign</h1>
+        <p class="tagline">Reserve at least one UAPB Chancellor Scholarship for an SLPS senior, mobilize alumni and admissions for school visits, and announce with fanfare to build brand energy and deliver outcomes.</p>
+      </div>
+      <div class="logos">
+        <img src="uapb_logo.png" alt="UAPB Logo" class="logo-img" />
+        <img src="slps_logo.png" alt="SLPS Logo" class="logo-img" />
+      </div>
+    </div>
+  </div>
+  
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-label">Scholarship Value</div>
+      <div class="stat-value">$66,500</div>
+      <div class="note">4-year support</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">SLPS Seniors</div>
+      <div class="stat-value">~1,200</div>
+      <div class="note">students targeted</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">STL Alumni</div>
+      <div class="stat-value">200+</div>
+      <div class="note">mentor network</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Employers</div>
+      <div class="stat-value">90+</div>
+      <div class="note">recruit at UAPB</div>
+    </div>
+  </div>
+  
+  <div class="columns">
+    <div class="column">
+      <div class="section">
+        <h2>Why This Partnership Works</h2>
+        <h3>Benefits for UAPB</h3>
+        <ul>
+          <li><strong>Pipeline growth</strong> from large urban district in natural recruitment territory</li>
+          <li><strong>Alumni activation</strong> (200+ in St. Louis metro) as mentors and ambassadors</li>
+          <li><strong>Brand visibility</strong> through coordinated press and marquee scholarship reveal</li>
+        </ul>
+        <h3 style="margin-top:6px">Benefits for SLPS</h3>
+        <ul>
+          <li><strong>High-value 4-year scholarship</strong> reserved for SLPS senior</li>
+          <li><strong>On-campus support</strong> for applications and FAFSA completion</li>
+          <li><strong>Celebration event</strong> drives college-going culture district-wide</li>
+        </ul>
+      </div>
+      
+      <div class="section">
+        <h2>Compelling UAPB Programs</h2>
+        <ul>
+          <li><strong>Aquaculture & Fisheries</strong> - internationally recognized Center of Excellence</li>
+          <li><strong>Nursing</strong> - $15M new building approved for 2024, BSN pathways</li>
+          <li><strong>Regulatory Science</strong> - USDA Center of Excellence, federal pipelines</li>
+          <li><strong>STEM Programs</strong> - Nanoscience, Biochemistry, Forensic Chemistry</li>
+          <li><strong>Business & Technology</strong> - employer-aligned, regional demand</li>
+        </ul>
+      </div>
+      
+      <div class="section">
+        <h2>Major Facilities Investment</h2>
+        <ul>
+          <li><strong>$15M Nursing Building</strong> (2024) - simulation & instruction expansion</li>
+          <li><strong>Health & Wellness Center</strong> - additional state support announced</li>
+          <li><strong>1890 Land-Grant Program</strong> - multi-year USDA infrastructure upgrade</li>
+          <li><strong>Biotech/Nanosciences</strong> - proposed interdisciplinary research center</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="column">
+      <div class="section section-dark">
+        <h2>HBCU Advantage: Proven Better Outcomes</h2>
+        <p style="font-size:8pt; margin-bottom:6px;"><strong>Research-backed data shows HBCU students achieve remarkable results:</strong></p>
+        <ul>
+          <li>HBCU graduates earn <strong>$927,000 MORE</strong> over lifetime vs. similar students without degree</li>
+          <li><strong>12 percentage points more likely</strong> to earn college degree than non-HBCU peers</li>
+          <li><strong>More than 2x as likely</strong> to major in STEM fields</li>
+          <li><strong>5% higher household income</strong> at age 30 vs. similar peers at other institutions</li>
+          <li>HBCUs generate <strong>$14.8 billion economic impact</strong> annually</li>
+        </ul>
+        <p class="note" style="color:#ccc; margin-top:6px;">Sources: UNCF, College Board Research, Forbes (2022-2024)</p>
+      </div>
+      
+      <div class="section">
+        <h2>Major Employers Recruiting at UAPB</h2>
+        <p style="font-size:8pt; margin-bottom:4px;"><strong>90+ organizations at recent Career Summits:</strong></p>
+        <div class="compact-grid">
+          <ul style="margin:0">
+            <li>• Acxiom</li>
+            <li>• Dassault Falcon Jet</li>
+            <li>• Arkansas BCBS</li>
+            <li>• Gainwell Technologies</li>
+            <li>• Southwest Power Pool</li>
+          </ul>
+          <ul style="margin:0">
+            <li>• Schreiber Foods</li>
+            <li>• Penske Truck Leasing</li>
+            <li>• Simmons Bank</li>
+            <li>• Baptist Health</li>
+            <li>• Arkansas Children's</li>
+          </ul>
+        </div>
+        <p style="font-size:7.5pt; margin-top:6px; font-weight:700; color:#0a3a2a;">Plus: USDA, FDA, EPA, and federal laboratories actively recruit UAPB graduates</p>
+      </div>
+      
+      <div class="section">
+        <h2>Campaign Execution</h2>
+        <h3>District-Wide Push</h3>
+        <ul>
+          <li><strong>School visits</strong> to all SLPS high schools serving seniors</li>
+          <li><strong>On-site workshops</strong> for applications, essays, FAFSA completion</li>
+          <li><strong>Alumni ambassadors</strong> serve as coaches and mentors</li>
+        </ul>
+        <h3 style="margin-top:6px">Success Metrics</h3>
+        <ul>
+          <li>SLPS applications & admits year-over-year</li>
+          <li>FAFSA completion rates • Workshop attendance</li>
+          <li>Press/social reach • Alumni volunteer hours</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <div class="footer">
+    <strong>St. Louis Alumni Community:</strong> Estimated 200+ UAPB alumni in Greater St. Louis metro create opportunity to activate mentors, ambassadors, and career connectors—strengthening UAPB regional presence. | <strong>Scholarship Requirements:</strong> 3.75 GPA, 25 ACT or equivalent SAT score, admitted by Jan 1 | <strong>Contact:</strong> Coordinate with UAPB Alumni Affairs and Admissions to finalize visit calendar and identify ambassador network.
+  </div>
+</body>
+</html>

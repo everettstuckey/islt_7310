@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Plant Science Pipeline Partnership: Danforth | CSMB | UAPB | JJK FAN</title>
+  <style>
+    @page {
+      size: letter;
+      margin: 0.4in;
+    }
+    
+    @media print {
+      body { margin: 0; padding: 0; }
+      .no-print { display: none; }
+    }
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body { 
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: 7.5pt;
+      line-height: 1.2;
+      color: #111;
+      background: white;
+      width: 8.5in;
+      height: 11in;
+      margin: 0 auto;
+      padding: 0.35in;
+    }
+    
+    /* Header section */
+    .header {
+      background: linear-gradient(135deg, #2d5016 0%, #4a7c2a 100%);
+      color: white;
+      padding: 8px 12px;
+      border-radius: 6px;
+      margin-bottom: 6px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .header::before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      width: 120px;
+      height: 120px;
+      background: radial-gradient(circle, rgba(139,195,74,0.3) 0%, transparent 70%);
+    }
+    
+    .badge {
+      display: inline-block;
+      background: #8bc34a;
+      color: #1b3409;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-weight: 800;
+      font-size: 7pt;
+      margin-bottom: 3px;
+    }
+    
+    h1 {
+      font-size: 13pt;
+      font-weight: 900;
+      margin: 2px 0;
+      line-height: 1.1;
+    }
+    
+    .tagline {
+      font-size: 7.5pt;
+      opacity: 0.95;
+      margin-top: 2px;
+      line-height: 1.2;
+    }
+    
+    /* Stats grid */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 5px;
+      margin-bottom: 6px;
+    }
+    
+    .stat {
+      background: linear-gradient(135deg, #f1f8e9 0%, #dcedc8 100%);
+      border: 1px solid #c5e1a5;
+      border-radius: 4px;
+      padding: 5px;
+      text-align: center;
+    }
+    
+    .stat-label {
+      font-size: 6pt;
+      color: #558b2f;
+      text-transform: uppercase;
+      letter-spacing: 0.2px;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+    
+    .stat-value {
+      font-size: 11pt;
+      font-weight: 900;
+      color: #33691e;
+      line-height: 1;
+    }
+    
+    /* Two column layout */
+    .columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 5px;
+    }
+    
+    .column {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    
+    /* Sections */
+    .section {
+      background: white;
+      border: 1px solid #c5e1a5;
+      border-radius: 4px;
+      padding: 6px;
+    }
+    
+    .section-dark {
+      background: #1b3409;
+      color: white;
+      border-color: #1b3409;
+    }
+    
+    h2 {
+      font-size: 9pt;
+      font-weight: 800;
+      margin-bottom: 4px;
+      color: #33691e;
+      border-bottom: 1.5px solid #8bc34a;
+      padding-bottom: 2px;
+    }
+    
+    .section-dark h2 {
+      color: #8bc34a;
+      border-color: #8bc34a;
+    }
+    
+    h3 {
+      font-size: 7.5pt;
+      font-weight: 700;
+      margin-bottom: 2px;
+      color: #33691e;
+    }
+    
+    .section-dark h3 {
+      color: #8bc34a;
+    }
+    
+    ul {
+      margin: 2px 0 0 10px;
+      padding: 0;
+    }
+    
+    li {
+      margin-bottom: 1px;
+      font-size: 6.5pt;
+      line-height: 1.3;
+    }
+    
+    strong {
+      color: #33691e;
+      font-weight: 700;
+    }
+    
+    .section-dark strong {
+      color: #8bc34a;
+    }
+    
+    /* Compact lists */
+    .compact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px 6px;
+      font-size: 6.5pt;
+      line-height: 1.2;
+      margin-top: 2px;
+    }
+    
+    .compact-grid li {
+      margin: 0;
+    }
+    
+    /* Footer */
+    .footer {
+      background: #f1f8e9;
+      border: 1px solid #8bc34a;
+      border-radius: 4px;
+      padding: 5px 8px;
+      font-size: 6pt;
+      line-height: 1.3;
+      margin-top: 5px;
+    }
+    
+    .footer strong {
+      color: #33691e;
+      font-size: 6.5pt;
+    }
+    
+    .highlight {
+      background: #f1f8e9;
+      border-left: 3px solid #8bc34a;
+      padding: 6px 8px;
+      margin: 6px 0;
+      font-size: 8pt;
+      line-height: 1.4;
+    }
+    
+    .note {
+      font-size: 6pt;
+      color: #666;
+      font-style: italic;
+      margin-top: 1px;
+    }
+    
+    .partner-box {
+      background: #f9fbe7;
+      border: 1px solid #c5e1a5;
+      padding: 4px;
+      border-radius: 3px;
+      margin: 2px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="badge">Plant Science Pipeline Partnership</div>
+    <h1>From Seed to Career: Plant Science, Agribusiness & Bioscience Pathway</h1>
+    <p class="tagline">Danforth Plant Science Center, CSMB, UAPB, and JJK FAN unite to create an unprecedented K-16 plant science pipeline, offering SLPS students hands-on experience, research opportunities, and direct pathways to careers in agriculture, biotechnology, and food innovation.</p>
+  </div>
+  
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-label">Scholarship</div>
+      <div class="stat-value">$5,000</div>
+      <div class="note">annual Plant Science award</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">JJK FAN Output</div>
+      <div class="stat-value">30,000 lbs</div>
+      <div class="note">food/year from greenhouse</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Student Reach</div>
+      <div class="stat-value">8,000+</div>
+      <div class="note">Metro East districts served</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Career Growth</div>
+      <div class="stat-value">9%</div>
+      <div class="note">ag/food sci jobs to 2032</div>
+    </div>
+  </div>
+  
+  <div class="columns">
+    <div class="column">
+      <div class="section">
+        <h2>Four-Partner Ecosystem</h2>
+        
+        <div class="partner-box">
+          <h3>Donald Danforth Plant Science Center</h3>
+          <p style="font-size:6.5pt; margin:1px 0;"><strong>Global Leader:</strong> World-class plant science research institution in St. Louis</p>
+          <ul style="font-size:6.5pt;">
+            <li>400+ scientists, staff, students advancing plant science</li>
+            <li>Research in climate resilience, food security, bioenergy</li>
+            <li>$50M+ annual research funding from NSF, USDA, Gates Foundation</li>
+            <li>Educational partnerships with 50+ regional schools</li>
+          </ul>
+        </div>
+        
+        <div class="partner-box">
+          <h3>CSMB - Collegiate School of Medicine & Bioscience</h3>
+          <p style="font-size:6.5pt; margin:1px 0;"><strong>SLPS Specialized High School:</strong> Gateway to health/life sciences careers</p>
+          <ul style="font-size:6.5pt;">
+            <li>~300 students in biomedical/bioscience pathways</li>
+            <li>Hands-on labs, research projects, college partnerships</li>
+            <li>Dual credit opportunities with local universities</li>
+            <li>Direct pipeline to STEM careers and higher education</li>
+          </ul>
+          <p style="font-size:6pt; margin:2px 0 0 0; font-weight:600;"><strong>+ Metro East school districts</strong> served by JJK FAN: East St. Louis District 189 (~6,000 students), Brooklyn/Lovejoy District 188, Cahokia Heights District 187 covering Cahokia, Centreville, Alorton, Sauget, Washington Park, and adjacent communities</p>
+        </div>
+        
+        <div class="partner-box">
+          <h3>UAPB - University of Arkansas at Pine Bluff</h3>
+          <p style="font-size:6.5pt; margin:1px 0;"><strong>1890 Land-Grant HBCU:</strong> Agriculture & aquaculture excellence</p>
+          <ul style="font-size:6.5pt;">
+            <li><strong>Aquaculture/Fisheries Center of Excellence</strong> - internationally recognized</li>
+            <li><strong>Regulatory Science</strong> - USDA Center of Excellence, FDA/USDA pipelines</li>
+            <li><strong>Agriculture programs</strong> - sustainable farming, agribusiness, food science</li>
+            <li>$15M+ facilities investment in STEM infrastructure</li>
+          </ul>
+        </div>
+        
+        <div class="partner-box">
+          <h3>JJK FAN - Jackie Joyner-Kersee Foundation</h3>
+          <p style="font-size:6.5pt; margin:1px 0;"><strong>Community Hub:</strong> Food, Agriculture, Nutrition Innovation Center</p>
+          <ul style="font-size:6.5pt;">
+            <li><strong>First-of-its-kind passive solar greenhouse</strong> in US</li>
+            <li>30,000 lbs of food produced annually for $1/day operating cost</li>
+            <li>STEAM+Ag programming for East St. Louis youth</li>
+            <li>Entrepreneurship, nutrition, urban agriculture training</li>
+          </ul>
+        </div>
+      </div>
+      
+    </div>
+    
+    <div class="column">
+      <div class="section section-dark">
+        <h2>Career Pathways & Outcomes</h2>
+        <p style="font-size:6.5pt; margin-bottom:3px;"><strong>Plant Science & Agribusiness careers are growing faster than average:</strong></p>
+        <ul>
+          <li><strong>9% growth</strong> projected for agricultural and food scientists through 2032 (BLS)</li>
+          <li><strong>Median salary $74,940</strong> for food scientists and technologists</li>
+          <li><strong>$68,000+ median</strong> for agricultural specialists with bachelor's degree</li>
+          <li><strong>Critical shortage</strong> of trained professionals in plant biotechnology</li>
+          <li><strong>High demand</strong> for sustainable agriculture, climate resilience experts</li>
+        </ul>
+        <h3 style="margin-top:3px;">Career Sectors</h3>
+        <div class="compact-grid">
+          <ul style="margin:0">
+            <li>• Agricultural Biotechnology</li>
+            <li>• Food Science & Safety</li>
+            <li>• Plant Genetics Research</li>
+            <li>• Sustainable Agriculture</li>
+            <li>• Agribusiness Management</li>
+          </ul>
+          <ul style="margin:0">
+            <li>• Crop Science & Breeding</li>
+            <li>• Urban Farming Systems</li>
+            <li>• Food Innovation/Tech</li>
+            <li>• Environmental Science</li>
+            <li>• Agricultural Policy</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="section">
+        <h2>Plant Science Scholarship</h2>
+        <h3>$5,000 Annual Award to UAPB</h3>
+        <ul>
+          <li><strong>Eligibility:</strong> Students served by JJK FAN programs (East St. Louis District 189, Brooklyn/Lovejoy District 188, Cahokia Heights District 187, SLPS CSMB, and Metro East area students) pursuing plant science, agribusiness, or agricultural biotechnology at UAPB</li>
+          <li><strong>Requirements:</strong> 3.5 GPA, demonstrated interest in agriculture/plant sciences, participation in JJK FAN or partner programs</li>
+          <li><strong>Benefits:</strong> $5,000/year renewable for up to 4 years + guaranteed summer research at Danforth or JJK FAN</li>
+          <li><strong>Priority consideration:</strong> Students completing internships at JJK FAN or Danforth during high school</li>
+        </ul>
+      </div>
+      
+      <div class="section">
+        <h2>Why This Partnership Works</h2>
+        <ul>
+          <li><strong>Geographic advantage:</strong> St. Louis region has Danforth (world leader), JJK FAN (innovation hub), and strong connection to UAPB</li>
+          <li><strong>Workforce pipeline:</strong> Addresses critical shortage of diverse talent in plant sciences</li>
+          <li><strong>Authentic experiences:</strong> Students engage with real research, not simulations</li>
+          <li><strong>HBCU pathway:</strong> UAPB provides culturally supportive environment with proven outcomes</li>
+          <li><strong>Community impact:</strong> Food security, urban agriculture directly benefit East St. Louis and St. Louis</li>
+          <li><strong>Sustained mentorship:</strong> 7-year relationship from 9th grade through college graduation</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <div class="footer">
+    <strong>JJK FAN Innovation:</strong> The passive solar greenhouse produces 30,000 lbs of food annually using only $1/day in operating costs—a model for sustainable urban agriculture being studied nationally.    <strong>Launch Timeline:</strong> Pilot cohort Fall 2025 with students from SLPS CSMB and Metro East districts (East St. Louis 189, Brooklyn/Lovejoy 188, Cahokia Heights 187) served by JJK FAN programs. Scholarship applications due March 1 for students matriculating to UAPB. | <strong>Contact:</strong> CSMB Principal's Office for student applications; Danforth Education Programs for partnership details; JJK FAN for internship opportunities (618-274-5437).
+  </div>
+</body>
+</html>

@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Growing Golden Lions in the Gateway City</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: "Segoe UI", Arial, sans-serif;
+      --gold: #ffb400;
+      --green: #0a3a2a;
+      --charcoal: #111111;
+      --cloud: #f4f5f7;
+      --slate: #2f3a45;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--cloud);
+      color: var(--slate);
+      margin: 0;
+      min-height: 100vh;
+    }
+
+    .presentation {
+      counter-reset: slide;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slide {
+      counter-increment: slide;
+      min-height: 100vh;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 22px;
+      padding: 64px clamp(32px, 8vw, 160px);
+      position: relative;
+      background: linear-gradient(135deg, #0b0b0f 0%, #252525 35%, #3b2d00 80%, #ffb400 120%);
+      color: #ffffff;
+    }
+
+    .slide.active {
+      display: flex;
+    }
+
+    .slide::after {
+      content: counter(slide);
+      position: absolute;
+      bottom: 32px;
+      right: clamp(24px, 6vw, 120px);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: rgba(255, 255, 255, 0.35);
+    }
+
+    h1 {
+      font-size: clamp(36px, 5vw, 54px);
+      color: #ffffff;
+      font-weight: 900;
+      line-height: 1.05;
+      text-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+    }
+
+    h2 {
+      font-size: clamp(28px, 3.4vw, 38px);
+      color: #ffffff;
+      font-weight: 800;
+      line-height: 1.15;
+    }
+
+    h3 {
+      font-size: clamp(18px, 2.2vw, 24px);
+      color: var(--gold);
+      font-weight: 700;
+      line-height: 1.2;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    p {
+      font-size: clamp(18px, 2vw, 22px);
+      max-width: 900px;
+      line-height: 1.4;
+      color: rgba(255, 255, 255, 0.95);
+    }
+
+    ul {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+      max-width: 960px;
+      font-size: clamp(18px, 2vw, 22px);
+      line-height: 1.45;
+    }
+
+    li {
+      padding-left: 28px;
+      position: relative;
+    }
+
+    li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: clamp(16px, 2vw, 20px);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+      color: var(--charcoal);
+      background: rgba(255, 225, 150, 0.85);
+      padding: 10px 18px;
+      border-radius: 999px;
+      width: fit-content;
+    }
+
+    .badge::before {
+      content: "";
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    .two-column {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      max-width: 1200px;
+    }
+
+    .card {
+      background: rgba(17, 17, 17, 0.6);
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 14px 32px rgba(10, 58, 42, 0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .card h4 {
+      font-size: clamp(18px, 2vw, 22px);
+      color: #ffffff;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .card ul {
+      gap: 10px;
+      font-size: clamp(16px, 1.8vw, 20px);
+    }
+
+    .card li::before {
+      background: var(--gold);
+    }
+
+    .accent {
+      color: var(--gold);
+      font-weight: 800;
+    }
+
+    .note {
+      font-size: clamp(16px, 1.8vw, 20px);
+      color: rgba(255, 255, 255, 0.78);
+      max-width: 960px;
+    }
+
+    .doc-gallery {
+      display: grid;
+      gap: 28px;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      width: 100%;
+      max-width: 1400px;
+    }
+
+    .doc-frame {
+      --doc-scale: 0.6;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      box-shadow: 0 22px 48px rgba(0, 0, 0, 0.35);
+      background: rgba(17, 17, 17, 0.4);
+      display: flex;
+      flex-direction: column;
+      height: min(80vh, 720px);
+    }
+
+    .doc-frame iframe {
+      width: calc(100% / var(--doc-scale));
+      height: calc(100% / var(--doc-scale));
+      border: none;
+      background: #ffffff;
+      display: block;
+      transform: scale(var(--doc-scale));
+      transform-origin: top left;
+      overflow: hidden;
+    }
+
+    .doc-caption {
+      padding: 18px 22px;
+      font-size: clamp(16px, 1.8vw, 20px);
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.92);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-controls {
+      position: fixed;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 16px;
+      z-index: 999;
+    }
+
+    .nav-controls button {
+      background: rgba(17, 17, 17, 0.75);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      padding: 14px 24px;
+      border-radius: 999px;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease;
+      backdrop-filter: blur(6px);
+    }
+
+    .nav-controls button:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 180, 0, 0.85);
+      color: var(--charcoal);
+    }
+
+    .nav-controls button:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .progress-indicator {
+      position: fixed;
+      top: 28px;
+      right: clamp(18px, 4vw, 64px);
+      font-size: 15px;
+      letter-spacing: 2px;
+      color: rgba(255, 255, 255, 0.75);
+      background: rgba(17, 17, 17, 0.55);
+      padding: 10px 18px;
+      border-radius: 999px;
+      backdrop-filter: blur(6px);
+      z-index: 900;
+    }
+
+    @media (max-width: 768px) {
+      .slide {
+        padding: 48px 24px 140px;
+      }
+
+      li {
+        padding-left: 24px;
+      }
+
+      li::before {
+        top: 8px;
+        width: 10px;
+        height: 10px;
+      }
+
+      .nav-controls {
+        bottom: 24px;
+      }
+
+      .nav-controls button {
+        padding: 12px 18px;
+        font-size: 14px;
+      }
+    }
+
+    @media print {
+      body {
+        background: white;
+      }
+
+      .slide {
+        page-break-after: always;
+        min-height: auto;
+        padding: 54px 36px 80px;
+        background: none !important;
+        color: var(--charcoal);
+        display: block;
+      }
+
+      .slide::after {
+        color: rgba(17, 17, 17, 0.35);
+      }
+
+      .nav-controls,
+      .progress-indicator {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="presentation">
+    <div class="progress-indicator" id="progress">1 / 9</div>
+    <section class="slide slide-hero active">
+      <span class="badge">UAPB × Saint Louis Public Schools</span>
+      <h1>Growing Golden Lions in the Gateway City</h1>
+      <p>Briefing for the University of Arkansas at Pine Bluff Chancellor, Admissions, and Alumni Affairs teams on activating scholarships, alumni, and the St. Louis agribusiness ecosystem to expand UAPB enrollment and student success.</p>
+      <p class="note">Prepared for November 2025 strategic visit | Saint Louis, Missouri</p>
+    </section>
+
+    <section class="slide slide-partners">
+      <h2>Core Partnership: UAPB × Saint Louis Public Schools</h2>
+      <p>UAPB and SLPS align missions to elevate college access, experiential learning, and bioscience career pathways for St. Louis scholars.</p>
+      <div class="two-column">
+        <div class="card">
+          <h4>University of Arkansas at Pine Bluff</h4>
+          <ul>
+            <li>1890 Land-Grant HBCU with top-ranked Aquaculture & Fisheries Center and expanding STEM, Nursing, and Agriculture facilities.</li>
+            <li>Dedicated Chancellor-level scholarship for SLPS seniors plus research, co-op, and alumni mentoring opportunities.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Saint Louis Public Schools</h4>
+          <ul>
+            <li>District-wide college and career academies preparing 1,200+ seniors annually for postsecondary STEM and bioscience majors.</li>
+            <li>Pipeline programs integrating FAFSA completion, dual credit, and internship readiness aligned with UAPB admissions milestones.</li>
+          </ul>
+        </div>
+      </div>
+      <p class="note">Regional ecosystem partners—including the Danforth Plant Science Center and the JJK FAN Food, Agriculture & Nutrition Innovation Center—expand bioscience education and workforce experiences that feed the UAPB × SLPS talent pipeline.</p>
+    </section>
+
+    <section class="slide slide-scholarships">
+      <h2>Flagship Scholarships Anchoring the Pipeline</h2>
+      <div class="two-column">
+        <div class="card">
+          <h4>Chancellor Scholarship (SLPS Reserved Seat)</h4>
+          <ul>
+            <li>$66,500 total value across four years for an SLPS senior.</li>
+            <li>Eligibility: 3.75 GPA, 25 ACT or equivalent SAT score, admitted to UAPB by January 1.</li>
+            <li>Launch with marquee announcement, district-wide application support, and alumni ambassadors.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Plant Science Pipeline Scholarship</h4>
+          <ul>
+            <li>$5,000 annually (renewable up to four years) for students from JJK FAN-served districts and SLPS pursuing plant science, agribusiness, or biotech.</li>
+            <li>Includes guaranteed summer research placements at Danforth or JJK FAN.</li>
+            <li>Priority for students who complete high school internships within the partnership.</li>
+          </ul>
+        </div>
+      </div>
+      <p class="note">Scholarships provide stacked financial support plus experiential learning to drive high matriculation and retention.</p>
+    </section>
+
+    <section class="slide slide-documents">
+      <h2>Scholarships</h2>
+      <p class="note">Complete reference documents for the UAPB Chancellor Scholarship campaign and the Plant Science Pipeline Partnership scholarship.</p>
+      <div class="doc-gallery">
+        <div class="doc-frame">
+          <iframe src="UAPB_SLPS_OnePage.html" title="UAPB Chancellor Scholarship One-Pager"></iframe>
+          <div class="doc-caption">UAPB × SLPS Chancellor Scholarship Campaign</div>
+        </div>
+        <div class="doc-frame">
+          <iframe src="PlantScience_Partnership_OnePage.html" title="Plant Science Pipeline Scholarship One-Pager"></iframe>
+          <div class="doc-caption">Plant Science Pipeline Partnership Scholarship</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide slide-alumni">
+      <h2>Activating the St. Louis Alumni Network</h2>
+      <ul>
+        <li><span class="accent">200+ UAPB alumni</span> reside in Greater St. Louis, forming a ready-made mentor, ambassador, and recruiter corps.</li>
+        <li>Establish a Golden Lions Alumni Ambassador program to lead school visits, FAFSA workshops, and application coaching.</li>
+        <li>Host monthly virtual touchpoints for admitted students pairing alumni stories with admissions guidance.</li>
+        <li>Showcase alumni success through media spotlights and celebratory signing events to amplify UAPB’s regional brand.</li>
+      </ul>
+    </section>
+
+    <section class="slide slide-ecosystem">
+      <h2>St. Louis Agribusiness & Bioscience Advantage</h2>
+      <ul>
+        <li>Danforth Plant Science Center anchors a globally respected research cluster with deep K–16 educational infrastructure.</li>
+        <li>BioSTL propels commercialization and industry connections, offering internships, venture support, and employer access for UAPB graduates.</li>
+        <li>JJK FAN’s Food, Agriculture, Nutrition Innovation Center delivers authentic urban agriculture training and entrepreneurial experiences.</li>
+        <li>Position UAPB as the HBCU gateway into the Midwest’s fastest-growing ag-tech corridor.</li>
+      </ul>
+    </section>
+
+    <section class="slide slide-recruitment">
+      <h2>Recruitment Campaign Execution</h2>
+      <div class="two-column">
+        <div class="card">
+          <h4>District-Wide Push</h4>
+          <ul>
+            <li>Comprehensive visits to every SLPS high school with seniors.</li>
+            <li>On-site workshops covering admissions applications, essays, and FAFSA completion.</li>
+            <li>Leverage alumni ambassadors and current students for peer-to-peer influence.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Brand Activation</h4>
+          <ul>
+            <li>Coordinate press events and social media storytelling around scholarship recipients.</li>
+            <li>Integrate Danforth, JJK FAN, and BioSTL partners into experiential recruitment days.</li>
+            <li>Celebrate commitments with district-wide signing celebrations to build momentum.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide slide-programs">
+      <h2>Programs & Career Outcomes to Spotlight</h2>
+      <div class="two-column">
+        <div class="card">
+          <h4>Signature Academic Pathways</h4>
+          <ul>
+            <li>Aquaculture & Fisheries Center of Excellence with federal and industry pipelines.</li>
+            <li>Regulatory Science producing FDA, USDA, and EPA talent.</li>
+            <li>Emerging STEM strength in Nursing (new facility), Nanoscience, Biochemistry, and Forensic Chemistry.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Career Trajectory</h4>
+          <ul>
+            <li>9% projected growth in agricultural and food science careers through 2032; median salaries $68K–$75K.</li>
+            <li>High demand for plant biotechnology, sustainable agriculture, and climate resilience expertise.</li>
+            <li>90+ employers recruit at UAPB career summits, including major private-sector and federal agencies.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide slide-fipse">
+      <h3>Federal Funding Opportunity</h3>
+      <h2>UAPB Robotics Futures: AI & Robotics Mentorship Pipeline</h2>
+      <p>A <span class="accent">$2M FIPSE Special Projects grant</span> to address the "AI Divide" by mobilizing UAPB alumni as technical mentors for FIRST Robotics teams across St. Louis and Arkansas.</p>
+      <div class="two-column">
+        <div class="card">
+          <h4>The Model</h4>
+          <ul>
+            <li>Train 80 UAPB alumni in AI pedagogy through a specialized micro-credential.</li>
+            <li>Embed AI/Computer Vision modules into FIRST Robotics curriculum for 12 teams annually.</li>
+            <li>Host 4-week "UAPB AI & Robotics Bridge Institute" for high school participants.</li>
+            <li>Provide culturally responsive mentorship connecting students to successful Black engineers.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Impact & Scale</h4>
+          <ul>
+            <li>400+ students served annually across SLPS and Arkansas districts.</li>
+            <li>Direct pipeline to UAPB CS/AI programs through summer institute.</li>
+            <li>Replicable HBCU-led K-12 STEM engagement model.</li>
+            <li>48-month project period (Oct 2026 – Sep 2030).</li>
+          </ul>
+        </div>
+      </div>
+      <p class="note"><strong>Priority 2: Ensuring Future Educators and Students Have Foundational Exposure to AI and Computer Science</strong> | Partners: SLPS Office of College & Career Readiness, Arkansas LEAs, UAPB Alumni Association</p>
+    </section>
+
+    <section class="slide slide-metrics">
+      <h2>Measuring Success & Next Moves</h2>
+      <ul>
+        <li>Track SLPS applications, admissions, and enrollments year-over-year to demonstrate pipeline growth.</li>
+        <li>Monitor FAFSA completion, workshop attendance, and alumni volunteer hours as leading indicators.</li>
+        <li>Report media impressions and social engagement tied to scholarship announcements and events.</li>
+        <li>Immediate actions: confirm scholarship allocations, finalize alumni ambassador roster, align internship slots, lock spring recruitment tour calendar.</li>
+      </ul>
+      <p class="note">Together we position UAPB as the destination HBCU for St. Louis talent—fueling student success and the region’s agribusiness innovation economy.</p>
+    </section>
+    <div class="nav-controls">
+      <button type="button" id="prevBtn">◀ Back</button>
+      <button type="button" id="nextBtn">Next ▶</button>
+    </div>
+  </main>
+
+  <script>
+    const slides = Array.from(document.querySelectorAll('.slide'));
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progress = document.getElementById('progress');
+    let currentIndex = 0;
+
+    const gradientBg = 'linear-gradient(135deg, #0b0b0f 0%, #252525 35%, #3b2d00 80%, #ffb400 120%)';
+
+    const backgrounds = {
+      'slide-hero': gradientBg,
+      'slide-partners': gradientBg,
+      'slide-scholarships': gradientBg,
+      'slide-documents': gradientBg,
+      'slide-alumni': gradientBg,
+      'slide-ecosystem': gradientBg,
+      'slide-recruitment': gradientBg,
+      'slide-programs': gradientBg,
+      'slide-fipse': gradientBg,
+      'slide-metrics': gradientBg
+    };
+
+    slides.forEach((slide) => {
+      const key = Array.from(slide.classList).find((cls) => backgrounds[cls]);
+      if (key) {
+        slide.style.backgroundImage = backgrounds[key];
+      }
+    });
+
+    function updateSlides(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+      currentIndex = index;
+      prevBtn.disabled = currentIndex === 0;
+      nextBtn.disabled = currentIndex === slides.length - 1;
+      if (progress) {
+        progress.textContent = `${currentIndex + 1} / ${slides.length}`;
+      }
+    }
+
+    function handleNext() {
+      if (currentIndex < slides.length - 1) {
+        updateSlides(currentIndex + 1);
+      }
+    }
+
+    function handlePrev() {
+      if (currentIndex > 0) {
+        updateSlides(currentIndex - 1);
+      }
+    }
+
+    nextBtn.addEventListener('click', handleNext);
+    prevBtn.addEventListener('click', handlePrev);
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowRight' || event.key === 'PageDown') {
+        handleNext();
+      }
+      if (event.key === 'ArrowLeft' || event.key === 'PageUp') {
+        handlePrev();
+      }
+    });
+
+    const docIframes = document.querySelectorAll('.doc-frame iframe');
+
+    function stripIframeMargins(frame) {
+      try {
+        const doc = frame.contentDocument || frame.contentWindow.document;
+        if (!doc) return;
+        const style = doc.createElement('style');
+        style.textContent = `html, body { margin: 0 !important; padding: 0 !important; width: 100% !important; height: auto !important; background: white !important; }
+          body { min-height: auto !important; box-shadow: none !important; }
+          main, .page, #wrapper { margin: 0 !important; padding: 0 !important; }
+        `;
+        doc.head.appendChild(style);
+      } catch (error) {
+        console.warn('Unable to adjust iframe margins', error);
+      }
+    }
+
+    docIframes.forEach((frame) => {
+      if (frame.complete && frame.contentDocument?.readyState === 'complete') {
+        stripIframeMargins(frame);
+      }
+      frame.addEventListener('load', () => stripIframeMargins(frame));
+    });
+
+    updateSlides(0);
+  </script>
+</body>
+</html>
