@@ -950,10 +950,14 @@ html {-webkit-transition : -webkit-filter 300ms linear;}
             h3Sections.forEach(h3 => {
                 if (h3.dataset.toggable === '1') return;
 
-                // Collect all paragraphs after h3 until next h3 or h2
+                // Collect all paragraphs after h3 until next h3, h2, or SLO heading
                 const paragraphs = [];
                 let sibling = h3.nextElementSibling;
                 while (sibling && sibling.tagName !== 'H2' && sibling.tagName !== 'H3') {
+                    // Stop at SLO headings (p.slo-heading or p containing "Student Learning Outcome")
+                    if (sibling.tagName === 'P' && (sibling.classList.contains('slo-heading') || sibling.textContent.includes('Student Learning Outcome'))) {
+                        break;
+                    }
                     if (sibling.tagName === 'P') {
                         paragraphs.push(sibling);
                     }
