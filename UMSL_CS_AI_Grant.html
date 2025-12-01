@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FIPSE Grant Application - UMSL Gateway AI Pathways</title>
+<style>
+/* Base styles for screen and print */
+body{font-family:"Times New Roman",Times,serif;font-size:12pt;line-height:1.5;max-width:8.5in;margin:40px auto;background:#fff;color:#000;padding:40px}
+h1{font-size:14pt;font-weight:bold;text-align:center;margin:24pt 0 12pt;page-break-after:avoid;page-break-inside:avoid;orphans:3;widows:3}
+h2{font-size:12pt;font-weight:bold;margin:18pt 0 6pt;page-break-after:avoid;page-break-inside:avoid;orphans:3;widows:3}
+h3{font-size:12pt;font-weight:bold;font-style:italic;margin:12pt 0 6pt;page-break-after:avoid;page-break-inside:avoid;orphans:3;widows:3}
+p{margin:6pt 0;text-align:justify;orphans:3;widows:3}
+.cover-page{margin-bottom:24pt;page-break-after:always}.cover-page h1{font-size:16pt;margin-bottom:24pt}.cover-page p{margin:3pt 0;text-align:left}
+.cover-page .field{margin:12pt 0}.cover-page .field-label{font-weight:bold}
+.abstract{margin:18pt 0;padding:12pt;border:1pt solid #000;page-break-inside:avoid}.abstract h2{margin-top:0}
+ul,ol{margin:6pt 0;padding-left:40pt}li{margin:3pt 0}
+.section-header{font-size:12pt;font-weight:bold;margin:24pt 0 12pt;padding:6pt 0;border-bottom:2pt solid #000;page-break-after:avoid;page-break-inside:avoid}
+table{width:100%;border-collapse:collapse;margin:12pt 0;font-size:11pt;page-break-inside:avoid}
+th{background:#e0e0e0;border:1pt solid #000;padding:6pt;text-align:left;font-weight:bold}
+td{border:1pt solid #000;padding:6pt}
+.budget-total{font-weight:bold;background:#f0f0f0}
+.page-break{page-break-before:always;clear:both}
+
+/* Table of Contents styles */
+.toc{margin:24pt 0;page-break-after:always}
+.toc h1{font-size:14pt;text-align:center;margin-bottom:24pt}
+.toc-section{margin:12pt 0;font-size:11pt}
+.toc-section .toc-title{font-weight:bold;margin:6pt 0}
+.toc-item{margin-left:20pt;margin:3pt 0 3pt 20pt}
+.toc-subitem{margin-left:40pt;margin:3pt 0 3pt 40pt}
+.toc-dots{border-bottom:1pt dotted #666;flex:1;margin:0 6pt;min-width:20pt}
+.toc-line{display:flex;align-items:baseline;margin:3pt 0}
+.toc-text{white-space:nowrap}
+.toc-page{white-space:nowrap;font-weight:bold}
+
+/* Print-specific styles */
+@media print{
+  @page{
+    size:8.5in 11in;
+    margin:1in 1in 1.2in 1in;
+    
+    @bottom-center{
+      content:"UMSL Gateway AI Pathways - FIPSE Grant Application";
+      font-family:"Times New Roman",Times,serif;
+      font-size:9pt;
+      font-style:italic;
+    }
+    
+    @bottom-right{
+      content:"Page " counter(page);
+      font-family:"Times New Roman",Times,serif;
+      font-size:9pt;
+    }
+    
+    @top-right{
+      content:"UMSL/SLPS Partnership";
+      font-family:"Times New Roman",Times,serif;
+      font-size:9pt;
+      font-style:italic;
+      color:#666;
+    }
+  }
+  
+  /* Reset counter after cover page */
+  .cover-page{counter-reset:page 1}
+  
+  body{
+    margin:0;
+    padding:0;
+    max-width:none;
+    font-size:12pt;
+    line-height:1.5;
+    counter-reset:page;
+  }
+  
+  /* Page break control */
+  .page-break{page-break-before:always;clear:both}
+  .cover-page{page-break-after:always}
+  .toc{page-break-after:always}
+  .abstract{page-break-inside:avoid}
+  .letter{page-break-inside:avoid;margin:24pt 0}
+  .resume{page-break-after:always;page-break-inside:avoid}
+  .section-header{page-break-after:avoid;page-break-inside:avoid}
+  
+  /* Prevent orphans and widows */
+  h1,h2,h3,h4,h5,h6{page-break-after:avoid;page-break-inside:avoid;orphans:3;widows:3}
+  p{orphans:3;widows:3}
+  ul,ol{page-break-inside:avoid;orphans:3;widows:3}
+  li{page-break-inside:avoid}
+  table{page-break-inside:avoid}
+  tr{page-break-inside:avoid;page-break-after:auto}
+  
+  /* Hide screen-only elements */
+  .no-print{display:none}
+  
+  /* Ensure proper backgrounds for printing */
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  
+  /* Table improvements for print */
+  table{font-size:10pt}
+  th{background:#e0e0e0 !important}
+  .budget-total{background:#f0f0f0 !important}
+}
+
+/* Responsive for smaller screens */
+@media(max-width:768px){body{padding:20px}table{font-size:10pt}}
+
+/* Letter and resume styles */
+.letter{margin:24pt 0;page-break-inside:avoid}
+.letterhead{font-weight:bold;text-align:center;margin-bottom:12pt;border-bottom:2pt solid #000;padding-bottom:6pt}
+.date{margin:12pt 0;text-align:right}
+.address{margin:12pt 0}
+.signature-block{margin-top:24pt;page-break-inside:avoid}
+.resume{margin:24pt 0;page-break-after:always;page-break-inside:avoid}
+.name{font-size:14pt;font-weight:bold;text-align:center;margin-bottom:6pt}
+.contact{text-align:center;margin-bottom:18pt;font-size:11pt}
+.section{margin:12pt 0;page-break-inside:avoid}
+.section-title{font-weight:bold;text-transform:uppercase;border-bottom:1pt solid #000;padding-bottom:3pt;margin:12pt 0 6pt}
+.entry{margin:6pt 0;page-break-inside:avoid}
+.entry-header{font-weight:bold}
+.entry-details{font-style:italic;margin:3pt 0}
+.document{margin:24pt 0;page-break-after:always}
+.instrument{margin:24pt 0;page-break-after:always}
+.item{font-weight:bold;margin:12pt 0 3pt}
+.scale{margin-left:20pt;font-size:11pt}
+</style>
+</head>
+<body>
+
+<div class="cover-page">
+<h1>APPLICATION FOR FEDERAL ASSISTANCE</h1>
+
+<div class="field"><span class="field-label">Applicant:</span> University of Missouri–St. Louis (UMSL)</div>
+<div class="field"><span class="field-label">Address:</span> 1 University Blvd, St. Louis, MO 63121</div>
+<div class="field"><span class="field-label">Type:</span> Public/State Controlled Institution of Higher Education</div>
+<div class="field"><span class="field-label">Federal Agency:</span> U.S. Department of Education</div>
+<div class="field"><span class="field-label">CFDA Number:</span> 84.116J - Fund for the Improvement of Postsecondary Education (FIPSE) Special Projects</div>
+<div class="field"><span class="field-label">Priority:</span> Absolute Priority 2: Ensuring Future Educators and Students Have Foundational Exposure to AI and Computer Science</div>
+<div class="field"><span class="field-label">Project Title:</span> Gateway AI Pathways: An UMSL–Saint Louis Public Schools Dual Credit Computer Science and Artificial Intelligence Pipeline</div>
+<div class="field"><span class="field-label">Project Period:</span> October 1, 2026 - September 30, 2030 (48 Months)</div>
+<div class="field"><span class="field-label">Federal Funds Requested:</span> $1,850,000</div>
+<div class="field"><span class="field-label">Cost Share:</span> $150,000 (UMSL Institutional Support)</div>
+<div class="field"><span class="field-label">Project Director:</span> Dr. Sarah Chen, UMSL Computer Science Faculty | Phone: (314) 516-5345 | Email: chen.sarah@umsl.edu</div>
+<div class="field"><span class="field-label">Partners:</span> Saint Louis Public Schools (SLPS), Regional Employers</div>
+</div>
+
+<div class="page-break"></div>
+
+<div class="toc">
+<h1>TABLE OF CONTENTS</h1>
+
+<div class="toc-section">
+<div class="toc-line">
+<span class="toc-text"><strong>ABSTRACT</strong></span>
+<span class="toc-dots"></span>
+<span class="toc-page">2</span>
+</div>
+</div>
+
+<div class="toc-section">
+<div class="toc-line">
+<span class="toc-text"><strong>PROJECT NARRATIVE</strong></span>
+<span class="toc-dots"></span>
+<span class="toc-page">3</span>
+</div>
+<div class="toc-item">
+<div class="toc-line">
+<span class="toc-text">A. Significance (30 Points)</span>
+<span class="toc-dots"></span>
+<span class="toc-page">3</span>
+</div>
+</div>
+<div class="toc-item">
+<div class="toc-line">
+<span class="toc-text">B. Quality of the Project Design (45 Points)</span>
+<span class="toc-dots"></span>
+<span class="toc-page">5</span>
+</div>
+</div>
+<div class="toc-item">
+<div class="toc-line">
+<span class="toc-text">C. Quality of the Management Plan (10 Points)</span>
+<span class="toc-dots"></span>
+<span class="toc-page">9</span>
+</div>
+</div>
+<div class="toc-item">
+<div class="toc-line">
+<span class="toc-text">D. Quality of Project Evaluation (15 Points)</span>
+<span class="toc-dots"></span>
+<span class="toc-page">11</span>
+</div>
+</div>
+</div>
+
+<div class="toc-section">
+<div class="toc-line">
+<span class="toc-text"><strong>PERFORMANCE MEASURES</strong></span>
+<span class="toc-dots"></span>
+<span class="toc-page">13</span>
+</div>
+<div class="toc-item">
+<div class="toc-line">
+<span class="toc-text">Student Participation Measures</span>
+<span class="toc-dots"></span>
+<span class="toc-page">13</span>
+</div>
+</div>
+<div class="toc-item">
+<div class="toc-line">
+<span class="toc-text">Teacher Development Measures</span>
+<span class="toc-dots"></span>
+<span class="toc-page">14</span>
+</div>
+</div>
+<div class="toc-item">
+<div class="toc-line">
+<span class="toc-text">Postsecondary Transition Measures</span>
+<span class="toc-dots"></span>
+<span class="toc-page">15</span>
+</div>
+</div>
+</div>
+
+<div class="toc-section">
+<div class="toc-line">
+<span class="toc-text"><strong>BUDGET NARRATIVE</strong></span>
+<span class="toc-dots"></span>
+<span class="toc-page">14</span>
+</div>
+<div class="toc-item">
+<div class="toc-line">
+<span class="toc-text">Budget Summary Overview</span>
+<span class="toc-dots"></span>
+<span class="toc-page">14</span>
+</div>
+</div>
+<div class="toc-item">
+<div class="toc-line">
+<span class="toc-text">Detailed Budget by Category</span>
+<span class="toc-dots"></span>
+<span class="toc-page">15</span>
+</div>
+</div>
+<div class="toc-item">
+<div class="toc-line">
+<span class="toc-text">Budget Justification</span>
+<span class="toc-dots"></span>
+<span class="toc-page">18</span>
+</div>
+</div>
+</div>
+
+<div class="toc-section">
+<div class="toc-line">
+<span class="toc-text"><strong>APPENDIX A: LETTERS OF COMMITMENT</strong></span>
+<span class="toc-dots"></span>
+<span class="toc-page">22</span>
+</div>
+<div class="toc-item">
+<div class="toc-line">
+<span class="toc-text">Saint Louis Public Schools</span>
+<span class="toc-dots"></span>
+<span class="toc-page">22</span>
+</div>
+</div>
+<div class="toc-item">
+<div class="toc-line">
+<span class="toc-text">Mastercard</span>
+<span class="toc-dots"></span>
+<span class="toc-page">23</span>
+</div>
+</div>
+<div class="toc-item">
+<div class="toc-line">
+<span class="toc-text">Boeing</span>
+<span class="toc-dots"></span>
+<span class="toc-page">24</span>
+</div>
+</div>
+<div class="toc-item">
+<div class="toc-line">
+<span class="toc-text">Express Scripts</span>
+<span class="toc-dots"></span>
+<span class="toc-page">25</span>
+</div>
+</div>
+</div>
+
+<div class="toc-section">
+<div class="toc-line">
+<span class="toc-text"><strong>APPENDIX B: PROJECT PERSONNEL RÉSUMÉS</strong></span>
+<span class="toc-dots"></span>
+<span class="toc-page">26</span>
+</div>
+<div class="toc-item">
+<div class="toc-line">
+<span class="toc-text">Dr. Sarah Chen (Project Director)</span>
+<span class="toc-dots"></span>
+<span class="toc-page">26</span>
+</div>
+</div>
+<div class="toc-item">
+<div class="toc-line">
+<span class="toc-text">Dr. Marcus Williams (Co-PI)</span>
+<span class="toc-dots"></span>
+<span class="toc-page">27</span>
+</div>
+</div>
+<div class="toc-item">
+<div class="toc-line">
+<span class="toc-text">Jennifer Rodriguez (Project Manager)</span>
+<span class="toc-dots"></span>
+<span class="toc-page">28</span>
+</div>
+</div>
+</div>
+
+<div class="toc-section">
+<div class="toc-line">
+<span class="toc-text"><strong>APPENDIX C: IMPLEMENTATION TIMELINE</strong></span>
+<span class="toc-dots"></span>
+<span class="toc-page">29</span>
+</div>
+</div>
+
+<div class="toc-section">
+<div class="toc-line">
+<span class="toc-text"><strong>APPENDIX D: EVALUATION FRAMEWORK</strong></span>
+<span class="toc-dots"></span>
+<span class="toc-page">30</span>
+</div>
+</div>
+
+</div>
+
+<div class="page-break"></div>
+
+<div class="abstract">
+<h2>ABSTRACT</h2>
+<p>Gateway AI Pathways addresses Absolute Priority 2 by creating a coherent dual credit computer science and AI pipeline between the University of Missouri–St. Louis and Saint Louis Public Schools. The project simultaneously expands student access to rigorous computer science and AI coursework through transcripted dual credit courses aligned with UMSL degree requirements and Missouri standards; builds the capacity of current and future educators to teach computer science and AI literacy by embedding AI content into UMSL teacher preparation programs and providing sustained professional development and micro credentials for SLPS teachers; and connects secondary coursework to college and career outcomes through structured advising, exposure to AI related careers, and alignment with regional workforce needs. Over four years, the partnership will design, pilot, and scale an articulated sequence of dual credit courses in introductory computer science, foundations of AI and data literacy, and applied AI in real world domains. These courses will be delivered in SLPS high schools through co taught models involving UMSL faculty and SLPS teachers who earn specialized preparation to serve as dual credit instructors. The project will initially serve at least 150 SLPS students and 25 teachers in Year 1 and will grow to a cumulative total of at least 600 students and 80 educators by the end of the project period.</p>
+</div>
+
+<div class="page-break"></div>
+
+<h1>PROJECT NARRATIVE</h1>
+
+<div class="section-header">A. SIGNIFICANCE (30 Points)</div>
+
+<h2>A.1. National and local need</h2>
+<p>Artificial intelligence is rapidly transforming the nature of work, civic life, and knowledge production. The Federal Register notice emphasizes that AI literacy is now essential for navigating and contributing to a society in which algorithmic systems play a growing role in decision making, communication, and innovation. At the same time, access to rigorous computer science and AI education remains uneven. Students in high poverty urban districts are less likely to have access to advanced computer science courses, experienced computer science teachers, or consistent opportunities for dual enrollment in computing related fields. These disparities directly constrain who can participate in and benefit from AI driven economic change.</p>
+
+<p>Saint Louis Public Schools serves a student population with high levels of economic disadvantage and a history of structural barriers to postsecondary success. Many students are first generation college aspirants who attend schools with limited advanced coursework and teacher capacity in computer science. Without intentional intervention, the very communities most affected by automation and AI driven restructuring of the labor market will remain underrepresented in AI design, governance, and leadership.</p>
+
+<p>UMSL is the metropolitan public research university that serves the city of St. Louis. It has long standing commitments to equity, community engagement, and preparation of educators and professionals for the region's schools and industries. UMSL already offers undergraduate majors and minors in computer science, information systems, cybersecurity, and STEM education. However, the institution's teacher preparation programs and dual credit structures have not yet been systematically reoriented around AI literacy and AI in education. This project leverages UMSL's role in the region and SLPS's position as the largest urban LEA in the metropolitan area to respond directly to the national need identified in Absolute Priority 2.</p>
+
+<h2>A.2. Innovation and potential for improved outcomes (Criterion A.i)</h2>
+<p>The proposed project is innovative in several respects:</p>
+<ul>
+<li><strong>Concurrent focus on students and educators.</strong> Many efforts to expand computer science access focus either on student coursework or teacher preparation. This project addresses both simultaneously. It uses dual credit courses not only to provide students with early postsecondary credit but also to create authentic teaching laboratories for preservice teachers and professional learning environments for inservice teachers.</li>
+<li><strong>Integration of AI literacy across teacher preparation and general education.</strong> AI related content will be treated as foundational rather than specialized. UMSL will embed AI literacy, ethics, and instructional uses of AI into teacher preparation requirements and into general education offerings that are accessible to students in multiple majors.</li>
+<li><strong>Alignment of secondary coursework, IHE programs, and workforce needs.</strong> The dual credit sequence will be purposefully mapped to UMSL degree requirements and to regional AI and technology workforce demand. Students will see clear linkages between high school course choices, postsecondary programs, and in demand occupations.</li>
+<li><strong>Use of AI tools as both subject and medium.</strong> AI is not only content in the curriculum but also a set of tools for instruction, differentiation, tutoring, and data use. The project will intentionally explore the use of AI enabled feedback systems, analytics dashboards, and tutoring environments while helping educators and students critically examine their benefits and risks.</li>
+</ul>
+
+<p>These innovations are expected to improve outcomes along several dimensions:</p>
+<ul>
+<li>Increased student enrollment and success in rigorous computer science and AI coursework.</li>
+<li>Higher rates of college matriculation and persistence in computing related majors among participating students.</li>
+<li>Strengthened teacher self efficacy and instructional quality in computer science and AI literacy.</li>
+<li>More coherent and equitable access to dual credit and early college pathways in SLPS.</li>
+</ul>
+
+<h2>A.3. Importance and magnitude of expected results (Criterion A.ii)</h2>
+<p>The expected outcomes are of substantial importance for both local and national priorities. Locally, the project aims to:</p>
+<ul>
+<li>Serve at least 600 unduplicated SLPS students in dual credit AI and computer science courses across four years.</li>
+<li>Establish a sustainable dual credit sequence that continues beyond the grant period.</li>
+<li>Prepare at least 80 SLPS teachers and a substantial number of UMSL preservice teachers to integrate AI literacy into their instruction and to deliver computer science courses.</li>
+</ul>
+
+<p>Nationally, the project has potential to contribute to models of AI education that:</p>
+<ul>
+<li>Demonstrate how IHEs can respond to Executive Order 14179 and Executive Order 14277 by aligning secondary, postsecondary, and workforce systems around AI literacy.</li>
+<li>Show how dual credit structures can be used to bring AI and computer science opportunities to students in high need urban districts.</li>
+<li>Provide evidence regarding the impacts of AI integrated dual enrollment on postsecondary outcomes.</li>
+</ul>
+
+<p>The magnitude of potential benefits extends beyond individual course completions. Successful implementation would alter the opportunity structure for an entire district's students with respect to AI and computing fields and would reshape how a public university prepares future teachers and professionals for an AI intensive society.</p>
+
+<div class="page-break"></div>
+
+<div class="section-header">B. QUALITY OF THE PROJECT DESIGN (45 Points)</div>
+
+<h2>B.1. Overall goals, objectives, and logic model</h2>
+<p><strong>Goal 1 – Expand equitable access to rigorous AI and computer science coursework for SLPS students through dual credit offerings aligned with UMSL programs.</strong></p>
+<ul>
+<li>Objective 1.1: Design and approve at least three dual credit courses in computer science and AI that meet UMSL curricular standards and Missouri high school graduation requirements.</li>
+<li>Objective 1.2: Enroll at least 150 students in Year 1 and 600 cumulative students by Year 4, with representation from multiple SLPS high schools and student subgroups.</li>
+<li>Objective 1.3: Ensure that at least 70 percent of students earn a grade of C or higher in dual credit courses.</li>
+</ul>
+
+<p><strong>Goal 2 – Build the capacity of future and current educators to teach AI literacy and computer science.</strong></p>
+<ul>
+<li>Objective 2.1: Integrate an AI in Education module or course into UMSL teacher preparation programs within the first two project years.</li>
+<li>Objective 2.2: Provide multi tiered professional development and micro credentials in AI literacy and computer science pedagogy to at least 80 SLPS teachers over four years.</li>
+<li>Objective 2.3: Increase teacher self reported confidence in teaching AI and computer science concepts by at least 20 percentage points from baseline.</li>
+</ul>
+
+<p><strong>Goal 3 – Strengthen advising, work based learning, and postsecondary transitions into AI and computing fields.</strong></p>
+<ul>
+<li>Objective 3.1: Develop clear pathway maps connecting dual credit courses to UMSL majors and regional AI related careers.</li>
+<li>Objective 3.2: Engage at least 50 students per year in AI related work based learning, mentoring, or exposure experiences by Year 3.</li>
+<li>Objective 3.3: Increase by at least 10 percentage points the rate at which participating students enroll in postsecondary programs in computer science, information systems, data science, engineering, or related teacher education.</li>
+</ul>
+
+<p>The logic model links project inputs (funding, staff, existing curricula, and partnerships) to activities (course design, PD, advising, and evaluation), outputs (courses, micro credentials, pathway maps, work based learning experiences), and outcomes (AI literacy, course completion, postsecondary enrollment and persistence, teacher capacity). Continuous improvement processes will monitor implementation fidelity and outcomes, allowing refinement over time.</p>
+
+<h2>B.2. Integration with and building on related efforts (Criterion B.1)</h2>
+<p>The design intentionally integrates and builds on existing local and national efforts.</p>
+<ul>
+<li><strong>Existing dual credit infrastructure.</strong> UMSL and SLPS already collaborate on dual credit in other disciplines. The project will build on established registration systems, financial models, and credit transfer policies, while tailoring them to the unique demands of AI and computer science.</li>
+<li><strong>State and district initiatives in college and career readiness.</strong> SLPS participates in statewide efforts to increase dual enrollment, career pathway clarity, and work based learning opportunities. The project will align with these initiatives by positioning AI and computer science as central components of STEM and information technology pathways.</li>
+<li><strong>UMSL academic programs.</strong> The dual credit sequence will map directly onto UMSL degree requirements in computer science and related fields, as well as teacher preparation programs. This ensures that students' earned credits accelerate progress toward degrees rather than simply accumulating as electives.</li>
+<li><strong>Federal and state standards.</strong> The curriculum will align with the federal definition of computer science provided in the notice and with state standards for computer science, digital literacy, and technology education. This alignment increases transferability and policy relevance.</li>
+</ul>
+
+<h2>B.3. Core components of the design and implementation plan (Criterion B.2 and B.3)</h2>
+
+<h3>Component 1 – Dual credit AI and computer science course sequence</h3>
+<p>Activities include:</p>
+<ul>
+<li>Establishing a joint curriculum design committee with representation from UMSL computer science, education, and information systems faculty; SLPS computer science, mathematics, and CTE teachers; and SLPS curriculum and college and career readiness staff.</li>
+<li>Conducting a curriculum mapping exercise to align UMSL introductory computer science and AI related courses with high school standards and local graduation requirements.</li>
+<li>Designing and securing approval for at least three dual credit courses:
+<ul>
+<li>Introduction to Computer Science and Computational Thinking – covering fundamental programming concepts, algorithms, data structures, and problem solving.</li>
+<li>Foundations of Artificial Intelligence and Data Literacy – introducing machine learning concepts at an accessible level, classification and prediction, data ethics, and AI literacy.</li>
+<li>Applied AI in Society – focusing on AI applications in health, education, civic life, and business, with attention to bias, fairness, and human centered design.</li>
+</ul>
+</li>
+<li>Developing standards aligned syllabi, learning objectives, assessments, and resources that meet UMSL quality expectations and are adaptable for delivery in multiple SLPS schools.</li>
+<li>Creating an instructor qualification and training process that enables SLPS teachers who meet UMSL criteria to become dual credit instructors, supported through mentoring by UMSL faculty.</li>
+<li>Piloting the sequence in two to three SLPS high schools in Year 1, then expanding to additional schools in subsequent years, with attention to geographic and demographic diversity.</li>
+</ul>
+
+<h3>Component 2 – AI literacy integration in UMSL teacher preparation</h3>
+<p>Activities include:</p>
+<ul>
+<li>Reviewing all UMSL teacher preparation programs to identify where AI literacy, computer science principles, and responsible AI use can be embedded.</li>
+<li>Designing an AI in Education requirement that addresses:
+<ul>
+<li>AI concepts at a level appropriate for non computer science majors.</li>
+<li>Ethical considerations, including bias, fairness, transparency, and privacy.</li>
+<li>Instructional uses of AI tools for differentiation, feedback, and assessment.</li>
+<li>Strategies for teaching students to critically evaluate AI outputs and AI generated misinformation.</li>
+</ul>
+</li>
+<li>Integrating AI related assignments and experiences into methods courses and field experiences, particularly for preservice teachers placed in SLPS schools participating in the dual credit program.</li>
+<li>Creating opportunities for preservice teachers to co teach or assist in dual credit AI and computer science courses under supervision, thus aligning teacher preparation with the project's K–12 instructional innovations.</li>
+</ul>
+
+<h3>Component 3 – Professional development and micro credentials for SLPS teachers</h3>
+<p>Activities include:</p>
+<ul>
+<li>Designing a PD framework with three levels:
+<ul>
+<li>Level 1: AI Literacy for All Teachers – introductory workshops on AI concepts, responsible use, and classroom implications, open to teachers in all subjects.</li>
+<li>Level 2: Integrating AI and Computational Thinking Across the Curriculum – deeper sessions for teachers who wish to embed computational thinking and AI related activities into mathematics, science, social studies, ELA, and other courses.</li>
+<li>Level 3: Computer Science and AI Specialist Preparation – intensive training for teachers who will teach dual credit computer science and AI courses, including content deepening, pedagogy, and assessment.</li>
+</ul>
+</li>
+<li>Delivering summer institutes at UMSL and during the academic year in SLPS, with follow up coaching and communities of practice.</li>
+<li>Developing micro credentials that recognize completion of these PD sequences. These micro credentials will be jointly branded by UMSL and SLPS and will be designed to articulate into graduate credit or endorsement pathways where possible.</li>
+<li>Prioritizing recruitment and support of teachers from high need schools and from backgrounds underrepresented in computer science.</li>
+</ul>
+
+<h3>Component 4 – Student advising, work based learning, and talent pathway alignment</h3>
+<p>Activities include:</p>
+<ul>
+<li>Constructing visual pathway maps that show how dual credit courses count toward specific UMSL majors and minors, and how those programs connect to regional AI related occupations and in demand industry sectors.</li>
+<li>Training SLPS counselors, college advisers, and teachers to use these maps in advising conversations with students and families.</li>
+<li>Establishing partnerships with regional employers in technology, healthcare, financial services, logistics, and advanced manufacturing to provide:
+<ul>
+<li>Guest lectures and classroom talks.</li>
+<li>Virtual and in person site visits.</li>
+<li>Mentoring and job shadowing opportunities.</li>
+<li>Project based learning experiences connected to real AI applications.</li>
+</ul>
+</li>
+<li>Exploring alignment with emerging state or regional talent marketplace initiatives, including the use of Learning and Employment Records, credential registries, and skill based job descriptions. This alignment will help students translate their coursework and micro credentials into portable records of competency.</li>
+</ul>
+
+<div class="page-break"></div>
+
+<div class="section-header">C. QUALITY OF THE MANAGEMENT PLAN (10 Points)</div>
+
+<h2>C.1. Governance and leadership</h2>
+<p>The project will be governed by a Gateway AI Pathways Steering Committee that includes:</p>
+<ul>
+<li>Principal Investigator from UMSL (faculty member in education or computer science).</li>
+<li>SLPS Co Principal Investigator (senior leader for curriculum, instruction, or college and career readiness).</li>
+<li>Directors or coordinators from UMSL Computer Science, Teacher Education, and Enrollment Management.</li>
+<li>SLPS high school principals from participating schools.</li>
+<li>A representative from a regional employer partner.</li>
+<li>A student representative once the first cohort is underway.</li>
+</ul>
+
+<p>The Steering Committee will meet quarterly to monitor progress, review evaluation data, and resolve strategic issues.</p>
+
+<p>Day to day operations will be managed by a Project Director housed at UMSL, supported by:</p>
+<ul>
+<li>A full time Project Manager responsible for timelines, budgets, procurement, and documentation.</li>
+<li>Curriculum and PD Leads from UMSL and SLPS in computer science and teacher education.</li>
+<li>An Evaluation Lead coordinating data collection, analysis, and reporting.</li>
+<li>Site based coordinators in each participating SLPS high school to support student recruitment, scheduling, and communication.</li>
+</ul>
+
+<h2>C.2. Timeline and milestones</h2>
+<p>A high level timeline is as follows.</p>
+
+<p><strong>Year 1</strong></p>
+<ul>
+<li>Establish governance structures, finalize partnership agreements.</li>
+<li>Conduct needs assessment and baseline data analysis.</li>
+<li>Design and approve initial dual credit courses.</li>
+<li>Design first iteration of AI in Education module and PD Level 1.</li>
+<li>Recruit initial cohort of schools, teachers, and students.</li>
+<li>Launch pilot dual credit courses in two to three high schools.</li>
+<li>Implement first summer institute and academic year PD sessions.</li>
+</ul>
+
+<p><strong>Year 2</strong></p>
+<ul>
+<li>Revise curricula and PD based on Year 1 evaluation findings.</li>
+<li>Expand dual credit offerings to additional schools.</li>
+<li>Implement AI in Education requirement in teacher preparation programs.</li>
+<li>Launch PD Levels 2 and 3 and begin micro credentialing.</li>
+<li>Formalize employer partnerships and begin work based learning experiences.</li>
+</ul>
+
+<p><strong>Year 3</strong></p>
+<ul>
+<li>Extend dual credit sequence and PD to additional sites.</li>
+<li>Refine advising tools and pathway maps.</li>
+<li>Deepen integration of AI content across UMSL general education and teacher education programs.</li>
+<li>Expand work based learning and mentorship components.</li>
+<li>Produce interim evaluation report with student and teacher outcome analyses.</li>
+</ul>
+
+<p><strong>Year 4</strong></p>
+<ul>
+<li>Consolidate and institutionalize successful practices at UMSL and SLPS.</li>
+<li>Finalize and disseminate open educational resources and implementation guides.</li>
+<li>Conduct extended outcome analyses of postsecondary enrollment and persistence for early cohorts.</li>
+<li>Prepare sustainability plan and explore external funding and policy mechanisms for continuation.</li>
+</ul>
+
+<p>Specific milestones, responsible parties, and deliverables for each semester will be detailed in an internal management plan and updated annually.</p>
+
+<div class="page-break"></div>
+
+<div class="section-header">D. QUALITY OF PROJECT EVALUATION AND EVIDENCE BUILDING (15 Points)</div>
+
+<h2>D.1. Evaluation questions and design (Criterion D.1)</h2>
+<p>The evaluation will address the following primary questions.</p>
+<ul>
+<li><strong>Access and participation:</strong> To what extent does the project increase access to and participation in dual credit AI and computer science courses among SLPS students, particularly those from historically underserved groups?</li>
+<li><strong>Student learning and progression:</strong> What are the effects of participation on students' AI literacy, computer science knowledge, and progression toward postsecondary programs in computing and related fields?</li>
+<li><strong>Teacher capacity:</strong> How does the project influence preservice and inservice teachers' AI literacy, confidence, and instructional practices related to AI and computer science?</li>
+<li><strong>Implementation and context:</strong> What implementation strategies and contextual factors support or hinder success, and how can these inform replication in other settings?</li>
+</ul>
+
+<p>The evaluation will use a mixed methods design.</p>
+<p><strong>Quantitative component:</strong> Analysis of student level administrative data from SLPS and UMSL, including course enrollments, grades, credit accumulation, high school graduation, college enrollment, and major choice. Where feasible, comparison groups of similar students who did not participate will be constructed using matching techniques. Pre and post surveys will measure AI literacy and attitudes. Teacher Level surveys will assess confidence and practices.</p>
+<p><strong>Qualitative component:</strong> Classroom observations of dual credit and AI integrated instruction; interviews and focus groups with students, teachers, counselors, and administrators; document analysis of curricula, syllabi, and PD materials.</p>
+
+<h2>D.2. Performance feedback and continuous improvement (Criterion D.2)</h2>
+<p>Evaluation activities will be tightly connected to continuous improvement.</p>
+<ul>
+<li>The evaluation team will produce annual internal briefs with key performance indicators disaggregated by school and subgroup.</li>
+<li>Rapid feedback cycles will provide course completion and survey data in time to adjust supports for subsequent semesters.</li>
+<li>Qualitative findings will inform revisions to PD content, advising strategies, and partnership arrangements with employers.</li>
+</ul>
+
+<p>These feedback loops will enable the project to respond quickly to emerging challenges and to test and refine strategies during the grant period rather than only at its conclusion.</p>
+
+<h2>D.3. Guidance for replication (Criterion D.3)</h2>
+<p>The evaluation will explicitly document:</p>
+<ul>
+<li>The conditions under which dual credit AI and computer science courses were most successfully implemented.</li>
+<li>The supports required for teachers to deliver these courses with fidelity.</li>
+<li>The institutional policies and practices that facilitated coordination between UMSL and SLPS.</li>
+</ul>
+
+<p>Summative reports and implementation guides will translate these findings into concrete recommendations for other IHEs and LEAs seeking to replicate the model. These materials will be openly licensed in line with program requirements.</p>
+
+<div class="page-break"></div>
+
+<h1>PROJECT SPECIFIC PERFORMANCE MEASURES, BASELINES, AND TARGETS</h1>
+
+<p>In accordance with 34 CFR 75.110 and the definitions in the notice, the project will use the following performance measures and targets. Baselines will be established using data from the year prior to project launch and, where necessary, from the first cohort.</p>
+
+<h2>Measure 1 – Student participation in dual credit AI and computer science.</h2>
+<p><strong>Definition:</strong> Number and percentage of SLPS high school students enrolled in at least one dual credit AI or computer science course in a given year.</p>
+<p><strong>Baseline:</strong> Expected to be near zero for AI specific dual credit coursework.</p>
+<p><strong>Targets:</strong></p>
+<ul>
+<li>Year 1: 150 students.</li>
+<li>Year 2: 200 students.</li>
+<li>Year 3: 250 students.</li>
+<li>Year 4: 300 students.</li>
+<li><strong>Cumulative:</strong> At least 600 unique students over four years.</li>
+</ul>
+
+<h2>Measure 2 – Student success in dual credit courses.</h2>
+<p><strong>Definition:</strong> Percentage of enrolled dual credit students who complete AI or computer science courses with a grade of C or higher.</p>
+<p><strong>Baseline:</strong> To be established from first year data.</p>
+<p><strong>Target:</strong> At least 70 percent in Year 2, increasing to at least 75 percent by Year 4.</p>
+
+<h2>Measure 3 – Postsecondary transition into computing related fields.</h2>
+<p><strong>Definition:</strong> Percentage of participating students who enroll in postsecondary programs in computer science, information systems, data science, engineering, or teacher education with a technology or computer science focus within one year of graduation.</p>
+<p><strong>Baseline:</strong> Rate for a matched cohort of non participants in the year prior to launch.</p>
+<p><strong>Target:</strong> An increase of at least 10 percentage points over baseline by the end of the project period.</p>
+
+<h2>Measure 4 – Teacher participation in AI and computer science professional development.</h2>
+<p><strong>Definition:</strong> Number of SLPS teachers who complete at least one level of the AI and computer science PD sequence and earn associated micro credentials.</p>
+<p><strong>Baseline:</strong> Expected to be near zero for AI specific credentials.</p>
+<p><strong>Targets:</strong></p>
+<ul>
+<li>Year 1: 25 teachers.</li>
+<li>Year 2: 20 additional teachers.</li>
+<li>Year 3: 20 additional teachers.</li>
+<li>Year 4: 15 additional teachers.</li>
+<li><strong>Cumulative:</strong> At least 80 teachers.</li>
+</ul>
+
+<h2>Measure 5 – Teacher AI literacy and self efficacy.</h2>
+<p><strong>Definition:</strong> Average change in teacher AI literacy and self efficacy scores from pre to post participation in PD, measured using a project developed instrument aligned with the AI literacy definition in the notice.</p>
+<p><strong>Baseline:</strong> Established at PD entry.</p>
+<p><strong>Target:</strong> Mean improvement of at least 0.5 standard deviations for participants by the end of each PD cycle.</p>
+
+<h2>Measure 6 – Preservice teacher preparation.</h2>
+<p><strong>Definition:</strong> Number of UMSL preservice teachers who complete the AI in Education requirement and have at least one field experience in a classroom where AI or computer science is being explicitly taught.</p>
+<p><strong>Baseline:</strong> Zero at project outset.</p>
+<p><strong>Targets:</strong></p>
+<ul>
+<li>Year 2: 30 preservice teachers.</li>
+<li>Year 3: 60 preservice teachers.</li>
+<li>Year 4: 80 preservice teachers.</li>
+</ul>
+
+<p>For each measure, the project team will document the data sources used, including their quality and integrity; the procedures for calculating baselines and monitoring progress; and the rationale for targets being ambitious yet achievable in light of baseline data and project resources.</p>
+
+<div class="page-break"></div>
+
+<div class="section-header">BUDGET NARRATIVE</div>
+
+<h2>Total Request: $1,850,000 (48 Months) + $150,000 Cost Share</h2>
+
+<h3>Budget Summary Overview</h3>
+<table>
+<tr><th>Category</th><th>Year 1</th><th>Year 2</th><th>Year 3</th><th>Year 4</th><th>Total</th></tr>
+<tr><td>1. Personnel</td><td>$285,000</td><td>$293,550</td><td>$302,357</td><td>$311,428</td><td>$1,192,335</td></tr>
+<tr><td>2. Fringe Benefits</td><td>$71,250</td><td>$73,388</td><td>$75,589</td><td>$77,857</td><td>$298,084</td></tr>
+<tr><td>3. Travel</td><td>$25,000</td><td>$25,750</td><td>$26,523</td><td>$27,319</td><td>$104,592</td></tr>
+<tr><td>4. Equipment</td><td>$75,000</td><td>$50,000</td><td>$25,000</td><td>$0</td><td>$150,000</td></tr>
+<tr><td>5. Supplies</td><td>$35,000</td><td>$36,050</td><td>$37,132</td><td>$38,246</td><td>$146,428</td></tr>
+<tr><td>6. Contractual</td><td>$60,000</td><td>$60,000</td><td>$60,000</td><td>$60,000</td><td>$240,000</td></tr>
+<tr><td>7. Other</td><td>$40,000</td><td>$41,200</td><td>$42,436</td><td>$43,709</td><td>$167,345</td></tr>
+<tr><td>8. Indirect Costs (10% MTDC)</td><td>$51,625</td><td>$53,174</td><td>$54,789</td><td>$56,473</td><td>$216,061</td></tr>
+<tr class="budget-total"><td><strong>TOTAL FEDERAL</strong></td><td><strong>$642,875</strong></td><td><strong>$633,112</strong></td><td><strong>$622,826</strong></td><td><strong>$614,732</strong></td><td><strong>$2,513,845</strong></td></tr>
+<tr><td><strong>Cost Share</strong></td><td><strong>$37,500</strong></td><td><strong>$37,500</strong></td><td><strong>$37,500</strong></td><td><strong>$37,500</strong></td><td><strong>$150,000</strong></td></tr>
+<tr class="budget-total"><td><strong>TOTAL PROJECT</strong></td><td><strong>$680,375</strong></td><td><strong>$670,612</strong></td><td><strong>$660,326</strong></td><td><strong>$651,532</strong></td><td><strong>$2,662,845</strong></td></tr>
+</table>
+
+<h3>1. Personnel Costs - Detailed Breakdown</h3>
+<table>
+<tr><th>Position</th><th>FTE</th><th>Annual Salary</th><th>Year 1</th><th>Year 2</th><th>Year 3</th><th>Year 4</th><th>Total</th><th>Role</th></tr>
+<tr><td>Project Director</td><td>0.25</td><td>$140,000</td><td>$35,000</td><td>$36,050</td><td>$37,132</td><td>$38,246</td><td>$146,428</td><td>Strategic oversight, partnerships</td></tr>
+<tr><td>Project Manager</td><td>1.00</td><td>$85,000</td><td>$85,000</td><td>$87,550</td><td>$90,177</td><td>$92,982</td><td>$355,709</td><td>Day-to-day operations</td></tr>
+<tr><td>Co-PI - Education</td><td>0.20</td><td>$130,000</td><td>$26,000</td><td>$26,780</td><td>$27,583</td><td>$28,410</td><td>$108,773</td><td>Teacher preparation integration</td></tr>
+<tr><td>Co-PI - Computer Science</td><td>0.20</td><td>$135,000</td><td>$27,000</td><td>$27,810</td><td>$28,644</td><td>$29,503</td><td>$112,957</td><td>AI curriculum development</td></tr>
+<tr><td>Graduate Assistants (3)</td><td>0.75</td><td>$28,000</td><td>$21,000</td><td>$21,630</td><td>$22,279</td><td>$22,947</td><td>$87,856</td><td>Research, mentoring support</td></tr>
+<tr><td>Curriculum Specialists (2)</td><td>0.50</td><td>$75,000</td><td>$37,500</td><td>$38,625</td><td>$39,784</td><td>$40,977</td><td>$156,886</td><td>Dual credit course design</td></tr>
+<tr><td>Evaluation Coordinator</td><td>0.25</td><td>$90,000</td><td>$22,500</td><td>$23,175</td><td>$23,870</td><td>$24,586</td><td>$94,131</td><td>Data collection, analysis</td></tr>
+<tr><td>Administrative Assistant</td><td>0.50</td><td>$40,000</td><td>$20,000</td><td>$20,600</td><td>$21,218</td><td>$21,855</td><td>$83,673</td><td>Office management, logistics</td></tr>
+<tr><td>Summer Institute Faculty</td><td>0.30</td><td>$110,000</td><td>$11,000</td><td>$11,330</td><td>$11,670</td><td>$12,020</td><td>$46,020</td><td>4-week summer teaching</td></tr>
+<tr class="budget-total"><td><strong>TOTAL PERSONNEL</strong></td><td><strong>3.95</strong></td><td><strong></strong></td><td><strong>$285,000</strong></td><td><strong>$293,550</strong></td><td><strong>$302,357</strong></td><td><strong>$311,428</strong></td><td><strong>$1,192,335</strong></td><td></td></tr>
+</table>
+
+<h3>2. Fringe Benefits (25% of Personnel)</h3>
+<table>
+<tr><th>Benefit Type</th><th>Year 1</th><th>Year 2</th><th>Year 3</th><th>Year 4</th><th>Total</th><th>Notes</th></tr>
+<tr><td>Health Insurance</td><td>$42,750</td><td>$44,033</td><td>$45,354</td><td>$46,714</td><td>$178,851</td><td>Medical, dental, vision</td></tr>
+<tr><td>Retirement (TIAA)</td><td>$14,250</td><td>$14,678</td><td>$15,118</td><td>$15,571</td><td>$59,617</td><td>10% employer contribution</td></tr>
+<tr><td>Social Security/Medicare</td><td>$10,913</td><td>$11,240</td><td>$11,577</td><td>$11,925</td><td>$45,655</td><td>7.65% FICA match</td></tr>
+<tr><td>Unemployment Insurance</td><td>$3,338</td><td>$3,438</td><td>$3,541</td><td>$3,647</td><td>$13,964</td><td>State unemployment</td></tr>
+<tr><td><strong>TOTAL BENEFITS</strong></td><td><strong>$71,250</strong></td><td><strong>$73,388</strong></td><td><strong>$75,589</strong></td><td><strong>$77,857</strong></td><td><strong>$298,084</strong></td><td></td></tr>
+</table>
+
+<h3>3. Travel Costs - Detailed Breakdown</h3>
+<table>
+<tr><th>Travel Category</th><th>Trips/Year</th><th>Cost/Trip</th><th>Year 1</th><th>Year 2</th><th>Year 3</th><th>Year 4</th><th>Total</th><th>Purpose</th></tr>
+<tr><td>SLPS Site Visits</td><td>40</td><td>$150</td><td>$6,000</td><td>$6,180</td><td>$6,365</td><td>$6,556</td><td>$25,101</td><td>Faculty coordination</td></tr>
+<tr><td>Regional Partner Meetings</td><td>12</td><td>$300</td><td>$3,600</td><td>$3,708</td><td>$3,819</td><td>$3,934</td><td>$15,061</td><td>Employer partnerships</td></tr>
+<tr><td>Conference Presentations</td><td>6</td><td>$2,000</td><td>$12,000</td><td>$12,360</td><td>$12,731</td><td>$13,113</td><td>$50,204</td><td>Dissemination</td></tr>
+<tr><td>Student Field Trips</td><td>8</td><td>$425</td><td>$3,400</td><td>$3,502</td><td>$3,607</td><td>$3,715</td><td>$14,224</td><td>Industry exposure</td></tr>
+<tr><td><strong>TOTAL TRAVEL</strong></td><td><strong>66</strong></td><td><strong></strong></td><td><strong>$25,000</strong></td><td><strong>$25,750</strong></td><td><strong>$26,523</strong></td><td><strong>$27,319</strong></td><td><strong>$104,592</strong></td><td></td></tr>
+</table>
+
+<h3>4. Equipment Procurement Schedule</h3>
+<table>
+<tr><th>Equipment Item</th><th>Quantity</th><th>Unit Cost</th><th>Year 1</th><th>Year 2</th><th>Year 3</th><th>Year 4</th><th>Total</th><th>Use</th></tr>
+<tr><td>AI Computing Workstations</td><td>30</td><td>$2,000</td><td>$30,000</td><td>$15,000</td><td>$0</td><td>$0</td><td>$45,000</td><td>Student labs</td></tr>
+<tr><td>Interactive Displays</td><td>12</td><td>$1,500</td><td>$9,000</td><td>$9,000</td><td>$0</td><td>$0</td><td>$18,000</td><td>Classroom instruction</td></tr>
+<tr><td>VR/AR Equipment</td><td>15</td><td>$800</td><td>$6,000</td><td>$6,000</td><td>$0</td><td>$0</td><td>$12,000</td><td>AI visualization</td></tr>
+<tr><td>3D Printers</td><td>6</td><td>$2,500</td><td>$7,500</td><td>$7,500</td><td>$0</td><td>$0</td><td>$15,000</td><td>Prototyping</td></tr>
+<tr><td>Robotics Kits</td><td>20</td><td>$1,250</td><td>$12,500</td><td>$12,500</td><td>$0</td><td>$0</td><td>$25,000</td><td>Hands-on learning</td></tr>
+<tr><td>Server Infrastructure</td><td>1</td><td>$10,000</td><td>$10,000</td><td>$0</td><td>$0</td><td>$0</td><td>$10,000</td><td>Cloud services</td></tr>
+<tr><td><strong>TOTAL EQUIPMENT</strong></td><td><strong></strong></td><td><strong></strong></td><td><strong>$75,000</strong></td><td><strong>$50,000</strong></td><td><strong>$0</strong></td><td><strong>$0</strong></td><td><strong>$125,000</strong></td><td></td></tr>
+</table>
+
+<h3>5. Supplies and Materials</h3>
+<table>
+<tr><th>Supply Category</th><th>Annual Need</th><th>Year 1</th><th>Year 2</th><th>Year 3</th><th>Year 4</th><th>Total</th><th>Description</th></tr>
+<tr><td>Curriculum Development</td><td>3 courses</td><td>$15,000</td><td>$15,450</td><td>$15,914</td><td>$16,391</td><td>$62,755</td><td>Materials, licensing</td></tr>
+<tr><td>Professional Development</td><td>80 teachers</td><td>$10,000</td><td>$10,300</td><td>$10,609</td><td>$10,927</td><td>$41,836</td><td>Training materials</td></tr>
+<tr><td>Student Resources</td><td>600 students</td><td>$6,000</td><td>$6,180</td><td>$6,365</td><td>$6,556</td><td>$25,101</td><td>Software, textbooks</td></tr>
+<tr><td>Office Supplies</td><td>Annual</td><td>$4,000</td><td>$4,120</td><td>$4,244</td><td>$4,371</td><td>$16,735</td><td>Operational needs</td></tr>
+<tr><td><strong>TOTAL SUPPLIES</strong></td><td><strong></strong></td><td><strong>$35,000</strong></td><td><strong>$36,050</strong></td><td><strong>$37,132</strong></td><td><strong>$38,246</strong></td><td><strong>$146,428</strong></td><td></td></tr>
+</table>
+
+<h3>6. Contractual Services</h3>
+<table>
+<tr><th>Service Provider</th><th>Service</th><th>Annual Rate</th><th>Year 1</th><th>Year 2</th><th>Year 3</th><th>Year 4</th><th>Total</th><th>Deliverables</th></tr>
+<tr><td>External Evaluator</td><td>Program evaluation</td><td>$40,000</td><td>$40,000</td><td>$40,000</td><td>$40,000</td><td>$40,000</td><td>$160,000</td><td>Annual reports</td></tr>
+<tr><td>AI Curriculum Consultant</td><td>K-12 AI design</td><td>$20,000</td><td>$20,000</td><td>$20,000</td><td>$20,000</td><td>$20,000</td><td>$80,000</td><td>Curriculum modules</td></tr>
+<tr><td><strong>TOTAL CONTRACTUAL</strong></td><td><strong></strong></td><td><strong></strong></td><td><strong>$60,000</strong></td><td><strong>$60,000</strong></td><td><strong>$60,000</strong></td><td><strong>$60,000</strong></td><td><strong>$240,000</strong></td><td></td></tr>
+</table>
+
+<h3>7. Other Direct Costs</h3>
+<table>
+<tr><th>Cost Category</th><th>Unit</th><th>Quantity</th><th>Year 1</th><th>Year 2</th><th>Year 3</th><th>Year 4</th><th>Total</th><th>Notes</th></tr>
+<tr><td>Student Stipends</td><td>$500/semester</td><td>30 students</td><td>$15,000</td><td>$15,450</td><td>$15,914</td><td>$16,391</td><td>$62,755</td><td>Dual credit support</td></tr>
+<tr><td>Teacher Stipends</td><td>$1,000/year</td><td>20 teachers</td><td>$20,000</td><td>$20,600</td><td>$21,218</td><td>$21,855</td><td>$83,673</td><td>PD completion</td></tr>
+<tr><td>Marketing/Recruitment</td><td>Annual</td><td>Campaign</td><td>$5,000</td><td>$5,150</td><td>$5,305</td><td>$5,464</td><td>$20,919</td><td>Outreach materials</td></tr>
+<tr><td><strong>TOTAL OTHER</strong></td><td><strong></strong></td><td><strong></strong></td><td><strong>$40,000</strong></td><td><strong>$41,200</strong></td><td><strong>$42,436</strong></td><td><strong>$43,709</strong></td><td><strong>$167,345</strong></td><td></td></tr>
+</table>
+
+<h3>8. Indirect Costs Calculation</h3>
+<table>
+<tr><th>MTDC Base Calculation</th><th>Year 1</th><th>Year 2</th><th>Year 3</th><th>Year 4</th><th>Total</th></tr>
+<tr><td>Personnel Costs</td><td>$285,000</td><td>$293,550</td><td>$302,357</td><td>$311,428</td><td>$1,192,335</td></tr>
+<tr><td>Fringe Benefits</td><td>$71,250</td><td>$73,388</td><td>$75,589</td><td>$77,857</td><td>$298,084</td></tr>
+<tr><td>Travel</td><td>$25,000</td><td>$25,750</td><td>$26,523</td><td>$27,319</td><td>$104,592</td></tr>
+<tr><td>Supplies</td><td>$35,000</td><td>$36,050</td><td>$37,132</td><td>$38,246</td><td>$146,428</td></tr>
+<tr><td>Contractual</td><td>$60,000</td><td>$60,000</td><td>$60,000</td><td>$60,000</td><td>$240,000</td></tr>
+<tr><td>Other (Participant Support)</td><td>$40,000</td><td>$41,200</td><td>$42,436</td><td>$43,709</td><td>$167,345</td></tr>
+<tr><td><strong>MTDC Base</strong></td><td><strong>$516,250</strong></td><td><strong>$529,938</strong></td><td><strong>$543,737</strong></td><td><strong>$558,559</strong></td><td><strong>$2,148,784</strong></td></tr>
+<tr><td>Equipment (Excluded from MTDC)</td><td>($75,000)</td><td>($50,000)</td><td>($0)</td><td>($0)</td><td>($125,000)</td></tr>
+<tr><td><strong>Indirect Costs @ 10%</strong></td><td><strong>$51,625</strong></td><td><strong>$52,994</strong></td><td><strong>$54,374</strong></td><td><strong>$55,856</strong></td><td><strong>$214,849</strong></td></tr>
+</table>
+
+<h2>Budget Justification</h2>
+
+<h3>1. Personnel ($1,192,335)</h3>
+<p>Project Director (0.25 FTE): Strategic oversight of the dual credit AI pathway partnership, high-level relationship management with SLPS and regional employers, and overall project vision. Project Manager (1.0 FTE): Essential for day-to-day coordination between UMSL and SLPS, managing dual credit implementation, scheduling professional development, and ensuring compliance with institutional requirements. Co-PIs (0.20 FTE each): Education faculty lead for teacher preparation integration and Computer Science faculty lead for AI curriculum development. Graduate Assistants (3 total): Research support, data collection, mentoring coordination, and technical support for dual credit courses. Curriculum Specialists: Design and development of dual credit courses that meet both UMSL and Missouri high school standards. Evaluation Coordinator: Management of project evaluation, data analysis, and performance reporting. Administrative Assistant: Office management, scheduling, procurement, and logistical support. Summer Institute Faculty: Instruction for 4-week intensive AI bridge programs.</p>
+
+<h3>2. Fringe Benefits ($298,084)</h3>
+<p>Calculated at 25% of Personnel costs, consistent with UMSL institutional fringe benefit rate for grant-funded positions including health insurance, retirement contributions, FICA, and unemployment insurance.</p>
+
+<h3>3. Travel ($104,592)</h3>
+<p>SLPS Site Visits: Regular travel between UMSL campus and SLPS high schools for faculty coordination, classroom observations, and dual credit course support. Regional Partner Meetings: Travel to meet with employer partners for work-based learning opportunities and pathway alignment. Conference Presentations: Travel to national education and technology conferences (AERA, SIGCSE, ASEE) to disseminate project findings and best practices. Student Field Trips: Transportation for students to visit regional employers and UMSL campus for college exposure activities.</p>
+
+<h3>4. Equipment ($150,000)</h3>
+<p>AI Computing Workstations: High-performance computers for student labs capable of running AI software and development tools. Interactive Displays: Smart boards and displays for dual credit classrooms to support collaborative AI learning. VR/AR Equipment: Virtual and augmented reality systems for AI visualization and immersive learning experiences. 3D Printers: For prototyping and hands-on projects in applied AI courses. Robotics Kits: Complete robotics systems for hands-on AI and programming projects. Server Infrastructure: Cloud computing resources to support AI coursework and data storage.</p>
+
+<h3>5. Supplies ($146,428)</h3>
+<p>Curriculum Development: Materials, software licenses, and publishing costs for dual credit course development. Professional Development: Training materials, books, and resources for teacher AI literacy programs. Student Resources: Software licenses, textbooks, and learning materials for dual credit students. Office Supplies: Standard operational supplies for project management and coordination.</p>
+
+<h3>6. Contractual ($240,000)</h3>
+<p>External Evaluator: Independent evaluation services including instrument development, data collection, analysis, and annual reporting to ensure objective assessment of project outcomes. AI Curriculum Consultant: Specialized expertise in K-12 AI education to ensure curriculum alignment with standards and age-appropriate content design.</p>
+
+<h3>7. Other ($167,345)</h3>
+<p>Student Stipends: Financial support for dual credit students to cover transportation, materials, and other costs associated with college-level coursework. Teacher Stipends: Recognition for teachers who complete professional development and serve as dual credit instructors. Marketing/Recruitment: Outreach materials, information sessions, and recruitment activities to ensure equitable participation across SLPS schools.</p>
+
+<h3>8. Indirect Costs ($216,061)</h3>
+<p>Calculated at 10% of Modified Total Direct Costs (MTDC), per UMSL's federally negotiated indirect cost rate agreement. MTDC excludes equipment costs, consistent with federal guidelines.</p>
+
+<h3>Cost Share ($150,000)</h3>
+<p>UMSL institutional support includes faculty release time, office space, technology infrastructure, and administrative services valued at $37,500 annually, demonstrating institutional commitment to the sustainability of the Gateway AI Pathways initiative.</p>
+
+<h2>Open licensing</h2>
+<p>All curricula, syllabi, PD modules, pathway maps, and evaluation tools developed with Department funds will be openly licensed under terms that allow free public use, adaptation, and redistribution, consistent with 2 CFR 3474.20. The project team will develop a dissemination plan that includes web based repositories, presentations, and targeted outreach to relevant networks.</p>
+
+<h2>Compliance with applicable regulations and civil rights requirements</h2>
+<p>UMSL and SLPS will ensure that all project activities comply with applicable Federal civil rights laws and with the administrative and cost principles outlined in 2 CFR part 200 and related regulations. Dual credit courses and associated supports will be provided in a nondiscriminatory manner, with particular attention to ensuring equitable participation by students with disabilities, English learners, and other historically marginalized groups.</p>
+
+<h2>Sustainability</h2>
+<p>From the outset, the project will plan for sustainability by:</p>
+<ul>
+<li>Embedding new courses and requirements into regular UMSL curricula.</li>
+<li>Working with SLPS to codify course offerings and teacher roles within district staffing and budgeting processes.</li>
+<li>Exploring state level support for dual credit and AI related pathways.</li>
+<li>Seeking additional external funding and employer support where appropriate.</li>
+</ul>
+
+<div class="page-break"></div>
+
+<div class="section-header">ASSURANCES AND CERTIFICATIONS</div>
+
+<p>The University of Missouri–St. Louis certifies that this project complies with all applicable federal statutes, regulations, and requirements, including but not limited to:</p>
+
+<ul>
+<li>Requirements to partner with Local Educational Agencies (LEAs) to provide AI and Computer Science resources to K-12 students as outlined in Absolute Priority 2</li>
+<li>Equal opportunity and nondiscrimination provisions (Title VI, Title IX, Section 504, ADA)</li>
+<li>Protection of human subjects in research (45 CFR Part 46)</li>
+<li>Financial management and procurement standards (2 CFR Part 200, Uniform Administrative Requirements)</li>
+<li>Reporting requirements and performance measurement protocols as specified in the Notice Inviting Applications</li>
+<li>Data privacy and security provisions for student information (FERPA, applicable state laws)</li>
+<li>Drug-Free Workplace Act (41 U.S.C. § 8102)</li>
+<li>Lobbying restrictions (31 U.S.C. § 1352)</li>
+</ul>
+
+<p>UMSL commits to:</p>
+<ul>
+<li>Providing in-kind support including office space for project staff and institutional advancement support for partnership development</li>
+<li>Maintaining project records for three years following the submission of the final expenditure report</li>
+<li>Submitting Annual Performance Reports by the deadlines specified by the Department of Education</li>
+<li>Participating in federal evaluation activities as requested</li>
+<li>Developing a sustainability plan to continue serving dual credit AI pathways beyond the federal funding period</li>
+</ul>
+
+<p><strong>Authorized Representative:</strong></p>
+<p>Name: Dr. Kristin Sobolik<br>
+Title: Chancellor, University of Missouri–St. Louis<br>
+Signature: _________________________________ Date: ______________</p>
+
+<div class="page-break"></div>
+
+<h1>APPENDICES</h1>
+
+<div class="page-break"></div>
+
+<h1>APPENDIX A: LETTERS OF COMMITMENT</h1>
+
+<div class="letter">
+<div class="letterhead">
+SAINT LOUIS PUBLIC SCHOOLS<br>
+Office of College and Career Readiness<br>
+801 N 11th Street, St. Louis, MO 63101
+</div>
+
+<div class="date">November 15, 2025</div>
+
+<div class="address">
+Dr. Kristin Sobolik<br>
+Chancellor, University of Missouri–St. Louis<br>
+1 University Blvd<br>
+St. Louis, MO 63121
+</div>
+
+<p><strong>Re: Letter of Commitment for Gateway AI Pathways FIPSE Grant Application</strong></p>
+
+<p>Dear Chancellor Sobolik,</p>
+
+<p>On behalf of Saint Louis Public Schools (SLPS), I am pleased to provide this letter of commitment in support of the University of Missouri–St. Louis's application for the Fund for the Improvement of Postsecondary Education (FIPSE) Special Projects grant, "Gateway AI Pathways: An UMSL–Saint Louis Public Schools Dual Credit Computer Science and Artificial Intelligence Pipeline."</p>
+
+<p>Saint Louis Public Schools serves approximately 20,000 students across 65 schools, with 82% of our students qualifying for free or reduced-price lunch and 90% identifying as students of color. Our district is deeply committed to expanding access to high-quality computer science and AI education and creating pathways to postsecondary success in technology fields that are critical to our region's economic future.</p>
+
+<p>Currently, SLPS offers limited computer science coursework, with only 15% of our high school students having access to computer science courses and virtually no opportunities for AI literacy or dual credit computer science offerings. While we have made progress in STEM education through our First Robotics programs and STEM magnet schools, we recognize that our students need significantly more preparation for the AI-driven economy they will inherit.</p>
+
+<p>SLPS commits to the following for the duration of the Gateway AI Pathways project (October 2026 - September 2030):</p>
+
+<p><strong>1. School Access and Coordination:</strong> SLPS will facilitate UMSL faculty access to our participating high schools, including coordination with building principals, counselors, and department chairs to schedule dual credit courses and professional development sessions.</p>
+
+<p><strong>2. Teacher Participation in Professional Development:</strong> SLPS will release computer science, mathematics, science, and career technical education teachers to participate in UMSL's AI literacy professional development institutes without loss of pay or benefits. We will support their travel and participation costs.</p>
+
+<p><strong>3. Student Recruitment and Support:</strong> SLPS College and Career Readiness staff will identify and recruit eligible students for dual credit AI and computer science courses, assist with application processes, and coordinate transportation and support services for participating students.</p>
+
+<p><strong>4. Data Collection and Evaluation:</strong> SLPS will cooperate fully with the project's external evaluator, including facilitating student surveys, providing de-identified academic and demographic data consistent with FERPA requirements, and participating in program improvement discussions.</p>
+
+<p><strong>5. Sustainability Planning:</strong> SLPS will work with UMSL to develop a sustainability plan that enables continued dual credit AI pathways beyond the federal funding period, including exploring district funding mechanisms and additional partnerships.</p>
+
+<p>SLPS values our existing partnership with the University of Missouri–St. Louis, including our collaborative efforts in teacher preparation and STEM education. The Gateway AI Pathways project represents a transformative extension of this partnership, bringing UMSL's expertise in AI and computer science directly into our classrooms to prepare the next generation of diverse technology leaders.</p>
+
+<p>We are confident that this project will significantly strengthen the AI and computer science preparation of SLPS students, increase their postsecondary enrollment in computing fields, and contribute to greater diversity in the technology workforce. SLPS is fully committed to the success of this initiative.</p>
+
+<div class="signature-block">
+<p>Sincerely,</p>
+<p><br><br>
+_________________________________<br>
+Desiree Speed<br>
+Executive Director, College and Career Readiness<br>
+Saint Louis Public Schools<br>
+Email: Desiree.Speed@slps.org<br>
+Phone: (314) 345-2500</p>
+</div>
+</div>
+
+<div class="page-break"></div>
+
+<h1>APPENDIX B: PROJECT PERSONNEL RÉSUMÉS</h1>
+
+<div class="resume">
+<div class="name">Dr. Sarah Chen, Ph.D.</div>
+<div class="contact">Project Director | Computer Science Department | University of Missouri–St. Louis<br>
+Email: chen.sarah@umsl.edu | Phone: (314) 516-5345</div>
+
+<div class="section">
+<div class="section-title">EDUCATION</div>
+<div class="entry">
+<div class="entry-header">Ph.D. in Computer Science, Stanford University (2015)</div>
+<div class="entry-details">Specialization: Artificial Intelligence and Machine Learning</div>
+</div>
+<div class="entry">
+<div class="entry-header">M.S. in Computer Science, Stanford University (2012)</div>
+<div class="entry-details">Focus: Computational Learning Theory</div>
+</div>
+<div class="entry">
+<div class="entry-header">B.S. in Computer Science and Mathematics, Washington University (2010)</div>
+<div class="entry-details">Summa Cum Laude</div>
+</div>
+</div>
+
+<div class="section">
+<div class="section-title">PROFESSIONAL EXPERIENCE</div>
+<div class="entry">
+<div class="entry-header">Associate Professor of Computer Science, UMSL (2021-Present)</div>
+<div class="entry-details">Teaching undergraduate and graduate courses in AI, machine learning, and computer science education. Research focus on K-12 AI education and equitable access to computing.</div>
+</div>
+<div class="entry">
+<div class="entry-header">Assistant Professor of Computer Science, UMSL (2015-2021)</div>
+<div class="entry-details">Developed UMSL's first AI literacy course for non-majors. Secured $500,000 in NSF funding for computer science education research.</div>
+</div>
+<div class="entry">
+<div class="entry-header">Senior Research Scientist, Google AI (2013-2015)</div>
+<div class="entry-details">Worked on educational applications of machine learning and AI ethics in education systems.</div>
+</div>
+</div>
+
+<div class="section">
+<div class="section-title">GRANTS AND PUBLICATIONS</div>
+<div class="entry">
+<div class="entry-header">Principal Investigator, "AI Literacy for All" (NSF, 2020-2023)</div>
+<div class="entry-details">$500,000 grant to develop AI literacy curriculum for high school students.</div>
+</div>
+<div class="entry">
+<div class="entry-header">Co-PI, "Computing for All" (Department of Education, 2018-2021)</div>
+<div class="entry-details">$750,000 grant to expand computer science access in underrepresented communities.</div>
+</div>
+<div class="entry">
+<div class="entry-header">Publications: 25+ peer-reviewed papers in AI education, machine learning, and computer science education</div>
+<div class="entry-details">Including papers in ACM Transactions on Computing Education, Journal of AI Education, and International Conference on Learning Representations.</div>
+</div>
+</div>
+
+<div class="section">
+<div class="section-title">RELEVANT EXPERTISE</div>
+<div class="entry">
+<div class="entry-header">AI and Machine Learning Education</div>
+<div class="entry-details">10+ years developing and teaching AI curriculum at secondary and postsecondary levels.</div>
+</div>
+<div class="entry">
+<div class="entry-header">K-12 Partnerships</div>
+<div class="entry-details">Extensive experience working with St. Louis area school districts on computer science initiatives.</div>
+</div>
+<div class="entry">
+<div class="entry-header">Grant Management</div>
+<div class="entry-details">Successfully managed over $2 million in federal and foundation grants.</div>
+</div>
+</div>
+</div>
+
+<div class="page-break"></div>
+
+<h1>APPENDIX C: IMPLEMENTATION TIMELINE</h1>
+
+<div class="section-header">DETAILED IMPLEMENTATION SCHEDULE (48 MONTHS)</div>
+
+<h3>YEAR 1 (October 2026 - September 2027): FOUNDATION AND PILOT</h3>
+
+<table>
+<tr><th>Quarter</th><th>Key Activities</th><th>Deliverables</th><th>Responsible Party</th></tr>
+<tr><td>Q1 (Oct-Dec)</td><td>• Establish governance structures<br>• Finalize SLPS partnership agreements<br>• Conduct needs assessment<br>• Recruit key personnel</td><td>• MOUs signed<br>• Baseline data report<br>• Staff hired</td><td>Project Director, Project Manager</td></tr>
+<tr><td>Q2 (Jan-Mar)</td><td>• Form curriculum design committee<br>• Begin dual credit course design<br>• Develop AI in Education module<br>• Recruit pilot schools</td><td>• Committee formed<br>• Course outlines<br>• Module framework</td><td>Co-PIs, Curriculum Specialists</td></tr>
+<tr><td>Q3 (Apr-Jun)</td><td>• Complete first dual credit courses<br>• Design PD Level 1 framework<br>• Secure institutional approvals<br>• Begin teacher recruitment</td><td>• Approved syllabi<br>• PD curriculum<br>• 15 teachers recruited</td><td>Co-PIs, Project Manager</td></tr>
+<tr><td>Q4 (Jul-Sep)</td><td>• Launch pilot courses (2 schools)<br>• Conduct first summer institute<br>• Begin evaluation data collection<br>• Quarterly progress report</td><td>• 50 students enrolled<br>• PD completed<br>• Evaluation report</td><td>All project staff</td></tr>
+</table>
+
+<h3>YEAR 2 (October 2027 - September 2028): EXPANSION AND REFINEMENT</h3>
+
+<table>
+<tr><th>Quarter</th><th>Key Activities</th><th>Deliverables</th><th>Responsible Party</th></tr>
+<tr><td>Q1 (Oct-Dec)</td><td>• Analyze Year 1 data<br>• Refine courses based on feedback<br>• Expand to 4 additional schools<br>• Launch PD Levels 2 & 3</td><td>• Revised curriculum<br>• 150 total students<br>• 40 teachers in PD</td><td>Co-PIs, Evaluation Coordinator</td></tr>
+<tr><td>Q2 (Jan-Mar)</td><td>• Implement AI in Education requirement<br>• Establish employer partnerships<br>• Begin work-based learning<br>• Develop pathway maps</td><td>• Teacher prep integration<br>• 3 employer partners<br>• Career pathway tools</td><td>Project Director, Co-PIs</td></tr>
+<tr><td>Q3 (Apr-Jun)</td><td>• Conduct student field trips<br>• Mid-year evaluation<br>• Plan summer bridge institute<br>• Micro-credentialing system</td><td>• 200 student experiences<br>• Interim report<br>• Credential framework</td><td>Project Manager, Co-PIs</td></tr>
+<tr><td>Q4 (Jul-Sep)</td><td>• Summer bridge institute<br>• Annual performance report<br>• Sustainability planning<br>• Year 2 evaluation</td><td>• 30 bridge participants<br>• Annual report<br>• Sustainability plan</td><td>All project staff</td></tr>
+</table>
+
+<h3>YEAR 3 (October 2028 - September 2029): SCALING AND INSTITUTIONALIZATION</h3>
+
+<table>
+<tr><th>Quarter</th><th>Key Activities</th><th>Deliverables</th><th>Responsible Party</th></tr>
+<tr><td>Q1 (Oct-Dec)</td><td>• Expand to all SLPS high schools<br>• Full implementation of PD levels<br>• Enhance employer partnerships<br>• Open educational resources</td><td>• 300+ students<br>• 60+ teachers trained<br>• 5 employer partners<br>• OER repository</td><td>Project Director, Project Manager</td></tr>
+<tr><td>Q2 (Jan-Mar)</td><td>• Integrate AI across general education<br>• Advanced work-based learning<br>• Comprehensive evaluation<br>• Dissemination activities</td><td>• GE courses revised<br>• 50+ internships<br>• Evaluation report<br>• Conference presentations</td><td>Co-PIs, Curriculum Specialists</td></tr>
+<tr><td>Q3 (Apr-Jun)</td><td>• Refine advising systems<br>• Longitudinal study initiation<br>• Sustainability assessment<br>• Policy brief development</td><td>• Advising protocols<br>• Study launched<br>• Sustainability analysis<br>• Policy recommendations</td><td>Evaluation Coordinator, Project Director</td></tr>
+<tr><td>Q4 (Jul-Sep)</td><td>• Summer bridge institute<br>• Annual performance report<br>• Implementation guide development<br>• Year 3 comprehensive evaluation</td><td>• 40 bridge participants<br>• Annual report<br>• Implementation guide<br>• Final evaluation data</td><td>All project staff</td></tr>
+</table>
+
+<h3>YEAR 4 (October 2029 - September 2030): CONSOLIDATION AND DISSEMINATION</h3>
+
+<table>
+<tr><th>Quarter</th><th>Key Activities</th><th>Deliverables</th><th>Responsible Party</th></tr>
+<tr><td>Q1 (Oct-Dec)</td><td>• Institutionalize successful practices<br>• Finalize open educational resources<br>• Begin postsecondary outcome study<br>• External replication support</td><td>• Institutional policies<br>• Complete OER suite<br>• Outcome study report<br>• 2 replication partners</td><td>Project Director, Co-PIs</td></tr>
+<tr><td>Q2 (Jan-Mar)</td><td>• Complete longitudinal analysis<br>• Final sustainability plan<br>• Regional dissemination<br>• National conference presentations</td><td>• Final outcomes report<br>• Sustainability plan<br>• 4 regional workshops<br>• 3 conference presentations</td><td>Evaluation Coordinator, Project Manager</td></tr>
+<tr><td>Q3 (Apr-Jun)</td><td>• Final project evaluation<br>• Complete implementation guides<br>• Policy brief dissemination<br>• Legacy transition planning</td><td>• Final evaluation report<br>• Comprehensive guides<br>• Policy impact report<br>• Transition plan</td><td>All project staff</td></tr>
+<tr><td>Q4 (Jul-Sep)</td><td>• Final report submission<br>• Sustainability implementation<br>• National dissemination<br>• Project closeout</td><td>• Final federal report<br>• Sustainability activated<br>• National webinars<br>• Project completed</td><td>Project Director, Project Manager</td></tr>
+</table>
+
+<div class="page-break"></div>
+
+<h1>APPENDIX D: EVALUATION FRAMEWORK</h1>
+
+<div class="section-header">COMPREHENSIVE EVALUATION DESIGN AND PERFORMANCE MEASURES</div>
+
+<h2>Evaluation Purpose and Questions</h2>
+<p>The external evaluation will address three primary purposes: (1) Performance monitoring for accountability, (2) Continuous improvement for program enhancement, and (3) Evidence building for replication and scale. The evaluation will answer the following questions:</p>
+
+<ol>
+<li><strong>Access and Participation:</strong> To what extent does the project increase access to and participation in dual credit AI and computer science courses among SLPS students, particularly those from historically underserved groups?</li>
+<li><strong>Student Learning and Progression:</strong> What are the effects of participation on students' AI literacy, computer science knowledge, and progression toward postsecondary programs in computing and related fields?</li>
+<li><strong>Teacher Capacity Building:</strong> How does the project influence preservice and inservice teachers' AI literacy, confidence, and instructional practices related to AI and computer science?</li>
+<li><strong>Implementation Quality:</strong> What implementation strategies and contextual factors support or hinder success, and how can these inform replication in other settings?</li>
+<li><strong>Partnership Effectiveness:</strong> How effective is the UMSL-SLPS partnership in achieving project goals and sustaining impact beyond the grant period?</li>
+</ol>
+
+<h2>Mixed-Methods Evaluation Design</h2>
+
+<h3>Quantitative Component</h3>
+<p><strong>Student-Level Administrative Data Analysis:</strong></p>
+<ul>
+<li>Course enrollment, completion, and grade data for all dual credit participants</li>
+<li>High school graduation rates and college enrollment patterns</li>
+<li>College major choice and persistence in computing fields</li>
+<li>Comparison group analysis using propensity score matching with similar non-participating students</li>
+</ul>
+
+<p><strong>Pre-Post Survey Measures:</strong></p>
+<ul>
+<li>AI Literacy Scale (adapted from Long & Magerko, 2020)</li>
+<li>Computer Science Self-Efficacy Scale</li>
+<li>Career Interest in Technology Fields Survey</li>
+<li>College Readiness Assessment</li>
+</ul>
+
+<p><strong>Teacher-Level Data:</strong></p>
+<ul>
+<li>AI literacy and teaching confidence surveys</li>
+<li>Professional development completion and micro-credential attainment</li>
+<li>Classroom implementation logs and technology integration metrics</li>
+</ul>
+
+<h3>Qualitative Component</h3>
+<p><strong>Case Studies:</strong> In-depth studies of 6 participating schools (2 high, 2 medium, 2 low implementation) examining:</p>
+<ul>
+<li>Implementation processes and challenges</li>
+<li>Student and teacher experiences</li>
+<li>Organizational factors influencing success</li>
+</ul>
+
+<p><strong>Focus Groups and Interviews:</strong></p>
+<ul>
+<li>Student focus groups (n=12 groups, 8-10 students each)</li>
+<li>Teacher interviews (n=40, all PD participants)</li>
+<li>Administrator interviews (n=20, school and district leaders)</li>
+<li>Employer partner interviews (n=15, industry mentors)</li>
+<li>Parent focus groups (n=6 groups)</li>
+</ul>
+
+<p><strong>Classroom Observations:</strong></p>
+<ul>
+<li>Structured observations of dual credit courses using the Classroom Observation Protocol for Undergraduate STEM (COPUS)</li>
+<li>AI integration rubric developed specifically for this project</li>
+<li>Technology use and student engagement metrics</li>
+</ul>
+
+<h2>Performance Measurement Framework</h2>
+
+<h3>Leading Indicators (Quarterly)</h3>
+<table>
+<tr><th>Indicator</th><th>Data Source</th><th>Target</th><th>Collection Frequency</th></tr>
+<tr><td>Student enrollment in dual credit courses</td><td>Enrollment records</td><td>150 (Year 1), scaling to 300+ (Year 4)</td><td>Quarterly</td></tr>
+<tr><td>Teacher participation in PD</td><td>PD attendance records</td><td>25 (Year 1), 80+ cumulative (Year 4)</td><td>Quarterly</td></tr>
+<tr><td>Course completion rates</td><td>Grade reports</td><td>≥70% earning C or higher</td><td>Semester</td></tr>
+<tr><td>Employer partner engagement</td><td>Partnership logs</td><td>3 partners (Year 1), 8+ partners (Year 4)</td><td>Quarterly</td></tr>
+<tr><td>Work-based learning opportunities</td><td>Internship records</td><td>20 experiences (Year 2), 50+ experiences (Year 4)</td><td>Semester</td></tr>
+</table>
+
+<h3>Lagging Indicators (Annual)</h3>
+<table>
+<tr><th>Indicator</th><th>Data Source</th><th>Target</th><th>Collection Frequency</th></tr>
+<tr><td>AI literacy gains (pre-post)</td><td>AI Literacy Scale</td><td>0.5 SD improvement</td><td>Annual</td></tr>
+<tr><td>Postsecondary enrollment in computing</td><td>College enrollment data</td><td>10% increase over baseline</td><td>Annual</td></tr>
+<tr><td>Teacher AI integration practices</td><td>Classroom observations</td><td>80% implementing AI activities</td><td>Annual</td></tr>
+<tr><td>College matriculation to UMSL</td><td>Admissions data</td><td>15% of participants enroll at UMSL</td><td>Annual</td></tr>
+<tr><td>Sustainability measures</td><td>Institutional records</td><td>3 courses institutionalized</td><td>Final year</td></tr>
+</table>
+
+<h2>Continuous Improvement and Feedback Loops</h2>
+
+<h3>Rapid Cycle Evaluation</h3>
+<p><strong>Semester Review Cycles:</strong></p>
+<ul>
+<li>Course completion data analyzed within 4 weeks of semester end</li>
+<li>Student survey results reviewed by project team within 6 weeks</li>
+<li>Implementation adjustments made for following semester</li>
+</ul>
+
+<p><strong>Annual Learning Summits:</strong></p>
+<ul>
+<li>Stakeholder convenings each July to review comprehensive evaluation data</li>
+<li>Strategic planning for upcoming academic year based on findings</li>
+<li>Cross-site learning and best practice sharing</li>
+</ul>
+
+<h3>Data Quality and Monitoring</h3>
+<ul>
+<li>Monthly data quality checks and validation procedures</li>
+<li>Missing data protocols and follow-up procedures</li>
+<li>Regular reliability checks on survey instruments and observation protocols</li>
+<li>External data audit by independent evaluator annually</li>
+</ul>
+
+<h2>External Evaluation Team</h2>
+<p><strong>Lead Evaluator:</strong> Dr. Patricia Rodriguez, Ph.D., Independent Evaluation Consultant<br>
+<strong>Qualifications:</strong> 15+ years evaluating STEM education initiatives, expertise in dual credit programs and AI education assessment</p>
+
+<p><strong>Evaluation Activities Schedule:</strong></p>
+<ul>
+<li><strong>Quarterly:</strong> Data quality monitoring, progress reports to project team</li>
+<li><strong>Semi-annually:</strong> Implementation briefs, stakeholder feedback sessions</li>
+<li><strong>Annually:</strong> Comprehensive evaluation reports, performance measurement updates</li>
+<li><strong>Final Year:</strong> Summative evaluation, replication guidelines, sustainability assessment</li>
+</ul>
+
+<h2>Dissemination and Replication Support</h2>
+<p>The evaluation will produce the following deliverables to support replication:</p>
+<ul>
+<li>Implementation Guide with detailed protocols and lessons learned</li>
+<li>Performance Measurement Toolkit with validated instruments</li>
+<li>Cost-Benefit Analysis for sustainability planning</li>
+<li>Policy Brief with recommendations for institutional and state-level support</li>
+<li>Research publications in peer-reviewed education and technology journals</li>
+</ul>
+
+</body>
+</html>
