@@ -987,6 +987,33 @@ html {-webkit-transition : -webkit-filter 300ms linear;}
 
             let idCounter = 0;
 
+            // First, attach click handlers to any existing toggle buttons (saved in HTML)
+            const existingToggles = infoDescEl.querySelectorAll('.reflection-toggle-btn');
+            existingToggles.forEach(btn => {
+                // Skip if already has a handler (check for custom attribute)
+                if (btn.dataset.handlerAttached === '1') return;
+                
+                const controlsId = btn.getAttribute('aria-controls');
+                if (!controlsId) return;
+                
+                const fullDiv = document.getElementById(controlsId);
+                if (!fullDiv) return;
+                
+                // Find the preview paragraph (sibling before the button)
+                const container = btn.closest('.reflection-wrap');
+                const previewP = container ? container.querySelector('.reflection-preview') : null;
+                
+                btn.addEventListener('click', () => {
+                    const expanded = btn.getAttribute('aria-expanded') === 'true';
+                    fullDiv.hidden = expanded;
+                    if (previewP) previewP.hidden = !expanded;
+                    btn.setAttribute('aria-expanded', String(!expanded));
+                    btn.textContent = expanded ? 'Show more' : 'Show less';
+                });
+                
+                btn.dataset.handlerAttached = '1';
+            });
+
             // Toggle for table rows (Program of Study)
             const rows = infoDescEl.querySelectorAll('table tbody tr');
             rows.forEach(row => {
