@@ -945,19 +945,15 @@ html {-webkit-transition : -webkit-filter 300ms linear;}
                 cell.dataset.toggable = '1';
             });
 
-            // Toggle for h3 sections (Reflection Statement)
+            // Toggle for h3 sections (Reflection Statement, Goals)
             const h3Sections = infoDescEl.querySelectorAll('h3');
             h3Sections.forEach(h3 => {
                 if (h3.dataset.toggable === '1') return;
 
-                // Collect all paragraphs after h3 until next h3, h2, or SLO heading
+                // Collect paragraphs after h3 until next h3, h2, or h4 (SLO heading)
                 const paragraphs = [];
                 let sibling = h3.nextElementSibling;
-                while (sibling && sibling.tagName !== 'H2' && sibling.tagName !== 'H3') {
-                    // Stop at SLO headings (p.slo-heading or p containing "Student Learning Outcome")
-                    if (sibling.tagName === 'P' && (sibling.classList.contains('slo-heading') || sibling.textContent.includes('Student Learning Outcome'))) {
-                        break;
-                    }
+                while (sibling && sibling.tagName !== 'H2' && sibling.tagName !== 'H3' && sibling.tagName !== 'H4') {
                     if (sibling.tagName === 'P') {
                         paragraphs.push(sibling);
                     }
