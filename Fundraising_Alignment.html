@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Funding Alignment</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0d0d0d;
+      padding: 24px;
+      color: white;
+    }
+    .container { 
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    
+    /* Main Layout with External Funding Arrow */
+    .main-layout {
+      display: flex;
+      gap: 0;
+    }
+    .external-funding {
+      width: 160px;
+      min-width: 160px;
+      display: flex;
+      flex-direction: row;
+      align-items: stretch;
+    }
+    .funding-box {
+      background: #39b54a;
+      color: white;
+      font-weight: 700;
+      font-size: 16px;
+      padding: 20px 14px;
+      text-align: center;
+      line-height: 1.3;
+      border-radius: 8px 0 0 8px;
+      width: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .arrows-column {
+      display: flex;
+      flex-direction: column;
+      width: 60px;
+    }
+    .arrow-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+      width: 100%;
+    }
+    .arrow-line {
+      height: 3px;
+      background: #39b54a;
+      flex: 1;
+    }
+    .arrow-head {
+      width: 0;
+      height: 0;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      border-left: 12px solid #39b54a;
+    }
+    .areas-container {
+      flex: 1;
+    }
+    h1 { 
+      text-align: center; 
+      font-size: 22px; 
+      color: #ffffff; 
+      margin-bottom: 6px;
+    }
+    .column-headers {
+      display: flex;
+      margin-bottom: 20px;
+      gap: 0;
+      margin-left: 120px;
+    }
+    .column-headers h2 {
+      font-size: 16px;
+      font-weight: 700;
+      text-align: center;
+      padding: 12px 0;
+    }
+    .column-headers .col-focus {
+      width: 200px;
+      min-width: 200px;
+      color: #ffffff;
+    }
+    .column-headers .col-program {
+      flex: 1;
+      color: #ffffff;
+    }
+    .column-headers .col-project {
+      flex: 1;
+      color: #ffffff;
+    }
+    /* Outer Layout - Main content + Word Cloud */
+    .outer-layout {
+      display: flex;
+      gap: 20px;
+    }
+    .left-section {
+      flex: 1;
+    }
+    .right-section {
+      width: 200px;
+      min-width: 200px;
+    }
+    .right-section .col-aligned {
+      font-size: 16px;
+      font-weight: 700;
+      text-align: center;
+      padding: 12px 0;
+      color: #ffffff;
+      margin: 0;
+    }
+    
+    /* Focus Area Row Wrapper */
+    .focus-row {
+      display: flex;
+      align-items: stretch;
+      margin-bottom: 20px;
+    }
+    
+    /* Focus Area Sections - 3 Column Layout */
+    .focus-area {
+      display: flex;
+      align-items: stretch;
+      flex: 1;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 2px solid #00bcd4;
+    }
+    .focus-header {
+      background: #00bcd4;
+      color: #003040;
+      padding: 16px 14px;
+      font-weight: 700;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      width: 200px;
+      min-width: 200px;
+      flex-shrink: 0;
+    }
+    
+    /* Funding Sources Word Cloud Column */
+    .funding-cloud-column {
+      width: 200px;
+      min-width: 200px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      align-content: flex-start;
+      justify-content: center;
+      padding: 10px 8px;
+      gap: 6px 8px;
+      position: relative;
+    }
+    .funding-tag {
+      background: transparent;
+      font-weight: 700;
+      text-align: center;
+      line-height: 1.2;
+    }
+    .funding-tag:nth-child(1) { color: #f2b100; font-size: 18px; }
+    .funding-tag:nth-child(2) { color: #00bcd4; font-size: 14px; transform: rotate(-5deg); }
+    .funding-tag:nth-child(3) { color: #39b54a; font-size: 16px; }
+    .funding-tag:nth-child(4) { color: #e91e63; font-size: 12px; transform: rotate(3deg); }
+    .funding-tag:nth-child(5) { color: #9c27b0; font-size: 15px; transform: rotate(-3deg); }
+    .funding-tag:nth-child(6) { color: #ff9800; font-size: 13px; }
+    .focus-header .number {
+      background: white;
+      color: #0f5f79;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .focus-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      background: #1a1a1a;
+    }
+    
+    /* Programs & Projects Row */
+    .alignment-row {
+      display: flex;
+      align-items: stretch;
+      flex: 1;
+    }
+    
+    .program-box {
+      flex: 1;
+      background: #0b4f66;
+      color: white;
+      padding: 14px 18px;
+      font-weight: 600;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    .alignment-row:last-child .program-box { border-bottom: none; }
+    
+    .program-label {
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      opacity: 0.7;
+      display: block;
+      margin-bottom: 3px;
+    }
+    
+    .arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #39b54a;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 0 10px;
+      background: #1a1a1a;
+    }
+    
+    .project-box {
+      flex: 1.1;
+      background: #1a5c2a;
+      color: white;
+      padding: 14px 18px;
+      font-weight: 600;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #0d0d0d;
+      border-radius: 6px;
+      margin: 6px 8px;
+    }
+    .alignment-row:last-child .project-box { border-bottom: none; }
+    
+    .project-label {
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      opacity: 0.7;
+      display: block;
+      margin-bottom: 3px;
+    }
+    
+    .no-project {
+      flex: 1.1;
+      background: #1a1a1a;
+      color: #888;
+      padding: 14px 18px;
+      font-size: 12px;
+      font-style: italic;
+      display: flex;
+      align-items: center;
+      border: 2px dashed #444;
+      border-radius: 6px;
+      margin: 6px 8px;
+    }
+    .alignment-row:last-child .no-project { border-bottom: none; }
+    
+    /* System Supports */
+    .supports-section {
+      margin-top: 28px;
+      padding: 18px 20px;
+      background: #1a1400;
+      border: 2px solid #f2b100;
+      border-radius: 10px;
+    }
+    .supports-title {
+      font-weight: 700;
+      font-size: 14px;
+      color: #f2b100;
+      margin-bottom: 12px;
+    }
+    .supports-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .support-tag {
+      background: #f2b100;
+      color: #111;
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .supports-alignment {
+      display: flex;
+      align-items: stretch;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .supports-alignment .program-box {
+      background: #6b4b00;
+      border-bottom: none;
+    }
+    .supports-alignment .project-box {
+      border-bottom: none;
+      background: #1a5c2a;
+    }
+    
+    /* Legend */
+    .legend {
+      margin-top: 24px;
+      padding: 16px 20px;
+      background: #1a1a1a;
+      border-radius: 8px;
+      border: 1px solid #333;
+    }
+    .legend-title { font-weight: 700; font-size: 12px; margin-bottom: 10px; color: #f2b100; }
+    .legend-content { font-size: 12px; color: #ccc; line-height: 1.6; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Funding Alignment Map (or What is Stuckey doing)</h1>
+    
+    <div class="outer-layout">
+      <div class="left-section">
+        <div class="column-headers">
+          <h2 class="col-focus">Area of Focus</h2>
+          <h2 class="col-program">Existing Program</h2>
+          <h2 class="col-project">Draft Projects</h2>
+        </div>
+        
+        <div class="main-layout">
+      <div class="external-funding">
+        <div class="funding-box">Sought<br>External<br>Funding</div>
+        <div class="arrows-column">
+          <div class="arrow-row"><div class="arrow-line"></div><div class="arrow-head"></div></div>
+          <div class="arrow-row"><div class="arrow-line"></div><div class="arrow-head"></div></div>
+          <div class="arrow-row"><div class="arrow-line"></div><div class="arrow-head"></div></div>
+          <div class="arrow-row"><div class="arrow-line"></div><div class="arrow-head"></div></div>
+          <div class="arrow-row"><div class="arrow-line"></div><div class="arrow-head"></div></div>
+          <div class="arrow-row"><div class="arrow-line"></div><div class="arrow-head"></div></div>
+        </div>
+      </div>
+      <div class="areas-container">
+    
+    <!-- AREA 1 -->
+    <div class="focus-row">
+      <div class="focus-area">
+        <div class="focus-header">
+          Computer Science & Mathematics Readiness
+        </div>
+        <div class="focus-content">
+          <div class="alignment-row">
+            <div class="program-box">
+              <div><span class="program-label">Existing Program</span>CTE Pathways & Coursework</div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="project-box">
+              <div><span class="project-label">Draft Project</span>HSSU Data Science Dual Enrollment</div>
+            </div>
+          </div>
+          <div class="alignment-row">
+            <div class="program-box">
+              <div><span class="program-label">Existing Program</span>CTE Pathways & Coursework</div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="project-box">
+              <div><span class="project-label">Draft Project</span>HSSU Summer Math Acceleration</div>
+            </div>
+          </div>
+          <div class="alignment-row">
+            <div class="program-box">
+              <div><span class="program-label">Existing Program</span>CTE Pathways & Coursework</div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="project-box">
+              <div><span class="project-label">Draft Project</span>Digital Literacy & AI Professional Development</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- AREA 2 -->
+    <div class="focus-row">
+      <div class="focus-area">
+        <div class="focus-header">
+          Robotics & Applied STEM Participation
+        </div>
+        <div class="focus-content">
+          <div class="alignment-row">
+            <div class="program-box">
+              <div><span class="program-label">Existing Program</span>FIRST Lego League & Robotics Teams</div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="project-box">
+              <div><span class="project-label">Draft Project</span>UAPB Alumni Mentors for FIRST Lego League</div>
+            </div>
+          </div>
+          <div class="alignment-row">
+            <div class="program-box">
+              <div><span class="program-label">Existing Program</span>STEAMfair</div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="no-project">Funding supports existing program directly</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- AREA 3 -->
+    <div class="focus-row">
+      <div class="focus-area">
+        <div class="focus-header">
+          Work-Based Learning & Career Exposure
+        </div>
+        <div class="focus-content">
+          <div class="alignment-row">
+            <div class="program-box">
+              <div><span class="program-label">Existing Program</span>Learn & Earn / Youth Employment</div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="no-project">Funding supports existing program directly</div>
+          </div>
+          <div class="alignment-row">
+            <div class="program-box">
+              <div><span class="program-label">Existing Program</span>Other</div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="project-box">
+              <div><span class="project-label">Draft Project</span>SLPS Advisory Council</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- AREA 4 -->
+    <div class="focus-row">
+      <div class="focus-area">
+        <div class="focus-header">
+          Professional Development & Employability Skills
+        </div>
+        <div class="focus-content">
+          <div class="alignment-row">
+            <div class="program-box">
+              <div><span class="program-label">Existing Program</span>College and Career Readiness 1</div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="no-project">Funding supports existing program directly</div>
+          </div>
+          <div class="alignment-row">
+            <div class="program-box">
+              <div><span class="program-label">Existing Program</span>Internship Prep</div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="project-box">
+              <div><span class="project-label">Draft Project</span>Digital Literacy & AI Professional Development</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- AREA 5 -->
+    <div class="focus-row">
+      <div class="focus-area">
+        <div class="focus-header">
+          Postsecondary Attainment (College, Credentials, Persistence)
+        </div>
+        <div class="focus-content">
+          <div class="alignment-row">
+            <div class="program-box">
+              <div><span class="program-label">Existing Program</span>Scholarships & Advising</div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="project-box">
+              <div><span class="project-label">Draft Project</span>UAPB-SLPS Scholarship Pipeline</div>
+            </div>
+          </div>
+          <div class="alignment-row">
+            <div class="program-box">
+              <div><span class="program-label">Existing Program</span>College Access & HBCU Tours</div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="project-box">
+              <div><span class="project-label">Draft Project</span>UMSL Direct Admissions</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- AREA 6 -->
+    <div class="focus-row">
+      <div class="focus-area">
+        <div class="focus-header">
+          Equity & Access (Participation, Supports, Opportunity Gaps)
+        </div>
+        <div class="focus-content">
+          <div class="alignment-row">
+            <div class="program-box">
+              <div><span class="program-label">Existing Program</span>Scholarships & Advising</div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="project-box">
+              <div><span class="project-label">Draft Project</span>UAPB-SLPS Scholarship Pipeline</div>
+            </div>
+          </div>
+          <div class="alignment-row">
+            <div class="program-box">
+              <div><span class="program-label">Existing Program</span>College Access & HBCU Tours</div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="project-box">
+              <div><span class="project-label">Draft Project</span>UMSL Direct Admissions</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      </div><!-- end areas-container -->
+    </div><!-- end main-layout -->
+      </div><!-- end left-section -->
+      
+      <div class="right-section">
+        <h2 class="col-aligned">Aligned Funding Sources</h2>
+        <div class="funding-cloud-column">
+          <span class="funding-tag">Amazon</span>
+          <span class="funding-tag">Career Z Challenge Grant</span>
+          <span class="funding-tag">CTE CHIPS Challenge Grant</span>
+          <span class="funding-tag">Catalyze Challenge Grant</span>
+          <span class="funding-tag">Youth Build</span>
+          <span class="funding-tag">Private Donor</span>
+        </div>
+      </div>
+    </div><!-- end outer-layout -->
+    
+    <!-- System Supports -->
+    <div class="supports-section">
+      <div class="supports-title">System Supports — Cross-cutting enablers that make all programs possible</div>
+      <div class="supports-row">
+        <span class="support-tag">Transportation</span>
+        <span class="support-tag">Data Systems Integration</span>
+        <span class="support-tag">Compliance & Partner Management</span>
+        <span class="support-tag">Industry Advisory Council</span>
+      </div>
+      <div class="supports-alignment">
+        <div class="program-box">
+          <div><span class="program-label">System Support</span>Data Systems (FocusSIS, SchoolLinks, Teams)</div>
+        </div>
+        <div class="arrow">→</div>
+        <div class="project-box">
+          <div><span class="project-label">Draft Project</span>Real-Time Data Integration</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Legend -->
+    <div class="legend">
+      <div class="legend-title">How to Use This Map</div>
+      <div class="legend-content">
+        <strong>When a grant opportunity arises:</strong> Find the matching Area of Focus → identify the existing program it supports → select the draft project ready for funding.<br>
+        <strong>Dashed boxes</strong> indicate funding will be applied directly to the existing program.
+      </div>
+    </div>
+  </div>
+</body>
+</html>
