@@ -101,25 +101,25 @@
       flex: 1;
       color: #ffffff;
     }
-    /* Outer Layout - Main content + Word Cloud */
+    /* Outer Layout - Word Cloud + Main content */
     .outer-layout {
       display: flex;
       gap: 20px;
     }
-    .left-section {
-      flex: 1;
-    }
-    .right-section {
+    .left-section-funding {
       width: 200px;
       min-width: 200px;
     }
-    .right-section .col-aligned {
+    .left-section-funding .col-aligned {
       font-size: 16px;
       font-weight: 700;
       text-align: center;
       padding: 12px 0;
       color: #ffffff;
       margin: 0;
+    }
+    .middle-section {
+      flex: 1;
     }
     
     /* Focus Area Row Wrapper */
@@ -337,7 +337,19 @@
     <h1>"Funding" Alignment Map (or What is Stuckey doing)</h1>
     
     <div class="outer-layout">
-      <div class="left-section">
+      <div class="left-section-funding">
+        <h2 class="col-aligned">Aligned Funding Sources</h2>
+        <div class="funding-cloud-column">
+          <span class="funding-tag">Amazon</span>
+          <span class="funding-tag">Career Z Challenge Grant</span>
+          <span class="funding-tag">CTE CHIPS Challenge Grant</span>
+          <span class="funding-tag">Catalyze Challenge Grant</span>
+          <span class="funding-tag">Youth Build</span>
+          <span class="funding-tag">Private Donor</span>
+        </div>
+      </div>
+      
+      <div class="middle-section">
         <div class="column-headers">
           <h2 class="col-focus">Area of Focus</h2>
           <h2 class="col-program">Existing Program</h2>
@@ -537,19 +549,7 @@
     
       </div><!-- end areas-container -->
     </div><!-- end main-layout -->
-      </div><!-- end left-section -->
-      
-      <div class="right-section">
-        <h2 class="col-aligned">Aligned Funding Sources</h2>
-        <div class="funding-cloud-column">
-          <span class="funding-tag">Amazon</span>
-          <span class="funding-tag">Career Z Challenge Grant</span>
-          <span class="funding-tag">CTE CHIPS Challenge Grant</span>
-          <span class="funding-tag">Catalyze Challenge Grant</span>
-          <span class="funding-tag">Youth Build</span>
-          <span class="funding-tag">Private Donor</span>
-        </div>
-      </div>
+      </div><!-- end middle-section -->
     </div><!-- end outer-layout -->
     
     <!-- System Supports -->
