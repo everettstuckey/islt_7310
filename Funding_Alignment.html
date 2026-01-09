@@ -23,8 +23,8 @@
       gap: 0;
     }
     .external-funding {
-      width: 160px;
-      min-width: 160px;
+      width: 100px;
+      min-width: 100px;
       display: flex;
       flex-direction: row;
       align-items: stretch;
@@ -34,42 +34,44 @@
       color: white;
       font-weight: 700;
       font-size: 16px;
-      padding: 20px 14px;
       text-align: center;
       line-height: 1.3;
       border-radius: 8px 0 0 8px;
       width: 100px;
       display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .arrows-column {
-      display: flex;
       flex-direction: column;
-      width: 60px;
+      justify-content: center;
+      padding: 20px 0;
     }
-    .arrow-row {
+    .funding-title {
+      padding: 0 14px 10px 14px;
+    }
+    .funding-note {
+      background: #2d8f3c;
+      font-size: 9px;
+      font-weight: 400;
+      padding: 10px 8px;
+      margin: 0 6px;
+      border-radius: 4px;
+    }
+    .empty-project {
+      background: transparent;
+    }
+    .alignment-row:has(.empty-project) {
+      order: 1;
+    }
+    .empty-arrow {
       display: flex;
       align-items: center;
       justify-content: center;
-      flex: 1;
-      width: 100%;
+      width: 40px;
+      min-width: 40px;
+      flex-shrink: 0;
+      background: #1a1a1a;
     }
-    .arrow-line {
-      height: 8px;
-      background: #39b54a;
+        .areas-container {
       flex: 1;
-      border-radius: 4px 0 0 4px;
-    }
-    .arrow-head {
-      width: 0;
-      height: 0;
-      border-top: 16px solid transparent;
-      border-bottom: 16px solid transparent;
-      border-left: 24px solid #39b54a;
-    }
-    .areas-container {
-      flex: 1;
+      padding-left: 60px;
     }
     h1 { 
       text-align: center; 
@@ -128,6 +130,30 @@
       display: flex;
       align-items: stretch;
       margin-bottom: 20px;
+      position: relative;
+    }
+    .focus-row::before {
+      content: '';
+      position: absolute;
+      left: -60px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 36px;
+      height: 8px;
+      background: #39b54a;
+      border-radius: 4px 0 0 4px;
+    }
+    .focus-row::after {
+      content: '';
+      position: absolute;
+      left: -24px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-top: 16px solid transparent;
+      border-bottom: 16px solid transparent;
+      border-left: 24px solid #39b54a;
     }
     
     /* Focus Area Sections - 3 Column Layout */
@@ -201,13 +227,13 @@
     
     /* Programs & Projects Row */
     .alignment-row {
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr 40px 1fr;
       align-items: stretch;
       flex: 1;
     }
     
     .program-box {
-      flex: 1;
       background: #0b4f66;
       color: white;
       padding: 14px 18px;
@@ -235,12 +261,13 @@
       color: #39b54a;
       font-size: 18px;
       font-weight: bold;
-      padding: 0 10px;
+      width: 40px;
+      min-width: 40px;
+      flex-shrink: 0;
       background: #1a1a1a;
     }
     
     .project-box {
-      flex: 1.1;
       background: #1a5c2a;
       color: white;
       padding: 14px 18px;
@@ -277,49 +304,6 @@
       margin: 6px 8px;
     }
     .alignment-row:last-child .no-project { border-bottom: none; }
-    
-    /* System Supports */
-    .supports-section {
-      margin-top: 28px;
-      padding: 18px 20px;
-      background: #1a1400;
-      border: 2px solid #f2b100;
-      border-radius: 10px;
-    }
-    .supports-title {
-      font-weight: 700;
-      font-size: 14px;
-      color: #f2b100;
-      margin-bottom: 12px;
-    }
-    .supports-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 16px;
-    }
-    .support-tag {
-      background: #f2b100;
-      color: #111;
-      padding: 8px 14px;
-      border-radius: 6px;
-      font-size: 12px;
-      font-weight: 600;
-    }
-    .supports-alignment {
-      display: flex;
-      align-items: stretch;
-      border-radius: 6px;
-      overflow: hidden;
-    }
-    .supports-alignment .program-box {
-      background: #6b4b00;
-      border-bottom: none;
-    }
-    .supports-alignment .project-box {
-      border-bottom: none;
-      background: #1a5c2a;
-    }
     
     /* Legend */
     .legend {
@@ -359,14 +343,9 @@
         
         <div class="main-layout">
       <div class="external-funding">
-        <div class="funding-box">Sought<br>External<br>Funding<br><br><span style="font-size: 10px; font-weight: 400;">If a grant requires a new initiative or is well aligned, utilize Draft Projects. Otherwise, fund additional resources for existing programs.</span></div>
-        <div class="arrows-column">
-          <div class="arrow-row"><div class="arrow-line"></div><div class="arrow-head"></div></div>
-          <div class="arrow-row"><div class="arrow-line"></div><div class="arrow-head"></div></div>
-          <div class="arrow-row"><div class="arrow-line"></div><div class="arrow-head"></div></div>
-          <div class="arrow-row"><div class="arrow-line"></div><div class="arrow-head"></div></div>
-          <div class="arrow-row"><div class="arrow-line"></div><div class="arrow-head"></div></div>
-          <div class="arrow-row"><div class="arrow-line"></div><div class="arrow-head"></div></div>
+        <div class="funding-box">
+          <div class="funding-title">Sought<br>External<br>Funding</div>
+          <div class="funding-note">If a grant requires a new initiative or is well aligned, utilize Draft Projects. Otherwise, fund additional resources for existing programs.</div>
         </div>
       </div>
       <div class="areas-container">
@@ -429,8 +408,8 @@
             <div class="program-box">
               <div><span class="program-label">Existing Program</span>STEAMfair</div>
             </div>
-            <div class="arrow">→</div>
-            <div class="no-project"></div>
+            <div class="empty-arrow"></div>
+            <div class="empty-project"></div>
           </div>
         </div>
       </div>
@@ -447,8 +426,8 @@
             <div class="program-box">
               <div><span class="program-label">Existing Program</span>Learn & Earn / Youth Employment</div>
             </div>
-            <div class="arrow">→</div>
-            <div class="no-project"></div>
+            <div class="empty-arrow"></div>
+            <div class="empty-project"></div>
           </div>
           <div class="alignment-row">
             <div class="program-box">
@@ -474,8 +453,8 @@
             <div class="program-box">
               <div><span class="program-label">Existing Program</span>College and Career Readiness 1</div>
             </div>
-            <div class="arrow">→</div>
-            <div class="no-project"></div>
+            <div class="empty-arrow"></div>
+            <div class="empty-project"></div>
           </div>
           <div class="alignment-row">
             <div class="program-box">
@@ -548,30 +527,30 @@
       </div>
     </div>
     
+    <!-- System Supports -->
+    <div class="focus-row">
+      <div class="focus-area" style="border-color: #f2b100;">
+        <div class="focus-header" style="background: #f2b100; color: #111;">
+          System Supports
+        </div>
+        <div class="focus-content">
+          <div class="alignment-row">
+            <div class="program-box" style="background: #6b4b00;">
+              <div><span class="program-label">System Support</span>Data Systems (FocusSIS, SchoolLinks, Teams)</div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="project-box">
+              <div><span class="project-label">Draft Project</span>Real-Time Data Integration</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
       </div><!-- end areas-container -->
     </div><!-- end main-layout -->
       </div><!-- end middle-section -->
     </div><!-- end outer-layout -->
-    
-    <!-- System Supports -->
-    <div class="supports-section">
-      <div class="supports-title">System Supports — Cross-cutting enablers that make all programs possible</div>
-      <div class="supports-row">
-        <span class="support-tag">Transportation</span>
-        <span class="support-tag">Data Systems Integration</span>
-        <span class="support-tag">Compliance & Partner Management</span>
-        <span class="support-tag">Industry Advisory Council</span>
-      </div>
-      <div class="supports-alignment">
-        <div class="program-box">
-          <div><span class="program-label">System Support</span>Data Systems (FocusSIS, SchoolLinks, Teams)</div>
-        </div>
-        <div class="arrow">→</div>
-        <div class="project-box">
-          <div><span class="project-label">Draft Project</span>Real-Time Data Integration</div>
-        </div>
-      </div>
-    </div>
   </div>
 </body>
 </html>
