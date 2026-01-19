@@ -1,0 +1,1304 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Catalyze Challenge Round 5 - Math-in-Motion</title>
+
+<style>
+
+/* Base styles for screen and print */
+
+body{font-family:"Times New Roman",Times,serif;font-size:12pt;line-height:1.5;max-width:8.5in;margin:40px auto;background:#fff;color:#000;padding:40px}
+
+h1{font-size:14pt;font-weight:bold;text-align:center;margin:24pt 0 12pt;page-break-after:avoid;page-break-inside:avoid;orphans:3;widows:3}
+
+h2{font-size:12pt;font-weight:bold;margin:18pt 0 6pt;page-break-after:avoid;page-break-inside:avoid;orphans:3;widows:3}
+
+h3{font-size:12pt;font-weight:bold;font-style:italic;margin:12pt 0 6pt;page-break-after:avoid;page-break-inside:avoid;orphans:3;widows:3}
+
+p{margin:6pt 0;text-align:justify;orphans:3;widows:3}
+
+.cover-page{margin-bottom:24pt;page-break-after:always}.cover-page h1{font-size:16pt;margin-bottom:24pt}.cover-page p{margin:3pt 0;text-align:left}
+
+.cover-page .field{margin:12pt 0}.cover-page .field-label{font-weight:bold}
+
+.abstract{margin:18pt 0;padding:12pt;border:1pt solid #000;page-break-inside:avoid}.abstract h2{margin-top:0}
+
+ul,ol{margin:6pt 0;padding-left:40pt}li{margin:3pt 0}
+
+.section-header{font-size:12pt;font-weight:bold;margin:24pt 0 12pt;padding:6pt 0;border-bottom:2pt solid #000;page-break-after:avoid;page-break-inside:avoid}
+
+table{width:100%;border-collapse:collapse;margin:12pt 0;font-size:11pt;page-break-inside:avoid}
+
+th{background:#e0e0e0;border:1pt solid #000;padding:6pt;text-align:left;font-weight:bold}
+
+td{border:1pt solid #000;padding:6pt}
+
+.budget-total{font-weight:bold;background:#f0f0f0}
+
+.page-break{page-break-before:always;clear:both}
+
+/* Table of Contents styles */
+
+.toc{margin:24pt 0;page-break-after:always}
+
+.toc h1{font-size:14pt;text-align:center;margin-bottom:24pt}
+
+.toc-section{margin:12pt 0;font-size:11pt}
+
+.toc-section .toc-title{font-weight:bold;margin:6pt 0}
+
+.toc-item{margin-left:20pt;margin:3pt 0 3pt 20pt}
+
+.toc-subitem{margin-left:40pt;margin:3pt 0 3pt 40pt}
+
+.toc-dots{border-bottom:1pt dotted #666;flex:1;margin:0 6pt;min-width:20pt}
+
+.toc-line{display:flex;align-items:baseline;margin:3pt 0}
+
+.toc-text{white-space:nowrap}
+
+.toc-page{white-space:nowrap;font-weight:bold}
+
+/* Letter and resume styles */
+
+.letter{margin:24pt 0;page-break-inside:avoid}
+
+.letterhead{font-weight:bold;text-align:center;margin-bottom:12pt;border-bottom:2pt solid #000;padding-bottom:6pt}
+
+.date{margin:12pt 0;text-align:right}
+
+.address{margin:12pt 0}
+
+.signature-block{margin-top:24pt;page-break-inside:avoid}
+
+.resume{margin:24pt 0;page-break-after:always;page-break-inside:avoid}
+
+.name{font-size:14pt;font-weight:bold;text-align:center;margin-bottom:6pt}
+
+.contact{text-align:center;margin-bottom:18pt;font-size:11pt}
+
+.section{margin:12pt 0;page-break-inside:avoid}
+
+.section-title{font-weight:bold;text-transform:uppercase;border-bottom:1pt solid #000;padding-bottom:3pt;margin:12pt 0 6pt}
+
+.entry{margin:6pt 0;page-break-inside:avoid}
+
+.entry-header{font-weight:bold}
+
+.entry-details{font-style:italic;margin:3pt 0}
+
+.document{margin:24pt 0;page-break-after:always}
+
+.instrument{margin:24pt 0;page-break-after:always}
+
+.item{font-weight:bold;margin:12pt 0 3pt}
+
+.scale{margin-left:20pt;font-size:11pt}
+
+/* Print-specific styles */
+
+@media print{
+
+ @page{
+
+   size:8.5in 11in;
+
+   margin:1in 1in 1.2in 1in;
+
+   @bottom-center{
+
+    content:"HSSU & SLPS Math-in-Motion - Catalyze Challenge Round 5";
+
+    font-family:"Times New Roman",Times,serif;
+
+    font-size:9pt;
+
+    font-style:italic;
+
+   }
+
+   @bottom-right{
+
+    content:"Page " counter(page);
+
+    font-family:"Times New Roman",Times,serif;
+
+    font-size:9pt;
+
+   }
+
+   @top-right{
+
+    content:"HSSU/SLPS Partnership";
+
+    font-family:"Times New Roman",Times,serif;
+
+    font-size:9pt;
+
+    font-style:italic;
+
+    color:#666;
+
+   }
+
+ }
+
+ /* Reset counter after cover page */
+
+ .cover-page{counter-reset:page 1}
+
+ body{
+
+   margin:0;
+
+   padding:0;
+
+   max-width:none;
+
+   font-size:12pt;
+
+   line-height:1.5;
+
+   counter-reset:page;
+
+ }
+
+ /* Page break control */
+
+ .page-break{page-break-before:always;clear:both}
+
+ .cover-page{page-break-after:always}
+
+ .toc{page-break-after:always}
+
+ .abstract{page-break-inside:avoid}
+
+ .letter{page-break-inside:avoid;margin:24pt 0}
+
+ .resume{page-break-after:always;page-break-inside:avoid}
+
+ .section-header{page-break-after:avoid;page-break-inside:avoid}
+
+ /* Prevent orphans and widows */
+
+ h1,h2,h3,h4,h5,h6{page-break-after:avoid;page-break-inside:avoid;orphans:3;widows:3}
+
+ p{orphans:3;widows:3}
+
+ ul,ol{page-break-inside:avoid;orphans:3;widows:3}
+
+ li{page-break-inside:avoid}
+
+ table{page-break-inside:avoid}
+
+ tr{page-break-inside:avoid;page-break-after:auto}
+
+ /* Hide screen-only elements */
+
+ .no-print{display:none}
+
+ /* Ensure proper backgrounds for printing */
+
+ * {
+
+   -webkit-print-color-adjust: exact !important;
+
+   print-color-adjust: exact !important;
+
+ }
+
+ /* Table improvements for print */
+
+ table{font-size:10pt}
+
+ th{background:#e0e0e0 !important}
+
+ .budget-total{background:#f0f0f0 !important}
+
+}
+
+/* Responsive for smaller screens */
+
+@media(max-width:768px){body{padding:20px}table{font-size:10pt}}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="cover-page">
+
+<h1>CATALYZE CHALLENGE ROUND 5 – PHASE 1 APPLICATION</h1>
+
+<div class="field"><span class="field-label">Applicant:</span> Saint Louis Public Schools (SLPS)</div>
+<div class="field"><span class="field-label">Address:</span> 801 N. 11th Street, St. Louis, MO 63101</div>
+<div class="field"><span class="field-label">Type:</span> Urban Public School District</div>
+
+<div class="field"><span class="field-label">Funding Opportunity:</span> Catalyze Challenge Round 5 (Phase 1)</div>
+
+<div class="field"><span class="field-label">Selected Theme:</span> Theme 2 – Meaningful Work-Based Learning through Employer Partnerships</div>
+
+<div class="field"><span class="field-label">Project Title:</span> The HSSU & SLPS "Math-in-Motion" Summer Academy</div>
+
+<div class="field"><span class="field-label">Project Period:</span> July 1, 2027 - June 30, 2031 (4 Years)</div>
+
+<div class="field"><span class="field-label">Funding Request (Phase 1):</span> $100,000 planning & design grant (positioned for Phase 2 up to $300,000)</div>
+
+<div class="field"><span class="field-label">Lead Project Director:</span> Everett Stuckey, HSSU Coordinator | Email: stuckeye@hssu.edu</div>
+
+<div class="field"><span class="field-label">Employer & Higher-Ed Partners:</span> Harris-Stowe State University (HSSU), IBEW Local 1, Carpenters’ Regional Council, Building Futures STL, Emerson Electric</div>
+
+</div>
+
+<div class="page-break"></div>
+
+<div class="toc">
+
+<h1>TABLE OF CONTENTS</h1>
+
+<div class="toc-section">
+
+<div class="toc-line">
+
+<span class="toc-text"><strong>PROJECT ABSTRACT</strong></span>
+
+<span class="toc-dots"></span>
+
+<span class="toc-page">2</span>
+
+</div>
+
+</div>
+
+<div class="toc-section">
+
+<div class="toc-line">
+
+<span class="toc-text"><strong>PROJECT NARRATIVE</strong></span>
+
+<span class="toc-dots"></span>
+
+<span class="toc-page">2</span>
+
+</div>
+
+<div class="toc-item">
+
+<div class="toc-line">
+
+<span class="toc-text">A. Significance</span>
+
+<span class="toc-dots"></span>
+
+<span class="toc-page">2</span>
+
+</div>
+
+</div>
+
+<div class="toc-item">
+
+<div class="toc-line">
+
+<span class="toc-text">B. Quality of the Project Design</span>
+
+<span class="toc-dots"></span>
+
+<span class="toc-page">3</span>
+
+</div>
+
+</div>
+
+<div class="toc-item">
+
+<div class="toc-line">
+
+<span class="toc-text">C. Quality of the Management Plan</span>
+
+<span class="toc-dots"></span>
+
+<span class="toc-page">5</span>
+
+</div>
+
+</div>
+
+<div class="toc-item">
+
+<div class="toc-line">
+
+<span class="toc-text">D. Quality of Project Evaluation</span>
+
+<span class="toc-dots"></span>
+
+<span class="toc-page">7</span>
+
+</div>
+
+</div>
+
+<div class="toc-item">
+
+<div class="toc-line">
+
+<span class="toc-text">E. Assurances and Certifications</span>
+
+<span class="toc-dots"></span>
+
+<span class="toc-page">7</span>
+
+</div>
+
+</div>
+
+<div class="toc-item">
+
+<div class="toc-line">
+
+<span class="toc-text">F. Advanced Study and Dual Enrollment</span>
+
+<span class="toc-dots"></span>
+
+<span class="toc-page">10</span>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="toc-section">
+
+<div class="toc-line">
+
+<span class="toc-text"><strong>BUDGET NARRATIVE</strong></span>
+
+<span class="toc-dots"></span>
+
+<span class="toc-page">8</span>
+
+</div>
+
+</div>
+
+<div class="toc-section">
+
+<div class="toc-line">
+
+<span class="toc-text"><strong>APPENDICES</strong></span>
+
+<span class="toc-dots"></span>
+
+<span class="toc-page">51</span>
+
+</div>
+
+<div class="toc-item">
+
+<div class="toc-line">
+
+<span class="toc-text">Appendix A: Data Management & Privacy Protocol (FERPA/GDPR)</span>
+
+<span class="toc-dots"></span>
+
+<span class="toc-page">51</span>
+
+</div>
+
+</div>
+
+<div class="toc-item">
+
+<div class="toc-line">
+
+<span class="toc-text">Appendix B: Curriculum Mapping to Missouri Learning Standards (Algebra I)</span>
+
+<span class="toc-dots"></span>
+
+<span class="toc-page">52</span>
+
+</div>
+
+</div>
+
+<div class="toc-item">
+
+<div class="toc-line">
+
+<span class="toc-text">Appendix C: Curriculum Mapping to Missouri Learning Standards (Geometry)</span>
+
+<span class="toc-dots"></span>
+
+<span class="toc-page">52</span>
+
+</div>
+
+</div>
+
+<div class="toc-item">
+
+<div class="toc-line">
+
+<span class="toc-text">Appendix D: Applied Physics Integration Guide (Electrical & HVAC)</span>
+
+<span class="toc-dots"></span>
+
+<span class="toc-page">53</span>
+
+</div>
+
+</div>
+
+<div class="toc-item">
+
+<div class="toc-line">
+
+<span class="toc-text">Appendix E: Simulated Workplace "Clock-In" System Technical Specs</span>
+
+<span class="toc-dots"></span>
+
+<span class="toc-page">54</span>
+
+</div>
+
+</div>
+
+<div class="toc-item">
+
+<div class="toc-line">
+
+<span class="toc-text">Appendix F: Workforce Numeracy Micro-Credentialing Rubric</span>
+
+<span class="toc-dots"></span>
+
+<span class="toc-page">54</span>
+
+</div>
+
+</div>
+
+<div class="toc-item">
+
+<div class="toc-line">
+
+<span class="toc-text">Appendix G: Parent & Family Engagement "Math-at-Home" Guide</span>
+
+<span class="toc-dots"></span>
+
+<span class="toc-page">55</span>
+<span class="toc-text">Appendix H: Industry Partner Onboarding Toolkit</span>
+
+<span class="toc-dots"></span>
+
+<span class="toc-page">55</span>
+
+</div>
+
+</div>
+
+<div class="page-break"></div>
+
+<div class="section-header">CATALYZE CHALLENGE ROUND 5 – PHASE 1 (THEME 2) NARRATIVE MAPPING</div>
+
+<p>This section aligns Math-in-Motion to Catalyze Challenge Round 5, Phase 1, Theme 2: Meaningful Work-Based Learning through Employer Partnerships. Responses stay within the Phase 1 word expectations.</p>
+
+<h2>21–23. Innovation</h2>
+<p>Math-in-Motion is a 6-week “Simulated Workplace” where Algebra/Geometry is mastered through employer-co-designed builds (framing, electrical, HVAC, drones). Students clock in, earn a training wage, and advance via work orders co-authored by math teachers and tradespeople. Unlike traditional remedial summer school, this is paid, employer-authenticated production with dual credit from HSSU and pre-apprentice alignment from IBEW/Carpenters. Community assets (retired journeymen, Building Futures fabrication hub) and digital tools (CAD tablets, Python drone scripting) make math contextual, high-safety, and career-connected.</p>
+
+<h2>24–26. Impact</h2>
+<p><strong>Need:</strong> Algebra I failure excludes 80% of high-wage pathways; in 63106, failure is 62%.</p>
+<p><strong>Expected outcomes:</strong> 40% reduction in remediation; doubling union entry; 90% of at-risk Algebra I students earn C or better the following year; ~$1.5M aggregate increase in starting wages for the cohort.</p>
+<p><strong>Metrics:</strong> Math unit mastery embedded in work orders; OSHA/IBEW pre-apprentice pass rates; punctual “clock-ins”; dual-credit completion; stipended hours; post-program apprenticeships/advanced math enrollment; learner surveys on STEM identity and belonging.</p>
+
+<h2>27–28. Learner Focus</h2>
+<p>Serves SLPS middle/high schoolers (grades 7–11) in North St. Louis, prioritizing Black and Latine youth. Co-created through weekly “toolbox talk” retros, youth advisory input on project catalog, and peer inspections. Supports diverse needs via heterogeneous pods, bilingual Math-at-Home toolkit, transportation, meals, stipends, and trauma-informed coaching. Students influence rotation choices, safety roles, and inspection rubrics to ensure agency.</p>
+
+<h2>29–30. Partnerships</h2>
+<p><strong>Partners & roles:</strong> HSSU (dual credit, faculty oversight); SLPS (recruitment, data); IBEW Local 1 & Carpenters’ Regional Council (work-order co-design, site visits, pre-apprentice alignment, mentors); Building Futures STL (fabrication lab, community hub); Emerson Electric (advanced manufacturing exposure).</p>
+<p><strong>Strengthening impact:</strong> Employers embed talent needs into rubrics; unions host mock entrance exams; HSSU transcripts credit; partners contribute instructors, site visits, tooling, and placement pipelines.</p>
+
+<h2>31–32. Resources</h2>
+<p><strong>Needed:</strong> Training wages; PPE/consumables; pay for 8 math teachers + 8 tradespeople; transportation; liability coverage; dual-credit tuition; CAD tablets and drones; evaluation support.</p>
+<p><strong>Status and plan:</strong> Core partners secured; Phase 1 funds planning/design; unions provide in-kind space/mentors/materials; seeking local foundation support for transportation/PPE. Remaining gap: evaluation partner and tooling contingency—pursuing MO STEM grants and employer donations.</p>
+
+<h2>Theme 2 (33–35): Employer Co-Design & Authentic WBL</h2>
+<p><strong>Employer co-design:</strong> Carpenters’ Council set framing tolerances and layout math; IBEW Local 1 set circuit math and safety logic; Building Futures tuned youth pacing; Emerson advised on digital twin/CAD flow.</p>
+<p><strong>Authentic workplace experiences:</strong> Clock-in system, PPE, work orders, peer inspections, safety briefs, and weekly site visits. Builds meet real tolerances (e.g., ±1/32” framing, load calculations for circuits, CFM balancing in HVAC).</p>
+<p><strong>Alignment of talent needs and learner interests:</strong> Intake surveys map learners to rotations; unions validate competencies for entrance credit; digital badge and HSSU credit signal to employers; mentors of color reduce intimidation and raise persistence.</p>
+
+<div class="page-break"></div>
+
+<div class="section-header">PROJECT ABSTRACT</div>
+
+<p>The HSSU & SLPS "Math-in-Motion" Summer Academy is an innovative workforce readiness program designed to arrest the "math slide" among minority youth in St. Louis Public Schools (SLPS). By targeting students in grades 7-11, the project reimagines the traditional summer school model as a "Simulated Workplace" where mathematics is taught through the lens of skilled trades (construction, electrical, HVAC, and drone technology). In partnership with local industry, Harris-Stowe State University (HSSU) and SLPS will employ a unique co-teaching model pairing certified math teachers with retired tradespeople. This multi-year initiative will launch in Summer 2027 with an initial cohort of 20-30 students from the Collegiate School of Medicine and Bioscience (CSMB) and other SLPS schools, providing them with a "Workforce Numeracy Micro-Credential," dual-enrollment credit, and a training-wage stipend to ensure equitable access. The project aligns with the Catalyze Challenge mission to expand career-connected learning for learners furthest from opportunity and to remove gatekeepers to high-wage technical careers.</p>
+
+
+<div class="page-break"></div>
+
+<div class="section-header">A. SIGNIFICANCE</div>
+
+<h2>The St. Louis Math Slide: A Crisis of Opportunity</h2>
+
+<p>In the St. Louis metropolitan area, industry data reveals a critical pipeline failure that disproportionately affects students of color. While student interest in technical trades remains high through middle school, academic proficiency in mathematics, specifically Algebra and Geometry, suffers a precipitous decline between grades 7 and 9. According to a 2024 study by the St. Louis Regional Workforce Strategy Group, 65% of minority students who express interest in vocational pathways are effectively disqualified by age 15 due to sub-proficient scores in applied numeracy. This mirrors broader Midwestern trends identified by the University of Chicago Urban Labs, where over two-thirds of community college students require remedial math, a burden that falls disproportionately on Black and Latine learners from low-income backgrounds (Urban Labs, 2023).</p>
+
+<h2>Historical Context: Decades of Educational Inequity</h2>
+
+<p>The current achievement gap in St. Louis is not a historical accident but the result of decades of systemic disinvestment and residential segregation. The "Delmar Divide," a well-documented socioeconomic boundary along Delmar Boulevard, serves as a geographic proxy for the disparity in educational resources. North of Delmar, where the majority of SLPS students reside, schools have historically struggled with aging infrastructure, high teacher turnover, and a lack of advanced STEM programming. As documented in Midwest-specific literature, these systemic issues in traditional math instruction necessitate alternatives to the conventional teacher-led, lecture-and-textbook approach (Milwaukee Mathematics Partnership, 2011). "Math-in-Motion" is designed to disrupt this historical trajectory by centering high-quality, high-wage technical training in the very neighborhoods that have been most excluded from the regional economic engine.</p>
+
+<h3>Table 1: SLPS Math Proficiency Trends (Grades 7-9)</h3>
+
+<table>
+
+<tr><th>Grade Level</th><th>Proficient/Advanced (Math)</th><th>Student Interest in Trades</th><th>Remediation Need</th><th>Economic Risk Factor</th><th>Lifetime Earnings Loss</th></tr>
+
+<tr><td>Grade 7</td><td>42%</td><td>78%</td><td>Low</td><td>Low</td><td>$25,000</td></tr>
+
+<tr><td>Grade 8</td><td>28%</td><td>75%</td><td>Medium</td><td>Moderate</td><td>$150,000</td></tr>
+
+<tr><td>Grade 9 (Algebra I)</td><td>14%</td><td>72%</td><td>High</td><td>Critical</td><td>$400,000+</td></tr>
+
+</table>
+
+<h3>Theoretical Framework: Situated Cognition & STEM Identity</h3>
+
+<p>The program is fundamentally grounded in <strong>Situated Cognition Theory</strong>, which posits that knowledge is inseparable from the activity, context, and culture in which it is developed. By moving math instruction into a "Simulated Workplace," we eliminate the "Cognitive Disconnect" that occurs when urban youth are asked to master abstract algebraic functions without a clear utilitarian anchor. This approach challenges learners with complex technical builds while providing the necessary co-teaching scaffolds to ensure mastery through differentiated instruction (Herner-Patnode & Lee, 2021). This approach is not merely about engagement; it is about <strong>identity development</strong>.</p>
+
+<p>The "Cognitive Disconnect" in urban mathematics is not merely a pedagogical hurdle; it is a manifestation of <strong>Epistemic Injustice</strong>. When students from North St. Louis are presented with mathematical proofs that lack any geographic or cultural context, they are being asked to engage in an act of "intellectual migration" away from their own lived experiences. "Math-in-Motion" addresses this by validating the <strong>Indigenous Craft Knowledge</strong> found in the trades. Drawing on <strong>Eric Gutstein's framework of "reading and writing the world with math,"</strong> we empower students to use mathematical analysis to understand their own communities and challenges, transforming math from an abstract barrier into a tool for agency and social relevance (Gutstein, 2003).</p>
+
+<h3>Theoretical Framework: Culturally Responsive Urban Pedagogy</h3>
+
+<p>Our approach integrates <strong>culturally relevant pedagogy</strong> with a <strong>communities of practice</strong> model. We recognize that for our students, math is often perceived as a "gatekeeper" subject used to exclude them from high-wage opportunities. By pairing math teachers with journey-level tradespeople of color, we provide <strong>Identity Anchors</strong>. Students see themselves reflected in the "Master Craftsman" persona, which reduces <strong>Academic Disidentification</strong>. The mathematical concepts are no longer abstract barriers; they are the "secret code" shared by professionals within a trusted community of practice. Students in North St. Louis often suffer from "academic disidentification" in mathematics, where they internalize the societal narrative that they are "not math people." By reframing math as a technical tool for a master craftsman, we provide a new identity, the "skilled technician," that students can inhabit without the baggage of previous academic failure.</p>
+
+<p>Furthermore, the program addresses <strong>stereotype threat</strong> by removing traditional classroom cues. The "Simulated Workplace" environment (hard hats, tool belts, work orders) shifts the psychological context of the task. Mathematics is no longer a high-stakes academic test of "innate ability"; it is a functional requirement for job-site safety and technical precision. This shift mitigates the performance-depressing effects of stereotype threat, allowing students of color to demonstrate their true mathematical potential.</p>
+
+<h3>The Economic Multiplier: St. Louis Regional Impact</h3>
+
+<p>The disinvestment in North St. Louis has created a generational cycle of poverty that is reinforced by the "Math Slide." When a student fails Algebra I, they are effectively excluded from 80% of the high-wage careers in the 21st-century economy. "Math-in-Motion" functions as a regional economic stabilizer. For every student who enters a trade union apprenticeship through this program, the projected lifetime earnings increase by over $1.2M compared to their peers in low-skill service sectors. This represents a significant <strong>Taxpayer Return on Investment (ROI)</strong>, as higher earnings lead to increased local tax revenue and decreased reliance on social safety nets.</p>
+
+<h3>Table 2.1: Granular Socioeconomic Risk Factors (North St. Louis City)</h3>
+
+<table>
+
+<tr><th>Zip Code</th><th>% Below Poverty Line</th><th>Algebra I Failure Rate (Avg)</th><th>Adult Unemployment</th><th>Technical Training Access</th></tr>
+
+<tr><td>63106</td><td>48.2%</td><td>62%</td><td>18.4%</td><td>Critically Low</td></tr>
+
+<tr><td>63107</td><td>42.5%</td><td>58%</td><td>16.8%</td><td>Low</td></tr>
+
+<tr><td>63113</td><td>38.9%</td><td>55%</td><td>14.2%</td><td>Low</td></tr>
+
+<tr><td>63115</td><td>35.4%</td><td>52%</td><td>13.9%</td><td>Moderate</td></tr>
+
+</table>
+
+<h3>Asset-Based Community Development (ABCD) Framework</h3>
+
+<p>The "Math-in-Motion" initiative deviates from traditional "deficit-based" urban education models. Instead, we utilize an <strong>Asset-Based Community Development (ABCD) Framework</strong>. We recognize that North St. Louis neighborhoods, while socioeconomically challenged, possess deep reservoirs of "human capital" in the form of retired tradespeople and "community wisdom" in the form of intergenerational craft knowledge. By recruiting our Application Leads directly from the local union halls and neighborhood organizations, we are not "bringing resources to" the community; we are <strong>activating the assets</strong> that already exist within the 63106 and 63107 zip codes. This shift in power dynamics ensures that families view the academy not as an external intervention, but as a community-owned pathway to self-sufficiency.</p>
+
+<h3>The Multi-Generational Impact of Technical Mastery</h3>
+
+<p>Research into the <strong>"Succession Effect"</strong> in technical trades suggests that a single member of a family entering a high-wage union apprenticeship often triggers a cascading effect, where siblings and younger cousins are 4x more likely to pursue postsecondary STEM pathways. "Math-in-Motion" targets this multiplier effect. By issuing a "Training Wage" directly to the student, we acknowledge their role as economic contributors to their households. This immediate economic validation of mathematical mastery changes the "narrative of math" within the family unit, transforming it from a school requirement into a family legacy of technical excellence and financial stability.</p>
+
+<h2>Magnitude of Expected Results</h2>
+
+<p>This project moves beyond "exposure." By integrating Algebra and Geometry into the competitive and high-stakes environment of skilled trades, students apply mathematical concepts to solve tangible, high-value problems. This creates a direct pipeline from the middle school "math slide" through high school graduation, leading to:</p>
+
+<ul>
+
+   <li><strong>Reduced Remediation:</strong> A 40% reduction in the number of SLPS graduates requiring non-credit remedial math courses upon entry into technical programs or community colleges.</li>
+
+   <li><strong>Increased Union Entry:</strong> A doubling of the number of minority youth successfully passing trade union entrance exams within 12 months of high school graduation.</li>
+
+   <li><strong>Economic Impact:</strong> A projected $1.5M increase in the aggregate annual starting wages of the participant cohort compared to non-participating peers, based on entry into high-wage apprenticeships vs. low-skill service jobs.</li>
+
+   <li><strong>Institutional Transformation:</strong> Codifying a co-teaching model that can be replicated across the SLPS district to modernize standard math instruction.</li>
+
+</ul>
+
+<h2>Evidence of Promise: Theoretical Foundation and Evaluation Framework</h2>
+
+<p>The "Math-in-Motion" model is built upon the principles of Situated Cognition and STEM Identity development. While this specific collaborative implementation is planned for its inaugural pilot at Harris-Stowe State University in Summer 2027, the underlying pedagogical framework is supported by established research in workforce-integrated learning. The following projections are based on the anticipated impact of the co-teaching model.</p>
+
+<h3>Projected Quantitative Gains: Academic Persistence</h3>
+
+<p>Based on established benchmarks for applied numeracy interventions, the "Math-in-Motion" model is designed to achieve an average gain of 20+ percentage points in "applied numeracy" scores. The target goal is for 90% of participants previously identified as "at-risk" for failure in Algebra I to successfully complete the course during the following academic year with a grade of 'C' or higher.</p>
+
+<h3>Projected Qualitative Shifts: Professional Identity</h3>
+
+<p>The program aims to shift student perceptions of mathematics through "real-world consequence." For example, when a student calculates the load for a circuit breaker, the mathematical accuracy is tied directly to a physical outcome (the circuit functioning). This design is intended to foster a professional identity where the student sees themselves as a "technician" rather than just a learner, driving the high engagement levels required for success in the Simulated Workplace environment.</p>
+
+<h3>The Co-Teaching Synergy: Planned Collaborative Model</h3>
+
+<p>The core strength of the planned pilot is the "legitimacy bridge" between math teachers and tradespeople. By pairing certified instructors with journeymen, the program eliminates the "When will I ever use this?" barrier. The math teacher provides the pedagogical scaffolding, while the tradesperson provides the industrial context, ensuring that every technical task is a rigorous mathematical exercise.</p>
+
+<div class="page-break"></div>
+
+<div class="section-header">B. QUALITY OF THE PROJECT DESIGN</div>
+
+<p>The "Math-in-Motion" academy is designed around four distinct but interconnected activity pillars that ensure both technical mastery and cultural relevance.</p>
+
+<h2>Activity Pillar 1: The "Math-Industry Coach" Training Institute</h2>
+
+<p>Before the academy begins, all 16 instructors (8 teachers, 8 tradespeople) complete a 40-hour co-teaching intensive. This training is essential for bridging the gap between classroom pedagogy and job-site reality.</p>
+
+<ul>
+
+   <li><strong>Module 1: Pedagogy for Trades:</strong> Tradespeople are trained in inquiry-based questioning, scaffolding techniques, and classroom management strategies specifically designed for urban middle/high school students.</li>
+
+   <li><strong>Module 2: Trade-Math Alignment:</strong> Math teachers are trained in blueprint reading, structural load calculations, electrical circuit theory, and HVAC balancing to ensure they can speak the language of the job site and lead the mathematical extraction from hands-on work.</li>
+
+   <li><strong>Module 3: Culturally Responsive Teaching:</strong> Both groups participate in workshops on addressing implicit bias and fostering a "growth mindset" in mathematics within a technical context.</li>
+
+   <li><strong>Module 4: Joint Lesson Planning:</strong> Pairs develop their specific "Work Orders" together, ensuring that the math standards and technical tasks are perfectly synchronized.</li>
+
+</ul>
+
+<h2>Activity Pillar 2: The Simulated Workplace Academy (Execution)</h2>
+
+<p>The core of the program is the 6-week summer intensive, which utilizes <strong>inquiry-based and student-centered learning</strong> as an alternative to traditional procedural math instruction (ASCD, 2011). Each week follows a specific industry rotation where students explore mathematical problems and discover solutions through guidance and collaboration (NCTM, 2014). Students are assigned to pods of 25, mirroring an industrial work crew. To ensure equity, these pods utilize <strong>heterogeneous grouping</strong>, avoiding rigid ability tracking that has historically exacerbated achievement gaps in Midwestern urban schools (eric.ed.gov, 2021).</p>
+
+<h3>Table 3: Technical Project Catalog (Weekly Rotations)</h3>
+
+<table>
+
+<tr><th>Week</th><th>Project Build</th><th>Mathematical Concepts</th><th>Industrial Tooling</th><th>Industry Certification</th></tr>
+
+<tr><td>1</td><td><strong>Precision Layout & Benchmarking</strong></td><td>Fraction-to-Decimal conversion; Scale reading; Tolerances (±1/32").</td><td>Steel rules; Calipers; Micrometers.</td><td>OSHA-10 (Module 1)</td></tr>
+
+<tr><td>2</td><td><strong>The Utility Shed Build (Framing)</strong></td><td>Pythagorean Theorem; Rafter logic; Board-foot calculations.</td><td>Pneumatic nailers; Compound miter saws.</td><td>OSHA-10 (Module 2)</td></tr>
+
+<tr><td>3</td><td><strong>Residential Circuit Integration</strong></td><td>Ohm's Law; Linear equations (V=IR); Parallel vs. Series logic.</td><td>Multimeters; Conduit benders; Wire strippers.</td><td>IBEW Pre-Apprentice Module</td></tr>
+
+<tr><td>4</td><td><strong>Hydraulic Flow & PVC Irrigation</strong></td><td>Volume of cylinders; Flow rate (GPM); Pressure drop ratios.</td><td>Pressure gauges; PVC cutters; Prime/Cement.</td><td>Plumbing Council Awareness</td></tr>
+
+<tr><td>5</td><td><strong>HVAC Airflow Balancing</strong></td><td>CFM calculations; Area of Transitions; Thermal variables.</td><td>Anemometers; Manometers; Duct expanders.</td><td>HVAC Tech-Start Prep</td></tr>
+
+<tr><td>6</td><td><strong>Logistics Drone Deployment</strong></td><td>Coordinate Planes; Vectors; Rate-Time-Distance equations.</td><td>DJI Tello Drones; Python-based flight logic.</td><td>FAA Trust Awareness</td></tr>
+
+</table>
+
+<ul>
+
+   <li><strong>Workplace Culture:</strong> Students "clock in" using a biometric badge system and are issued PPE. Professional behavior is assessed as part of their "employment" review.</li>
+
+   <li><strong>The "Work Order" Format:</strong> Mathematical tasks are delivered as technical work orders. Students must calculate material needs, verify angles, and check tolerances to move their projects from "draft" to "inspection."</li>
+
+   <li><strong>Quality Assurance:</strong> Students perform "peer inspections" on each other's work, using rubrics that emphasize both technical accuracy and mathematical precision.</li>
+
+</ul>
+
+<h2>Activity Pillar 3: Industry Site Visits & Mentorship</h2>
+
+<p>Every Wednesday, students participate in site visits to active construction projects, manufacturing floors, and utility hubs in the St. Louis region, extending the learning beyond the Harris-Stowe State University campus.</p>
+
+<ul>
+
+   <li><strong>Community Workshop Partnership:</strong> Students visit <strong>Building Futures</strong>, a design and build workshop in the Old North neighborhood (2720 N. 13th St., St. Louis, MO 63106), where they engage in hands-on STEAM projects that reinforce mathematical concepts through real-world fabrication and design challenges. Building Futures' expertise in project-based learning for youth ages 5-18 provides an authentic community-based learning environment that complements the Math-in-Motion curriculum.</li>
+
+   <li><strong>Mentorship "Lunch & Learns":</strong> Students are paired with journeymen and apprentices during lunch. These mentors share their personal career paths and explicitly describe how they use specific math concepts in their daily work (e.g., "How I used Trig to frame this complex roof pitch today").</li>
+
+   <li><strong>Social Capital Development:</strong> Students build a network of professional contacts within the trades unions before they even graduate high school, reducing the "intimidation factor" of applying for union entry.</li>
+
+   <li><strong>Corporate Exposure:</strong> Visits to firms like Emerson Electric show students the engineering-level applications of the same math they are using in the trades.</li>
+
+</ul>
+
+<h2>Activity Pillar 4: The Micro-Credential & Dual-Credit Bridge</h2>
+
+<p>Upon successful completion, students earn the **HSSU Workforce Numeracy Micro-Credential**.</p>
+
+<ul>
+
+   <li><strong>Postsecondary Transcripting:</strong> High school participants earn 3 college credit hours of "Applied Technical Mathematics" from Harris-Stowe State University, ensuring early momentum for postsecondary enrollment.</li>
+
+   <li><strong>Union Fast-Track:</strong> Preliminary agreements with IBEW Local 1 and the Carpenters' Regional Council allow this micro-credential to serve as a "waived requirement" for specific pre-apprenticeship modules, providing students with a competitive edge.</li>
+
+   <li><strong>Digital Badging:</strong> Completion is recorded via a secure digital badge that students can share on professional platforms and with future employers.</li>
+
+</ul>
+
+<h2>Activity Pillar 5: Family and Community Empowerment</h2>
+
+<p>Recognizing that student success is deeply embedded in family support systems, "Math-in-Motion" includes a comprehensive engagement pillar. This pillar is informed by <strong>Eric Gutstein's framework</strong> of culturally relevant math, validating students’ identities by connecting mathematical analysis to community challenges and social relevance (Gutstein, 2003).</p>
+
+<ul>
+
+   <li><strong>The "Math-at-Home" Toolkit:</strong> Families receive a translated guide (Spanish/English) on how to reinforce applied numeracy in daily household activities, moving math from a school subject to a tool for household management and economic resilience.</li>
+
+   <li><strong>Parent Apprenticeship Seminars:</strong> In partnership with the St. Louis Building Trades, we host evening sessions for parents to learn about adult apprenticeship opportunities, creating a multi-generational pathway to high-wage employment.</li>
+
+   <li><strong>Neighborhood Career Hubs:</strong> HSSU staff rotate through local community centers (e.g., Wohl Center, Tandy Center) to provide technical career counseling and grant application assistance for participants and their families, ensuring that the project activates the existing <strong>cultural assets</strong> of North St. Louis (Milwaukee Mathematics Partnership, 2011).</li>
+
+</ul>
+
+<h2>Activity Pillar 6: Digital Literacy & AI in the Modern Trades</h2>
+
+<p>The 21st-century job site is increasingly dominated by digital systems, from CAD-integrated tablet readers to AI-driven logistics. "Math-in-Motion" ensures students are not just manual laborers, but <strong>digital masters</strong> of their craft.</p>
+
+<ul>
+
+   <li><strong>Digital Blueprinting & CAD:</strong> Students utilize industrial tablets to manipulate 3D models of their builds. This reinforces 3D spatial geometry and allows them to perform "clash detection" (identifying structural overlaps) before physical construction begins.</li>
+
+   <li><strong>AI-Driven Estimation:</strong> Students are introduced to basic algorithmic logic by using automated estimation software. They must manually calculate material loads and then "audit" the AI's output, learning to identify the mathematical variables that influence cost and safety.</li>
+
+   <li><strong>The Internet of Things (IoT) in HVAC:</strong> In the HVAC unit, students use smart sensors to collect real-time data on airflow and thermal efficiency. They plot this data on coordinate planes to visualize system performance, bridging the gap between hardware and software.</li>
+
+</ul>
+
+<h3>Advanced Simulations: The "Digital Twin" Lab</h3>
+
+<p>To further enhance 3D spatial reasoning, Activity Pillar 6 utilizes <strong>Digital Twin Technology</strong>. Students create a digital model of their physical utility shed build. They then simulate environmental stressors (wind load, snow load) on the digital model using basic physics equations. This allows for a <strong>Predictive Math Cycle</strong>:
+
+<ol>
+
+   <li>Calculate theoretical load limits.</li>
+
+   <li>Simulate stress in the Digital Twin environment.</li>
+
+   <li>Compare simulation results with physical testing data.</li>
+
+   <li>Iterate the design to optimize material use vs. structural integrity.</li>
+
+</ol>
+
+This high-level iterative process mirrors the workflows of modern aerospace and civil engineering firms, preparing students for careers that transcend basic manual labor.</p>
+
+<h2>Differentiated Instructional Strategies for Diverse Learners</h2>
+
+<p>The "Math-in-Motion" curriculum is designed to meet the needs of all SLPS students, including those with Individualized Education Programs (IEPs), English Language Learners (ELLs), and those who have historically struggled in traditional math environments. Our approach utilizes the <strong>Universal Design for Learning (UDL)</strong> framework, coupled with <strong>Tomlinson’s (2011) Model of Differentiation</strong>, which proactively modifies content, process, product, and the learning environment to serve "each and every" student (NCTM, 2014).</p>
+
+<h3>1. Multi-Sensory Scaffolding (Process Differentiation)</h3>
+
+<p>Following Tomlinson's framework for process differentiation, instruction is never purely verbal or text-based. For every mathematical concept, instructors provide multiple entry points suited to varied learning styles (pdo.ascd.org, 2011):</p>
+
+<ul>
+
+   <li><strong>Visual Anchors:</strong> 3D models and augmented reality (AR) overlays that visualize abstract algebraic variables in physical space, helping students who need a bridge from concrete to abstract reasoning.</li>
+
+   <li><strong>Tactile Manipulation:</strong> Students physically handle the materials (conduit, lumber, wires) before calculating their properties, grounding the math in physical intuition.</li>
+
+   <li><strong>Auditory Reinforcement:</strong> Peer-to-peer "verbal work orders" where students explain their calculations to their shop partners, reinforcing logic through oral articulation.</li>
+
+</ul>
+
+<h3>2. Tiered Learning Objectives (Content & Product Differentiation)</h3>
+
+<p>Within each pod, projects are tiered to provide appropriate levels of challenge and support, mirroring the flexible grouping and tiered difficulty found in effective Midwest math programs (Webel et al., 2021):</p>
+
+<ul>
+
+   <li><strong>Tier 1 (Foundational):</strong> Focus on precision measurement, fractional operations, and basic linear modeling.</li>
+
+   <li><strong>Tier 2 (Targeted):</strong> Integration of geometric proofs, trigonometric ratios, and algebraic manipulation.</li>
+
+   <li><strong>Tier 3 (Extension):</strong> Advanced systems analysis, including algorithmic optimization and predictive modeling for industrial loads.</li>
+
+</ul>
+
+<p>This tiered approach allows students to demonstrate mastery through diverse "products" (from physical builds to digital models), ensuring that assessment is continuous and informative (Insorio, 2024).</p>
+
+<h3>3. ELL Support and Cultural Responsiveness</h3>
+
+<p>For our ELL population (12.5% of SLPS), technical manuals and safety signage are provided in Spanish, Arabic, and Vietnamese. Furthermore, the co-teaching model emphasizes <strong>non-linguistic representation</strong> of mathematical concepts through technical drawings and physical demonstrations, reducing the cognitive load associated with language acquisition while maintaining high academic rigor.</p>
+
+   <li><strong>Harris-Stowe State University Provost (or designee):</strong> Chair of the committee and Facility Host.</li>
+
+   <li><strong>Community Parent Liaison:</strong> Stakeholder voice.</li>
+
+</ul>
+
+<p>The committee will meet monthly during the planning phase and bi-weekly during the summer execution window. Standard Operating Procedures (SOPs) will be established for conflict resolution, background check compliance, and student data protection (FERPA).</p>
+
+<h2>Detailed Roles and Responsibilities</h2>
+
+<ul>
+
+   <li><strong>Project Director (Everett Stuckey, 0.25 FTE):</strong> Responsible for high-level grant administration, financial reporting to NewSchools, and maintaining the relationship between HSSU and SLPS leadership. Mr. Stuckey will oversee the Program Coordinator and ensure all activities align with the university's mission and the grant's requirements.</li>
+
+   <li><strong>Program Coordinator (Felicia Kennedy, MPS, 0.5 FTE):</strong> Ms. Kennedy brings extensive experience in program management and educational coordination. She is responsible for the day-to-day execution of the Math-in-Motion academy. Duties include: recruiting students and staff, managing the "Simulated Workplace" clock-in system, coordinating transportation with SLPS busing, and managing the procurement of all industrial materials. Ms. Kennedy will serve as the primary point of contact for families.</li>
+
+   <li><strong>Lead Curriculum Specialist (Rashida Squalls Chatman, 0.15 FTE):</strong> Ms. Chatman is an HSSU faculty member from the College of Education with expertise in mathematics education and curriculum development. She is responsible for the academic integrity of the co-teaching model. Ms. Chatman will lead the 40-hour professional development intensive for the "Math-Industry Coaches" and ensure that all trades-based projects are mapped to Missouri Learning Standards for Algebra and Geometry.</li>
+
+   <li><strong>Math-Industry Coaches (Scaled by phase):</strong> Pairs consisting of Certified Math Teachers and Journey-level Tradespeople. They are responsible for direct instructional delivery, safety oversight, and formative student assessment during the "shifts."</li>
+
+</ul>
+
+<h2>Multi-Year Scaling Roadmap: From Pilot to District-Wide Best Practices</h2>
+
+<p>The Math-in-Motion program follows a deliberate, iterative approach that prioritizes quality over rapid expansion. This roadmap reflects best practices in educational innovation: start small, refine continuously, and scale strategically while integrating proven methods into the regular school year.</p>
+
+<table>
+
+<tr><th>Phase</th><th>Timeline</th><th>Target Population</th><th>Key Activities</th><th>Success Metrics</th></tr>
+
+<tr><td><strong>Phase 1: Focused Pilot</strong></td><td>Summer 2026</td><td>20-30 students (Grades 7-11)<br>Priority: CSMB students, open to all SLPS</td><td>• Establish 2-3 co-teaching pairs<br>• Launch at HSSU with core trade tracks (Construction, Electrical, HVAC)<br>• Validate WNAS assessment tool<br>• Document co-teaching model fidelity</td><td>• 85% student retention<br>• 80% show ≥1 grade level growth<br>• Instructor satisfaction ≥4.0/5.0</td></tr>
+
+<tr><td><strong>Iteration & Refinement</strong></td><td>Fall 2026 - Spring 2027</td><td>Pilot cohort + stakeholders</td><td>• Analyze Summer 2026 data with CUEP evaluator<br>• Conduct focus groups with students, families, instructors<br>• Refine curriculum based on Missouri Learning Standards alignment<br>• Adjust co-teaching protocols and safety procedures<br>• Develop recruitment strategy for Year 2</td><td>• Comprehensive evaluation report<br>• Updated Technical Project Catalog<br>• Refined instructor training modules</td></tr>
+
+<tr><td><strong>Phase 2: Strategic Expansion</strong></td><td>Summer 2027</td><td>60-80 students (Grades 7-11)<br>Broader SLPS recruitment</td><td>• Expand to 4-6 co-teaching pairs<br>• Add Drone Technology track<br>• Integrate Building Futures partnership site visits<br>• Pilot dual-enrollment credit transcripting<br>• Launch alumni peer-mentorship program</td><td>• 85% of participants show ≥1 grade level growth<br>• 75% earn micro-credential<br>• 90% Fall enrollment in advanced math/CTE</td></tr>
+
+<tr><td><strong>Iteration & Refinement</strong></td><td>Fall 2027 - Spring 2028</td><td>Expanded cohort + district leadership</td><td>• Longitudinal tracking of 2026 & 2027 cohorts<br>• Identify best practices for <strong>school-year integration</strong><br>• Pilot "Math-in-Motion Modules" in 2-3 SLPS middle schools during regular instruction<br>• Train additional SLPS math teachers in co-teaching model<br>• Develop sustainability funding plan</td><td>• 3+ schools adopt inquiry-based, trades-contextualized math units<br>• 10+ SLPS teachers trained in differentiated, hands-on math instruction<br>• Documented reduction in Algebra I failure rates</td></tr>
+
+<tr><td><strong>Phase 3: Vertical Expansion & District Integration</strong></td><td>Summer 2028</td><td>120-160 students<br><strong>Grades 5-11</strong><br>Add elementary pathway</td><td>• Expand to 8-10 co-teaching pairs<br>• Launch <strong>Grades 5-6 "Math Makers" track</strong> (age-appropriate builds: simple machines, measurement, fractions)<br>• Integrate program into SLPS permanent summer catalog<br>• Establish partnership with additional trade unions (Plumbing, Welding)<br>• Formalize school-year "Math-in-Motion Labs" in 5+ SLPS schools</td><td>• 85% of all participants show growth<br>• 50+ elementary students complete foundational numeracy track<br>• 5+ schools implement year-round hands-on math instruction</td></tr>
+
+<tr><td><strong>Phase 4: District-Wide Access & Classroom Integration</strong></td><td>2028-2029 & Beyond</td><td>All interested SLPS students (300-400 annually)<br>All SLPS middle schools</td><td>• <strong>Universal summer access:</strong> Expand capacity to serve all interested SLPS students across multiple facilities<br>• <strong>Professional development for all SLPS math teachers</strong> in differentiated, inquiry-based, culturally responsive instruction<br>• Codify "Math-in-Motion" principles into district math curriculum frameworks<br>• Implement Math-in-Motion Modules in all SLPS middle schools during regular school year<br>• Integrate program into permanent SLPS budget with trade union partnerships<br>• Establish Math-in-Motion as standard practice for 3,000+ students annually</td><td>• All interested SLPS students can access summer program<br>• District-wide reduction in Algebra I failure rates<br>• 100% of SLPS middle schools implement hands-on math instruction<br>• Increased SLPS graduation rates in STEM pathways<br>• Measurable increase in union apprenticeship applications from SLPS graduates</td></tr>
+
+</table>
+
+<h3>School-Year Integration Strategy: Embedding Best Practices</h3>
+
+<p>A critical component of the roadmap is the systematic integration of Math-in-Motion's proven instructional strategies into the regular school year. Beginning in Fall 2027, SLPS will pilot "Math-in-Motion Modules": 2-4 week instructional units that bring the co-teaching model, hands-on projects, and workplace simulation into middle school math classrooms. These modules will incorporate:</p>
+
+<ul>
+
+   <li><strong>Heterogeneous Grouping:</strong> Moving away from rigid ability tracking, consistent with research showing that mixed-ability classrooms with high expectations improve outcomes for all students, particularly in urban Midwest schools (Webel et al., 2021).</li>
+
+   <li><strong>Inquiry-Based Learning:</strong> Encouraging students to explore mathematical problems through guided discovery rather than rote memorization, aligning with NCTM reform principles and ASCD differentiation frameworks (2011).</li>
+
+   <li><strong>Culturally Responsive Teaching:</strong> Connecting math content to students' lived experiences and community contexts, following Eric Gutstein's framework of "reading and writing the world with math" (Gutstein, 2003).</li>
+
+   <li><strong>Differentiated Instruction:</strong> Utilizing Tomlinson's model to provide multiple entry points, tiered learning objectives, and varied assessment products to serve diverse learners (Tomlinson, 2011; NCTM, 2014).</li>
+
+   <li><strong>Real-World Application:</strong> Embedding mathematical concepts in authentic contexts (construction, engineering, health sciences) to eliminate the "cognitive disconnect" that alienates urban students from abstract math.</li>
+
+</ul>
+
+<p>By Year 3 (2028-2029), the goal is for Math-in-Motion's evidence-based practices to become standard operating procedure across SLPS middle schools, transforming not just summer enrichment but year-round mathematics instruction. This systemic integration ensures that the summer academy is not an isolated intervention but the catalyst for district-wide instructional improvement.</p>
+
+<h2>Standard Operating Procedures (SOPs) & Communication Protocols</h2>
+
+<p>To ensure project continuity and fidelity to the model, the following SOPs will be codified in the "Math-in-Motion Operations Manual":</p>
+
+<ul>
+
+   <li><strong>SOP 101: Workplace Simulation Culture:</strong> Protocols for the "clock-in" system, professional dress requirements (PPE), and the "Work Order" instructional format.</li>
+
+   <li><strong>SOP 202: Co-Teaching Conflict Resolution:</strong> A structured feedback loop for Teacher/Tradesperson pairings to navigate pedagogical vs. technical priorities.</li>
+
+   <li><strong>SOP 303: Child Safety and Background Compliance:</strong> Ensuring all industry guest speakers and tradespeople meet SLPS and state requirements for working with minors.</li>
+
+   <li><strong>Communication Matrix:</strong> Bi-weekly digital newsletter for families; Weekly project briefs for Union partners; Quarterly fiscal reports for HSSU OSP.</li>
+
+</ul>
+
+<h3>SOP 404: Personnel Recruitment, Onboarding, and Retention</h3>
+
+<p>To maintain the high instructional standard required for "Math-in-Motion," the following protocols for human capital management will be strictly followed:</p>
+
+<ul>
+
+   <li><strong>Recruitment:</strong> Instructional pairs are recruited through a joint HSSU-SLPS selection committee. Math teachers must have a minimum of 3 years of urban secondary experience and a recommendation from their building principal. Tradespeople are recruited via the Building Trades Council and must hold a valid Journeyman or Master license with at least 15 years of field experience.</li>
+
+   <li><strong>Onboarding:</strong> All new hires undergo a 3-day orientation covering: (1) The Situated Cognition theoretical model, (2) Biometric clock-in system operation, (3) Mandatory reporter training, and (4) Job-site safety and PPE compliance.</li>
+
+   <li><strong>Retention Strategy:</strong> We utilize a "differential stipend" model where instructors who complete the full 3-year pilot cycle are eligible for a "Master Coach" bonus. Additionally, HSSU provides tuition remission credits for participating SLPS teachers pursuing advanced degrees in STEM Education.</li>
+
+   <li><strong>Performance Review:</strong> Instructors receive weekly formative feedback based on the "Co-Teaching Efficacy Tool". Any pair scoring below a 3.5 aggregate on the 5-point scale receives immediate coaching from the Lead Curriculum Specialist.</li>
+
+</ul>
+
+<h3>SOP 505: Equipment Maintenance and Inventory Control</h3>
+
+<p>The program manages over $44,000 in high-value industrial equipment. To prevent loss and ensure safety:</p>
+
+<ul>
+
+   <li><strong>Daily Inventory:</strong> Application Leads perform a "Tool Box Talk" and inventory check at the start and end of every shift. Missing items are reported immediately to the Program Coordinator.</li>
+
+   <li><strong>Calibration Schedule:</strong> Precision instruments (calipers, multimeters, manometers) are professionally calibrated annually during the month of May.</li>
+
+   <li><strong>Depreciation Fund:</strong> 10% of the annual equipment budget is reserved for the replacement of high-wear consumable items (e.g., 3D printer nozzles, router bits, multimeter leads).</li>
+
+</ul>
+
+<h3>Table 4: Stakeholder Communication & Governance Matrix</h3>
+
+<table>
+
+<tr><th>Stakeholder Group</th><th>Frequency</th><th>Channel</th><th>Primary Content</th><th>Responsibility</th></tr>
+
+<tr><td>Instructors (Math/Trades)</td><td>Daily</td><td>Shift Huddle</td><td>Lesson synchronization, safety briefing, student alerts.</td><td>Program Coordinator</td></tr>
+<tr><td>Trade Union Partners</td><td>Quarterly</td><td>Executive Brief</td><td>Curriculum validation, apprenticeship pipeline data.</td><td>Industry Liaison</td></tr>
+
+<tr><td>External Evaluator (CUEP)</td><td>Monthly</td><td>Data Review</td><td>WNAS scores, culture survey analytics, logic model audit.</td><td>Lead Researcher</td></tr>
+<tr><td>Catalyze Challenge</td><td>Semi-Annual</td><td>Impact Report</td><td>Performance milestone updates, fiscal compliance.</td><td>Project Director</td></tr>
+
+<tr><td>NewSchools Venture Fund</td><td>Semi-Annual</td><td>Impact Report</td><td>Performance milestone updates, fiscal compliance.</td><td>Project Director</td></tr>
+
+<table>
+
+<tr><th>Risk Factor</th><th>Impact</th><th>Probability</th><th>Mitigation Strategy</th></tr>
+
+<tr><td>Instructor Turnover/Resistance</td><td>High</td><td>Low</td><td>Recruit a "reserve pool" of instructors; provide competitive summer stipends; and address <strong>mindset barriers</strong> through continuous collaborative planning and coaching (Mulder, 2014).</td></tr>
+
+<tr><td>Systemic Barriers (Mobility/Poverty)</td><td>Medium</td><td>Moderate</td><td>Utilize <strong>Asset-Based Community Development (ABCD)</strong> frameworks to leverage neighborhood resources and maintain student engagement despite external socioeconomic constraints (Milwaukee Mathematics Partnership, 2011).</td></tr>
+
+<tr><td>Student Transportation Gaps</td><td>Medium</td><td>Moderate</td><td>SLPS will provide dedicated bus hubs; HSSU will manage a supplemental "Metro Pass" fund for emergency transit.</td></tr>
+
+<tr><td>Equipment Safety/Liability</td><td>Critical</td><td>Low</td><td>Implement mandatory OSHA-10 orientation for all participants; maintain 1:12 instructor-to-student ratio in labs.</td></tr>
+
+<tr><td>Funding Delays</td><td>High</td><td>Low</td><td>Maintain 3-month operating reserve within HSSU general workforce fund.</td></tr>
+
+<tr><td>Recruitment Shortfall</td><td>Medium</td><td>Moderate</td><td>Station staff at neighborhood hubs; utilize SLPS counselor network for early identification.</td></tr>
+
+</table>
+
+<h2>Fiscal Management, Internal Controls, and Procurement SOPs</h2>
+
+<p>To ensure the highest level of accountability for the NewSchools Venture Fund grant, HSSU utilizes its established federal-grade financial infrastructure.</p>
+
+<h3>1. Internal Controls and Segregation of Duties</h3>
+
+<p>The project follows a three-tiered approval process for all expenditures:</p>
+
+<ul>
+
+   <li><strong>Tier 1:</strong> The Project Director initiates the request based on the approved grant budget.</li>
+
+   <li><strong>Tier 2:</strong> The Office of Sponsored Programs (OSP) verifies compliance with grant terms and federal 2 CFR 200 guidelines.</li>
+
+   <li><strong>Tier 3:</strong> The University Comptroller's Office performs final disbursement, ensuring complete segregation of duties between procurement, authorization, and payment.</li>
+
+</ul>
+
+<h3>2. Federal-Standard Procurement SOPs</h3>
+
+<p>All technical equipment purchases exceeding $5,000 undergo a competitive bidding process. <strong>MWBE (Minority and Women-Owned Business Enterprise)</strong> participation is actively sought and tracked, with a goal of 25% of all non-personnel spending directed to local urban firms. HSSU's procurement system provides real-time tracking of all assets purchased with grant funds, including barcode labeling and annual physical inventory audits.</p>
+
+<h3>3. Audit Readiness</h3>
+
+<p>Harris-Stowe State University undergoes an annual Single Audit (formerly A-133). The "Math-in-Motion" project accounts will be maintained as a distinct cost center within the university's Banner ERP system, facilitating immediate audit retrieval and transparency for the funder.</p>
+
+<div class="page-break"></div>
+
+<div class="section-header">D. QUALITY OF PROJECT EVALUATION</div>
+
+<p>Harris-Stowe State University (HSSU) will contract with the **Center for Urban Education & Policy (CUEP)** at the University of Missouri-St. Louis to serve as the independent external evaluator. CUEP brings extensive experience in evaluating NSF and Department of Education funded STEM initiatives within urban districts. The evaluation will utilize a mixed-methods approach, combining quantitative student outcome data with qualitative implementation findings.</p>
+
+<h2>Independent External Evaluator Credentials</h2>
+
+<p>The evaluation will be led by Dr. Sarah Reynolds, Senior Research Associate at CUEP. Dr. Reynolds has 15 years of experience in psychometric assessment and has served as the PI on over $10M in federal evaluation contracts. The CUEP team will provide objectivity and technical expertise in analyzing the "Simulated Workplace" model's efficacy.</p>
+
+<h3>Data Collection Protocols & Instrumentation</h3>
+
+<p>The evaluation team will utilize a secure, longitudinal data warehouse to track participant outcomes. Quantitative data from the <strong>Workforce Numeracy Aptitude Scale (WNAS)</strong> and the <strong>Mock Trade Union Entrance Exam</strong> will be collected via tablet-based assessments. Qualitative data, including structured observations of co-teaching synergy, will be logged weekly using the <strong>Co-Teaching Efficacy Tool</strong>.</p>
+
+<h3>Longitudinal Tracking & Persistence</h3>
+
+<p>In partnership with the SLPS Office of Accountability, CUEP will track participants for 24 months following high school graduation. Primary metrics include enrollment in postsecondary STEM programs, entry into DOL-registered apprenticeships, and 12-month job retention rates within the skilled trades. This longitudinal approach ensures the program is not merely providing a "summer experience" but is creating a sustainable career trajectory.</p>
+
+<h2>Performance Measures & Targets</h2>
+
+<table>
+
+<tr><th>Performance Metric</th><th>Instrument</th><th>Data Source</th><th>Target Goal</th></tr>
+
+<tr><td>Academic Growth in Algebra/Geometry</td><td>Workforce Numeracy Aptitude Scale (WNAS)</td><td>Student Pre/Post Assessment</td><td>85% of participants show ≥ 1 grade level growth</td></tr>
+
+<tr><td>Workforce Readiness Proficiency</td><td>Mock Trade Union Entrance Exam</td><td>Union-validated exam module</td><td>80% of Grade 10-11 students achieve passing score</td></tr>
+
+<tr><td>Student Persistence in STEM</td><td>District Enrollment Records</td><td>SLPS Registrar Data</td><td>90% enrollment in Fall CTE or advanced math</td></tr>
+
+<tr><td>Culture of Professionalism</td><td>"Clock-In" Analytics & Safety Audits</td><td>Simulated Workplace Attendance System</td><td>95% on-time attendance and safety compliance</td></tr>
+
+</table>
+
+<div class="page-break"></div>
+
+<div class="section-header">E. ASSURANCES AND CERTIFICATIONS</div>
+
+<p>Saint Louis Public Schools certifies that this project, "Math-in-Motion," complies with all applicable institutional and federal requirements for educational initiatives involving K-12 students and workforce development funding. SLPS specifically assures that:</p>
+
+<ul>
+
+   <li><strong>Equitable Participation:</strong> The project will be implemented in a manner that ensures equitable participation for all students, regardless of race, gender, or disability status, consistent with GEPA Section 427.</li>
+
+   <li><strong>Student Data Privacy:</strong> All student performance data collected for evaluation will be handled in strict compliance with the Family Educational Rights and Privacy Act (FERPA) and SLPS data-sharing protocols.</li>
+
+   <li><strong>Safety and Liability:</strong> All industry-based learning activities will be supervised by OSHA-certified instructional leads, and all participating retired tradespeople will undergo standard SLPS and HSSU background checks for working with minors.</li>
+
+   <li><strong>Fiscal Accountability:</strong> Grant funds will be administered through the Saint Louis Education Fund in coordination with the HSSU Office of Sponsored Programs, ensuring rigorous tracking, auditing, and reporting of all personnel and participant support costs.</li>
+
+   <li><strong>Nondiscrimination:</strong> No person shall, on the grounds of race, color, national origin, religion, age, sex, or disability, be excluded from participation in or be denied the benefits of the "Math-in-Motion" Summer Academy.</li>
+
+</ul>
+
+<p><strong>Authorized Representative:</strong></p>
+
+<p>Name: [Superintendent Name]<br>
+
+Title: Superintendent, Saint Louis Public Schools<br>
+
+Signature: _________________________________ Date: ______________</p>
+
+<div class="page-break"></div>
+
+<div class="section-header">Advanced Study and Dual Enrollment</div>
+
+<div class="document">
+
+<p>Math-in-Motion remains unapologetically focused on Algebra I and Geometry proficiency as the gateway to economic mobility. Once students demonstrate mastery, we extend a runway, informed by the <strong>Illinois Transitional Math model</strong> (Urban Labs, 2023), that moves proficient technicians into dual-enrollment coursework anchored in precision medicine, population health, and ubiquitous computing. This alignment ensures that senior-year math is not a remedial dead-end but a credit-bearing bridge to postsecondary success. The through-line is simple: <strong>solid fundamentals → contextualized application → data-rich inquiry.</strong></p>
+
+<h3>Guiding Principles for the Advanced Pathway</h3>
+
+<ul>
+
+<p>The total funding request for the "Math-in-Motion" Summer Academy is <strong>$96,000</strong> for the Year 1 pilot phase (July 1, 2026 - June 30, 2027), with the full project spanning four years through June 30, 2030. This budget is designed to support the initial pilot cohort of 20-30 students through student stipends, equipment, and program operations.</p>
+
+<h3>1. Student Stipends ($25,000)</h3>
+
+<p>To remove the "opportunity cost" barrier for low-income families and acknowledge students as active participants in their own learning, the program provides a <strong>$1,000 stipend</strong> to each student participant upon successful completion of the summer academy. Based on the pilot cohort of 20-30 students, this budget line allocates $25,000 for student stipends.</p>
+
+<h3>1a. Teacher Compensation</h3>
+
+<p>Certified math teachers participating in the Math-in-Motion academy will be compensated at a rate of <strong>$30 per hour</strong> for their instructional time, professional development participation, and curriculum planning activities.</p>
+
+<h3>2. Technical Equipment & Tooling ($44,000)</h3>
+
+<p>Procurement of industrial-grade equipment for the four primary trade rotations, as detailed below. This includes CNC workstations, industrial multimeters, HVAC diagnostic tools, and DJI Tello logistics drones.</p>
+
+<h3>3. Supplies, Transportation & Other ($27,000)</h3>
+
+<ul>
+   <li><strong>Consumable Materials:</strong> $12,000. Lumber, conduit, copper wire, PVC, and PPE for pilot cohort participants.</li>
+   <li><strong>Transportation:</strong> $10,000. Dedicated SLPS bus hubs and emergency Metro passes for participants.</li>
+   <li><strong>Evaluation Services:</strong> $5,000. Contract with the Center for Urban Education & Policy (CUEP) for program evaluation.</li>
+</ul>
+
+<h2>Financial Sustainability Plan</h2>
+
+<p>The "Math-in-Motion" program leverages a diversified funding portfolio that transitions from grant-dependent startup (Years 1-2) to institutionalized district programming with robust industry and university partnerships (Years 3-5).</p>
+
+<h3>Phase 1: Grant Funding & Proof of Concept (2026-2027)</h3>
+
+<p><strong>NewSchools Venture Fund</strong> provides our Year 1 foundation ($96,000), enabling the 20-30 student pilot and Fall 2026 iteration cycle. Simultaneously, we pursue:</p>
+
+<ul>
+   <li><strong>YouthBuild 2025 Grant:</strong> Federal funding ($1,000,000) for Year 2 expansion to 60-80 students.</li>
+   <li><strong>Catalyze Challenge Grant:</strong> $300,000 for scaling the co-teaching model.</li>
+</ul>
+
+<h3>Phase 2: Industry Partnerships (2027-2028)</h3>
+
+<p>Through the SLPS Advisory Council, we will secure corporate partnerships with Old Mission Capital, Verizon, Eastman Chemical, Amazon, and Microsoft.</p>
+
+<h3>Phase 3: Institutional Integration (2028+)</h3>
+
+<p>Math-in-Motion transitions to permanent SLPS budget line item supplemented by trade union contributions and a $500,000 student stipend endowment.</p>
+
+<p>The newly established <strong>SLPS Advisory Council</strong> provides unprecedented access to math-intensive industries seeking to invest in STEM workforce pipelines. We will leverage this network to secure multi-year corporate partnerships:</p>
+
+<ul>
+   <li><strong>Old Mission Capital:</strong> As a quantitative trading firm requiring advanced mathematical talent, Old Mission is an ideal partner. We seek $100,000 annually to sponsor youth math education and dual enrollment data science offerings.</li>
+   
+   <li><strong>Verizon:</strong> With significant telecommunications infrastructure needs, Verizon has direct interest in technical workforce development. We will pursue $150,000 annually to sponsor the "Digital Infrastructure & Network Systems" track, including equipment donations and engineer mentorship.</li>
+   
+   <li><strong>Eastman Chemical:</strong> As a major chemical manufacturer, Eastman requires technicians with strong applied mathematics skills. We seek $75,000 annually to sponsor the "Industrial Process & Quality Control" track, with Eastman engineers serving as guest instructors and providing site visit opportunities.</li>
+   
+   <li><strong>Amazon:</strong> With growing logistics and fulfillment operations, Amazon has direct interest in workforce development. We will pursue $125,000 annually to sponsor the "Logistics Technology & Automation" track, including equipment donations and mentorship.</li>
+   
+   <li><strong>Microsoft:</strong> As a leader in technology and cloud computing, Microsoft seeks to develop diverse STEM talent pipelines. We seek $100,000 annually to sponsor the "Digital Literacy & Computational Thinking" track, with Microsoft engineers providing mentorship and career pathway guidance.</li>
+   
+   <li><strong>Additional Industry Partners:</strong> Pursue partnerships with Edward Jones (financial mathematics), Emerson (automation/controls), and Monsanto/Bayer (biostatistics) through Advisory Council connections.</li>
+</ul>
+
+<h3>Phase 3: Institutional Integration & Endowment (2028-2029 & Beyond)</h3>
+
+<p>By Year 3, Math-in-Motion transitions to permanent SLPS budget line item ($200,000 annually) supplemented by:</p>
+
+<ul>
+   <li><strong>Trade Union In-Kind Contributions:</strong> St. Louis Building Trades Council provides instructor stipends and apprenticeship pathway support.</li>
+   
+   <li><strong>HSSU Cost-Sharing:</strong> Facility use, evaluation services, and dual-enrollment transcripting integrated into university operations.</li>
+   
+   <li><strong>Student Stipend Endowment:</strong> Launch capital campaign to establish $500,000 endowment ensuring long-term opportunity cost mitigation. Interest from this fund provides permanent revenue stream for student stipends, ensuring program independence from annual budget cycles.</li>
+</ul>
+
+<p>This diversified approach ensures Math-in-Motion achieves financial sustainability while maintaining our equity-centered mission of making mathematics a gateway rather than a gatekeeper for all SLPS students.</p>
+
+</div>
+
+<div class="page-break"></div>
+
+<div class="section-header">Appendix A: Data Management & Privacy Protocol (FERPA/GDPR)</div>
+
+<div class="document">
+
+<p>Protecting student data is a core institutional responsibility. All data collected for evaluation purposes is stored on encrypted servers at Harris-Stowe State University.</p>
+
+<ul>
+
+   <li><strong>Data Encryption:</strong> All student identifiable information (PII) is encrypted at rest and in transit using 256-bit AES protocols.</li>
+
+   <li><strong>Access Controls:</strong> Access to the "Motion-Track" database is limited to the Project Director and the External Evaluation team.</li>
+
+   <li><strong>Anonymization:</strong> All data shared in public reports is aggregated and anonymized to ensure student privacy.</li>
+
+</ul>
+
+</div>
+
+<div class="page-break"></div>
+
+<div class="section-header">Appendix B: Curriculum Mapping to Missouri Learning Standards (Algebra I)</div>
+
+<div class="document">
+
+<p>The following table maps the "Simulated Workplace" activities to specific Missouri Learning Standards for Algebra I.</p>
+
+<table>
+
+<tr><th>Trade Activity</th><th>MLS Code</th><th>Mathematical Standard</th><th>Build Application</th></tr>
+
+<tr><td>Ohm's Law Calculations</td><td>A1.REI.B.3</td><td>Solve linear equations in one variable.</td><td>Determining unknown voltage/current.</td></tr>
+
+<tr><td>Load Balancing</td><td>A1.CED.A.1</td><td>Create equations and inequalities in one variable.</td><td>Panel capacity limits.</td></tr>
+
+<tr><td>Ductwork Sizing</td><td>A1.CED.A.4</td><td>Rearrange formulas to highlight a quantity of interest.</td><td>Solving for CFM or Velocity.</td></tr>
+
+<tr><td>Material Estimation</td><td>A1.NQ.B.3</td><td>Use units as a way to understand problems.</td><td>Board-foot vs. linear foot conversion.</td></tr>
+
+</table>
+
+</div>
+
+<div class="page-break"></div>
+
+<div class="section-header">Appendix C: Curriculum Mapping to Missouri Learning Standards (Geometry)</div>
+
+<div class="document">
+
+<p>Geometry standards are primarily reinforced during the Construction and HVAC rotations.</p>
+
+<table>
+
+<tr><th>Trade Activity</th><th>MLS Code</th><th>Mathematical Standard</th><th>Build Application</th></tr>
+
+<tr><td>Roof Rafter Layout</td><td>G.SRT.C.8</td><td>Use trigonometric ratios to solve right triangles.</td><td>Calculating rafter length from pitch.</td></tr>
+
+<tr><td>Sill Plate Squareness</td><td>G.CO.C.10</td><td>Prove theorems about triangles.</td><td>3-4-5 method for wall layout.</td></tr>
+
+<tr><td>HVAC Duct Transitions</td><td>G.GMD.A.3</td><td>Use volume formulas for cylinders, pyramids, cones.</td><td>Truncated duct volume.</td></tr>
+
+<tr><td>Logistics Waypoints</td><td>G.GPE.B.4</td><td>Use coordinates to prove simple geometric theorems.</td><td>Drone flight path planning.</td></tr>
+
+</table>
+
+</div>
+
+<div class="page-break"></div>
+
+<div class="section-header">Appendix D: Applied Physics Integration Guide (Electrical & HVAC)</div>
+
+<div class="document">
+
+<p>Beyond numeracy, the program introduces students to foundational concepts in applied physics.</p>
+
+<ul>
+
+   <li><strong>Electrical:</strong> Electron flow, electromagnetism in motors, and thermal properties of resistance.</li>
+
+   <li><strong>HVAC:</strong> Pressure-Temperature relationship (Boyle's Law), latent vs. sensible heat, and the refrigeration cycle.</li>
+
+   <li><strong>Machining:</strong> Rotational torque, shear strength of materials, and thermal expansion coefficients.</li>
+
+</ul>
+
+</div>
+
+<div class="page-break"></div>
+
+<div class="section-header">Appendix E: Simulated Workplace "Clock-In" System Technical Specs</div>
+
+<div class="document">
+
+<p>To foster professional culture, we utilize the "Labor-Link" biometric time-keeping system.</p>
+
+<ul>
+
+   <li><strong>Hardware:</strong> Ruggedized wall-mounted finger-print scanners at lab entrances.</li>
+
+   <li><strong>Software:</strong> Cloud-based dashboard providing real-time attendance analytics to the Program Coordinator.</li>
+
+   <li><strong>Gamification:</strong> Students with 100% on-time attendance for the week earn "Master Craftsman" digital badges.</li>
+
+</ul>
+
+</div>
+
+<div class="page-break"></div>
+
+<div class="section-header">Appendix F: Workforce Numeracy Micro-Credentialing Rubric</div>
+
+<div class="document">
+
+<p>Students earn the HSSU micro-credential by demonstrating mastery across five domains:</p>
+
+<ol>
+
+   <li><strong>Precision:</strong> Consistent measurement within 1/32" tolerance.</li>
+
+   <li><strong>Algebraic Fluency:</strong> Successful manipulation of 3-variable trade formulas.</li>
+
+   <li><strong>Safety Logic:</strong> Zero violations during unannounced shop audits.</li>
+
+   <li><strong>Digital Literacy:</strong> Successful navigation of CAD-lite software.</li>
+
+   <li><strong>Professionalism:</strong> 95% on-time attendance and PPE compliance.</li>
+
+</ol>
+
+</div>
+
+<div class="page-break"></div>
+
+<div class="section-header">Appendix G: Parent & Family Engagement "Math-at-Home" Guide</div>
+
+<div class="document">
+
+<p>We provide families with a toolkit to reinforce math concepts outside of the academy.</p>
+
+<ul>
+
+   <li><strong>Grocery Geometry:</strong> Calculating unit prices and volume-to-cost ratios.</li>
+
+   <li><strong>Utility Bill Analysis:</strong> Reading meters and calculating kilowatt-hour usage trends (Linear modeling).</li>
+
+   <li><strong>Home Repair Math:</strong> Fractional measurement during simple DIY projects.</li>
+
+</ul>
+
+</div>
+
+<div class="page-break"></div>
+
+<div class="section-header">Appendix H: Industry Partner Onboarding Toolkit</div>
+
+<div class="document">
+
+<p>This toolkit ensures that industry guest speakers and tradespeople are prepared for the urban K-12 environment.</p>
+
+<ul>
+
+   <li><strong>Tip Sheet:</strong> How to explain technical jargon to 14-year-olds.</li>
+
+   <li><strong>Cultural Competency Brief:</strong> Understanding the history of St. Louis's North-South divide.</li>
+
+   <li><strong>Mentorship Guide:</strong> How to structure a 30-minute "Lunch and Learn."</li>
+
+</ul>
+
+</div>
+
+</body>
+
+</html>
