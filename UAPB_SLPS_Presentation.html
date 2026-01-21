@@ -224,6 +224,81 @@
       letter-spacing: 0.5px;
     }
 
+    .doc-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      padding: 0 18px 16px;
+    }
+
+    .doc-actions button {
+      background: rgba(255, 180, 0, 0.9);
+      color: var(--charcoal);
+      border: none;
+      border-radius: 12px;
+      padding: 10px 14px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+    }
+
+    .doc-actions button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.3);
+    }
+
+    .doc-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.8);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      z-index: 1200;
+    }
+
+    .doc-overlay.active {
+      display: flex;
+    }
+
+    .doc-overlay-content {
+      background: #0f0f0f;
+      border-radius: 16px;
+      width: min(1200px, 95vw);
+      height: min(90vh, 1000px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .doc-overlay iframe {
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      border: none;
+      background: #ffffff;
+    }
+
+    .doc-overlay-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(255, 180, 0, 0.95);
+      color: var(--charcoal);
+      border: none;
+      border-radius: 10px;
+      padding: 8px 12px;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+    }
+
     .nav-controls {
       position: fixed;
       bottom: 32px;
@@ -387,16 +462,18 @@
         <div class="doc-frame">
           <iframe src="UAPB_SLPS_OnePage.html" title="UAPB Chancellor Scholarship One-Pager"></iframe>
           <div class="doc-caption">UAPB × SLPS Chancellor Scholarship Campaign</div>
+          <div class="doc-actions">
+            <button type="button" data-doc-src="UAPB_SLPS_OnePage.html">Open Full Screen</button>
+          </div>
         </div>
         <div class="doc-frame">
           <iframe src="PlantScience_Partnership_OnePage.html" title="Plant Science Pipeline Scholarship One-Pager"></iframe>
           <div class="doc-caption">Plant Science Pipeline Partnership Scholarship</div>
+          <div class="doc-actions">
+            <button type="button" data-doc-src="PlantScience_Partnership_OnePage.html">Open Full Screen</button>
+          </div>
         </div>
       </div>
-      <ul class="note">
-        <li><a href="UAPB_SLPS_OnePage.html" target="_blank" rel="noopener">Chancellor Scholarship + District-Wide Recruitment Campaign (open full page)</a></li>
-        <li><a href="PlantScience_Partnership_OnePage.html" target="_blank" rel="noopener">Plant Science Pipeline Partnership - From Seed to Career: Plant Science, Agribusiness &amp; Bioscience Pathway (open full page)</a></li>
-      </ul>
     </section>
 
     <section class="slide slide-alumni">
@@ -510,6 +587,13 @@
     </div>
   </main>
 
+  <div class="doc-overlay" id="docOverlay">
+    <div class="doc-overlay-content">
+      <button type="button" class="doc-overlay-close" id="docOverlayClose">Close ✕</button>
+      <iframe id="docOverlayFrame" title="Document Full Screen"></iframe>
+    </div>
+  </div>
+
   <script>
     const slides = Array.from(document.querySelectorAll('.slide'));
     const prevBtn = document.getElementById('prevBtn');
@@ -577,6 +661,10 @@
     });
 
     const docIframes = document.querySelectorAll('.doc-frame iframe');
+    const docOverlay = document.getElementById('docOverlay');
+    const docOverlayFrame = document.getElementById('docOverlayFrame');
+    const docOverlayClose = document.getElementById('docOverlayClose');
+    const docOpenButtons = document.querySelectorAll('.doc-actions button');
 
     function stripIframeMargins(frame) {
       try {
@@ -598,6 +686,39 @@
         stripIframeMargins(frame);
       }
       frame.addEventListener('load', () => stripIframeMargins(frame));
+    });
+
+    function openDocOverlay(src) {
+      if (!docOverlay || !docOverlayFrame) return;
+      docOverlayFrame.src = src;
+      docOverlay.classList.add('active');
+    }
+
+    function closeDocOverlay() {
+      if (!docOverlay || !docOverlayFrame) return;
+      docOverlayFrame.src = '';
+      docOverlay.classList.remove('active');
+    }
+
+    docOpenButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const src = btn.getAttribute('data-doc-src');
+        if (src) openDocOverlay(src);
+      });
+    });
+
+    if (docOverlay) {
+      docOverlay.addEventListener('click', (e) => {
+        if (e.target === docOverlay) closeDocOverlay();
+      });
+    }
+
+    if (docOverlayClose) {
+      docOverlayClose.addEventListener('click', closeDocOverlay);
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeDocOverlay();
     });
 
     updateSlides(0);
