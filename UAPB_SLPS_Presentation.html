@@ -194,7 +194,6 @@
     }
 
     .doc-frame {
-      --doc-scale: 0.6;
       border-radius: 18px;
       overflow: hidden;
       border: 1px solid rgba(255, 255, 255, 0.45);
@@ -202,18 +201,16 @@
       background: rgba(17, 17, 17, 0.4);
       display: flex;
       flex-direction: column;
-      height: min(80vh, 720px);
+      min-height: 420px;
     }
 
     .doc-frame iframe {
-      width: calc(100% / var(--doc-scale));
-      height: calc(100% / var(--doc-scale));
+      flex: 1;
+      width: 100%;
+      height: 100%;
       border: none;
       background: #ffffff;
       display: block;
-      transform: scale(var(--doc-scale));
-      transform-origin: top left;
-      overflow: hidden;
     }
 
     .doc-caption {
@@ -224,11 +221,25 @@
       letter-spacing: 0.5px;
     }
 
+    .doc-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px 10px;
+      gap: 12px;
+    }
+
+    .doc-title {
+      font-size: clamp(16px, 1.9vw, 20px);
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.92);
+      letter-spacing: 0.4px;
+    }
+
     .doc-actions {
       display: flex;
       justify-content: flex-end;
-      gap: 10px;
-      padding: 0 18px 16px;
+      gap: 8px;
     }
 
     .doc-actions button {
@@ -236,7 +247,7 @@
       color: var(--charcoal);
       border: none;
       border-radius: 12px;
-      padding: 10px 14px;
+      padding: 8px 12px;
       font-weight: 700;
       letter-spacing: 0.3px;
       cursor: pointer;
@@ -460,18 +471,22 @@
       <p class="note">Complete reference documents for the UAPB Chancellor Scholarship campaign and the Plant Science Pipeline Partnership scholarship.</p>
       <div class="doc-gallery">
         <div class="doc-frame">
-          <iframe src="UAPB_SLPS_OnePage.html" title="UAPB Chancellor Scholarship One-Pager"></iframe>
-          <div class="doc-caption">UAPB × SLPS Chancellor Scholarship Campaign</div>
-          <div class="doc-actions">
-            <button type="button" data-doc-src="UAPB_SLPS_OnePage.html">Open Full Screen</button>
+          <div class="doc-header">
+            <div class="doc-title">UAPB × SLPS Chancellor Scholarship Campaign</div>
+            <div class="doc-actions">
+              <button type="button" data-doc-src="UAPB_SLPS_OnePage.html">Open Full Screen</button>
+            </div>
           </div>
+          <iframe src="UAPB_SLPS_OnePage.html" title="UAPB Chancellor Scholarship One-Pager"></iframe>
         </div>
         <div class="doc-frame">
-          <iframe src="PlantScience_Partnership_OnePage.html" title="Plant Science Pipeline Scholarship One-Pager"></iframe>
-          <div class="doc-caption">Plant Science Pipeline Partnership Scholarship</div>
-          <div class="doc-actions">
-            <button type="button" data-doc-src="PlantScience_Partnership_OnePage.html">Open Full Screen</button>
+          <div class="doc-header">
+            <div class="doc-title">Plant Science Pipeline Partnership Scholarship</div>
+            <div class="doc-actions">
+              <button type="button" data-doc-src="PlantScience_Partnership_OnePage.html">Open Full Screen</button>
+            </div>
           </div>
+          <iframe src="PlantScience_Partnership_OnePage.html" title="Plant Science Pipeline Scholarship One-Pager"></iframe>
         </div>
       </div>
     </section>
