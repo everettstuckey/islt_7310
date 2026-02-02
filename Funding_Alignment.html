@@ -228,9 +228,41 @@
     /* Programs & Projects Row */
     .alignment-row {
       display: grid;
-      grid-template-columns: 1fr 40px 1fr;
+      grid-template-columns: 1fr 40px 1fr 40px 1fr;
       align-items: stretch;
       flex: 1;
+    }
+    
+    /* Portrait of a Graduate Column */
+    .pog-box {
+      background: #4a1a6b;
+      color: white;
+      padding: 14px 18px;
+      font-weight: 600;
+      font-size: 11px;
+      display: flex;
+      align-items: center;
+      border-radius: 6px;
+      margin: 6px 8px;
+    }
+    .pog-label {
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      opacity: 0.7;
+      display: block;
+      margin-bottom: 3px;
+    }
+    .pog-trait {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin: 2px 2px 2px 0;
+      font-size: 10px;
+    }
+    .empty-pog {
+      background: transparent;
     }
     
     .program-box {
@@ -347,6 +379,7 @@
           <h2 class="col-focus">Area of Focus</h2>
           <h2 class="col-program">Existing Program</h2>
           <h2 class="col-project">Draft Projects</h2>
+          <h2 class="col-pog" style="flex: 1; color: #ffffff;">Portrait of a Graduate</h2>
         </div>
         
         <div class="main-layout">
@@ -373,6 +406,10 @@
             <div class="project-box">
               <div><span class="project-label">Draft Project</span><a href="https://stlps-my.sharepoint.com/:w:/g/personal/es26024_slps_org/IQCamMs5fUovTI6HN7fel0BgAQEXkvo_lXRwj9NMTGzPcCE?e=H7db2E" target="_blank">HSSU Data Science Dual Enrollment</a></div>
             </div>
+            <div class="arrow">→</div>
+            <div class="pog-box">
+              <div><span class="pog-label">Portrait of a Graduate</span><span class="pog-trait">College & Career Ready</span><span class="pog-trait">Critical Thinker</span></div>
+            </div>
           </div>
           <div class="alignment-row">
             <div class="program-box">
@@ -382,6 +419,10 @@
             <div class="project-box">
               <div><span class="project-label">Draft Project</span><a href="https://stlps-my.sharepoint.com/:w:/g/personal/es26024_slps_org/IQCKQphSIvDnSIRwZf9WY5kCARJryOqMd3qgirErBOqGGuM?e=LMftEQ" target="_blank">HSSU Summer Math Acceleration</a></div>
             </div>
+            <div class="arrow">→</div>
+            <div class="pog-box">
+              <div><span class="pog-label">Portrait of a Graduate</span><span class="pog-trait">College & Career Ready</span><span class="pog-trait">Competent</span></div>
+            </div>
           </div>
           <div class="alignment-row">
             <div class="program-box">
@@ -390,6 +431,10 @@
             <div class="arrow">→</div>
             <div class="project-box">
               <div><span class="project-label">Draft Project</span><a href="digital_literacy_curriculum.html" target="_blank">Digital Literacy & AI Professional Development</a></div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="pog-box">
+              <div><span class="pog-label">Portrait of a Graduate</span><span class="pog-trait">Critical Thinker</span><span class="pog-trait">Competent</span></div>
             </div>
           </div>
         </div>
@@ -411,6 +456,10 @@
             <div class="project-box">
               <div><span class="project-label">Draft Project</span><a href="https://everettstuckey.github.io/islt_7310/UAPB_SLPS_Presentation.html" target="_blank">UAPB Alumni Mentors for FIRST Lego League</a></div>
             </div>
+            <div class="arrow">→</div>
+            <div class="pog-box">
+              <div><span class="pog-label">Portrait of a Graduate</span><span class="pog-trait">Collaborator</span><span class="pog-trait">Change Agent</span></div>
+            </div>
           </div>
           <div class="alignment-row">
             <div class="program-box">
@@ -418,6 +467,8 @@
             </div>
             <div class="empty-arrow"></div>
             <div class="empty-project"></div>
+            <div class="empty-arrow"></div>
+            <div class="empty-pog"></div>
           </div>
         </div>
       </div>
@@ -436,6 +487,8 @@
             </div>
             <div class="empty-arrow"></div>
             <div class="empty-project"></div>
+            <div class="empty-arrow"></div>
+            <div class="empty-pog"></div>
           </div>
           <div class="alignment-row">
             <div class="program-box">
@@ -445,6 +498,10 @@
             <div class="project-box">
               <div><span class="project-label">Draft Project</span><a href="slps_advisory_council.html" target="_blank">SLPS Advisory Council</a></div>
             </div>
+            <div class="arrow">→</div>
+            <div class="pog-box">
+              <div><span class="pog-label">Portrait of a Graduate</span><span class="pog-trait">Communicator</span><span class="pog-trait">Collaborator</span></div>
+            </div>
           </div>
           <div class="alignment-row">
             <div class="program-box">
@@ -453,6 +510,10 @@
             <div class="arrow">→</div>
             <div class="project-box">
               <div><span class="project-label">Draft Project</span>UMSL x SLPS CTE Teaching Certificate Tuition Deferral Program</div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="pog-box">
+              <div><span class="pog-label">Portrait of a Graduate</span><span class="pog-trait">College & Career Ready</span><span class="pog-trait">Change Agent</span></div>
             </div>
           </div>
         </div>
@@ -472,6 +533,8 @@
             </div>
             <div class="empty-arrow"></div>
             <div class="empty-project"></div>
+            <div class="empty-arrow"></div>
+            <div class="empty-pog"></div>
           </div>
           <div class="alignment-row">
             <div class="program-box">
@@ -480,6 +543,10 @@
             <div class="arrow">→</div>
             <div class="project-box">
               <div><span class="project-label">Draft Project</span><a href="digital_literacy_curriculum.html" target="_blank">Digital Literacy & AI Professional Development</a></div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="pog-box">
+              <div><span class="pog-label">Portrait of a Graduate</span><span class="pog-trait">Critical Thinker</span><span class="pog-trait">Competent</span></div>
             </div>
           </div>
         </div>
@@ -501,6 +568,10 @@
             <div class="project-box">
               <div><span class="project-label">Draft Project</span><a href="https://everettstuckey.github.io/islt_7310/UAPB_SLPS_Presentation.html" target="_blank">UAPB-SLPS Scholarship Pipeline</a></div>
             </div>
+            <div class="arrow">→</div>
+            <div class="pog-box">
+              <div><span class="pog-label">Portrait of a Graduate</span><span class="pog-trait">College & Career Ready</span><span class="pog-trait">Culturally Aware</span></div>
+            </div>
           </div>
           <div class="alignment-row">
             <div class="program-box">
@@ -509,6 +580,10 @@
             <div class="arrow">→</div>
             <div class="project-box">
               <div><span class="project-label">Draft Project</span>UMSL Direct Admissions</div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="pog-box">
+              <div><span class="pog-label">Portrait of a Graduate</span><span class="pog-trait">College & Career Ready</span><span class="pog-trait">Competent</span></div>
             </div>
           </div>
           </div>
@@ -530,6 +605,10 @@
             <div class="project-box">
               <div><span class="project-label">Draft Project</span><a href="https://everettstuckey.github.io/islt_7310/UAPB_SLPS_Presentation.html" target="_blank">UAPB-SLPS Scholarship Pipeline</a></div>
             </div>
+            <div class="arrow">→</div>
+            <div class="pog-box">
+              <div><span class="pog-label">Portrait of a Graduate</span><span class="pog-trait">College & Career Ready</span><span class="pog-trait">Culturally Aware</span></div>
+            </div>
           </div>
           <div class="alignment-row">
             <div class="program-box">
@@ -538,6 +617,10 @@
             <div class="arrow">→</div>
             <div class="project-box">
               <div><span class="project-label">Draft Project</span>UMSL Direct Admissions</div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="pog-box">
+              <div><span class="pog-label">Portrait of a Graduate</span><span class="pog-trait">College & Career Ready</span><span class="pog-trait">Competent</span></div>
             </div>
           </div>
         </div>
@@ -558,6 +641,10 @@
             <div class="arrow">→</div>
             <div class="project-box">
               <div><span class="project-label">Draft Project</span><a href="HUD4120_Research_Paper_Everett_Stuckey.pdf" target="_blank">Real-Time Data Integration</a></div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="pog-box">
+              <div><span class="pog-label">Portrait of a Graduate</span><span class="pog-trait">Critical Thinker</span><span class="pog-trait">Competent</span></div>
             </div>
           </div>
         </div>
