@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design 5  - Editorial</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Source Sans 3',sans-serif;background:#fffdf8;color:#2a2a2a;min-height:100vh}
+
+.page{max-width:700px;margin:0 auto;padding:80px 24px 60px}
+
+header{margin-bottom:72px;text-align:center}
+header .rule{width:60px;height:3px;background:#c0392b;margin:0 auto 24px}
+header h1{font-family:'Playfair Display',serif;font-size:3rem;font-weight:900;line-height:1.05;letter-spacing:-.02em;color:#1a1a1a}
+header .author{font-family:'Source Sans 3',sans-serif;font-size:.9rem;font-weight:300;color:#888;margin-top:16px;letter-spacing:.25em;text-transform:uppercase}
+header .rule2{width:200px;height:1px;background:#ddd;margin:28px auto 0}
+
+.section{margin-bottom:64px}
+.section-num{font-family:'Playfair Display',serif;font-size:6rem;font-weight:900;color:rgba(0,0,0,.04);line-height:1;margin-bottom:-24px}
+.section h2{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;margin-bottom:28px;position:relative}
+.section h2::after{content:'';display:block;width:40px;height:2px;background:#c0392b;margin-top:12px}
+
+.entry{display:flex;align-items:baseline;padding:18px 0;border-bottom:1px solid #eee;transition:all .2s}
+.entry:first-child{border-top:1px solid #eee}
+.entry:hover{padding-left:12px;background:#faf8f4}
+.entry a{text-decoration:none;color:#2a2a2a;display:flex;align-items:baseline;width:100%;gap:16px}
+.entry .title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;flex:1}
+.entry .format{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:#c0392b;white-space:nowrap}
+.entry .arrow{font-size:1rem;color:#ccc;transition:color .2s}
+.entry:hover .arrow{color:#c0392b}
+
+footer{margin-top:64px;text-align:center;padding-top:24px;border-top:1px solid #eee}
+footer p{font-size:.7rem;color:#bbb;letter-spacing:.1em;text-transform:uppercase}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header>
+  <div class="rule"></div>
+  <h1>Research Analyst<br>Performance Tasks</h1>
+  <p class="author">Everett Stuckey</p>
+  <div class="rule2"></div>
+</header>
+
+<div class="section">
+  <div class="section-num">I</div>
+  <h2>After-School Program Evaluation Plan</h2>
+  <div class="entry">
+    <a href="files/AfterSchoolEvaluationPlan.docx" download>
+      <span class="title">Evaluation Plan Document</span>
+      <span class="format">docx</span>
+      <span class="arrow">&darr;</span>
+    </a>
+  </div>
+  <div class="entry">
+    <a href="files/EvaluationPlan.pdf" target="_blank">
+      <span class="title">Evaluation Plan Document</span>
+      <span class="format">pdf</span>
+      <span class="arrow">&nearr;</span>
+    </a>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-num">II</div>
+  <h2>Attendance Trend Analysis</h2>
+  <div class="entry">
+    <a href="presentation.html">
+      <span class="title">Presentation</span>
+      <span class="format">interactive</span>
+      <span class="arrow">&rarr;</span>
+    </a>
+  </div>
+  <div class="entry">
+    <a href="files/SLPS_Attendance_Presentation.pptx" download>
+      <span class="title">Presentation</span>
+      <span class="format">pptx</span>
+      <span class="arrow">&darr;</span>
+    </a>
+  </div>
+  <div class="entry">
+    <a href="script.html">
+      <span class="title">Presentation Script</span>
+      <span class="format">read</span>
+      <span class="arrow">&rarr;</span>
+    </a>
+  </div>
+  <div class="entry">
+    <a href="dashboard.html">
+      <span class="title">Interactive Dashboard</span>
+      <span class="format">launch</span>
+      <span class="arrow">&rarr;</span>
+    </a>
+  </div>
+</div>
+
+<footer><p>Missouri DESE &bull; Proportional Attendance Data</p></footer>
+</div>
+</body>
+</html>

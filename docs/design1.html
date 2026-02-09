@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design 1  - Glassmorphism</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;min-height:100vh;background:#0a0a1a;color:#fff;overflow-x:hidden}
+
+/* Animated gradient blobs */
+.bg{position:fixed;inset:0;z-index:0;overflow:hidden}
+.blob{position:absolute;border-radius:50%;filter:blur(120px);opacity:.45;animation:drift 18s ease-in-out infinite alternate}
+.blob:nth-child(1){width:600px;height:600px;background:#7c3aed;top:-10%;left:-5%;animation-delay:0s}
+.blob:nth-child(2){width:500px;height:500px;background:#dc2626;bottom:-15%;right:-10%;animation-delay:-6s}
+.blob:nth-child(3){width:450px;height:450px;background:#0ea5e9;top:40%;left:50%;animation-delay:-12s}
+@keyframes drift{0%{transform:translate(0,0) scale(1)}50%{transform:translate(60px,-40px) scale(1.15)}100%{transform:translate(-30px,50px) scale(.95)}}
+
+.page{position:relative;z-index:1;max-width:880px;margin:0 auto;padding:80px 24px 60px}
+
+header{text-align:center;margin-bottom:64px}
+header h1{font-size:2.6rem;font-weight:800;letter-spacing:-.03em;background:linear-gradient(135deg,#fff 0%,#c4b5fd 50%,#f87171 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+header .author{font-size:1rem;color:rgba(255,255,255,.6);margin-top:10px;font-weight:300}
+
+.glass{background:rgba(255,255,255,.06);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:36px;transition:all .3s}
+.glass:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);transform:translateY(-4px)}
+
+.section-title{font-size:1.3rem;font-weight:600;margin-bottom:24px;color:rgba(255,255,255,.9)}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:24px;text-align:center;transition:all .3s}
+.card:hover{background:rgba(255,255,255,.08);transform:scale(1.03)}
+.card h3{font-size:.95rem;font-weight:600;margin-bottom:14px}
+.card a{display:inline-block;margin:4px;padding:8px 16px;border-radius:10px;font-size:.78rem;font-weight:500;transition:all .2s;text-decoration:none}
+.btn-p{background:linear-gradient(135deg,#7c3aed,#dc2626);color:#fff}
+.btn-p:hover{opacity:.85}
+.btn-o{border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.7)}
+.btn-o:hover{border-color:#fff;color:#fff}
+
+.task+.task{margin-top:40px}
+
+footer{text-align:center;margin-top:56px;font-size:.7rem;color:rgba(255,255,255,.25)}
+</style>
+</head>
+<body>
+<div class="bg"><div class="blob"></div><div class="blob"></div><div class="blob"></div></div>
+<div class="page">
+
+<header>
+  <h1>Research Analyst Performance Tasks</h1>
+  <p class="author">Everett Stuckey</p>
+</header>
+
+<div class="task glass">
+  <h2 class="section-title">After-School Program Evaluation Plan</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Evaluation Plan Document</h3>
+      <a href="files/AfterSchoolEvaluationPlan.docx" class="btn-p" download>Download .docx</a>
+      <a href="files/EvaluationPlan.pdf" class="btn-o" target="_blank">View PDF</a>
+    </div>
+  </div>
+</div>
+
+<div class="task glass" style="margin-top:40px">
+  <h2 class="section-title">Attendance Trend Analysis</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Presentation</h3>
+      <a href="presentation.html" class="btn-p">View</a>
+      <a href="files/SLPS_Attendance_Presentation.pptx" class="btn-o" download>PowerPoint</a>
+    </div>
+    <div class="card">
+      <h3>Presentation Script</h3>
+      <a href="script.html" class="btn-p">Read Script</a>
+    </div>
+    <div class="card">
+      <h3>Interactive Dashboard</h3>
+      <a href="dashboard.html" class="btn-p">Open Dashboard</a>
+    </div>
+  </div>
+</div>
+
+<footer><p>Missouri DESE Proportional Attendance Data</p></footer>
+</div>
+</body>
+</html>

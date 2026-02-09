@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design 3  - Retro Terminal</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'JetBrains Mono',monospace;background:#0a0a0a;color:#33ff33;min-height:100vh;position:relative}
+body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,rgba(0,0,0,.15) 0px,rgba(0,0,0,.15) 1px,transparent 1px,transparent 3px);pointer-events:none;z-index:100}
+
+.crt{position:fixed;inset:0;box-shadow:inset 0 0 120px rgba(0,255,0,.03);pointer-events:none;z-index:99}
+
+.page{max-width:760px;margin:0 auto;padding:48px 24px 60px;position:relative;z-index:1}
+
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.cursor::after{content:'_';animation:blink 1s step-end infinite}
+
+header{margin-bottom:48px;border:1px solid #1a3a1a;padding:24px;position:relative}
+header::before{content:'[ SYSTEM READY ]';position:absolute;top:-10px;left:16px;background:#0a0a0a;padding:0 8px;font-size:.6rem;color:#1a6a1a}
+header h1{font-size:1.4rem;font-weight:700;color:#33ff33;margin-bottom:4px}
+header .author{font-size:.8rem;color:#1a9a1a}
+.prompt{color:#1a6a1a;font-size:.7rem;margin-top:12px}
+.prompt span{color:#33ff33}
+
+.block{margin-bottom:32px;padding:20px;border-left:2px solid #1a3a1a;transition:border-color .2s}
+.block:hover{border-color:#33ff33}
+.block-head{font-size:.65rem;color:#1a6a1a;margin-bottom:8px;text-transform:uppercase;letter-spacing:.15em}
+.block h2{font-size:1.1rem;font-weight:700;margin-bottom:16px;color:#33ff33}
+
+.items{display:flex;flex-direction:column;gap:8px}
+.item{display:flex;align-items:center;gap:12px;padding:10px 14px;background:#0d120d;border:1px solid #1a2a1a;border-radius:4px;transition:all .2s;cursor:pointer;text-decoration:none;color:#33ff33}
+.item:hover{background:#132613;border-color:#33ff33;box-shadow:0 0 12px rgba(51,255,51,.1)}
+.item .idx{color:#1a6a1a;font-size:.7rem;min-width:40px}
+.item .label{font-size:.82rem;flex:1}
+.item .action{font-size:.65rem;color:#1a9a1a;text-transform:uppercase;letter-spacing:.1em}
+.item .action::before{content:'> '}
+
+.sep{border:none;border-top:1px dashed #1a3a1a;margin:8px 0}
+
+footer{margin-top:40px;font-size:.6rem;color:#1a4a1a;text-align:center}
+footer::before{content:'// '}
+</style>
+</head>
+<body>
+<div class="crt"></div>
+<div class="page">
+
+<header>
+  <h1>Research Analyst Performance Tasks</h1>
+  <p class="author">Everett Stuckey</p>
+  <p class="prompt">user@portfolio:~$ <span class="cursor">ls -la ./tasks</span></p>
+</header>
+
+<div class="block">
+  <p class="block-head">drwxr-xr-x &nbsp; task_01/</p>
+  <h2>After-School Program Evaluation Plan</h2>
+  <div class="items">
+    <a href="files/AfterSchoolEvaluationPlan.docx" class="item" download>
+      <span class="idx">[01]</span>
+      <span class="label">Evaluation Plan</span>
+      <span class="action">download .docx</span>
+    </a>
+    <a href="files/EvaluationPlan.pdf" class="item" target="_blank">
+      <span class="idx">[02]</span>
+      <span class="label">Evaluation Plan</span>
+      <span class="action">view pdf</span>
+    </a>
+  </div>
+</div>
+
+<div class="block">
+  <p class="block-head">drwxr-xr-x &nbsp; task_02/</p>
+  <h2>Attendance Trend Analysis</h2>
+  <div class="items">
+    <a href="presentation.html" class="item">
+      <span class="idx">[03]</span>
+      <span class="label">Presentation</span>
+      <span class="action">view slides</span>
+    </a>
+    <a href="files/SLPS_Attendance_Presentation.pptx" class="item" download>
+      <span class="idx">[04]</span>
+      <span class="label">Presentation</span>
+      <span class="action">download .pptx</span>
+    </a>
+    <hr class="sep">
+    <a href="script.html" class="item">
+      <span class="idx">[05]</span>
+      <span class="label">Presentation Script</span>
+      <span class="action">read</span>
+    </a>
+    <a href="dashboard.html" class="item">
+      <span class="idx">[06]</span>
+      <span class="label">Interactive Dashboard</span>
+      <span class="action">launch</span>
+    </a>
+  </div>
+</div>
+
+<footer>Missouri DESE &bull; Proportional Attendance Data</footer>
+</div>
+</body>
+</html>
