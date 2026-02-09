@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>St. Louis MSA Attendance Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .tab-btn { transition: all 0.2s; }
+    .tab-btn.active { border-bottom: 3px solid #dc2626; color: #dc2626; font-weight: 600; }
+    .year-btn { transition: all 0.15s; }
+    .year-btn.active { background: #dc2626; color: white; }
+    .district-item:hover { background: #f3f4f6; }
+    .district-item.selected { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+    .plotly-chart .modebar { opacity: 0.3; }
+    .plotly-chart:hover .modebar { opacity: 1; }
+    select { appearance: auto; }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-900 min-h-screen">
+
+  <!-- Header -->
+  <header class="bg-white border-b border-gray-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4">
+      <h1 class="text-2xl font-bold text-gray-900">St. Louis MSA Attendance Dashboard</h1>
+      <p class="text-sm text-gray-500 mt-1">
+        Proportional attendance rates (% of students with 90%+ attendance) &mdash;
+        St. Louis Public Schools, area school districts &amp; charter schools
+      </p>
+    </div>
+  </header>
+
+  <!-- Tabs -->
+  <div class="bg-white border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex gap-1">
+      <button class="tab-btn active px-4 py-3 text-sm border-b-2 border-transparent" data-tab="overview">Overview</button>
+      <button class="tab-btn px-4 py-3 text-sm border-b-2 border-transparent text-gray-500 hover:text-gray-700" data-tab="comparison">District Comparison</button>
+      <button class="tab-btn px-4 py-3 text-sm border-b-2 border-transparent text-gray-500 hover:text-gray-700" data-tab="demographics">Demographics</button>
+      <button class="tab-btn px-4 py-3 text-sm border-b-2 border-transparent text-gray-500 hover:text-gray-700" data-tab="schools">SLPS Schools</button>
+    </div>
+  </div>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 py-6">
+    <!-- Year Selector -->
+    <div class="flex items-center gap-3 mb-6 flex-wrap">
+      <label class="text-sm font-medium text-gray-700">Year:</label>
+      <div id="year-buttons" class="flex gap-1 flex-wrap"></div>
+    </div>
+
+    <!-- Tab Panels -->
+    <div id="tab-overview" class="tab-panel space-y-6"></div>
+    <div id="tab-comparison" class="tab-panel space-y-6 hidden"></div>
+    <div id="tab-demographics" class="tab-panel space-y-6 hidden"></div>
+    <div id="tab-schools" class="tab-panel space-y-6 hidden"></div>
+
+    <!-- Footer Legend -->
+    <div class="mt-8 text-xs text-gray-400 flex gap-6 justify-center flex-wrap">
+      <span><span class="inline-block w-3 h-3 rounded-full mr-1" style="background:#dc2626"></span>SLPS</span>
+      <span><span class="inline-block w-3 h-3 rounded-full mr-1" style="background:#2563eb"></span>MSA Districts</span>
+      <span><span class="inline-block w-3 h-3 rounded-full mr-1" style="background:#16a34a"></span>Charter Schools</span>
+    </div>
+    <footer class="text-center text-xs text-gray-400 mt-4 pb-8">
+      Data source: Missouri DESE &mdash; Proportional Attendance (% students with 90%+ attendance rate)
+    </footer>
+  </main>
+
+  <div id="loading" class="fixed inset-0 bg-white bg-opacity-90 flex items-center justify-center z-50">
+    <p class="text-lg text-gray-500">Loading attendance data&hellip;</p>
+  </div>
+
+<script>
+// ======================== STATE ========================
+let DATA = null;
+let selectedYear = 2023;
+let activeTab = 'overview';
+let selectedDistricts = new Set();
+let sortBy = 'attendance_rate';
+let sortDir = 'desc';
+
+const COLORS = { slps: '#dc2626', district: '#2563eb', charter: '#16a34a', highlight: '#f59e0b' };
+const DEMO_COLORS = { black_rate:'#6366f1', white_rate:'#f97316', hispanic_rate:'#14b8a6', asian_rate:'#ec4899', multirace_rate:'#8b5cf6' };
+const DEMO_LABELS = { black_rate:'Black', white_rate:'White', hispanic_rate:'Hispanic', asian_rate:'Asian', multirace_rate:'Multirace' };
+const LAYOUT_DEFAULTS = {
+  font: { family: 'Inter, sans-serif', size: 12 },
+  paper_bgcolor: 'rgba(0,0,0,0)',
+  plot_bgcolor: 'rgba(0,0,0,0)',
+  margin: { t: 30, r: 20, b: 40, l: 50 },
+  hovermode: 'x unified',
+  xaxis: { gridcolor: '#e5e7eb' },
+  yaxis: { gridcolor: '#e5e7eb' },
+};
+const CONFIG = { responsive: true, displayModeBar: true, modeBarButtonsToRemove: ['lasso2d','select2d'] };
+
+// ======================== HELPERS ========================
+function getDistrictData(district, year) {
+  return DATA.district_data.find(d => d.district === district && d.year === year);
+}
+
+function getDistrictsForYear(year, type) {
+  return DATA.district_data.filter(d => d.year === year && (!type || d.type === type) && d.attendance_rate != null);
+}
+
+function avg(arr) {
+  const valid = arr.filter(v => v != null);
+  return valid.length > 0 ? Math.round(valid.reduce((a,b) => a+b, 0) / valid.length * 100) / 100 : null;
+}
+
+function card(label, value, color, sub) {
+  return `<div class="bg-white rounded-xl shadow-sm border border-gray-100 p-5">
+    <p class="text-sm font-medium text-gray-500 mb-1">${label}</p>
+    <p class="text-2xl font-bold ${color || 'text-gray-900'}">${value}</p>
+    ${sub ? `<p class="text-xs text-gray-400 mt-1">${sub}</p>` : ''}
+  </div>`;
+}
+
+function chartBox(id, title, extraHtml) {
+  return `<div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+    <h2 class="text-lg font-semibold text-gray-800 mb-4">${title}</h2>
+    ${extraHtml || ''}
+    <div id="${id}" class="plotly-chart"></div>
+  </div>`;
+}
+
+// ======================== TABS & YEARS ========================
+function initTabs() {
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      activeTab = btn.dataset.tab;
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.add('hidden'));
+      document.getElementById('tab-' + activeTab).classList.remove('hidden');
+      renderActiveTab();
+    });
+  });
+}
+
+function initYears() {
+  const container = document.getElementById('year-buttons');
+  const years = DATA.years.filter(y => y < 2024);
+  container.innerHTML = years.map(y =>
+    `<button class="year-btn px-3 py-1.5 text-xs font-medium rounded-full ${y === selectedYear ? 'active bg-red-600 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}" data-year="${y}">${y}</button>`
+  ).join('');
+  container.querySelectorAll('button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      selectedYear = parseInt(btn.dataset.year);
+      container.querySelectorAll('button').forEach(b => { b.classList.remove('active','bg-red-600','text-white'); b.classList.add('bg-gray-100','text-gray-600'); });
+      btn.classList.add('active','bg-red-600','text-white');
+      btn.classList.remove('bg-gray-100','text-gray-600');
+      renderActiveTab();
+    });
+  });
+}
+
+function renderActiveTab() {
+  switch(activeTab) {
+    case 'overview': renderOverview(); break;
+    case 'comparison': renderComparison(); break;
+    case 'demographics': renderDemographics(); break;
+    case 'schools': renderSchools(); break;
+  }
+}
+
+// ======================== OVERVIEW TAB ========================
+function renderOverview() {
+  const panel = document.getElementById('tab-overview');
+  const slps = getDistrictData(DATA.slps, selectedYear);
+  const msaDistricts = getDistrictsForYear(selectedYear, 'district');
+  const charters = getDistrictsForYear(selectedYear, 'charter');
+  const msaAvg = avg(msaDistricts.map(d => d.attendance_rate));
+  const charterAvg = avg(charters.map(d => d.attendance_rate));
+  const slpsRate = slps?.attendance_rate;
+  const gap = (slpsRate != null && msaAvg != null) ? Math.round((slpsRate - msaAvg) * 100) / 100 : null;
+
+  panel.innerHTML = `
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      ${card(`SLPS Rate (${selectedYear})`, slpsRate != null ? slpsRate + '%' : 'N/A', 'text-red-600', `${slps?.school_count || 0} schools`)}
+      ${card('MSA District Avg', msaAvg != null ? msaAvg + '%' : 'N/A', 'text-blue-600', `${msaDistricts.length} districts`)}
+      ${card('Charter Avg', charterAvg != null ? charterAvg + '%' : 'N/A', 'text-green-600', `${charters.length} charters`)}
+      ${card('Gap (SLPS vs MSA)', gap != null ? (gap > 0 ? '+' : '') + gap + 'pp' : 'N/A', gap != null ? (gap >= 0 ? 'text-green-600' : 'text-red-600') : 'text-gray-900')}
+    </div>
+    ${chartBox('chart-overview-trend', 'SLPS vs MSA Attendance Trend (2009–2023)')}
+    ${chartBox('chart-overview-grade', 'SLPS Attendance by Grade Level')}
+  `;
+
+  // Trend chart
+  const years = DATA.years.filter(y => y < 2024);
+  const slpsTrend = years.map(y => getDistrictData(DATA.slps, y)?.attendance_rate);
+  const msaTrend = years.map(y => avg(getDistrictsForYear(y, 'district').map(d => d.attendance_rate)));
+  const charterTrend = years.map(y => avg(getDistrictsForYear(y, 'charter').map(d => d.attendance_rate)));
+
+  Plotly.newPlot('chart-overview-trend', [
+    { x: years, y: slpsTrend, name: 'SLPS', mode: 'lines+markers', line: { color: COLORS.slps, width: 3 }, marker: { size: 7 } },
+    { x: years, y: msaTrend, name: 'MSA Districts Avg', mode: 'lines+markers', line: { color: COLORS.district, width: 2, dash: 'dash' }, marker: { size: 5 } },
+    { x: years, y: charterTrend, name: 'Charters Avg', mode: 'lines+markers', line: { color: COLORS.charter, width: 2, dash: 'dash' }, marker: { size: 5 } },
+  ], {
+    ...LAYOUT_DEFAULTS,
+    yaxis: { ...LAYOUT_DEFAULTS.yaxis, range: [30, 100], ticksuffix: '%', title: 'Attendance Rate' },
+    xaxis: { ...LAYOUT_DEFAULTS.xaxis, dtick: 1 },
+    height: 400,
+    legend: { orientation: 'h', y: -0.15 },
+  }, CONFIG);
+
+  // Grade level chart
+  const k8Trend = years.map(y => getDistrictData(DATA.slps, y)?.k8_rate);
+  const hsTrend = years.map(y => getDistrictData(DATA.slps, y)?.hs_rate);
+  const overallTrend = years.map(y => getDistrictData(DATA.slps, y)?.attendance_rate);
+
+  Plotly.newPlot('chart-overview-grade', [
+    { x: years, y: overallTrend, name: 'Overall', mode: 'lines+markers', line: { color: COLORS.slps, width: 2.5 }, marker: { size: 6 } },
+    { x: years, y: k8Trend, name: 'K-8', mode: 'lines+markers', line: { color: '#8b5cf6', width: 2 }, marker: { size: 5 } },
+    { x: years, y: hsTrend, name: '9-12', mode: 'lines+markers', line: { color: '#f59e0b', width: 2 }, marker: { size: 5 } },
+  ], {
+    ...LAYOUT_DEFAULTS,
+    yaxis: { ...LAYOUT_DEFAULTS.yaxis, range: [15, 100], ticksuffix: '%', title: 'Attendance Rate' },
+    xaxis: { ...LAYOUT_DEFAULTS.xaxis, dtick: 1 },
+    height: 350,
+    legend: { orientation: 'h', y: -0.15 },
+  }, CONFIG);
+}
+
+// ======================== COMPARISON TAB ========================
+function renderComparison() {
+  const panel = document.getElementById('tab-comparison');
+
+  panel.innerHTML = `
+    <div class="flex flex-wrap items-center gap-4 mb-2">
+      <div class="flex gap-2">
+        <select id="sort-select" class="text-xs border rounded-lg px-2 py-1.5 bg-white">
+          <option value="attendance_rate">Sort: Overall Rate</option>
+          <option value="k8_rate">Sort: K-8 Rate</option>
+          <option value="hs_rate">Sort: 9-12 Rate</option>
+          <option value="enrollment">Sort: Enrollment</option>
+        </select>
+        <button id="sort-dir-btn" class="text-xs bg-gray-100 px-2 py-1.5 rounded-lg hover:bg-gray-200">${sortDir === 'desc' ? '↓ High to Low' : '↑ Low to High'}</button>
+      </div>
+      <div class="text-xs text-gray-400">Click a bar to add/remove from trend comparison</div>
+    </div>
+    ${chartBox('chart-compare-trend', 'Attendance Trend — SLPS vs Selected Districts')}
+    ${chartBox('chart-compare-bars', `All Districts & Charters — ${selectedYear}`)}
+    <div id="selected-pills" class="flex flex-wrap gap-2 mt-2"></div>
+  `;
+
+  document.getElementById('sort-select').value = sortBy;
+  document.getElementById('sort-select').addEventListener('change', e => { sortBy = e.target.value; renderComparisonCharts(); });
+  document.getElementById('sort-dir-btn').addEventListener('click', () => {
+    sortDir = sortDir === 'desc' ? 'asc' : 'desc';
+    document.getElementById('sort-dir-btn').textContent = sortDir === 'desc' ? '↓ High to Low' : '↑ Low to High';
+    renderComparisonCharts();
+  });
+
+  renderComparisonCharts();
+}
+
+function renderComparisonCharts() {
+  // Bar chart
+  let yearRows = DATA.district_data
+    .filter(d => d.year === selectedYear && d.attendance_rate != null)
+    .sort((a, b) => sortDir === 'desc' ? (b[sortBy] || 0) - (a[sortBy] || 0) : (a[sortBy] || 0) - (b[sortBy] || 0));
+
+  const districts = yearRows.map(d => d.district);
+  const rates = yearRows.map(d => d[sortBy === 'enrollment' ? 'attendance_rate' : sortBy]);
+  const colors = yearRows.map(d =>
+    d.district === DATA.slps ? COLORS.slps
+    : d.type === 'charter' ? COLORS.charter
+    : selectedDistricts.has(d.district) ? COLORS.highlight
+    : COLORS.district
+  );
+  const opacities = yearRows.map(d =>
+    selectedDistricts.size > 0 && !selectedDistricts.has(d.district) && d.district !== DATA.slps ? 0.3 : 1
+  );
+
+  const barHeight = Math.max(500, districts.length * 22);
+
+  Plotly.newPlot('chart-compare-bars', [{
+    y: districts,
+    x: rates,
+    type: 'bar',
+    orientation: 'h',
+    marker: { color: colors, opacity: opacities },
+    text: rates.map(r => r != null ? r + '%' : ''),
+    textposition: 'outside',
+    textfont: { size: 9 },
+    hovertemplate: '%{y}<br>Rate: %{x}%<extra></extra>',
+  }], {
+    ...LAYOUT_DEFAULTS,
+    height: barHeight,
+    margin: { t: 10, r: 50, b: 30, l: 220 },
+    xaxis: { ...LAYOUT_DEFAULTS.xaxis, range: [0, 105], ticksuffix: '%' },
+    yaxis: { ...LAYOUT_DEFAULTS.yaxis, autorange: 'reversed', tickfont: { size: 10 } },
+  }, CONFIG);
+
+  // Click handler for bars
+  document.getElementById('chart-compare-bars').on('plotly_click', function(eventData) {
+    const dist = eventData.points[0].y;
+    if (dist === DATA.slps) return;
+    if (selectedDistricts.has(dist)) selectedDistricts.delete(dist);
+    else selectedDistricts.add(dist);
+    renderComparisonCharts();
+  });
+
+  // Trend chart
+  const years = DATA.years.filter(y => y < 2024);
+  const traces = [
+    { x: years, y: years.map(y => getDistrictData(DATA.slps, y)?.attendance_rate), name: 'SLPS', mode: 'lines+markers', line: { color: COLORS.slps, width: 3 }, marker: { size: 7 } },
+  ];
+
+  if (selectedDistricts.size === 0) {
+    traces.push(
+      { x: years, y: years.map(y => avg(getDistrictsForYear(y, 'district').map(d => d.attendance_rate))), name: 'MSA Districts Avg', mode: 'lines+markers', line: { color: COLORS.district, width: 2, dash: 'dash' }, marker: { size: 5 } },
+      { x: years, y: years.map(y => avg(getDistrictsForYear(y, 'charter').map(d => d.attendance_rate))), name: 'Charters Avg', mode: 'lines+markers', line: { color: COLORS.charter, width: 2, dash: 'dash' }, marker: { size: 5 } },
+    );
+  } else {
+    const hueStep = 360 / (selectedDistricts.size + 1);
+    let i = 0;
+    selectedDistricts.forEach(dist => {
+      const hue = (i * hueStep + 200) % 360;
+      traces.push({
+        x: years,
+        y: years.map(y => getDistrictData(dist, y)?.attendance_rate),
+        name: dist,
+        mode: 'lines+markers',
+        line: { color: `hsl(${hue}, 70%, 50%)`, width: 2 },
+        marker: { size: 5 },
+        connectgaps: true,
+      });
+      i++;
+    });
+  }
+
+  Plotly.newPlot('chart-compare-trend', traces, {
+    ...LAYOUT_DEFAULTS,
+    yaxis: { ...LAYOUT_DEFAULTS.yaxis, range: [15, 100], ticksuffix: '%', title: 'Attendance Rate' },
+    xaxis: { ...LAYOUT_DEFAULTS.xaxis, dtick: 1 },
+    height: 400,
+    legend: { orientation: 'h', y: -0.18, font: { size: 10 } },
+  }, CONFIG);
+
+  // Selected pills
+  const pillContainer = document.getElementById('selected-pills');
+  if (pillContainer) {
+    pillContainer.innerHTML = selectedDistricts.size === 0
+      ? '<span class="text-xs text-gray-400">No districts selected — showing averages. Click bars to compare individual districts.</span>'
+      : Array.from(selectedDistricts).map(d =>
+        `<button class="pill-btn px-2 py-1 text-xs bg-red-100 text-red-700 rounded-full hover:bg-red-200" data-dist="${d}">${d} ✕</button>`
+      ).join('');
+    pillContainer.querySelectorAll('.pill-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        selectedDistricts.delete(btn.dataset.dist);
+        renderComparisonCharts();
+      });
+    });
+  }
+}
+
+// ======================== DEMOGRAPHICS TAB ========================
+function renderDemographics() {
+  const panel = document.getElementById('tab-demographics');
+  panel.innerHTML = `
+    ${chartBox('chart-demo-trend', 'SLPS Attendance by Race/Ethnicity Over Time')}
+    ${chartBox('chart-demo-compare', `Demographic Attendance: SLPS vs MSA Average — ${selectedYear}`)}
+  `;
+
+  const years = DATA.years.filter(y => y < 2024);
+  const demoKeys = Object.keys(DEMO_COLORS);
+
+  // Trend
+  const traces = demoKeys.map(key => ({
+    x: years,
+    y: years.map(y => getDistrictData(DATA.slps, y)?.[key]),
+    name: DEMO_LABELS[key],
+    mode: 'lines+markers',
+    line: { color: DEMO_COLORS[key], width: 2 },
+    marker: { size: 5 },
+    connectgaps: true,
+  }));
+
+  Plotly.newPlot('chart-demo-trend', traces, {
+    ...LAYOUT_DEFAULTS,
+    yaxis: { ...LAYOUT_DEFAULTS.yaxis, range: [15, 100], ticksuffix: '%', title: 'Attendance Rate' },
+    xaxis: { ...LAYOUT_DEFAULTS.xaxis, dtick: 1 },
+    height: 420,
+    legend: { orientation: 'h', y: -0.15 },
+  }, CONFIG);
+
+  // Comparison bar
+  const slps = getDistrictData(DATA.slps, selectedYear);
+  const msaRows = getDistrictsForYear(selectedYear, 'district');
+  const categories = demoKeys.map(k => DEMO_LABELS[k]);
+  const slpsVals = demoKeys.map(k => slps?.[k]);
+  const msaVals = demoKeys.map(k => avg(msaRows.map(d => d[k])));
+
+  Plotly.newPlot('chart-demo-compare', [
+    { x: categories, y: slpsVals, name: 'SLPS', type: 'bar', marker: { color: COLORS.slps } },
+    { x: categories, y: msaVals, name: 'MSA Avg', type: 'bar', marker: { color: COLORS.district } },
+  ], {
+    ...LAYOUT_DEFAULTS,
+    barmode: 'group',
+    yaxis: { ...LAYOUT_DEFAULTS.yaxis, range: [0, 100], ticksuffix: '%', title: 'Attendance Rate' },
+    height: 350,
+    legend: { orientation: 'h', y: -0.15 },
+  }, CONFIG);
+}
+
+// ======================== SCHOOLS TAB ========================
+function renderSchools() {
+  const panel = document.getElementById('tab-schools');
+
+  const schoolData = DATA.slps_schools
+    .filter(s => s.year === selectedYear && s.attendance_rate != null)
+    .sort((a, b) => b.attendance_rate - a.attendance_rate);
+
+  panel.innerHTML = `
+    ${chartBox('chart-schools-bars', `SLPS Individual Schools — ${selectedYear} (${schoolData.length} schools)`, '')}
+    ${chartBox('chart-schools-trend', 'Top 5 & Bottom 5 SLPS Schools — Trend Over Time')}
+  `;
+
+  // School bars
+  const schools = schoolData.map(s => s.school);
+  const rates = schoolData.map(s => s.attendance_rate);
+  const barColors = rates.map(r => r >= 80 ? '#16a34a' : r >= 60 ? '#f59e0b' : '#dc2626');
+
+  const schoolBarHeight = Math.max(500, schools.length * 22);
+  Plotly.newPlot('chart-schools-bars', [{
+    y: schools,
+    x: rates,
+    type: 'bar',
+    orientation: 'h',
+    marker: { color: barColors },
+    text: rates.map(r => r + '%'),
+    textposition: 'outside',
+    textfont: { size: 9 },
+    hovertemplate: '%{y}<br>Rate: %{x}%<extra></extra>',
+  }], {
+    ...LAYOUT_DEFAULTS,
+    height: schoolBarHeight,
+    margin: { t: 10, r: 50, b: 30, l: 240 },
+    xaxis: { ...LAYOUT_DEFAULTS.xaxis, range: [0, 105], ticksuffix: '%' },
+    yaxis: { ...LAYOUT_DEFAULTS.yaxis, autorange: 'reversed', tickfont: { size: 9 } },
+    annotations: [
+      { x: 80, y: -0.02, xref: 'x', yref: 'paper', text: '80% threshold', showarrow: false, font: { size: 9, color: '#16a34a' } },
+      { x: 60, y: -0.02, xref: 'x', yref: 'paper', text: '60% threshold', showarrow: false, font: { size: 9, color: '#f59e0b' } },
+    ],
+    shapes: [
+      { type: 'line', x0: 80, x1: 80, y0: 0, y1: 1, yref: 'paper', line: { color: '#16a34a', width: 1, dash: 'dash' } },
+      { type: 'line', x0: 60, x1: 60, y0: 0, y1: 1, yref: 'paper', line: { color: '#f59e0b', width: 1, dash: 'dash' } },
+    ],
+  }, CONFIG);
+
+  // Top/Bottom 5 trend
+  const top5 = schoolData.slice(0, 5).map(s => s.school);
+  const bottom5 = schoolData.slice(-5).map(s => s.school);
+  const years = DATA.years.filter(y => y < 2024);
+  const topColors = ['#16a34a', '#22c55e', '#4ade80', '#86efac', '#15803d'];
+  const bottomColors = ['#dc2626', '#ef4444', '#f87171', '#b91c1c', '#991b1b'];
+
+  const trendTraces = [
+    ...top5.map((school, i) => ({
+      x: years,
+      y: years.map(y => DATA.slps_schools.find(s => s.school === school && s.year === y)?.attendance_rate),
+      name: school,
+      mode: 'lines+markers',
+      line: { color: topColors[i], width: 2 },
+      marker: { size: 4 },
+      connectgaps: true,
+      legendgroup: 'top',
+    })),
+    ...bottom5.map((school, i) => ({
+      x: years,
+      y: years.map(y => DATA.slps_schools.find(s => s.school === school && s.year === y)?.attendance_rate),
+      name: school,
+      mode: 'lines+markers',
+      line: { color: bottomColors[i], width: 2, dash: 'dash' },
+      marker: { size: 4 },
+      connectgaps: true,
+      legendgroup: 'bottom',
+    })),
+  ];
+
+  Plotly.newPlot('chart-schools-trend', trendTraces, {
+    ...LAYOUT_DEFAULTS,
+    yaxis: { ...LAYOUT_DEFAULTS.yaxis, range: [0, 105], ticksuffix: '%', title: 'Attendance Rate' },
+    xaxis: { ...LAYOUT_DEFAULTS.xaxis, dtick: 1 },
+    height: 450,
+    legend: { font: { size: 9 }, orientation: 'h', y: -0.2 },
+  }, CONFIG);
+}
+
+// ======================== INIT ========================
+async function init() {
+  try {
+    const resp = await fetch('data.json');
+    DATA = await resp.json();
+    DATA.years = DATA.years.filter(y => y < 2024);
+    DATA.district_data = DATA.district_data.filter(d => d.year < 2024);
+    DATA.slps_schools = DATA.slps_schools.filter(d => d.year < 2024);
+    selectedYear = Math.max(...DATA.years);
+
+    document.getElementById('loading').style.display = 'none';
+    initTabs();
+    initYears();
+    renderOverview();
+  } catch (err) {
+    document.getElementById('loading').innerHTML = `<p class="text-red-500">Error loading data: ${err.message}</p>`;
+  }
+}
+
+init();
+</script>
+</body>
+</html>
