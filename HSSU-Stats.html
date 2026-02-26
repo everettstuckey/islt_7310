@@ -31,7 +31,7 @@
   nav .dot:hover { border-color:var(--gold); }
 
   /* Slides */
-  .slide { height:100vh; padding:48px 4vw 10px; display:flex; flex-direction:column; justify-content:center; position:absolute; top:0; left:0; width:100%; overflow:hidden; opacity:0; pointer-events:none; transition:opacity .35s ease; }
+  .slide { height:100vh; padding:72px 4vw 10px; display:flex; flex-direction:column; justify-content:center; position:absolute; top:0; left:0; width:100%; overflow:hidden; opacity:0; pointer-events:none; transition:opacity .35s ease; }
   .slide.active { opacity:1; pointer-events:auto; z-index:1; }
   .slide:nth-child(even) { background:var(--navy2); }
 
@@ -129,7 +129,7 @@
 
   /* Responsive */
   @media (max-width:640px) {
-    .slide { padding:48px 12px 8px; height:100vh; }
+    .slide { padding:72px 12px 8px; height:100vh; }
     .grid2, .grid3 { grid-template-columns:1fr; }
     .slide-nav button { width:26px; height:26px; font-size:.75rem; }
   }
