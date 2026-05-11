@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SLPS College and Career Readiness Advisory Council</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --slps-blue: #004a98;
+      --slps-light-blue: #98caea;
+      --slps-yellow: #ffc629;
+      --slps-red: #c24828;
+      --slps-dark-blue: #1c1f4e;
+      --white: #ffffff;
+      --soft: rgba(255, 255, 255, 0.86);
+      --panel: rgba(28, 31, 78, 0.78);
+      --panel-light: rgba(28, 31, 78, 0.76);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      background: var(--slps-dark-blue);
+      color: var(--white);
+      font-family: "Century Gothic", Futura, Arial, sans-serif;
+    }
+
+    .deck {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      counter-reset: slide;
+    }
+
+    .slide {
+      counter-increment: slide;
+      position: relative;
+      display: none;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      padding: clamp(28px, 6vh, 64px) clamp(28px, 8vw, 132px);
+      background:
+        linear-gradient(135deg, rgba(28, 31, 78, 0.97) 0%, rgba(0, 74, 152, 0.92) 55%, rgba(152, 202, 234, 0.70) 135%),
+        var(--slps-dark-blue);
+    }
+
+    .slide.active {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: clamp(16px, 3vh, 32px);
+    }
+
+    .slide::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        url("slps-skyline.svg") center bottom / 100% auto no-repeat,
+        linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+      background-size: 100% auto, 58px 58px, 58px 58px;
+      opacity: 0.24;
+      z-index: 0;
+    }
+
+    .slide::after {
+      content: counter(slide);
+      position: absolute;
+      right: clamp(24px, 5vw, 82px);
+      bottom: clamp(16px, 3vh, 34px);
+      color: rgba(255, 255, 255, 0.42);
+      font-size: clamp(12px, 1.6vw, 17px);
+      font-weight: 700;
+      letter-spacing: 2px;
+      z-index: 3;
+    }
+
+    .slide-content {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      gap: clamp(16px, 3vh, 30px);
+      width: min(1180px, 100%);
+    }
+
+    .center {
+      text-align: center;
+      justify-items: center;
+      margin-inline: auto;
+    }
+
+    .split {
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 16px;
+      border-radius: 999px;
+      background: var(--slps-yellow);
+      color: var(--slps-dark-blue);
+      font-size: clamp(12px, 1.45vw, 17px);
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .badge::before {
+      content: "";
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--slps-blue);
+    }
+
+    h1 {
+      max-width: 980px;
+      font-size: clamp(32px, 6.2vw, 68px);
+      font-weight: 900;
+      line-height: 1.02;
+      text-shadow: 0 10px 30px rgba(0, 0, 0, 0.36);
+    }
+
+    h2 {
+      max-width: 980px;
+      font-size: clamp(28px, 4.5vw, 52px);
+      font-weight: 900;
+      line-height: 1.08;
+      text-shadow: 0 8px 24px rgba(0, 0, 0, 0.30);
+    }
+
+    p {
+      max-width: 920px;
+      color: #ffffff;
+      font-size: clamp(16px, 2.05vw, 24px);
+      line-height: 1.35;
+      font-weight: 650;
+    }
+
+    .cards {
+      display: grid;
+      gap: clamp(14px, 2.2vw, 24px);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .card,
+    .question,
+    .topic,
+    .mva-card {
+      background: var(--panel);
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: 18px;
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.24);
+      backdrop-filter: blur(8px);
+    }
+
+    .card {
+      min-height: clamp(120px, 21vh, 190px);
+      padding: clamp(16px, 2.2vw, 26px);
+      display: grid;
+      gap: 12px;
+      align-content: start;
+    }
+
+    .card b {
+      font-size: clamp(17px, 2.1vw, 25px);
+      line-height: 1.15;
+    }
+
+    .card span {
+      color: rgba(255, 255, 255, 0.92);
+      font-size: clamp(12px, 1.48vw, 17px);
+      line-height: 1.38;
+      font-weight: 650;
+    }
+
+    .topics {
+      display: grid;
+      gap: clamp(12px, 2vh, 20px);
+      counter-reset: topics;
+    }
+
+    .topic {
+      counter-increment: topics;
+      display: grid;
+      grid-template-columns: clamp(34px, 4vw, 46px) 1fr;
+      gap: 18px;
+      align-items: center;
+      padding: clamp(14px, 2.2vh, 22px);
+      font-size: clamp(18px, 2.5vw, 30px);
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .topic::before {
+      content: counter(topics);
+      display: grid;
+      place-items: center;
+      width: clamp(32px, 4vw, 44px);
+      height: clamp(32px, 4vw, 44px);
+      border-radius: 50%;
+      background: var(--slps-yellow);
+      color: var(--slps-dark-blue);
+      font-size: clamp(14px, 1.8vw, 20px);
+      font-weight: 900;
+    }
+
+    ul {
+      list-style: none;
+      display: grid;
+      gap: clamp(10px, 1.7vh, 18px);
+      max-width: 1000px;
+      color: #ffffff;
+      font-size: clamp(16px, 2.05vw, 24px);
+      line-height: 1.35;
+      font-weight: 650;
+    }
+
+    li {
+      position: relative;
+      padding-left: 30px;
+    }
+
+    li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--slps-yellow);
+    }
+
+    .bar-list {
+      display: grid;
+      gap: clamp(12px, 2vh, 20px);
+      width: 100%;
+    }
+
+    .bar-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      font-size: clamp(14px, 1.8vw, 21px);
+      font-weight: 800;
+    }
+
+    .track {
+      height: clamp(10px, 1.7vh, 16px);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.20);
+      overflow: hidden;
+    }
+
+    .fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--slps-yellow), var(--slps-light-blue));
+    }
+
+    .question-stack {
+      display: grid;
+      gap: clamp(14px, 2.4vh, 24px);
+    }
+
+    .question {
+      padding: clamp(18px, 3vh, 30px);
+      font-size: clamp(19px, 2.9vw, 34px);
+      font-weight: 800;
+      line-height: 1.18;
+    }
+
+    .mva-slide::before {
+      background:
+        linear-gradient(rgba(28, 31, 78, 0.72), rgba(0, 74, 152, 0.82)),
+        url("Market Value Asset preview.png") center / contain no-repeat,
+        url("slps-skyline.svg") center bottom / 100% auto no-repeat;
+      opacity: 0.30;
+    }
+
+    .mva-intro {
+      display: grid;
+      gap: clamp(8px, 1.3vh, 14px);
+    }
+
+    .mva-intro p {
+      font-size: clamp(12px, 1.55vw, 18px);
+      line-height: 1.24;
+    }
+
+    .mva-grid {
+      display: block;
+    }
+
+    .mva-card,
+    .mva-single-card {
+      min-height: 0;
+      padding: clamp(10px, 1.5vw, 18px);
+      background: rgba(0, 74, 152, 0.52);
+    }
+
+    .mva-single-card {
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: 18px;
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.24);
+      backdrop-filter: blur(8px);
+      display: grid;
+      gap: clamp(7px, 1vh, 12px);
+    }
+
+    .mva-card {
+      display: grid;
+      grid-template-columns: clamp(42px, 6vw, 66px) 1fr;
+      gap: 10px;
+      align-items: center;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      box-shadow: none;
+    }
+
+    .mva-card:nth-child(5) {
+      max-width: none;
+    }
+
+    .mva-icon-img {
+      width: clamp(38px, 5.5vw, 64px);
+      height: clamp(38px, 5.5vw, 64px);
+      object-fit: contain;
+      background: rgba(255, 255, 255, 0.92);
+      border-radius: 4px;
+      padding: 3px;
+    }
+
+    .mva-card b {
+      display: block;
+      font-size: clamp(12px, 1.55vw, 18px);
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+
+    .mva-card span {
+      display: block;
+      color: rgba(255, 255, 255, 0.92);
+      font-size: clamp(9px, 1.07vw, 13px);
+      line-height: 1.18;
+      font-weight: 650;
+    }
+
+    .footer-note {
+      position: absolute;
+      left: clamp(28px, 8vw, 132px);
+      right: clamp(28px, 8vw, 132px);
+      bottom: clamp(18px, 3vh, 34px);
+      z-index: 2;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255, 255, 255, 0.22);
+      color: rgba(255, 255, 255, 0.70);
+      font-size: clamp(11px, 1.35vw, 15px);
+    }
+
+    .slide-controls {
+      position: fixed;
+      left: 50%;
+      bottom: 8px;
+      transform: translateX(-50%);
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      pointer-events: auto;
+    }
+
+    .slide-controls button {
+      width: 34px;
+      height: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.34);
+      border-radius: 8px;
+      background: rgba(28, 31, 78, 0.58);
+      color: #ffffff;
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.24);
+    }
+
+    .slide-controls button:disabled {
+      opacity: 0.34;
+      cursor: default;
+    }
+
+    .slide-count {
+      min-width: 44px;
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-align: center;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+    }
+
+    .brand-light {
+      background:
+        linear-gradient(135deg, rgba(28, 31, 78, 0.95), rgba(0, 74, 152, 0.90) 58%, rgba(0, 74, 152, 0.78)),
+        var(--slps-light-blue);
+    }
+
+    .question-slide {
+      background:
+        linear-gradient(135deg, rgba(28, 31, 78, 0.98), rgba(0, 74, 152, 0.88) 58%, rgba(194, 72, 40, 0.82) 140%),
+        var(--slps-dark-blue);
+    }
+
+    @media (max-width: 760px) {
+      .slide {
+        padding: 26px;
+      }
+
+      .split,
+      .cards,
+      .mva-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cards {
+        gap: 10px;
+      }
+
+      .card {
+        min-height: 0;
+        padding: 13px 15px;
+      }
+
+      .mva-grid {
+        gap: 8px;
+      }
+
+      .mva-card,
+      .mva-card:nth-child(5) {
+        grid-template-columns: 42px 1fr;
+        max-width: none;
+        padding: 9px 12px;
+      }
+
+      .mva-icon-img {
+        width: 34px;
+        height: 34px;
+      }
+
+      .mva-card b {
+        font-size: 13px;
+      }
+
+      .mva-card span {
+        font-size: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="deck" aria-label="SLPS College and Career Readiness Advisory Council presentation">
+    <section class="slide active" aria-label="Welcome">
+      <div class="slide-content center">
+        <span class="badge">Our City. Our Schools. Our Future.</span>
+        <h1>Welcome to the first meeting of the Saint Louis Public Schools College and Career Readiness Advisory Council.</h1>
+        <p>Thank you for helping SLPS think carefully about access, opportunity, and career readiness for all students.</p>
+      </div>
+      <div class="footer-note">Saint Louis Public Schools | College and Career Readiness Advisory Council</div>
+    </section>
+
+    <section class="slide brand-light" aria-label="Council partners">
+      <div class="slide-content">
+        <h2>You all are a group of industry and educational partners</h2>
+        <p>From within the St. Louis region and beyond.</p>
+        <div class="cards">
+          <div class="card"><b>Industry partners</b><span>Bring current workforce expectations, mentorship, site visits, equipment insight, and career exposure.</span></div>
+          <div class="card"><b>Educational partners</b><span>Connect students to college, trade, apprenticeship, credential, and enrichment pathways.</span></div>
+          <div class="card"><b>Shared purpose</b><span>Help SLPS create stronger access to opportunity for all students.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide question-slide" aria-label="Fundamental question">
+      <div class="slide-content center">
+        <span class="badge">Fundamental Question</span>
+        <h1>How does SLPS maximize equitable access to opportunity for all of our students?</h1>
+      </div>
+    </section>
+
+    <section class="slide" aria-label="First attempt topics">
+      <div class="slide-content split">
+        <div>
+          <h2>My first attempt at answering that question</h2>
+          <p>(These are the topics included in your invitation.)</p>
+        </div>
+        <div class="topics">
+          <div class="topic">Expanding our partnerships beyond the St. Louis region</div>
+          <div class="topic">Eliminating the digital divide</div>
+          <div class="topic">Increasing attention and support to students</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide brand-light" aria-label="Expanding partnerships">
+      <div class="slide-content">
+        <h2>Expanding our partnerships beyond the St. Louis region</h2>
+        <p>Students benefit when local relationships are strengthened and new relationships extend what is possible.</p>
+        <ul>
+          <li>Identify organizations already doing this work well.</li>
+          <li>Bring models back to SLPS that can scale across schools.</li>
+          <li>Connect students to partners, mentors, and experiences beyond their usual reach.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide" aria-label="Eliminating the digital divide">
+      <div class="slide-content">
+        <h2>Eliminating the digital divide</h2>
+        <div class="question-stack">
+          <div class="question">What are the standards for technological proficiency every student should attain?</div>
+          <div class="question">What are the specialized technological proficiencies students must obtain to be prepared for your industries?</div>
+          <div class="question">What data aggregation and storage tool should we be using to make more informed and targeted decisions?</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide brand-light" aria-label="Increasing attention and support">
+      <div class="slide-content split">
+        <div>
+          <h2>Increasing attention and support to students</h2>
+          <p>More direct adult attention increases the chance that students are known, coached, challenged, and connected to the right next step.</p>
+        </div>
+        <div class="bar-list">
+          <div class="bar"><div class="bar-top"><span>Academic attention</span><span>More consistent</span></div><div class="track"><div class="fill" style="width: 86%"></div></div></div>
+          <div class="bar"><div class="bar-top"><span>Early intervention</span><span>Faster</span></div><div class="track"><div class="fill" style="width: 78%"></div></div></div>
+          <div class="bar"><div class="bar-top"><span>Career advising</span><span>More personal</span></div><div class="track"><div class="fill" style="width: 72%"></div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide mva-slide" aria-label="Market Value Assets">
+      <div class="slide-content">
+        <div class="mva-intro">
+          <h2>Market Value Assets give shape to the World of Work</h2>
+          <p>The Kauffman Foundation in Kansas City has framed this cogently: every student should leave our school district with Market Value Assets.</p>
+          <p>My addendum would be: and at least one no-cost postsecondary option to pursue their goals.</p>
+        </div>
+        <div class="mva-grid" aria-label="Market Value Asset categories">
+          <div class="mva-single-card">
+            <div class="mva-card"><img class="mva-icon-img" src="mva-work-experience.png" alt=""><div><b>Internships</b><span>Authentic job tasks at a worksite or approved location under qualified supervision.</span></div></div>
+            <div class="mva-card"><img class="mva-icon-img" src="mva-work-experience.png" alt=""><div><b>Client-connected projects</b><span>Authentic problems solved with professionals for an employer or community need.</span></div></div>
+            <div class="mva-card"><img class="mva-icon-img" src="mva-entrepreneurial.png" alt=""><div><b>Entrepreneurial experiences</b><span>Learners research, prototype, implement, reflect on, and adapt solutions.</span></div></div>
+            <div class="mva-card"><img class="mva-icon-img" src="mva-credential.png" alt=""><div><b>Regionally vetted IRCs</b><span>Industry-recognized credentials validated for regional workforce needs.</span></div></div>
+            <div class="mva-card"><img class="mva-icon-img" src="mva-college-credit.png" alt=""><div><b>College credit</b><span>Nine or more hours of college-level credit completed toward a degree.</span></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide question-slide" aria-label="Discussion questions">
+      <div class="slide-content split">
+        <div>
+          <h2>Some of the questions for you are:</h2>
+          <p>Use the Market Value Assets frame as one way to discuss what students should experience and when.</p>
+        </div>
+        <div class="question-stack">
+          <div class="question">Who has successfully accomplished this?</div>
+          <div class="question">At what age and how frequently do we introduce students to the World of Work?</div>
+          <div class="question">What technological tools should educators and students be using?</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="slide-controls" aria-label="Slide controls">
+      <button type="button" id="prevBtn" aria-label="Previous slide">‹</button>
+      <span class="slide-count" id="slideCount">1 / 9</span>
+      <button type="button" id="nextBtn" aria-label="Next slide">›</button>
+    </div>
+  </main>
+
+  <script>
+    const slides = Array.from(document.querySelectorAll(".slide"));
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    const slideCount = document.getElementById("slideCount");
+    let current = 0;
+
+    function showSlide(index) {
+      current = Math.max(0, Math.min(index, slides.length - 1));
+      slides.forEach((slide, slideIndex) => {
+        slide.classList.toggle("active", slideIndex === current);
+      });
+      slideCount.textContent = `${current + 1} / ${slides.length}`;
+      prevBtn.disabled = current === 0;
+      nextBtn.disabled = current === slides.length - 1;
+    }
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowRight" || event.key === " " || event.key === "PageDown") {
+        event.preventDefault();
+        showSlide(current + 1);
+      }
+      if (event.key === "ArrowLeft" || event.key === "PageUp") {
+        event.preventDefault();
+        showSlide(current - 1);
+      }
+      if (event.key === "Home") showSlide(0);
+      if (event.key === "End") showSlide(slides.length - 1);
+    });
+
+    prevBtn.addEventListener("click", (event) => {
+      event.stopPropagation();
+      showSlide(current - 1);
+    });
+
+    nextBtn.addEventListener("click", (event) => {
+      event.stopPropagation();
+      showSlide(current + 1);
+    });
+
+    document.addEventListener("click", () => showSlide(current + 1));
+    showSlide(0);
+  </script>
+</body>
+</html>
