@@ -310,11 +310,9 @@
       display: block;
     }
 
-    .mva-card,
     .mva-single-card {
       min-height: 0;
       padding: clamp(10px, 1.5vw, 18px);
-      background: rgba(0, 74, 152, 0.52);
     }
 
     .mva-single-card {
@@ -324,6 +322,7 @@
       backdrop-filter: blur(8px);
       display: grid;
       gap: clamp(7px, 1vh, 12px);
+      background: rgba(0, 74, 152, 0.52);
     }
 
     .mva-card {
@@ -331,9 +330,12 @@
       grid-template-columns: clamp(42px, 6vw, 66px) 1fr;
       gap: 10px;
       align-items: center;
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.16);
+      padding: 0;
+      background: transparent;
+      border: 0;
+      border-radius: 0;
       box-shadow: none;
+      backdrop-filter: none;
     }
 
     .mva-card:nth-child(5) {
@@ -344,9 +346,9 @@
       width: clamp(38px, 5.5vw, 64px);
       height: clamp(38px, 5.5vw, 64px);
       object-fit: contain;
-      background: rgba(255, 255, 255, 0.92);
-      border-radius: 4px;
-      padding: 3px;
+      background: transparent;
+      border-radius: 0;
+      padding: 0;
     }
 
     .mva-card b {
@@ -458,7 +460,7 @@
       .mva-card:nth-child(5) {
         grid-template-columns: 42px 1fr;
         max-width: none;
-        padding: 9px 12px;
+        padding: 0;
       }
 
       .mva-icon-img {
@@ -566,11 +568,11 @@
         </div>
         <div class="mva-grid" aria-label="Market Value Asset categories">
           <div class="mva-single-card">
-            <div class="mva-card"><img class="mva-icon-img" src="mva-work-experience.png" alt=""><div><b>Internships</b><span>Authentic job tasks at a worksite or approved location under qualified supervision.</span></div></div>
-            <div class="mva-card"><img class="mva-icon-img" src="mva-work-experience.png" alt=""><div><b>Client-connected projects</b><span>Authentic problems solved with professionals for an employer or community need.</span></div></div>
-            <div class="mva-card"><img class="mva-icon-img" src="mva-entrepreneurial.png" alt=""><div><b>Entrepreneurial experiences</b><span>Learners research, prototype, implement, reflect on, and adapt solutions.</span></div></div>
-            <div class="mva-card"><img class="mva-icon-img" src="mva-credential.png" alt=""><div><b>Regionally vetted IRCs</b><span>Industry-recognized credentials validated for regional workforce needs.</span></div></div>
-            <div class="mva-card"><img class="mva-icon-img" src="mva-college-credit.png" alt=""><div><b>College credit</b><span>Nine or more hours of college-level credit completed toward a degree.</span></div></div>
+            <div class="mva-card"><img class="mva-icon-img" src="mva-work-experience-transparent.png" alt=""><div><b>Internships</b><span>Authentic job tasks at a worksite or approved location under qualified supervision.</span></div></div>
+            <div class="mva-card"><img class="mva-icon-img" src="mva-work-experience-transparent.png" alt=""><div><b>Client-connected projects</b><span>Authentic problems solved with professionals for an employer or community need.</span></div></div>
+            <div class="mva-card"><img class="mva-icon-img" src="mva-entrepreneurial-transparent.png" alt=""><div><b>Entrepreneurial experiences</b><span>Learners research, prototype, implement, reflect on, and adapt solutions.</span></div></div>
+            <div class="mva-card"><img class="mva-icon-img" src="mva-credential-transparent.png" alt=""><div><b>Regionally vetted IRCs</b><span>Industry-recognized credentials validated for regional workforce needs.</span></div></div>
+            <div class="mva-card"><img class="mva-icon-img" src="mva-college-credit-transparent.png" alt=""><div><b>College credit</b><span>Nine or more hours of college-level credit completed toward a degree.</span></div></div>
           </div>
         </div>
       </div>
