@@ -139,6 +139,30 @@
       text-shadow: 0 10px 30px rgba(0, 0, 0, 0.36);
     }
 
+    .welcome-title {
+      display: grid;
+      justify-items: center;
+      gap: clamp(10px, 2.2vh, 20px);
+      max-width: 1080px;
+    }
+
+    .logo-break {
+      display: grid;
+      place-items: center;
+      min-height: clamp(96px, 17vh, 156px);
+      padding: clamp(10px, 1.6vh, 16px) clamp(18px, 3vw, 34px);
+    }
+
+    .slps-logo {
+      display: block;
+      width: clamp(210px, 34vw, 420px);
+      max-height: clamp(82px, 14vh, 132px);
+      object-fit: contain;
+      filter:
+        drop-shadow(0 2px 0 rgba(255, 255, 255, 0.82))
+        drop-shadow(0 12px 26px rgba(0, 0, 0, 0.26));
+    }
+
     h2 {
       max-width: 980px;
       font-size: clamp(28px, 4.5vw, 52px);
@@ -482,8 +506,11 @@
   <main class="deck" aria-label="SLPS College and Career Readiness Advisory Council presentation">
     <section class="slide active" aria-label="Welcome">
       <div class="slide-content center">
-        <span class="badge">Our City. Our Schools. Our Future.</span>
-        <h1>Welcome to the first meeting of the Saint Louis Public Schools College and Career Readiness Advisory Council.</h1>
+        <h1 class="welcome-title">
+          <span>Welcome to the first meeting</span>
+          <span class="logo-break"><img class="slps-logo" src="slps-logo.png" alt="Saint Louis Public Schools"></span>
+          <span>College and Career Readiness Advisory Council.</span>
+        </h1>
         <p>Thank you for helping SLPS think carefully about access, opportunity, and career readiness for all students.</p>
       </div>
       <div class="footer-note">Saint Louis Public Schools | College and Career Readiness Advisory Council</div>
