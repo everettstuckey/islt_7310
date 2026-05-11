@@ -64,6 +64,10 @@
       gap: clamp(16px, 3vh, 32px);
     }
 
+    .welcome-slide {
+      padding-block: clamp(20px, 4vh, 44px);
+    }
+
     .slide::before {
       content: "";
       position: absolute;
@@ -142,25 +146,31 @@
     .welcome-title {
       display: grid;
       justify-items: center;
-      gap: clamp(10px, 2.2vh, 20px);
+      gap: clamp(6px, 1.4vh, 14px);
       max-width: 1080px;
+      font-size: clamp(28px, 4.55vw, 50px);
     }
 
     .logo-break {
       display: grid;
       place-items: center;
-      min-height: clamp(96px, 17vh, 156px);
-      padding: clamp(10px, 1.6vh, 16px) clamp(18px, 3vw, 34px);
+      min-height: clamp(260px, 46vh, 390px);
+      padding: clamp(4px, 1vh, 10px) clamp(14px, 2.5vw, 28px);
     }
 
     .slps-logo {
       display: block;
-      width: clamp(210px, 34vw, 420px);
-      max-height: clamp(82px, 14vh, 132px);
+      width: clamp(260px, 46vh, 390px);
+      max-height: clamp(260px, 46vh, 390px);
       object-fit: contain;
       filter:
         drop-shadow(0 2px 0 rgba(255, 255, 255, 0.82))
         drop-shadow(0 12px 26px rgba(0, 0, 0, 0.26));
+    }
+
+    .welcome-slide p {
+      max-width: 900px;
+      font-size: clamp(15px, 1.55vw, 20px);
     }
 
     h2 {
@@ -504,7 +514,7 @@
 </head>
 <body>
   <main class="deck" aria-label="SLPS College and Career Readiness Advisory Council presentation">
-    <section class="slide active" aria-label="Welcome">
+    <section class="slide active welcome-slide" aria-label="Welcome">
       <div class="slide-content center">
         <h1 class="welcome-title">
           <span>Welcome to the first meeting</span>
