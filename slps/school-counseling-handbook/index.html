@@ -1,28 +1,36 @@
 <!doctype html><html lang='en'><head><meta charset='utf-8'><title>SLPS School Counseling Handbook 2026</title><style>
     :root {
-      --navy: #12324a;
-      --ink: #17212b;
+      --slps-blue: #004a98;
+      --slps-light-blue: #98caea;
+      --slps-yellow: #ffc629;
+      --slps-red: #c24828;
+      --slps-dark-blue: #1c1f4e;
+      --slps-black: #000000;
+      --slps-white: #ffffff;
+      --navy: var(--slps-blue);
+      --ink: #1c1f4e;
       --muted: #586472;
       --line: #d9e0e7;
-      --gold: #d49a2a;
-      --teal: #2e7f7a;
-      --blue: #376b9d;
+      --gold: var(--slps-yellow);
+      --teal: var(--slps-light-blue);
+      --blue: var(--slps-blue);
       --soft: #f5f7f9;
+      --font-brand: Futura, "Futura PT", "Century Gothic", Arial, Helvetica, sans-serif;
     }
     @page {
       size: Letter;
       margin: 0.68in 0.55in 0.66in;
       @top-left {
         content: "Saint Louis Public Schools";
-        font: 700 8.5pt Arial, Helvetica, sans-serif;
-        color: #12324a;
+        font: 700 8.5pt Futura, "Futura PT", "Century Gothic", Arial, Helvetica, sans-serif;
+        color: #004a98;
         border-bottom: 1px solid #d9e0e7;
         padding-bottom: 5px;
         vertical-align: bottom;
       }
       @top-right {
         content: "School Counseling Handbook 2026";
-        font: 8.5pt Arial, Helvetica, sans-serif;
+        font: 8.5pt Futura, "Futura PT", "Century Gothic", Arial, Helvetica, sans-serif;
         color: #586472;
         border-bottom: 1px solid #d9e0e7;
         padding-bottom: 5px;
@@ -30,7 +38,7 @@
       }
       @bottom-left {
         content: "Our City. Our Schools. Our Future.";
-        font: 8.5pt Arial, Helvetica, sans-serif;
+        font: 8.5pt Futura, "Futura PT", "Century Gothic", Arial, Helvetica, sans-serif;
         color: #586472;
         border-top: 1px solid #d9e0e7;
         padding-top: 5px;
@@ -38,7 +46,7 @@
       }
       @bottom-right {
         content: "Page " counter(page);
-        font: 8.5pt Arial, Helvetica, sans-serif;
+        font: 8.5pt Futura, "Futura PT", "Century Gothic", Arial, Helvetica, sans-serif;
         color: #586472;
         border-top: 1px solid #d9e0e7;
         padding-top: 5px;
@@ -50,7 +58,7 @@
       margin: 0;
       color: var(--ink);
       background: #f0f3f7;
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: var(--font-brand);
       font-size: 10.4pt;
       line-height: 1.38;
     }
@@ -93,8 +101,14 @@
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--teal);
-      font: bold 9pt Arial, sans-serif;
+      font: bold 9pt Futura, "Futura PT", "Century Gothic", Arial, Helvetica, sans-serif;
       margin-bottom: 0.18in;
+    }
+    .brand-tagline {
+      color: var(--slps-blue);
+      font-weight: 700;
+      font-size: 12pt;
+      margin: -0.18in 0 0.28in;
     }
     .cover-text { max-width: 6.2in; font-size: 12.6pt; }
     .cover-meta { margin-top: 0.4in; color: var(--muted); }
@@ -138,14 +152,14 @@
       margin-bottom: 0.12in;
     }
     .divider-kicker {
-      font: bold 10pt Arial, sans-serif;
+      font: bold 10pt Futura, "Futura PT", "Century Gothic", Arial, Helvetica, sans-serif;
       text-transform: uppercase;
       color: var(--teal);
       letter-spacing: 0.08em;
       margin-bottom: 0.08in;
     }
     .policy-note {
-      font-family: Arial, sans-serif;
+      font-family: var(--font-brand);
       font-size: 9.6pt;
       color: var(--muted);
       margin: 0.16in 0;
@@ -154,7 +168,7 @@
       width: 100%;
       border-collapse: collapse;
       margin: 0.1in 0 0.18in;
-      font-family: Arial, sans-serif;
+      font-family: var(--font-brand);
       font-size: 9.3pt;
       line-height: 1.3;
       break-inside: avoid;
@@ -209,10 +223,11 @@
       <p class="smallcaps">June 2026</p>
       <h1>Saint Louis Public Schools School Counseling Handbook</h1>
       <h2>Comprehensive School Counseling Program Manual</h2>
+      <p class="brand-tagline">Our City. Our Schools. Our Future.</p>
       <p class="cover-text">A district handbook aligned to the Missouri Comprehensive School Counseling Program.</p>
       <p>This handbook describes the district program foundation, delivery components, school-level implementation, counselor roles, program management expectations, evaluation practices, and operating procedures for a comprehensive school counseling program.</p>
       <p>The manual is written for counselors and school leaders who need a practical reference for planning, delivering, documenting, and improving school counseling services across elementary, middle, and high school settings.</p>
-      <p class="cover-meta">June 2026</p>
+      <p class="cover-meta">Saint Louis Public Schools (SLPS)<br>801 N. 11th St. | St. Louis, MO 63101 | 314-231-3720</p>
     </section>
     <section class=''><h2>Purpose and Use</h2><p>This handbook establishes a common operating framework for the Saint Louis Public Schools comprehensive school counseling program. It aligns district practice to the Missouri Comprehensive School Counseling Program while preserving local expectations for planning, service delivery, documentation, and program improvement.</p><p>The handbook is written for school counselors, principals, district leaders, Human Resources, and partners who support school counseling implementation. The text is intended to function as an operating manual: it explains the program model, describes expectations, and gives schools a common structure for planning and improvement.</p><p>Where district procedure controls an activity, the handbook directs staff to current SLPS procedure rather than restating legal or HR language that may change independently of this manual.</p></section><section class=''><h2>Contents</h2><ol class='toc-list'><li>Foundations of the SLPS School Counseling Program</li><li>Missouri CSCP Framework and SLPS Alignment</li><li>Program Components</li><li>Grade-Level Implementation</li><li>Program Management and Evaluation</li><li>Counselor Roles and Professional Standards</li><li>Procedures, Partnerships, and Student Support</li><li>Transitioning, Evaluation, and Enhancement</li><li>Manual Maintenance</li><li>Operational Appendices and Forms</li></ol></section>
     <section class="section-divider">
