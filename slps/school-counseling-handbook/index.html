@@ -19,39 +19,7 @@
     }
     @page {
       size: Letter;
-      margin: 0.68in 0.55in 0.66in;
-      @top-left {
-        content: "Saint Louis Public Schools";
-        font: 700 8.5pt Futura, "Futura PT", "Century Gothic", Arial, Helvetica, sans-serif;
-        color: #004a98;
-        border-bottom: 1px solid #d9e0e7;
-        padding-bottom: 5px;
-        vertical-align: bottom;
-      }
-      @top-right {
-        content: "School Counseling Handbook 2026";
-        font: 8.5pt Futura, "Futura PT", "Century Gothic", Arial, Helvetica, sans-serif;
-        color: #586472;
-        border-bottom: 1px solid #d9e0e7;
-        padding-bottom: 5px;
-        vertical-align: bottom;
-      }
-      @bottom-left {
-        content: "Our City. Our Schools. Our Future.";
-        font: 8.5pt Futura, "Futura PT", "Century Gothic", Arial, Helvetica, sans-serif;
-        color: #586472;
-        border-top: 1px solid #d9e0e7;
-        padding-top: 5px;
-        vertical-align: top;
-      }
-      @bottom-right {
-        content: "Page " counter(page);
-        font: 8.5pt Futura, "Futura PT", "Century Gothic", Arial, Helvetica, sans-serif;
-        color: #586472;
-        border-top: 1px solid #d9e0e7;
-        padding-top: 5px;
-        vertical-align: top;
-      }
+      margin: 0.98in 0.55in 0.66in;
     }
     * { box-sizing: border-box; }
     body {
@@ -66,13 +34,68 @@
       width: 8.5in;
       min-height: 11in;
       margin: 24px auto;
-      padding: 0.68in 0.55in 0.66in;
+      padding: 0.98in 0.55in 0.66in;
       background: white;
       box-shadow: 0 8px 24px rgba(18, 50, 74, 0.14);
     }
     @media print {
       body { background: white; }
       main { width: auto; min-height: 0; margin: 0; padding: 0; box-shadow: none; }
+      .page-banner { display: none !important; }
+    }
+    .page-banner {
+      position: fixed;
+      top: -0.8in;
+      left: -0.3in;
+      right: -0.3in;
+      height: 0.62in;
+      z-index: 50;
+      background: var(--slps-blue);
+      border-bottom: 0.06in solid var(--slps-yellow);
+      display: grid;
+      grid-template-columns: 0.58in 1fr;
+      column-gap: 0.17in;
+      align-items: center;
+      padding: 0.08in 0.24in 0.08in 0.2in;
+      color: var(--slps-white);
+    }
+    .page-banner img {
+      width: 0.46in;
+      height: 0.46in;
+      object-fit: contain;
+      display: block;
+    }
+    .banner-kicker {
+      color: var(--slps-white);
+      font-size: 5.8pt;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1.05;
+      margin-bottom: 0.025in;
+    }
+    .banner-title {
+      color: var(--slps-white);
+      font-size: 15.2pt;
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: 0;
+      margin: 0;
+    }
+    .banner-subtitle {
+      color: var(--slps-light-blue);
+      font-size: 6.9pt;
+      font-weight: 700;
+      line-height: 1.1;
+      margin-top: 0.025in;
+    }
+    @media screen {
+      .page-banner {
+        left: calc(50% - 4in);
+        right: auto;
+        width: 8in;
+        top: 24px;
+      }
     }
     .cover {
       min-height: 0;
@@ -218,7 +241,16 @@
     .two-column-form td:first-child {
       width: 36%;
     }
-    </style></head><body><main>
+    </style></head><body>
+    <header class="page-banner" aria-label="Saint Louis Public Schools document header">
+      <img src="assets/SLPSBadge.png" alt="Saint Louis Public Schools badge">
+      <div>
+        <div class="banner-kicker">Saint Louis Public Schools | College and Career Readiness</div>
+        <div class="banner-title">School Counseling Handbook</div>
+        <div class="banner-subtitle">Comprehensive School Counseling Program Manual</div>
+      </div>
+    </header>
+    <main>
     <section class="cover">
       <p class="smallcaps">June 2026</p>
       <h1>Saint Louis Public Schools School Counseling Handbook</h1>
