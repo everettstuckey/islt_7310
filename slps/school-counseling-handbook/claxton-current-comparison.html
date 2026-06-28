@@ -20,12 +20,12 @@
     @page { size: Letter; margin: 0.42in 0.48in 0.48in; }
     * { box-sizing: border-box; }
     body { margin: 0; background: #eef2f6; color: var(--ink); font-family: var(--font); font-size: 10.2pt; line-height: 1.4; }
-    main { width: 8.5in; margin: 24px auto; background: var(--white); box-shadow: 0 8px 24px rgba(18, 50, 74, 0.13); }
-    .banner { background: var(--blue); border-bottom: 0.07in solid var(--yellow); min-height: 1.12in; color: var(--white); display: grid; grid-template-columns: 0.82in 1fr; gap: 0.25in; align-items: center; padding: 0.15in 0.42in 0.13in; }
-    .banner img { width: 0.82in; height: 0.82in; object-fit: contain; display: block; }
-    .kicker { font-size: 9.2pt; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; }
-    h1 { font-size: 24pt; line-height: 1.05; margin: 0.04in 0 0; color: var(--white); }
-    .subtitle { color: var(--light-blue); font-size: 12pt; font-weight: 700; margin-top: 0.04in; }
+    main { width: 8.5in; margin: 0 auto 24px; background: var(--white); box-shadow: 0 8px 24px rgba(18, 50, 74, 0.13); }
+    .banner { background: var(--blue); border-bottom: 0.07in solid var(--yellow); min-height: 1.25in; color: var(--white); display: grid; grid-template-columns: 0.86in 1fr; gap: 0.28in; align-items: center; padding: 0.15in 0.42in 0.14in 0.40in; }
+    .banner img { width: 0.86in; height: 0.86in; object-fit: contain; display: block; }
+    .kicker { font-size: 9.8pt; line-height: 1.05; margin-bottom: 0.035in; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; }
+    h1 { font-size: 24pt; line-height: 1.05; margin: 0; color: var(--white); letter-spacing: 0; }
+    .subtitle { color: var(--light-blue); font-size: 13.5pt; line-height: 1.1; font-weight: 700; margin-top: 0.035in; }
     .content { padding: 0.36in 0.48in 0.5in; }
     h2 { color: var(--blue); font-size: 17pt; margin: 0.28in 0 0.09in; border-bottom: 0.018in solid var(--yellow); padding-bottom: 0.045in; break-after: avoid; }
     h3 { color: var(--dark); font-size: 12.5pt; margin: 0.18in 0 0.06in; break-after: avoid; }
@@ -62,8 +62,8 @@
     @media print {
       body { background: white; }
       main { width: auto; margin: 0; box-shadow: none; }
-      .content { padding-left: 0; padding-right: 0; padding-bottom: 0; }
-      .banner { margin-left: -0.48in; margin-right: -0.48in; margin-top: -0.42in; padding-left: 0.48in; padding-right: 0.48in; }
+      .content { padding: 0.78in 0 0; }
+      .banner { display: none; }
       h2 { break-after: avoid; }
     }
     </style>
