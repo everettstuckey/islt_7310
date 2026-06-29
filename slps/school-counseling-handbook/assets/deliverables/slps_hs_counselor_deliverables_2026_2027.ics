@@ -1,0 +1,674 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//SLPS//HS Counselor Deliverables 2026-2027//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:SLPS HS Counselor Deliverables 2026-2027
+X-WR-TIMEZONE:America/Chicago
+BEGIN:VEVENT
+UID:a083e76a-ec96-56a6-96eb-39f7e1c4f140@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:Professional Development\, Preparation\, and Registration
+DESCRIPTION:Person responsible: Counselors/College Advisors/Specialists P
+ lanning window: August 10-21\, 2026 Calendar treatment: Window event Sou
+ rce 2023-2024 date: August 7-18 Notes: Aligned to the SLPS 2026-2027 sta
+ ff calendar pre-service window.
+DTSTART;VALUE=DATE:20260810
+DTEND;VALUE=DATE:20260822
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:d1f08375-71b7-5844-aff9-c52c80fc7a86@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:Evaluate transcripts
+DESCRIPTION:Person responsible: Counselors Planning window: August 24-Sep
+ tember 30\, 2026 Calendar treatment: Window event Source 2023-2024 date:
+  August/September
+DTSTART;VALUE=DATE:20260824
+DTEND;VALUE=DATE:20261001
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:64527c93-4f6e-5281-a296-60184db30daa@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:Contact recent graduates to offer further postsecondary assistanc
+ e
+DESCRIPTION:Person responsible: College Advisors/College Specialists Plan
+ ning window: August 24-September 30\, 2026 Calendar treatment: Window ev
+ ent Source 2023-2024 date: August/September
+DTSTART;VALUE=DATE:20260824
+DTEND;VALUE=DATE:20261001
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:5363671c-3b78-5834-876b-cec73e8e4e9b@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:Hold senior\, parent\, and counselor meetings
+DESCRIPTION:Person responsible: Counselors Planning window: Month of Sept
+ ember 2026 Calendar treatment: Window event Source 2023-2024 date: Month
+  of September
+DTSTART;VALUE=DATE:20260901
+DTEND;VALUE=DATE:20261001
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:837b297b-0a7a-5399-88a9-77b2de3ea805@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:Launch ReThink Ed
+DESCRIPTION:Person responsible: Districtwide Planning window: Week of Sep
+ tember 7\, 2026 Calendar treatment: Window event Source 2023-2024 date: 
+ Week of September 4th
+DTSTART;VALUE=DATE:20260907
+DTEND;VALUE=DATE:20260912
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:d2e4a544-fd14-58bb-81b5-a203b1451bf8@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:Accuplacer testing begins
+DESCRIPTION:Person responsible: Counselors/College Advisors/Specialists P
+ lanning window: September 2026 Calendar treatment: Window event Source 2
+ 023-2024 date: September
+DTSTART;VALUE=DATE:20260901
+DTEND;VALUE=DATE:20261001
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:58fab0f0-257f-54a4-a0c1-1795fa66acc6@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:ACT accommodations due for fall district ACT
+DESCRIPTION:Person responsible: Counselors/ACT District Test Coordinator 
+ Planning window: September 2026 Calendar treatment: Window event Source 
+ 2023-2024 date: September Notes: Tentative planning date based on the pr
+ ior deliverables sequence. Confirm against the final SLPS and state test
+ ing calendars.
+DTSTART;VALUE=DATE:20260901
+DTEND;VALUE=DATE:20261001
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:fef2f664-ead9-501b-a92c-32c35e55ec2c@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:Complete time and task tracking
+DESCRIPTION:Person responsible: Counselors Planning window: September 8\,
+  2026 Calendar treatment: All-day deadline Source 2023-2024 date: Septem
+ ber 8th
+DTSTART;VALUE=DATE:20260908
+DTEND;VALUE=DATE:20260909
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2cbc7157-733e-5cb8-b8af-7dda09caffb2@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:Submit school counseling calendar for your school
+DESCRIPTION:Person responsible: Counselors/College Advisors/Specialists P
+ lanning window: September 8\, 2026 Calendar treatment: All-day deadline 
+ Source 2023-2024 date: September 8th
+DTSTART;VALUE=DATE:20260908
+DTEND;VALUE=DATE:20260909
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:915f5997-ebca-573e-a087-1ff9941bca21@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:Submit Post-Secondary Leadership Team calendar
+DESCRIPTION:Person responsible: TBD Planning window: September 15\, 2026 
+ Calendar treatment: All-day deadline Source 2023-2024 date: September 15
+ th
+DTSTART;VALUE=DATE:20260915
+DTEND;VALUE=DATE:20260916
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:c3b788f7-3bf1-53a5-b694-37b14255d9b2@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:Post-Secondary Leadership Team meetings
+DESCRIPTION:Person responsible: Counselors/College Advisors/Specialists P
+ lanning window: Second and fourth Tuesday\, September 2026-May 2027 Cale
+ ndar treatment: Recurring all-day placeholder Source 2023-2024 date: Mee
+ tings to be held twice a month beginning in September Notes: Meeting tim
+ e and virtual or in-person location should be added locally.
+DTSTART;VALUE=DATE:20260908
+DTEND;VALUE=DATE:20260909
+TRANSP:TRANSPARENT
+RRULE:FREQ=MONTHLY;BYDAY=2TU,4TU;UNTIL=20270531T235959Z
+END:VEVENT
+BEGIN:VEVENT
+UID:66204f0d-90e8-5e8c-9eed-f5a283ae30d3@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:Professional development
+DESCRIPTION:Person responsible: District-Wash U/Site-Based Planning windo
+ w: September 22\, 2026 Calendar treatment: All-day deadline Source 2023-
+ 2024 date: September 22nd
+DTSTART;VALUE=DATE:20260922
+DTEND;VALUE=DATE:20260923
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e870b6c7-2e68-5290-95cc-134c78ddf630@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:Submit monthly CCR report
+DESCRIPTION:Person responsible: Counselors/College Advisors/Specialists P
+ lanning window: September 29\, 2026 Calendar treatment: All-day deadline
+  Source 2023-2024 date: September 29th
+DTSTART;VALUE=DATE:20260929
+DTEND;VALUE=DATE:20260930
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:d37e08dc-b506-5c4d-8529-25c31e984ca4@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:Transcript evaluations for transfer students
+DESCRIPTION:Person responsible: Counselors Planning window: September 30\
+ , 2026 Calendar treatment: All-day deadline Source 2023-2024 date: Septe
+ mber 30th
+DTSTART;VALUE=DATE:20260930
+DTEND;VALUE=DATE:20261001
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:a7bd2d18-af45-53f7-a638-a14c0b744e7d@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:IPDP due
+DESCRIPTION:Person responsible: Counselors/College Specialists Planning w
+ indow: September 29\, 2026 Calendar treatment: All-day deadline Source 2
+ 023-2024 date: September 29th
+DTSTART;VALUE=DATE:20260929
+DTEND;VALUE=DATE:20260930
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e2b0e427-ff24-5221-88f5-342b03560e3f@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:Fall ASVAB testing window
+DESCRIPTION:Person responsible: Counselors/College Advisors/Specialists P
+ lanning window: September 1-December 18\, 2026 Calendar treatment: Windo
+ w event Source 2023-2024 date: September-December
+DTSTART;VALUE=DATE:20260901
+DTEND;VALUE=DATE:20261219
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:bb260331-3930-5431-991f-20e4a10ef707@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:College application activities month
+DESCRIPTION:Person responsible: Counselors/College Advisors/Specialists P
+ lanning window: Month of October 2026 Calendar treatment: Window event S
+ ource 2023-2024 date: Month of October
+DTSTART;VALUE=DATE:20261001
+DTEND;VALUE=DATE:20261101
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:6602d4f3-a378-5e91-ad8e-63a3d072d4cd@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:Continue senior\, parent\, and counselor meetings
+DESCRIPTION:Person responsible: Counselors (to be completed by the end of
+  the month) Planning window: Month of October 2026 Calendar treatment: W
+ indow event Source 2023-2024 date: Month of October
+DTSTART;VALUE=DATE:20261001
+DTEND;VALUE=DATE:20261101
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:ec7811f0-08de-56dd-8846-72d2f2998a2c@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:Pre-ACT testing window
+DESCRIPTION:Person responsible: Counselors/College Advisors/Specialists P
+ lanning window: October 2-November 17\, 2026 Calendar treatment: Window 
+ event Source 2023-2024 date: Month of October
+DTSTART;VALUE=DATE:20261002
+DTEND;VALUE=DATE:20261118
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e2817609-e5fd-5d0e-b9ae-f48479e2cbf1@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:Time and task tracking
+DESCRIPTION:Person responsible: Counselors Planning window: October 5\, 2
+ 026 Calendar treatment: All-day deadline Source 2023-2024 date: October 
+ 5th
+DTSTART;VALUE=DATE:20261005
+DTEND;VALUE=DATE:20261006
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:027902b0-9fa9-51fa-b1cf-fa1bfab63bd7@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:PSAT testing for selected students
+DESCRIPTION:Person responsible: Counselors/College Advisors/Specialists P
+ lanning window: October 2026 Calendar treatment: Window event Source 202
+ 3-2024 date: October Notes: Tentative planning date based on the prior d
+ eliverables sequence. Confirm against the final SLPS and state testing c
+ alendars.
+DTSTART;VALUE=DATE:20261001
+DTEND;VALUE=DATE:20261101
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:4dfc28bc-e105-5692-867d-804243654f71@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:Professional development
+DESCRIPTION:Person responsible: District- UMSL/Site Based Planning window
+ : October 13\, 2026 Calendar treatment: All-day deadline Source 2023-202
+ 4 date: October 13th
+DTSTART;VALUE=DATE:20261013
+DTEND;VALUE=DATE:20261014
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:4ac8816b-5097-54f7-b3b5-b7f974b3af25@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:ACT district testing for Class of 2027 seniors not yet tested
+DESCRIPTION:Person responsible: Counselors/College Advisors/ACT District 
+ Coordinator Planning window: October 20\, 2026 Calendar treatment: All-d
+ ay deadline Source 2023-2024 date: October 17th Notes: Tentative plannin
+ g date based on the prior deliverables sequence. Confirm against the fin
+ al SLPS and state testing calendars.
+DTSTART;VALUE=DATE:20261020
+DTEND;VALUE=DATE:20261021
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:89aa1057-352e-5a59-af39-b61836e4400a@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:ACT district fall make-up testing
+DESCRIPTION:Person responsible: Counselors/College Advisors/ACT District 
+ Coordinator Planning window: October 27\, 2026 Calendar treatment: All-d
+ ay deadline Source 2023-2024 date: October 31st Notes: Tentative plannin
+ g date based on the prior deliverables sequence. Confirm against the fin
+ al SLPS and state testing calendars.
+DTSTART;VALUE=DATE:20261027
+DTEND;VALUE=DATE:20261028
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:78fb785e-f45b-5178-bb21-8841d726f586@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:Submit monthly CCR report and opt-out military forms
+DESCRIPTION:Person responsible: Counselors/College Advisors/Specialists P
+ lanning window: October 30\, 2026 Calendar treatment: All-day deadline S
+ ource 2023-2024 date: October 31st
+DTSTART;VALUE=DATE:20261030
+DTEND;VALUE=DATE:20261031
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:7e8af229-caf8-5b17-8bce-eded962bd164@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:Begin 180-day follow-up with graduates
+DESCRIPTION:Person responsible: Counselors/College Advisors/Specialists P
+ lanning window: November 2\, 2026 Calendar treatment: All-day deadline S
+ ource 2023-2024 date: November 1st
+DTSTART;VALUE=DATE:20261102
+DTEND;VALUE=DATE:20261103
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:c5727ff5-fbba-52c8-a71c-74344649acfa@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:Finalize second semester schedules
+DESCRIPTION:Person responsible: Counselors Planning window: November 1-De
+ cember 18\, 2026 Calendar treatment: Window event Source 2023-2024 date:
+  November/December
+DTSTART;VALUE=DATE:20261101
+DTEND;VALUE=DATE:20261219
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:d2cb007d-e515-57bc-8d46-3489bc5d6618@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:Time and task tracking
+DESCRIPTION:Person responsible: Counselors Planning window: November 16\,
+  2026 Calendar treatment: All-day deadline Source 2023-2024 date: Novemb
+ er 16th
+DTSTART;VALUE=DATE:20261116
+DTEND;VALUE=DATE:20261117
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:21f3db3e-a5a8-5da2-8fdb-fb3ec2765bf1@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:Submit monthly CCR report
+DESCRIPTION:Person responsible: Counselors/College Advisors/Specialists P
+ lanning window: November 30\, 2026 Calendar treatment: All-day deadline 
+ Source 2023-2024 date: November 30th
+DTSTART;VALUE=DATE:20261130
+DTEND;VALUE=DATE:20261201
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:8e9a1947-f160-5cdd-aafb-54d0b128046e@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:FAFSA opens
+DESCRIPTION:Person responsible: Counselors/College Advisors/Specialists P
+ lanning window: December 2026 Calendar treatment: Window event Source 20
+ 23-2024 date: December
+DTSTART;VALUE=DATE:20261201
+DTEND;VALUE=DATE:20261219
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:6e1be11a-df79-5ec6-9621-1aac66f12aef@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:Time and task tracking\; submit semester time-on-task records by 
+ December 18
+DESCRIPTION:Person responsible: Counselors Planning window: December 8\, 
+ 2026 Calendar treatment: All-day deadline Source 2023-2024 date: Decembe
+ r 8th
+DTSTART;VALUE=DATE:20261208
+DTEND;VALUE=DATE:20261209
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:149526b6-8cdc-5e4a-9c5a-163e2480264e@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:Submit monthly CCR report
+DESCRIPTION:Person responsible: Counselors/College Advisors/Specialists P
+ lanning window: December 15\, 2026 Calendar treatment: All-day deadline 
+ Source 2023-2024 date: December 15th
+DTSTART;VALUE=DATE:20261215
+DTEND;VALUE=DATE:20261216
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:32a64a76-0b74-5b95-8b24-849dc30032c9@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:Review and update senior status
+DESCRIPTION:Person responsible: Counselors Planning window: January 2027 
+ Calendar treatment: Window event Source 2023-2024 date: January
+DTSTART;VALUE=DATE:20270104
+DTEND;VALUE=DATE:20270130
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e51d39ae-38a5-56b3-90e4-d23c95309ca3@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:Complete time and task tracking
+DESCRIPTION:Person responsible: Counselors Planning window: January 12\, 
+ 2027 Calendar treatment: All-day deadline Source 2023-2024 date: January
+  12th
+DTSTART;VALUE=DATE:20270112
+DTEND;VALUE=DATE:20270113
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:937efebb-0dd1-5d33-bfbf-8932d2514228@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:Submit monthly CCR report
+DESCRIPTION:Person responsible: Counselors/College Advisors/Specialists P
+ lanning window: January 29\, 2027 Calendar treatment: All-day deadline S
+ ource 2023-2024 date: January 31st
+DTSTART;VALUE=DATE:20270129
+DTEND;VALUE=DATE:20270130
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:f575f96e-5cd7-5b76-be07-c0440d6ad80f@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:Student course requests and scheduling for the 2027-2028 school y
+ ear
+DESCRIPTION:Person responsible: Counselors Planning window: January-March
+  2027 Calendar treatment: Window event Source 2023-2024 date: January-Ma
+ rch
+DTSTART;VALUE=DATE:20270104
+DTEND;VALUE=DATE:20270401
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e142dfa0-a848-56d3-8b9a-fbe9ef8aaaa1@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:ECA Accuplacer placement testing
+DESCRIPTION:Person responsible: Counselors Planning window: February-Marc
+ h 2027 Calendar treatment: Window event Source 2023-2024 date: February-
+ March
+DTSTART;VALUE=DATE:20270201
+DTEND;VALUE=DATE:20270401
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2a7d8a13-5ceb-535d-9ede-c2820ebee6cd@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:Time and task tracking
+DESCRIPTION:Person responsible: Counselors Planning window: February 5\, 
+ 2027 Calendar treatment: All-day deadline Source 2023-2024 date: Februar
+ y 7th
+DTSTART;VALUE=DATE:20270205
+DTEND;VALUE=DATE:20270206
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:65fc2c67-ddce-5550-b2e5-fba21f3f278f@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:Submit IIR
+DESCRIPTION:Person responsible: Counselors Planning window: February 9\, 
+ 2027 Calendar treatment: All-day deadline Source 2023-2024 date: Februar
+ y 9th
+DTSTART;VALUE=DATE:20270209
+DTEND;VALUE=DATE:20270210
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:babf841d-c59f-5fa9-9a7c-c72564520875@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:Submit Missouri Scholars applications\, if applicable
+DESCRIPTION:Person responsible: Counselors Planning window: Mid-February 
+ 2027 Calendar treatment: All-day deadline Source 2023-2024 date: Mid-Feb
+ ruary
+DTSTART;VALUE=DATE:20270216
+DTEND;VALUE=DATE:20270217
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:0f5b4e4a-cda7-5000-bd62-3b94a5615e3f@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:Submit monthly CCR report
+DESCRIPTION:Person responsible: Counselors/College Advisors/Specialists P
+ lanning window: February 26\, 2027 Calendar treatment: All-day deadline 
+ Source 2023-2024 date: February 29th
+DTSTART;VALUE=DATE:20270226
+DTEND;VALUE=DATE:20270227
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:b99974c7-8c84-5971-96c8-245fdfa5e15b@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:Enter 2027-2028 course selections in Focus SIS
+DESCRIPTION:Person responsible: Counselors Planning window: March-April 2
+ 027 Calendar treatment: Window event Source 2023-2024 date: March/April
+DTSTART;VALUE=DATE:20270301
+DTEND;VALUE=DATE:20270501
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:db980354-338e-546c-8f61-d0f5266f7cde@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:Time and task tracking
+DESCRIPTION:Person responsible: Counselors Planning window: March 5\, 202
+ 7 Calendar treatment: All-day deadline Source 2023-2024 date: March 6th
+DTSTART;VALUE=DATE:20270305
+DTEND;VALUE=DATE:20270306
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:b0ca8c8c-0966-5ef4-a858-dc41a299c702@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:Professional development
+DESCRIPTION:Person responsible: District-Boys/Girls Club/Site-Based Plann
+ ing window: March 8\, 2027 Calendar treatment: All-day deadline Source 2
+ 023-2024 date: March 8th
+DTSTART;VALUE=DATE:20270308
+DTEND;VALUE=DATE:20270309
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:503e137f-0804-5b0b-8d2b-27da8ab0116f@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:Submit monthly CCR report
+DESCRIPTION:Person responsible: Counselors/College Advisors/Specialists P
+ lanning window: March 31\, 2027 Calendar treatment: All-day deadline Sou
+ rce 2023-2024 date: March 29th
+DTSTART;VALUE=DATE:20270331
+DTEND;VALUE=DATE:20270401
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:5672d6bd-d209-5ddf-842b-9ac580cd2f6f@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:Spring ASVAB testing window
+DESCRIPTION:Person responsible: Counselors/College Advisors/Specialists P
+ lanning window: March-May 2027 Calendar treatment: Window event Source 2
+ 023-2024 date: March-May
+DTSTART;VALUE=DATE:20270301
+DTEND;VALUE=DATE:20270601
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:f36dcace-0455-5afb-a7cf-4ef34813475f@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:Incoming freshman parent orientations
+DESCRIPTION:Person responsible: Counselors/College Advisors/Specialists P
+ lanning window: March 2027\, date TBD Calendar treatment: Window event S
+ ource 2023-2024 date: March (TBD)
+DTSTART;VALUE=DATE:20270301
+DTEND;VALUE=DATE:20270401
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:9b744ee7-d3dd-5e66-b228-1113cca13fb6@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:District ACT for juniors\, Class of 2028
+DESCRIPTION:Person responsible: Counselors/College Advisors/ACT District 
+ Test Coordinator Planning window: April 13\, 2027 Calendar treatment: Al
+ l-day deadline Source 2023-2024 date: April 9th Notes: Tentative plannin
+ g date based on the prior deliverables sequence. Confirm against the fin
+ al SLPS and state testing calendars.
+DTSTART;VALUE=DATE:20270413
+DTEND;VALUE=DATE:20270414
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:a3047407-4cf1-5eda-89fc-e80cde8d854b@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:Early College Academy applications due
+DESCRIPTION:Person responsible: Counselors Planning window: April 2027\, 
+ date TBD Calendar treatment: Window event Source 2023-2024 date: April (
+ TBD)
+DTSTART;VALUE=DATE:20270401
+DTEND;VALUE=DATE:20270501
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:7285ce11-8f9f-526e-b1ed-c87c3d1cb337@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:Time and task tracking
+DESCRIPTION:Person responsible: Counselors Planning window: April 16\, 20
+ 27 Calendar treatment: All-day deadline Source 2023-2024 date: April 17t
+ h
+DTSTART;VALUE=DATE:20270416
+DTEND;VALUE=DATE:20270417
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:8b0fbdcc-b9f3-55f1-beba-7ca2bec4d002@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:Submit monthly CCR report
+DESCRIPTION:Person responsible: Counselors/College Advisors/Specialists P
+ lanning window: April 30\, 2027 Calendar treatment: All-day deadline Sou
+ rce 2023-2024 date: April 30th
+DTSTART;VALUE=DATE:20270430
+DTEND;VALUE=DATE:20270501
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:51bbbbe9-4d04-5f36-88c7-5df73c87f45d@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:ICAP deadline for all grade levels
+DESCRIPTION:Person responsible: Counselors/College Advisors\, CTE teacher
+ s Planning window: May 3\, 2027 Calendar treatment: All-day deadline Sou
+ rce 2023-2024 date: May 3rd
+DTSTART;VALUE=DATE:20270503
+DTEND;VALUE=DATE:20270504
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:f0af469e-4773-577a-bd68-e344397f4412@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:AP exams
+DESCRIPTION:Person responsible: TBD Planning window: May 3-14\, 2027 Cale
+ ndar treatment: Window event Source 2023-2024 date: May 6-17 Notes: Coll
+ ege Board had not published the full 2027 AP exam schedule at drafting. 
+ The event uses the standard first two full school weeks of May planning 
+ window.
+DTSTART;VALUE=DATE:20270503
+DTEND;VALUE=DATE:20270515
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2c60c54b-e4c8-5228-92d9-728a5a617872@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:Time and task tracking\; submit semester time-on-task records by 
+ May 24
+DESCRIPTION:Person responsible: Counselors Planning window: May 7\, 2027 
+ Calendar treatment: All-day deadline Source 2023-2024 date: May 7th
+DTSTART;VALUE=DATE:20270507
+DTEND;VALUE=DATE:20270508
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:4e90f1a5-e301-52b7-9f82-353a0203e7bc@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:Host Decision Day
+DESCRIPTION:Person responsible: Counselors/College Advisors/Specialists P
+ lanning window: Month of May 2027 Calendar treatment: Window event Sourc
+ e 2023-2024 date: Month of May
+DTSTART;VALUE=DATE:20270501
+DTEND;VALUE=DATE:20270601
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:d1a043ae-2032-5c6f-8845-dde9ae7701db@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:Complete senior exit surveys
+DESCRIPTION:Person responsible: Counselors/College Advisors/Specialists P
+ lanning window: Month of May 2027 Calendar treatment: Window event Sourc
+ e 2023-2024 date: Month of May
+DTSTART;VALUE=DATE:20270501
+DTEND;VALUE=DATE:20270601
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:3b722b72-70be-530c-8de3-650459c139e3@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:Finalize summer school registrations
+DESCRIPTION:Person responsible: Counselors Planning window: Month of May 
+ 2027 Calendar treatment: Window event Source 2023-2024 date: Month of Ma
+ y
+DTSTART;VALUE=DATE:20270501
+DTEND;VALUE=DATE:20270601
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:8515b662-88ed-5734-9aad-f73197f8cbeb@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:SLPS graduations
+DESCRIPTION:Person responsible: TBD Planning window: End of May 2027 Cale
+ ndar treatment: Window event Source 2023-2024 date: End of May Notes: Co
+ nfirm final graduation dates and locations when the district publishes t
+ hem.
+DTSTART;VALUE=DATE:20270524
+DTEND;VALUE=DATE:20270529
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:0e08844c-9a56-50d4-88f9-b044b33f66bc@slps-counseling-handbook
+DTSTAMP:20260629T195000Z
+SUMMARY:End-of-year CCR report
+DESCRIPTION:Person responsible: Counselors/College Advisors/Specialists P
+ lanning window: May 24\, 2027 Calendar treatment: All-day deadline Sourc
+ e 2023-2024 date: May 24th
+DTSTART;VALUE=DATE:20270524
+DTEND;VALUE=DATE:20270525
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
